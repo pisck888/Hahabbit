@@ -4,7 +4,7 @@
 //
 //  Created by TSAI TSUNG-HAN on 2021/5/12.
 //
-// swiftlint:disable line_length unused_optional_binding
+// swiftlint:disable unused_optional_binding 
 
 import UIKit
 
@@ -46,5 +46,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // Use this method to save data, release shared resources, and store enough scene-specific state information
     // to restore the scene back to its current state.
   }
-
 }

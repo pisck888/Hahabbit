@@ -3,17 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		54A60F19C730FF6B148C6E77 /* Pods_Hahabbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F5A42445D4AC6FE6682712 /* Pods_Hahabbit.framework */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
-		E7910F53264AE777003F0DAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* ViewController.swift */; };
+		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
 		E7910F56264AE777003F0DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F54264AE777003F0DAC /* Main.storyboard */; };
 		E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7910F57264AE77C003F0DAC /* Assets.xcassets */; };
 		E7910F5B264AE77C003F0DAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */; };
+		E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */; };
+		E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6B264B87BB003F0DAC /* AddNewGoal.storyboard */; };
+		E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6D264B9190003F0DAC /* Achievements.storyboard */; };
+		E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */; };
+		E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F71264B9243003F0DAC /* Profile.storyboard */; };
+		E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */; };
+		E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */; };
+		E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F78264BC0FB003F0DAC /* Constants.swift */; };
+		E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +32,20 @@
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7910F52264AE777003F0DAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7910F52264AE777003F0DAC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E7910F55264AE777003F0DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7910F57264AE77C003F0DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7910F5A264AE77C003F0DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7910F5C264AE77C003F0DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E7910F6B264B87BB003F0DAC /* AddNewGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewGoal.storyboard; sourceTree = "<group>"; };
+		E7910F6D264B9190003F0DAC /* Achievements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievements.storyboard; sourceTree = "<group>"; };
+		E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicGoals.storyboard; sourceTree = "<group>"; };
+		E7910F71264B9243003F0DAC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalViewController.swift; sourceTree = "<group>"; };
+		E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalCell.swift; sourceTree = "<group>"; };
+		E7910F78264BC0FB003F0DAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,15 +98,80 @@
 		E7910F4D264AE777003F0DAC /* Hahabbit */ = {
 			isa = PBXGroup;
 			children = (
+				E7910F68264B7EF7003F0DAC /* Controller */,
+				E7910F67264B7EED003F0DAC /* ViewModel */,
+				E7910F66264B7EE5003F0DAC /* Model */,
+				E7910F65264B7EDC003F0DAC /* View */,
+				E7910F6A264B7F5E003F0DAC /* Resource */,
 				E7910F4E264AE777003F0DAC /* AppDelegate.swift */,
 				E7910F50264AE777003F0DAC /* SceneDelegate.swift */,
-				E7910F52264AE777003F0DAC /* ViewController.swift */,
-				E7910F54264AE777003F0DAC /* Main.storyboard */,
-				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
-				E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */,
+				E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */,
 				E7910F5C264AE77C003F0DAC /* Info.plist */,
 			);
 			path = Hahabbit;
+			sourceTree = "<group>";
+		};
+		E7910F65264B7EDC003F0DAC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F75264BBF9D003F0DAC /* AddNewGoalCell */,
+				E7910F69264B7F00003F0DAC /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7910F66264B7EE5003F0DAC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7910F67264B7EED003F0DAC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E7910F68264B7EF7003F0DAC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F52264AE777003F0DAC /* MainViewController.swift */,
+				E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */,
+				E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7910F69264B7F00003F0DAC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */,
+				E7910F54264AE777003F0DAC /* Main.storyboard */,
+				E7910F6B264B87BB003F0DAC /* AddNewGoal.storyboard */,
+				E7910F6D264B9190003F0DAC /* Achievements.storyboard */,
+				E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */,
+				E7910F71264B9243003F0DAC /* Profile.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E7910F6A264B7F5E003F0DAC /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
+				E7910F78264BC0FB003F0DAC /* Constants.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E7910F75264BBF9D003F0DAC /* AddNewGoalCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */,
+			);
+			path = AddNewGoalCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,6 +186,7 @@
 				E7910F48264AE777003F0DAC /* Frameworks */,
 				E7910F49264AE777003F0DAC /* Resources */,
 				E7910F62264AEE07003F0DAC /* ShellScript */,
+				E5E5113AEEC8C53E7D4A3193 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,7 +235,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7910F5B264AE77C003F0DAC /* LaunchScreen.storyboard in Resources */,
+				E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */,
+				E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */,
+				E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */,
+				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
+				E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */,
 				E7910F56264AE777003F0DAC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +270,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E5E5113AEEC8C53E7D4A3193 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hahabbit/Pods-Hahabbit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hahabbit/Pods-Hahabbit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hahabbit/Pods-Hahabbit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E7910F62264AEE07003F0DAC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,7 +302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -205,9 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7910F53264AE777003F0DAC /* ViewController.swift in Sources */,
+				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
+				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
+				E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
+				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
+				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
