@@ -37,8 +37,8 @@
                                     <action selector="pressCheckButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xkh-NW-S1b"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-RK-1Z4">
-                                <rect key="frame" x="80" y="12.5" width="208" height="55"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-RK-1Z4">
+                                <rect key="frame" x="80" y="14.5" width="208" height="51"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="健身" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wk2-ln-buG">
                                         <rect key="frame" x="0.0" y="0.0" width="208" height="26.5"/>
@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不能逃！不能逃！不能逃！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fty-PB-oei">
-                                        <rect key="frame" x="0.0" y="34.5" width="208" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="208" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

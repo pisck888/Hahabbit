@@ -13,6 +13,10 @@
 		E7052E5026524B6900B717F8 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E4F26524B6900B717F8 /* MockData.swift */; };
 		E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E522652510400B717F8 /* CalendarPageViewController.swift */; };
 		E7052E5826525D9200B717F8 /* GoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5726525D9200B717F8 /* GoalDetailViewController.swift */; };
+		E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5A26527C0800B717F8 /* IconCell.swift */; };
+		E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */; };
+		E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6126528A3400B717F8 /* FrequencyViewController.swift */; };
+		E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6426528BA300B717F8 /* FrequencyCell.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
 		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
@@ -39,6 +43,10 @@
 		E7052E4F26524B6900B717F8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		E7052E522652510400B717F8 /* CalendarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageViewController.swift; sourceTree = "<group>"; };
 		E7052E5726525D9200B717F8 /* GoalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailViewController.swift; sourceTree = "<group>"; };
+		E7052E5A26527C0800B717F8 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
+		E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalDetailViewController.swift; sourceTree = "<group>"; };
+		E7052E6126528A3400B717F8 /* FrequencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyViewController.swift; sourceTree = "<group>"; };
+		E7052E6426528BA300B717F8 /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +152,31 @@
 			path = GoalDetailPage;
 			sourceTree = "<group>";
 		};
+		E7052E5926527BDB00B717F8 /* AddNewGoalDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E5A26527C0800B717F8 /* IconCell.swift */,
+			);
+			path = AddNewGoalDetail;
+			sourceTree = "<group>";
+		};
+		E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */,
+				E7052E6126528A3400B717F8 /* FrequencyViewController.swift */,
+			);
+			path = AddNewGoalDetailPage;
+			sourceTree = "<group>";
+		};
+		E7052E6326528B6600B717F8 /* FrequencyCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E6426528BA300B717F8 /* FrequencyCell.swift */,
+			);
+			path = FrequencyCell;
+			sourceTree = "<group>";
+		};
 		E7910F42264AE777003F0DAC = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +214,8 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E6326528B6600B717F8 /* FrequencyCell */,
+				E7052E5926527BDB00B717F8 /* AddNewGoalDetail */,
 				E7052E4A2652472700B717F8 /* MainPageCell */,
 				E7910F75264BBF9D003F0DAC /* AddNewGoalCell */,
 				E7910F69264B7F00003F0DAC /* Storyboard */,
@@ -198,6 +233,7 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
 				E7052E5626525CF600B717F8 /* GoalDetailPage */,
 				E7052E5526525BBB00B717F8 /* AddNewGoalPage */,
 				E7052E5426525BA800B717F8 /* AchievementsPage */,
@@ -377,13 +413,17 @@
 			files = (
 				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
+				E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */,
 				E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */,
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
 				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
+				E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */,
 				E7052E5026524B6900B717F8 /* MockData.swift in Sources */,
+				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
 				E7052E5826525D9200B717F8 /* GoalDetailViewController.swift in Sources */,
+				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
 			);
