@@ -218,6 +218,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - ContextMenuSwift (0.0.8)
   - DisplaySwitcher (2.0)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
@@ -290,8 +291,10 @@ PODS:
   - PromisesObjC (1.2.12)
   - ScrollableGraphView (4.0.6)
   - SwiftLint (0.43.1)
+  - YNDropDownMenu (3.1.0)
 
 DEPENDENCIES:
+  - ContextMenuSwift
   - DisplaySwitcher (~> 2.0)
   - Firebase/Firestore
   - FirebaseFirestoreSwift
@@ -301,11 +304,13 @@ DEPENDENCIES:
   - PinterestSegment
   - ScrollableGraphView
   - SwiftLint
+  - YNDropDownMenu
 
 SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - ContextMenuSwift
     - DisplaySwitcher
     - Firebase
     - FirebaseCore
@@ -325,10 +330,12 @@ SPEC REPOS:
     - PromisesObjC
     - ScrollableGraphView
     - SwiftLint
+    - YNDropDownMenu
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  ContextMenuSwift: b4d4066b9ebe47a43f7734a4a6989cf03efe5ad8
   DisplaySwitcher: 1db23ee6a45fbebac733917cc002204adad37d28
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
@@ -348,7 +355,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  YNDropDownMenu: 9c88e36c5f913bc614aaf0f3d0a7968f6251268b
 
-PODFILE CHECKSUM: 688867da0a38b96d0af67cfb7f5508911fb97d3a
+PODFILE CHECKSUM: 738d8c8c4ba67ea6a96bd3085c3ca4c2d1da4551
 
 COCOAPODS: 1.10.1

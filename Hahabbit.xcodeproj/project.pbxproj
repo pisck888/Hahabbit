@@ -17,6 +17,9 @@
 		E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */; };
 		E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6126528A3400B717F8 /* FrequencyViewController.swift */; };
 		E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6426528BA300B717F8 /* FrequencyCell.swift */; };
+		E7052E682652AA2E00B717F8 /* PublicGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E672652AA2E00B717F8 /* PublicGoalsViewController.swift */; };
+		E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */; };
+		E7052E6D2652D74500B717F8 /* PublicGoalsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
 		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
@@ -47,6 +50,9 @@
 		E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E6126528A3400B717F8 /* FrequencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyViewController.swift; sourceTree = "<group>"; };
 		E7052E6426528BA300B717F8 /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
+		E7052E672652AA2E00B717F8 /* PublicGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGoalsViewController.swift; sourceTree = "<group>"; };
+		E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGoalsTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGoalsTableViewCell.xib; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +183,23 @@
 			path = FrequencyCell;
 			sourceTree = "<group>";
 		};
+		E7052E662652A9FF00B717F8 /* PublicGoalsPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E672652AA2E00B717F8 /* PublicGoalsViewController.swift */,
+			);
+			path = PublicGoalsPage;
+			sourceTree = "<group>";
+		};
+		E7052E692652D71200B717F8 /* PublicGoalsCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */,
+				E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */,
+			);
+			path = PublicGoalsCell;
+			sourceTree = "<group>";
+		};
 		E7910F42264AE777003F0DAC = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +237,7 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E692652D71200B717F8 /* PublicGoalsCell */,
 				E7052E6326528B6600B717F8 /* FrequencyCell */,
 				E7052E5926527BDB00B717F8 /* AddNewGoalDetail */,
 				E7052E4A2652472700B717F8 /* MainPageCell */,
@@ -233,6 +257,7 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E662652A9FF00B717F8 /* PublicGoalsPage */,
 				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
 				E7052E5626525CF600B717F8 /* GoalDetailPage */,
 				E7052E5526525BBB00B717F8 /* AddNewGoalPage */,
@@ -334,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7910F5B264AE77C003F0DAC /* LaunchScreen.storyboard in Resources */,
+				E7052E6D2652D74500B717F8 /* PublicGoalsTableViewCell.xib in Resources */,
 				E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */,
 				E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */,
 				E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */,
@@ -425,6 +451,8 @@
 				E7052E5826525D9200B717F8 /* GoalDetailViewController.swift in Sources */,
 				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
+				E7052E682652AA2E00B717F8 /* PublicGoalsViewController.swift in Sources */,
+				E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */,
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

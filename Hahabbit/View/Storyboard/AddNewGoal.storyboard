@@ -474,7 +474,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="添加目標" id="rZe-1e-ygK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cnp-xV-ecB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="cnp-xV-ecB">
+                            <connections>
+                                <action selector="pressDoneButton:" destination="RGE-YX-8tp" id="hfE-3j-NXs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dailyContainerView" destination="ZhA-jF-Klk" id="bo3-Ga-E6h"/>
@@ -559,6 +563,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="y4N-Y7-0FA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NsT-wI-DYj" secondAttribute="trailing" id="7CA-X4-ie2"/>
@@ -626,6 +631,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZLg-uj-AHC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="fEn-Gg-Yec" firstAttribute="leading" secondItem="13b-U4-PIF" secondAttribute="leading" id="6bc-5W-6VU"/>
@@ -693,6 +699,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sqd-yo-0Nf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="95i-mN-MI2" secondAttribute="bottom" id="7F9-KZ-OFv"/>

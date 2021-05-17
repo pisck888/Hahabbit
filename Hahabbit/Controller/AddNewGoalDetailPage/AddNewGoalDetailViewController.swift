@@ -67,6 +67,9 @@ class AddNewGoalDetailViewController: UITableViewController {
   @IBAction func pressPublicButton(_ sender: UIButton) {
     sender.isSelected.toggle()
   }
+  @IBAction func pressDoneButton(_ sender: UIButton) {
+    navigationController?.popViewController(animated: true)
+  }
 
 
 }

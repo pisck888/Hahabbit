@@ -13,7 +13,7 @@ class FrequencyViewController: UIViewController {
   @IBOutlet weak var weeklyCollectionView: UICollectionView!
   @IBOutlet weak var monthlyCollectionView: UICollectionView!
 
-  let weekday = ["Mon.", "Tue.", "Wed.", "Thu", "Fri", "Sat", "Sun"]
+  let weekday = ["Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat.", "Sun."]
 
   override func viewDidLoad() {
     super.viewDidLoad()

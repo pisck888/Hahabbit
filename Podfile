@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '9.0'
+ platform :ios, '10.0'
 
 target 'Hahabbit' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -21,6 +21,9 @@ target 'Hahabbit' do
   # for charts
   pod 'ScrollableGraphView'
   pod 'MBCircularProgressBar'
+  # for DropDown
+  pod 'YNDropDownMenu'
+  pod 'ContextMenuSwift'
 
 
 end
