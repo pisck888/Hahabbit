@@ -10,4 +10,6 @@ import Foundation
 
 enum K {
   static let addNewGoalCell = "AddNewGoalCell"
+
+  static let mainPageTableViewCell = "MainPageTableViewCell"
 }

@@ -7,8 +7,20 @@ target 'Hahabbit' do
 
   # Pods for Hahabbit
   pod 'SwiftLint'
+  # for firebase
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  # for keyboard
+  pod 'IQKeyboardManagerSwift'
+  # for collection view
   pod 'DisplaySwitcher', '~> 2.0'
+  # for segmented control
+  pod 'PinterestSegment'
+  # for calendar
+  pod 'FSCalendar'
+  # for charts
+  pod 'ScrollableGraphView'
+  pod 'MBCircularProgressBar'
+
 
 end

@@ -8,21 +8,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Hahabbit-->
+        <!--Today-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkO-Y7-weW">
+                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bsU-rg-kUG"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUm-8j-AAw">
+                                <rect key="frame" x="0.0" y="128" width="414" height="685"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="nTF-df-k9q"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lLp-yd-0Yy"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WkO-Y7-weW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ico-lQ-516"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vUm-8j-AAw" secondAttribute="bottom" id="SjU-oG-ggd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WkO-Y7-weW" secondAttribute="trailing" id="WFU-Uj-Kcn"/>
+                            <constraint firstItem="vUm-8j-AAw" firstAttribute="top" secondItem="WkO-Y7-weW" secondAttribute="bottom" id="YOA-Kv-JNZ"/>
+                            <constraint firstItem="WkO-Y7-weW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a7b-NX-tR8"/>
+                            <constraint firstItem="vUm-8j-AAw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uX1-nI-Zvp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vUm-8j-AAw" secondAttribute="trailing" id="y94-zz-Jlz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hahabbit" id="K07-vq-ZSp"/>
+                    <navigationItem key="navigationItem" title="Today" id="K07-vq-ZSp">
+                        <barButtonItem key="leftBarButtonItem" image="calendar" catalog="system" id="yNb-br-Kcy">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="9Xa-vU-QpH" kind="show" id="pVC-Xf-OnL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="rectangle.grid.3x2.fill" catalog="system" id="i2b-3u-5Eb">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentView" destination="WkO-Y7-weW" id="Hyk-6F-DyJ"/>
+                        <outlet property="tableView" destination="vUm-8j-AAw" id="RKl-EK-2B5"/>
+                        <segue destination="aeB-c9-42v" kind="show" identifier="SegueToDetail" id="fv3-qL-v9P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865.217391304348" y="98.4375"/>
+            <point key="canvasLocation" x="1472" y="98"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="Sum-ro-RVW">
+            <objects>
+                <viewController id="aeB-c9-42v" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lxP-Bg-sMQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="28h-9z-yla"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="K4Z-1n-ZzX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Prg-QO-HEH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2261" y="98"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Fvp-vS-2wi">
@@ -30,6 +87,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WVe-9w-DHy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="30p-b0-rkZ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -85,6 +143,58 @@
             </objects>
             <point key="canvasLocation" x="326" y="515"/>
         </scene>
+        <!--Calendar-->
+        <scene sceneID="NVh-hE-aw2">
+            <objects>
+                <viewController id="9Xa-vU-QpH" customClass="CalendarPageViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0U3-Ju-HD0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9O-v0-gBO" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="sVp-FQ-Uik"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Xa-vU-QpH" id="jev-y6-1Lw"/>
+                                    <outlet property="delegate" destination="9Xa-vU-QpH" id="2MQ-rV-K5E"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fjS-U2-R44">
+                                <rect key="frame" x="0.0" y="388" width="414" height="425"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Xa-vU-QpH" id="Vf7-2q-hL9"/>
+                                    <outlet property="delegate" destination="9Xa-vU-QpH" id="doy-sJ-Qb5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YEL-iI-R25"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YEL-iI-R25" firstAttribute="trailing" secondItem="fjS-U2-R44" secondAttribute="trailing" id="1g1-s5-QLn"/>
+                            <constraint firstItem="YEL-iI-R25" firstAttribute="trailing" secondItem="R9O-v0-gBO" secondAttribute="trailing" id="3cK-Bp-dnh"/>
+                            <constraint firstItem="YEL-iI-R25" firstAttribute="bottom" secondItem="fjS-U2-R44" secondAttribute="bottom" id="OT4-gL-o7H"/>
+                            <constraint firstItem="fjS-U2-R44" firstAttribute="leading" secondItem="YEL-iI-R25" secondAttribute="leading" id="US2-t2-Aa3"/>
+                            <constraint firstItem="R9O-v0-gBO" firstAttribute="top" secondItem="YEL-iI-R25" secondAttribute="top" id="dU2-X3-6B0"/>
+                            <constraint firstItem="fjS-U2-R44" firstAttribute="top" secondItem="R9O-v0-gBO" secondAttribute="bottom" id="l39-v0-ycj"/>
+                            <constraint firstItem="R9O-v0-gBO" firstAttribute="leading" secondItem="YEL-iI-R25" secondAttribute="leading" id="mud-B6-nRg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calendar" id="xNU-EF-k1C"/>
+                    <connections>
+                        <outlet property="calendar" destination="R9O-v0-gBO" id="sLQ-iD-6F4"/>
+                        <outlet property="calendarHeightConstraint" destination="sVp-FQ-Uik" id="A1k-zS-qLd"/>
+                        <outlet property="tableView" destination="fjS-U2-R44" id="isg-RX-9j9"/>
+                        <segue destination="aeB-c9-42v" kind="show" identifier="SegueToDetail" id="ntW-aI-VlS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GaZ-A9-pgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1471" y="824"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JZs-gs-sli">
             <objects>
@@ -102,11 +212,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9B-an-sTt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955.07246376811599" y="98.4375"/>
+            <point key="canvasLocation" x="752" y="98"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ntW-aI-VlS"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="flame.fill" catalog="system" width="108" height="128"/>
+        <image name="rectangle.grid.3x2.fill" catalog="system" width="128" height="101"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

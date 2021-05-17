@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		54A60F19C730FF6B148C6E77 /* Pods_Hahabbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F5A42445D4AC6FE6682712 /* Pods_Hahabbit.framework */; };
+		E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E4B2652476600B717F8 /* MainPageTableViewCell.swift */; };
+		E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */; };
+		E7052E5026524B6900B717F8 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E4F26524B6900B717F8 /* MockData.swift */; };
+		E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E522652510400B717F8 /* CalendarPageViewController.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
 		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
@@ -29,6 +33,10 @@
 		0A350669CA1AD1C8B735D252 /* Pods-Hahabbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hahabbit.debug.xcconfig"; path = "Target Support Files/Pods-Hahabbit/Pods-Hahabbit.debug.xcconfig"; sourceTree = "<group>"; };
 		7CA43CF2F9B70177D5F18D32 /* Pods-Hahabbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hahabbit.release.xcconfig"; path = "Target Support Files/Pods-Hahabbit/Pods-Hahabbit.release.xcconfig"; sourceTree = "<group>"; };
 		C0F5A42445D4AC6FE6682712 /* Pods_Hahabbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hahabbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7052E4B2652476600B717F8 /* MainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPageTableViewCell.xib; sourceTree = "<group>"; };
+		E7052E4F26524B6900B717F8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		E7052E522652510400B717F8 /* CalendarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageViewController.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E7052E482652410200B717F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E4F26524B6900B717F8 /* MockData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7052E492652422300B717F8 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F52264AE777003F0DAC /* MainViewController.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		E7052E4A2652472700B717F8 /* MainPageCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E4B2652476600B717F8 /* MainPageTableViewCell.swift */,
+				E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */,
+			);
+			path = MainPageCell;
+			sourceTree = "<group>";
+		};
+		E7052E51265250DC00B717F8 /* CalendarPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E522652510400B717F8 /* CalendarPageViewController.swift */,
+			);
+			path = CalendarPage;
+			sourceTree = "<group>";
+		};
 		E7910F42264AE777003F0DAC = {
 			isa = PBXGroup;
 			children = (
@@ -98,9 +139,9 @@
 		E7910F4D264AE777003F0DAC /* Hahabbit */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E482652410200B717F8 /* Model */,
 				E7910F68264B7EF7003F0DAC /* Controller */,
 				E7910F67264B7EED003F0DAC /* ViewModel */,
-				E7910F66264B7EE5003F0DAC /* Model */,
 				E7910F65264B7EDC003F0DAC /* View */,
 				E7910F6A264B7F5E003F0DAC /* Resource */,
 				E7910F4E264AE777003F0DAC /* AppDelegate.swift */,
@@ -114,17 +155,11 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E4A2652472700B717F8 /* MainPageCell */,
 				E7910F75264BBF9D003F0DAC /* AddNewGoalCell */,
 				E7910F69264B7F00003F0DAC /* Storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E7910F66264B7EE5003F0DAC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
@@ -137,7 +172,8 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E7910F52264AE777003F0DAC /* MainViewController.swift */,
+				E7052E51265250DC00B717F8 /* CalendarPage */,
+				E7052E492652422300B717F8 /* MainPage */,
 				E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */,
 				E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */,
 			);
@@ -236,6 +272,7 @@
 			files = (
 				E7910F5B264AE77C003F0DAC /* LaunchScreen.storyboard in Resources */,
 				E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */,
+				E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */,
 				E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */,
 				E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */,
 				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
@@ -313,7 +350,10 @@
 			files = (
 				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
+				E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */,
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
+				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
+				E7052E5026524B6900B717F8 /* MockData.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
