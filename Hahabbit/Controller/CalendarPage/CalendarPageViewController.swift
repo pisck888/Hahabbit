@@ -31,6 +31,7 @@ class CalendarPageViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
     view.addGestureRecognizer(scopeGesture)

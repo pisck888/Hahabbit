@@ -20,6 +20,19 @@
 		E7052E682652AA2E00B717F8 /* PublicGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E672652AA2E00B717F8 /* PublicGoalsViewController.swift */; };
 		E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */; };
 		E7052E6D2652D74500B717F8 /* PublicGoalsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */; };
+		E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6F2653506800B717F8 /* ProfileViewController.swift */; };
+		E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E722653560400B717F8 /* ProfileTableViewCell.swift */; };
+		E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */; };
+		E7052E792653CCE500B717F8 /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E782653CCE500B717F8 /* AchievementsTableViewCell.swift */; };
+		E7052E7B2653D18900B717F8 /* AchievementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E7A2653D18900B717F8 /* AchievementsCollectionViewCell.swift */; };
+		E7052E7E2653D34800B717F8 /* AllAchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E7D2653D34800B717F8 /* AllAchievementsViewController.swift */; };
+		E7052E812653D59D00B717F8 /* AchievementsDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E802653D59D00B717F8 /* AchievementsDetailTableViewCell.swift */; };
+		E7052E842654C1BB00B717F8 /* PublicGoalsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E832654C1BB00B717F8 /* PublicGoalsDetailViewController.swift */; };
+		E7052E872654E62500B717F8 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E862654E62500B717F8 /* HabitManager.swift */; };
+		E7052E892654E9D800B717F8 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E882654E9D800B717F8 /* Habit.swift */; };
+		E7052E8C2655F25700B717F8 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8B2655F25700B717F8 /* Box.swift */; };
+		E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8E2656090A00B717F8 /* HomeViewModel.swift */; };
+		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
 		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
@@ -53,6 +66,19 @@
 		E7052E672652AA2E00B717F8 /* PublicGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGoalsViewController.swift; sourceTree = "<group>"; };
 		E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGoalsTableViewCell.swift; sourceTree = "<group>"; };
 		E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGoalsTableViewCell.xib; sourceTree = "<group>"; };
+		E7052E6F2653506800B717F8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E7052E722653560400B717F8 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E782653CCE500B717F8 /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E7A2653D18900B717F8 /* AchievementsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCollectionViewCell.swift; sourceTree = "<group>"; };
+		E7052E7D2653D34800B717F8 /* AllAchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAchievementsViewController.swift; sourceTree = "<group>"; };
+		E7052E802653D59D00B717F8 /* AchievementsDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E832654C1BB00B717F8 /* PublicGoalsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGoalsDetailViewController.swift; sourceTree = "<group>"; };
+		E7052E862654E62500B717F8 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
+		E7052E882654E9D800B717F8 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		E7052E8B2655F25700B717F8 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				E7052E4F26524B6900B717F8 /* MockData.swift */,
+				E7052E882654E9D800B717F8 /* Habit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +227,95 @@
 			path = PublicGoalsCell;
 			sourceTree = "<group>";
 		};
+		E7052E6E2653502200B717F8 /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E6F2653506800B717F8 /* ProfileViewController.swift */,
+			);
+			path = ProfilePage;
+			sourceTree = "<group>";
+		};
+		E7052E71265355CB00B717F8 /* ProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E722653560400B717F8 /* ProfileTableViewCell.swift */,
+			);
+			path = ProfileCell;
+			sourceTree = "<group>";
+		};
+		E7052E742653573700B717F8 /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */,
+			);
+			path = SettingsCell;
+			sourceTree = "<group>";
+		};
+		E7052E772653CCAE00B717F8 /* AchievementsCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E782653CCE500B717F8 /* AchievementsTableViewCell.swift */,
+				E7052E7A2653D18900B717F8 /* AchievementsCollectionViewCell.swift */,
+			);
+			path = AchievementsCell;
+			sourceTree = "<group>";
+		};
+		E7052E7C2653D31400B717F8 /* AllAchievementsPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E7D2653D34800B717F8 /* AllAchievementsViewController.swift */,
+			);
+			path = AllAchievementsPage;
+			sourceTree = "<group>";
+		};
+		E7052E7F2653D57600B717F8 /* AchievementsDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E802653D59D00B717F8 /* AchievementsDetailTableViewCell.swift */,
+			);
+			path = AchievementsDetailCell;
+			sourceTree = "<group>";
+		};
+		E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E832654C1BB00B717F8 /* PublicGoalsDetailViewController.swift */,
+			);
+			path = PublicGoalsDetailPage;
+			sourceTree = "<group>";
+		};
+		E7052E852654E5D700B717F8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E862654E62500B717F8 /* HabitManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E7052E8A2655F23700B717F8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E8B2655F25700B717F8 /* Box.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		E7052E8D265608EE00B717F8 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E8E2656090A00B717F8 /* HomeViewModel.swift */,
+			);
+			path = HomeViewModel;
+			sourceTree = "<group>";
+		};
+		E7052E9026560F3700B717F8 /* HabitViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E9126560F5300B717F8 /* HabitViewModel.swift */,
+			);
+			path = HabitViewModel;
+			sourceTree = "<group>";
+		};
 		E7910F42264AE777003F0DAC = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +337,8 @@
 		E7910F4D264AE777003F0DAC /* Hahabbit */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E8A2655F23700B717F8 /* util */,
+				E7052E852654E5D700B717F8 /* Network */,
 				E7910F68264B7EF7003F0DAC /* Controller */,
 				E7910F67264B7EED003F0DAC /* ViewModel */,
 				E7052E482652410200B717F8 /* Model */,
@@ -237,6 +355,10 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E7F2653D57600B717F8 /* AchievementsDetailCell */,
+				E7052E772653CCAE00B717F8 /* AchievementsCell */,
+				E7052E742653573700B717F8 /* SettingsCell */,
+				E7052E71265355CB00B717F8 /* ProfileCell */,
 				E7052E692652D71200B717F8 /* PublicGoalsCell */,
 				E7052E6326528B6600B717F8 /* FrequencyCell */,
 				E7052E5926527BDB00B717F8 /* AddNewGoalDetail */,
@@ -250,6 +372,8 @@
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E8D265608EE00B717F8 /* HomeViewModel */,
+				E7052E9026560F3700B717F8 /* HabitViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -257,6 +381,9 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
+				E7052E7C2653D31400B717F8 /* AllAchievementsPage */,
+				E7052E6E2653502200B717F8 /* ProfilePage */,
 				E7052E662652A9FF00B717F8 /* PublicGoalsPage */,
 				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
 				E7052E5626525CF600B717F8 /* GoalDetailPage */,
@@ -438,22 +565,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
+				E7052E8C2655F25700B717F8 /* Box.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
 				E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */,
 				E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */,
+				E7052E7E2653D34800B717F8 /* AllAchievementsViewController.swift in Sources */,
+				E7052E7B2653D18900B717F8 /* AchievementsCollectionViewCell.swift in Sources */,
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
 				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
 				E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */,
+				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E7052E5026524B6900B717F8 /* MockData.swift in Sources */,
 				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
+				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
+				E7052E812653D59D00B717F8 /* AchievementsDetailTableViewCell.swift in Sources */,
 				E7052E5826525D9200B717F8 /* GoalDetailViewController.swift in Sources */,
 				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
+				E7052E842654C1BB00B717F8 /* PublicGoalsDetailViewController.swift in Sources */,
 				E7052E682652AA2E00B717F8 /* PublicGoalsViewController.swift in Sources */,
+				E7052E892654E9D800B717F8 /* Habit.swift in Sources */,
 				E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */,
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
+				E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */,
+				E7052E872654E62500B717F8 /* HabitManager.swift in Sources */,
+				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
+				E7052E792653CCE500B717F8 /* AchievementsTableViewCell.swift in Sources */,
+				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

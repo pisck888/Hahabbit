@@ -15,15 +15,30 @@ class MainViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   var style = PinterestSegmentStyle()
 
+  let viewModel = HomeViewModel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    viewModel.refreshView = { [weak self] () in
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
+    viewModel.habitViewModels.bind { [weak self] habits in
+      self?.viewModel.refreshView!()
+    }
+
+    viewModel.fetchData()
+
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
     setPinterestSegment()
     let segment = PinterestSegment(frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40), segmentStyle: style, titles: ["All", "Public", "Private", "Art", "Sport", "Evening"])
     segmentView.addSubview(segment)
+
     segment.valueChange = { index in
-      print(index)
+      self.viewModel.fetchData(type: index)
     }
   }
   func setPinterestSegment() {
@@ -39,13 +54,16 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    MockData.goals.count
+    viewModel.habitViewModels.value.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: K.mainPageTableViewCell, for: indexPath) as! MainPageTableViewCell
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: K.mainPageTableViewCell, for: indexPath) as? MainPageTableViewCell else {
+      return MainPageTableViewCell()
+    }
+    let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
+    cell.setup(with: cellViewModel)
     cell.backView.backgroundColor = MockData.colors[indexPath.row]
-    cell.titleLabel.text = MockData.goals[indexPath.row]
     cell.selectionStyle = .none
     return cell
   }

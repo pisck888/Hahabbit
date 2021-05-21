@@ -79,7 +79,7 @@
             <connections>
                 <outlet property="backView" destination="rof-Xn-AYW" id="Rkm-Zs-2NA"/>
                 <outlet property="checkButton" destination="bKw-Kc-Nck" id="aNH-k6-Hn8"/>
-                <outlet property="messageLabel" destination="fty-PB-oei" id="xir-00-XQW"/>
+                <outlet property="sloganLabel" destination="fty-PB-oei" id="xir-00-XQW"/>
                 <outlet property="titleLabel" destination="Wk2-ln-buG" id="2Rg-xJ-RZv"/>
             </connections>
             <point key="canvasLocation" x="134.78260869565219" y="107.14285714285714"/>

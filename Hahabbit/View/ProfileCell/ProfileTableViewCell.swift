@@ -1,0 +1,29 @@
+//
+//  ProfileTableViewCell.swift
+//  Hahabbit
+//
+//  Created by TSAI TSUNG-HAN on 2021/5/18.
+//
+
+import UIKit
+
+class ProfileTableViewCell: UITableViewCell {
+
+  @IBOutlet weak var avatarImage: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var coinLabel: UILabel!
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    avatarImage.layer.cornerRadius = avatarImage.frame.width / 2
+    avatarImage.layer.borderWidth = 1
+    avatarImage.layer.borderColor = UIColor.black.cgColor
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
