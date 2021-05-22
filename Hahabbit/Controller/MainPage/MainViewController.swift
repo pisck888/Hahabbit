@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
       }
     }
     viewModel.habitViewModels.bind { [weak self] habits in
-      self?.viewModel.refreshView!()
+      self?.viewModel.onRefresh()
     }
 
     viewModel.fetchData()
@@ -63,7 +63,6 @@ extension MainViewController: UITableViewDataSource {
     }
     let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
     cell.setup(with: cellViewModel)
-    cell.backView.backgroundColor = MockData.colors[indexPath.row]
     cell.selectionStyle = .none
     return cell
   }

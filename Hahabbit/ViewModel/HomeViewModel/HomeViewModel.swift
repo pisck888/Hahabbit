@@ -18,8 +18,8 @@ class HomeViewModel {
     self.refreshView?()
   }
 
-  func fetchData(type: Int = 0) {
-    HabitManager.shared.fetchTodayHabits(type: type) { result in
+  func fetchData(type: Int = 0, weekday: Date = Date()) {
+    HabitManager.shared.fetchTodayHabits(type: type, weekday: weekday) { result in
       switch result {
       case .failure(let error):
         print("fetchData.failure: \(error)")

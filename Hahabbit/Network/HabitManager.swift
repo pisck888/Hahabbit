@@ -17,14 +17,14 @@ class HabitManager {
   static let shared = HabitManager()
 
   let currentUser = "pisck780527@gmail.com"
-  let today = Date()
+//  let today = Date()
   var habits: [Habit] = []
 
   lazy var db = Firestore.firestore()
 
-  func fetchTodayHabits(type: Int = 0, completion: @escaping (Result<[Habit], Error>) -> Void) {
+  func fetchTodayHabits(type: Int = 0, weekday: Date = Date(), completion: @escaping (Result<[Habit], Error>) -> Void) {
 
-    let weekday = Calendar.current.component(.weekday, from: today)
+    let weekday = Calendar.current.component(.weekday, from: weekday)
 
     db.collection("habits")
       .whereField("members", arrayContains: currentUser)

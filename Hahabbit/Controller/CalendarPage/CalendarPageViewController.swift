@@ -14,11 +14,8 @@ class CalendarPageViewController: UIViewController {
   @IBOutlet weak var calendar: FSCalendar!
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
 
-  private lazy var dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy/MM/dd"
-    return formatter
-  }()
+  let viewModel = HomeViewModel()
+  var chosenDay = Date()
 
   private lazy var scopeGesture: UIPanGestureRecognizer = {
     [unowned self] in
@@ -31,6 +28,17 @@ class CalendarPageViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    viewModel.refreshView = { [weak self] () in
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
+    viewModel.habitViewModels.bind { [weak self] habits in
+      self?.viewModel.onRefresh()
+    }
+
+    viewModel.fetchData()
 
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
@@ -49,13 +57,13 @@ class CalendarPageViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension CalendarPageViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    MockData.goals.count
+    viewModel.habitViewModels.value.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: K.mainPageTableViewCell, for: indexPath) as! MainPageTableViewCell
-    cell.backView.backgroundColor = MockData.colors[indexPath.row]
-    cell.titleLabel.text = MockData.goals[indexPath.row]
+    let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
+    cell.setup(with: cellViewModel, date: chosenDay)
     cell.selectionStyle = .none
     return cell
   }
@@ -91,22 +99,28 @@ extension CalendarPageViewController: UIGestureRecognizerDelegate {
     self.view.layoutIfNeeded()
   }
 
+}
+
+// MARK: - FSCalendarDelegate and DataSource
+extension CalendarPageViewController: FSCalendarDelegate {
+
   func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-    print("did select date \(self.dateFormatter.string(from: date))")
-    let selectedDates = calendar.selectedDates.map({self.dateFormatter.string(from: $0)})
-    print("selected dates is \(selectedDates)")
+
+    chosenDay = date
+    viewModel.fetchData(weekday: date)
+
     if monthPosition == .next || monthPosition == .previous {
       calendar.setCurrentPage(date, animated: true)
     }
   }
 
-  func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
-    print("\(self.dateFormatter.string(from: calendar.currentPage))")
+  func maximumDate(for calendar: FSCalendar) -> Date {
+    Date()
   }
 }
 
-extension CalendarPageViewController: FSCalendarDelegate {
-}
-
 extension CalendarPageViewController: FSCalendarDataSource {
+//  func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+//    5
+//  }
 }

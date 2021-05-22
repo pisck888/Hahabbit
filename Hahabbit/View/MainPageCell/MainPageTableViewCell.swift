@@ -10,26 +10,31 @@ import UIKit
 class MainPageTableViewCell: UITableViewCell {
 
   @IBOutlet weak var backView: UIView!
-
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var sloganLabel: UILabel!
   @IBOutlet weak var checkButton: UIButton!
 
   var id: String = ""
-  let date = Date()
   let formatter = DateFormatter()
+  var chosenDay = Date()
 
   override func awakeFromNib() {
     super.awakeFromNib()
+
+    formatter.dateFormat = "yyyyMMdd"
+
     backView.layer.cornerRadius = 10
     backView.layer.borderWidth = 1
     backView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+
   }
 
-  func setup(with viewModel: HabitViewModel) {
+  func setup(with viewModel: HabitViewModel, date: Date = Date()) {
 
-    formatter.dateFormat = "yyyyMMdd"
-    let today = formatter.string(from: date)
+    chosenDay = date
+    id = viewModel.id
+
+    let stringDate = formatter.string(from: date)
 
     HabitManager.shared.db.collection("habits")
       .document(viewModel.id)
@@ -40,24 +45,23 @@ class MainPageTableViewCell: UITableViewCell {
           print(error!)
           return
         }
-        print(viewModel.title, documentSnapshot?.data()?["date" + today])
-        self.checkButton.isSelected = documentSnapshot?.data()?["date" + today] as? Bool ?? false
+        self.checkButton.isSelected = documentSnapshot?.data()?["date" + stringDate] as? Bool ?? false
+        print(viewModel.title, stringDate, documentSnapshot?.data()?["date" + stringDate])
       }
     titleLabel.text = viewModel.title
     sloganLabel.text = viewModel.slogan
-    id = viewModel.id
   }
 
   @IBAction func pressCheckButton(_ sender: UIButton) {
-    formatter.dateFormat = "yyyyMMdd"
-    let today = formatter.string(from: date)
+
+    let stringDate = formatter.string(from: chosenDay)
 
     HabitManager.shared.db.collection("habits")
       .document(id)
       .collection("isDone")
       .document(HabitManager.shared.currentUser)
-      .setData(["date" + today: !sender.isSelected], merge: true)
-//    print(id,!sender.isSelected)
+      .setData(["date" + stringDate: !sender.isSelected], merge: true)
+
     sender.isSelected.toggle()
   }
 }

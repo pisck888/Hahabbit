@@ -12,15 +12,15 @@ struct Habit: Codable {
 
   var id: String
   var title: String
+  var weekday: [String: Bool]
+  var slogan: String
+  var members: [String]
 //  var type: Int
-  var isPublic: Bool
+//  var isPublic: Bool
 //  var detail: String
 //  var icon: String
 //  var isCompleted: Bool
-  var weekday: [String: Bool]
-  var isDone: Bool
-  var slogan: String
-  var members: [String]
+//  var isDone: Bool
 //  var userID: String
  
 
