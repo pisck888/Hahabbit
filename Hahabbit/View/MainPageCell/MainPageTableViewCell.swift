@@ -45,8 +45,8 @@ class MainPageTableViewCell: UITableViewCell {
           print(error!)
           return
         }
-        self.checkButton.isSelected = documentSnapshot?.data()?["date" + stringDate] as? Bool ?? false
-        print(viewModel.title, stringDate, documentSnapshot?.data()?["date" + stringDate])
+        self.checkButton.isSelected = documentSnapshot?.data()?[stringDate] as? Bool ?? false
+        print(viewModel.title, stringDate, documentSnapshot?.data()?[stringDate])
       }
     titleLabel.text = viewModel.title
     sloganLabel.text = viewModel.slogan
@@ -60,7 +60,7 @@ class MainPageTableViewCell: UITableViewCell {
       .document(id)
       .collection("isDone")
       .document(HabitManager.shared.currentUser)
-      .setData(["date" + stringDate: !sender.isSelected], merge: true)
+      .setData([stringDate: !sender.isSelected], merge: true)
 
     sender.isSelected.toggle()
   }

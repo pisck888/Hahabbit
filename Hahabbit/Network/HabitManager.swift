@@ -17,14 +17,14 @@ class HabitManager {
   static let shared = HabitManager()
 
   let currentUser = "pisck780527@gmail.com"
-//  let today = Date()
+
   var habits: [Habit] = []
 
   lazy var db = Firestore.firestore()
 
-  func fetchTodayHabits(type: Int = 0, weekday: Date = Date(), completion: @escaping (Result<[Habit], Error>) -> Void) {
+  func fetchHabits(type: Int = 0, date: Date = Date(), completion: @escaping (Result<[Habit], Error>) -> Void) {
 
-    let weekday = Calendar.current.component(.weekday, from: weekday)
+    let weekday = Calendar.current.component(.weekday, from: date)
 
     db.collection("habits")
       .whereField("members", arrayContains: currentUser)
@@ -55,36 +55,18 @@ class HabitManager {
             .collection("isDone")
             .document(self.currentUser)
             .getDocument { documentSnapshot, _ in
-              if documentSnapshot?.data()?["date" + today] == nil {
+              if documentSnapshot?.data()?[today] == nil {
                 self.db.collection("habits")
                   .document(habit.id)
                   .collection("isDone")
                   .document(self.currentUser)
-                  .setData(["date" + today: false], merge: true)
+                  .setData([today: false], merge: true)
               }
-              print(habit.id, documentSnapshot?.data()?["date" + today])
+//              print(habit)
             }
         }
       }
   }
-
-//  func fetchIsDoneRecord(habitID: String) {
-//
-//    let date = Date()
-//    let formatter = DateFormatter()
-//    formatter.dateFormat = "yyyyMMdd"
-//    let today = formatter.string(from: date)
-//    print("date" + today)
-//
-//    db.collection("habits")
-//      .document(habitID)
-//      .collection("isDone")
-//      .document(currentUser)
-//      .getDocument { documentSnapshot, _ in
-//        
-//      }
-//  }
-
 //  func addNewHabit(title: String, type: Int, detail: String, slogan: String) {
 //    let habits = db.collection("tsetHabits").document()
 //    let data: [String: Any] = [

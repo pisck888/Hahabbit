@@ -11,11 +11,11 @@ import PinterestSegment
 class MainViewController: UIViewController {
 
   @IBOutlet weak var segmentView: UIView!
-
   @IBOutlet weak var tableView: UITableView!
+  
   var style = PinterestSegmentStyle()
-
   let viewModel = HomeViewModel()
+  var type = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -29,8 +29,6 @@ class MainViewController: UIViewController {
       self?.viewModel.onRefresh()
     }
 
-    viewModel.fetchData()
-
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
     setPinterestSegment()
@@ -38,9 +36,16 @@ class MainViewController: UIViewController {
     segmentView.addSubview(segment)
 
     segment.valueChange = { index in
+      self.type = index
       self.viewModel.fetchData(type: index)
     }
   }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    viewModel.fetchData(type: type)
+  }
+
   func setPinterestSegment() {
     style.indicatorColor = UIColor(white: 0.95, alpha: 1)
     style.titleMargin = 10
@@ -49,6 +54,13 @@ class MainViewController: UIViewController {
     style.titleFont = UIFont.boldSystemFont(ofSize: 14)
     style.normalTitleColor = UIColor.lightGray
     style.selectedTitleColor = UIColor.darkGray
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let controller = segue.destination as? HabitDetailViewController
+    if segue.identifier == "SegueToDetail" {
+      controller?.habit = sender as? HabitViewModel
+    }
   }
 }
 
@@ -70,6 +82,7 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "SegueToDetail", sender: nil)
+    let habit = viewModel.habitViewModels.value[indexPath.row]
+    performSegue(withIdentifier: "SegueToDetail", sender: habit)
   }
 }

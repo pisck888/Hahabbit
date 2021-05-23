@@ -19,7 +19,7 @@ class HomeViewModel {
   }
 
   func fetchData(type: Int = 0, weekday: Date = Date()) {
-    HabitManager.shared.fetchTodayHabits(type: type, weekday: weekday) { result in
+    HabitManager.shared.fetchHabits(type: type, date: weekday) { result in
       switch result {
       case .failure(let error):
         print("fetchData.failure: \(error)")

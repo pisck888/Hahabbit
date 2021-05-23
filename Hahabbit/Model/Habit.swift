@@ -15,6 +15,7 @@ struct Habit: Codable {
   var weekday: [String: Bool]
   var slogan: String
   var members: [String]
+  var detail: String
 //  var type: Int
 //  var isPublic: Bool
 //  var detail: String
@@ -22,8 +23,6 @@ struct Habit: Codable {
 //  var isCompleted: Bool
 //  var isDone: Bool
 //  var userID: String
- 
-
 
   //  enum CodingKeys: String, CodingKey {
   //  }

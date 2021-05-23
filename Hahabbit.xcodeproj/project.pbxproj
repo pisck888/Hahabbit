@@ -12,7 +12,7 @@
 		E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */; };
 		E7052E5026524B6900B717F8 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E4F26524B6900B717F8 /* MockData.swift */; };
 		E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E522652510400B717F8 /* CalendarPageViewController.swift */; };
-		E7052E5826525D9200B717F8 /* GoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5726525D9200B717F8 /* GoalDetailViewController.swift */; };
+		E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */; };
 		E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5A26527C0800B717F8 /* IconCell.swift */; };
 		E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */; };
 		E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6126528A3400B717F8 /* FrequencyViewController.swift */; };
@@ -33,6 +33,7 @@
 		E7052E8C2655F25700B717F8 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8B2655F25700B717F8 /* Box.swift */; };
 		E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8E2656090A00B717F8 /* HomeViewModel.swift */; };
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
+		E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756742126598AE600B236E3 /* GraphViewModel.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
 		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
@@ -58,7 +59,7 @@
 		E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPageTableViewCell.xib; sourceTree = "<group>"; };
 		E7052E4F26524B6900B717F8 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		E7052E522652510400B717F8 /* CalendarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageViewController.swift; sourceTree = "<group>"; };
-		E7052E5726525D9200B717F8 /* GoalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDetailViewController.swift; sourceTree = "<group>"; };
+		E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E5A26527C0800B717F8 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E6126528A3400B717F8 /* FrequencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		E7052E8B2655F25700B717F8 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		E756742126598AE600B236E3 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,12 +179,12 @@
 			path = AddNewGoalPage;
 			sourceTree = "<group>";
 		};
-		E7052E5626525CF600B717F8 /* GoalDetailPage */ = {
+		E7052E5626525CF600B717F8 /* HabitDetailPage */ = {
 			isa = PBXGroup;
 			children = (
-				E7052E5726525D9200B717F8 /* GoalDetailViewController.swift */,
+				E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */,
 			);
-			path = GoalDetailPage;
+			path = HabitDetailPage;
 			sourceTree = "<group>";
 		};
 		E7052E5926527BDB00B717F8 /* AddNewGoalDetail */ = {
@@ -316,6 +318,14 @@
 			path = HabitViewModel;
 			sourceTree = "<group>";
 		};
+		E756742026598AB600B236E3 /* GraphViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E756742126598AE600B236E3 /* GraphViewModel.swift */,
+			);
+			path = GraphViewModel;
+			sourceTree = "<group>";
+		};
 		E7910F42264AE777003F0DAC = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +382,7 @@
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E756742026598AB600B236E3 /* GraphViewModel */,
 				E7052E8D265608EE00B717F8 /* HomeViewModel */,
 				E7052E9026560F3700B717F8 /* HabitViewModel */,
 			);
@@ -386,7 +397,7 @@
 				E7052E6E2653502200B717F8 /* ProfilePage */,
 				E7052E662652A9FF00B717F8 /* PublicGoalsPage */,
 				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
-				E7052E5626525CF600B717F8 /* GoalDetailPage */,
+				E7052E5626525CF600B717F8 /* HabitDetailPage */,
 				E7052E5526525BBB00B717F8 /* AddNewGoalPage */,
 				E7052E5426525BA800B717F8 /* AchievementsPage */,
 				E7052E51265250DC00B717F8 /* CalendarPage */,
@@ -574,6 +585,7 @@
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
 				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
 				E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */,
+				E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */,
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E7052E5026524B6900B717F8 /* MockData.swift in Sources */,
 				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
@@ -581,7 +593,7 @@
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
 				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
 				E7052E812653D59D00B717F8 /* AchievementsDetailTableViewCell.swift in Sources */,
-				E7052E5826525D9200B717F8 /* GoalDetailViewController.swift in Sources */,
+				E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */,
 				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7052E842654C1BB00B717F8 /* PublicGoalsDetailViewController.swift in Sources */,

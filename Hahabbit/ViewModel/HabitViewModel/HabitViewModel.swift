@@ -27,4 +27,12 @@ class HabitViewModel {
     return habit.slogan
   }
 
+  var detail: String {
+    return habit.detail
+  }
+
+  var weekday: [String: Bool] {
+    return habit.weekday
+  }
+
 }
