@@ -114,7 +114,7 @@ class GraphViewModel {
           }
         }
         // TODO: count monthPercentage
-        print(self.monthRecord, self.totalRecord)
+//        print(self.monthRecord, self.totalRecord)
       }
 
   }

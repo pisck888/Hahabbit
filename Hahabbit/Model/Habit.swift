@@ -7,22 +7,17 @@
 
 import Foundation
 
-
 struct Habit: Codable {
-
   var id: String
   var title: String
   var weekday: [String: Bool]
   var slogan: String
   var members: [String]
   var detail: String
+  var location: String
+  var owner: String
 //  var type: Int
-//  var isPublic: Bool
-//  var detail: String
 //  var icon: String
-//  var isCompleted: Bool
-//  var isDone: Bool
-//  var userID: String
 
   //  enum CodingKeys: String, CodingKey {
   //  }

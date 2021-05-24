@@ -52,6 +52,13 @@ class CalendarPageViewController: UIViewController {
     calendar.appearance.headerMinimumDissolvedAlpha = 0.0
     calendar.appearance.headerDateFormat = "yyyy-MM"
   }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let controller = segue.destination as? HabitDetailViewController
+    if segue.identifier == "SegueToDetail" {
+      controller?.habit = sender as? HabitViewModel
+    }
+  }
 }
 
 // MARK: - UITableViewDataSource
@@ -72,7 +79,8 @@ extension CalendarPageViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension CalendarPageViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "SegueToDetail", sender: nil)
+    let habit = viewModel.habitViewModels.value[indexPath.row]
+    performSegue(withIdentifier: "SegueToDetail", sender: habit)
   }
 }
 

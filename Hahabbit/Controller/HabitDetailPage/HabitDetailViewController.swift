@@ -46,13 +46,13 @@ class HabitDetailViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel.monthRecord.bind { [unowned self] in
-      self.monthCounterLabel.text = String($0)+"天"
+      self.monthCounterLabel.text = String($0) + "天"
     }
     viewModel.totalRecord.bind { [unowned self] in
-      self.totalCounterLabel.text = String($0)+"天"
+      self.totalCounterLabel.text = String($0) + "天"
     }
     viewModel.consecutiveRecord.bind { [unowned self] in
-      self.maxConsecutiveLabel.text = String($0)+"天"
+      self.maxConsecutiveLabel.text = String($0) + "天"
     }
 
     graphView.dataSource = self
@@ -182,4 +182,3 @@ extension HabitDetailViewController: FSCalendarDataSource {
     Date()
   }
 }
-
