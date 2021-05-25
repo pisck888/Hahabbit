@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
     setPinterestSegment()
-    let segment = PinterestSegment(frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40), segmentStyle: style, titles: ["All", "Public", "Private", "Art", "Sport", "Evening"])
+    let segment = PinterestSegment(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50), segmentStyle: style, titles: ["All", "Public", "Private", "Art", "Sport", "Evening"])
     segmentView.addSubview(segment)
 
     segment.valueChange = { index in

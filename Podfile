@@ -24,6 +24,8 @@ target 'Hahabbit' do
   # for DropDown
   pod 'YNDropDownMenu'
   pod 'ContextMenuSwift'
+  # for AlertController
+  pod 'CustomizableActionSheet'
 
 
 end

@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的成就" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smt-wm-hT4">
-                                                    <rect key="frame" x="16" y="16" width="382" height="37"/>
+                                                    <rect key="frame" x="16" y="16" width="382" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -94,7 +94,7 @@
                                                 <constraint firstItem="4I3-PQ-7wj" firstAttribute="leading" secondItem="M2D-0g-Rzl" secondAttribute="leading" id="4f5-kh-O6I"/>
                                                 <constraint firstAttribute="trailing" secondItem="Smt-wm-hT4" secondAttribute="trailing" constant="16" id="L8S-b9-uCo"/>
                                                 <constraint firstAttribute="bottom" secondItem="4I3-PQ-7wj" secondAttribute="bottom" id="O9g-OY-OVo"/>
-                                                <constraint firstItem="4I3-PQ-7wj" firstAttribute="top" secondItem="Smt-wm-hT4" secondAttribute="bottom" constant="4" id="dfM-L7-K46"/>
+                                                <constraint firstItem="4I3-PQ-7wj" firstAttribute="top" secondItem="Smt-wm-hT4" secondAttribute="bottom" constant="16" id="dfM-L7-K46"/>
                                                 <constraint firstItem="Smt-wm-hT4" firstAttribute="top" secondItem="M2D-0g-Rzl" secondAttribute="top" constant="16" id="u4g-Ud-Wrv"/>
                                                 <constraint firstAttribute="trailing" secondItem="4I3-PQ-7wj" secondAttribute="trailing" id="wjR-XK-gLn"/>
                                             </constraints>

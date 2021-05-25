@@ -36,6 +36,8 @@ class HabitDetailViewController: UITableViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var sloganLabel: UILabel!
   @IBOutlet weak var detailLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var membersCountLabel: UILabel!
 
   @IBOutlet var weekdayButtons: [UIButton]!
 
@@ -67,12 +69,14 @@ class HabitDetailViewController: UITableViewController {
     DispatchQueue.main.async {
       UIView.animate(withDuration: 5, delay: 0, options: .curveLinear) {
         self.monthCircularProgressView.value = 50
+        self.yearCircularProgressView.value = 87
       }
     }
   }
 
   func setupViews() {
     detailView.layer.cornerRadius = 10
+    detailView.clipsToBounds = true
     chartViewOne.layer.cornerRadius = 10
     chartViewTwo.layer.cornerRadius = 10
     chartViewThree.layer.cornerRadius = 10
@@ -143,13 +147,18 @@ class HabitDetailViewController: UITableViewController {
   }
 
   func setupHabitDetail() {
-    titleLabel.text = habit?.title
-    sloganLabel.text = habit?.slogan
-    detailLabel.text = habit?.detail
-    for i in 0...6 {
-      guard let staus = habit?.weekday["\(i + 1)"] else { return }
-      weekdayButtons[i].isSelected = staus
+    if let habit = habit {
+      titleLabel.text = habit.title
+      sloganLabel.text = habit.slogan
+      detailLabel.text = habit.detail
+      membersCountLabel.text = "\(habit.membersCount)人已加入"
+      locationLabel.text = "地點：" + habit.location
+      for i in 0...6 {
+        guard let staus = habit.weekday["\(i + 1)"] else { return }
+        weekdayButtons[i].isSelected = staus
+      }
     }
+
   }
 
   func setupRecordLabel() {

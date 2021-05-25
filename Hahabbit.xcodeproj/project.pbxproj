@@ -34,6 +34,7 @@
 		E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8E2656090A00B717F8 /* HomeViewModel.swift */; };
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F423E265B89F300C9AB3D /* PublicHabitDetailCell.swift */; };
+		E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */; };
 		E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756742126598AE600B236E3 /* GraphViewModel.swift */; };
 		E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */; };
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
@@ -84,6 +85,7 @@
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		E74F423E265B89F300C9AB3D /* PublicHabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitDetailCell.swift; sourceTree = "<group>"; };
+		E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E756742126598AE600B236E3 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
 		E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitViewModel.swift; sourceTree = "<group>"; };
 		E786041F265AA11500AC0F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -219,12 +221,12 @@
 			path = FrequencyCell;
 			sourceTree = "<group>";
 		};
-		E7052E662652A9FF00B717F8 /* PublicGoalsPage */ = {
+		E7052E662652A9FF00B717F8 /* PublicHabitsPage */ = {
 			isa = PBXGroup;
 			children = (
 				E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */,
 			);
-			path = PublicGoalsPage;
+			path = PublicHabitsPage;
 			sourceTree = "<group>";
 		};
 		E7052E692652D71200B717F8 /* PublicGoalsCell */ = {
@@ -333,6 +335,14 @@
 			path = PublicHabitDetailCell;
 			sourceTree = "<group>";
 		};
+		E74F4244265BC64F00C9AB3D /* ProfileViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */,
+			);
+			path = ProfileViewModel;
+			sourceTree = "<group>";
+		};
 		E756742026598AB600B236E3 /* GraphViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +416,7 @@
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E74F4244265BC64F00C9AB3D /* ProfileViewModel */,
 				E786041C265A9A6000AC0F36 /* PublicHabitViewModel */,
 				E756742026598AB600B236E3 /* GraphViewModel */,
 				E7052E8D265608EE00B717F8 /* HomeViewModel */,
@@ -420,7 +431,7 @@
 				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
 				E7052E7C2653D31400B717F8 /* AllAchievementsPage */,
 				E7052E6E2653502200B717F8 /* ProfilePage */,
-				E7052E662652A9FF00B717F8 /* PublicGoalsPage */,
+				E7052E662652A9FF00B717F8 /* PublicHabitsPage */,
 				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
 				E7052E5626525CF600B717F8 /* HabitDetailPage */,
 				E7052E5526525BBB00B717F8 /* AddNewGoalPage */,
@@ -634,6 +645,7 @@
 				E7052E792653CCE500B717F8 /* AchievementsTableViewCell.swift in Sources */,
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
+				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ import UIKit
 class PublicGoalsTableViewCell: UITableViewCell {
   
   @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var membersLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var weekdayLabel: UILabel!
   @IBOutlet weak var ownerLabel: UILabel!
@@ -30,6 +31,7 @@ class PublicGoalsTableViewCell: UITableViewCell {
   func setup(with publicHabit: Habit) {
     titleLabel.text = publicHabit.title
     locationLabel.text = "地點：" + publicHabit.location
+    membersLabel.text = "\(publicHabit.members.count)人已加入"
 
     for i in 0...6 {
       guard let staus = publicHabit.weekday["\(i + 1)"] else { return }

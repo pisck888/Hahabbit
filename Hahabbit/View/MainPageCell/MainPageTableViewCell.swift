@@ -27,6 +27,10 @@ class MainPageTableViewCell: UITableViewCell {
     backView.layer.borderWidth = 1
     backView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 
+    backView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    backView.layer.shadowOpacity = 0.3
+    backView.layer.shadowRadius = 2
+    backView.layer.shadowColor = UIColor.black.cgColor
   }
 
   func setup(with viewModel: HabitViewModel, date: Date = Date()) {
@@ -53,6 +57,12 @@ class MainPageTableViewCell: UITableViewCell {
   }
 
   @IBAction func pressCheckButton(_ sender: UIButton) {
+
+    HabitManager.shared.db.collection("achievements")
+      .whereField("id", isEqualTo: 0)
+      .getDocuments { querySnapshot, error in
+        print(querySnapshot?.documents[0].data())
+      }
 
     let stringDate = formatter.string(from: chosenDay)
 

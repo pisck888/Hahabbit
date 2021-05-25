@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PublicHabitDetailViewController: UIViewController {
 
@@ -19,6 +20,13 @@ class PublicHabitDetailViewController: UIViewController {
   }
 
   @IBAction func pressButton(_ sender: UIButton) {
+    if let habit = habit {
+      HabitManager.shared.db.collection("habits")
+        .document(habit.id)
+        .updateData(
+          ["members" : FieldValue.arrayUnion([HabitManager.shared.currentUser])]
+        )
+    }
   }
 
 }

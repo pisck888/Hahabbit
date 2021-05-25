@@ -25,9 +25,17 @@ class PublicHabitViewModel {
         guard let documents = querySnapshot?.documents else {
           return
         }
-        self.publicHabits.value = documents.compactMap { queryDocumentSnapshot in
+        let tempArray = documents.compactMap { queryDocumentSnapshot in
           try?  queryDocumentSnapshot.data(as: Habit.self)
         }
+        // only show i am not a member
+        self.publicHabits.value = []
+        for element in tempArray {
+          if !element.members.contains(HabitManager.shared.currentUser) {
+            self.publicHabits.value.append(element)
+          }
+        }
+
       }
   }
 
@@ -44,8 +52,15 @@ class PublicHabitViewModel {
         guard let documents = querySnapshot?.documents else {
           return
         }
-        self.publicHabits.value = documents.compactMap { queryDocumentSnapshot in
+        let tempArray = documents.compactMap { queryDocumentSnapshot in
           try?  queryDocumentSnapshot.data(as: Habit.self)
+        }
+        // only show i am not a member
+        self.publicHabits.value = []
+        for element in tempArray {
+          if !element.members.contains(HabitManager.shared.currentUser) {
+            self.publicHabits.value.append(element)
+          }
         }
       }
   }
@@ -62,8 +77,15 @@ class PublicHabitViewModel {
         guard let documents = querySnapshot?.documents else {
           return
         }
-        self.publicHabits.value = documents.compactMap { queryDocumentSnapshot in
+        let tempArray = documents.compactMap { queryDocumentSnapshot in
           try?  queryDocumentSnapshot.data(as: Habit.self)
+        }
+        // only show i am not a member
+        self.publicHabits.value = []
+        for element in tempArray {
+          if !element.members.contains(HabitManager.shared.currentUser) {
+            self.publicHabits.value.append(element)
+          }
         }
       }
   }

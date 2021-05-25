@@ -141,8 +141,11 @@ extension PublichHabitsViewController: UISearchBarDelegate {
       return habit.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
     }
   }
+
+  func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {
+    searchBar.endEditing(true)
+  }
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    print(12344)
 //    searchBar.resignFirstResponder()
     searchBar.endEditing(true)
   }

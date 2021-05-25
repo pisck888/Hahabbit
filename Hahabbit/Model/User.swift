@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct User {
+struct User: Decodable {
   var id: String
   var title: String
   var name: String
   var location: String
-  var imagr: String
+  var image: String
   var coin: Int
 }

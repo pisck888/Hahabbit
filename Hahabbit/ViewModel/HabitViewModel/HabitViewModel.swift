@@ -35,4 +35,12 @@ class HabitViewModel {
     return habit.weekday
   }
 
+  var location: String {
+    return habit.location
+  }
+
+  var membersCount: Int {
+    return habit.members.count
+  }
+
 }
