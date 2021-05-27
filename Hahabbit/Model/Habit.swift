@@ -16,8 +16,9 @@ struct Habit: Codable {
   var detail: String
   var location: String
   var owner: String
-//  var type: Int
-//  var icon: String
+  var type: [String: Bool]
+  var icon: String
+  var photo: String
 
   //  enum CodingKeys: String, CodingKey {
   //  }

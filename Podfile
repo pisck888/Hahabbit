@@ -7,8 +7,11 @@ target 'Hahabbit' do
 
   # Pods for Hahabbit
   pod 'SwiftLint'
+  # for set image
+  pod 'Kingfisher', '~> 6.0'
   # for firebase
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'FirebaseFirestoreSwift'
   # for keyboard
   pod 'IQKeyboardManagerSwift'
@@ -26,6 +29,8 @@ target 'Hahabbit' do
   pod 'ContextMenuSwift'
   # for AlertController
   pod 'CustomizableActionSheet'
+  # for DatePicker
+  pod 'DatePickerDialog'
 
 
 end

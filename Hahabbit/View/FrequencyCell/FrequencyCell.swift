@@ -15,4 +15,8 @@ class FrequencyCell: UICollectionViewCell {
     self.layer.cornerRadius = 10
     self.layer.masksToBounds = true
   }
+
+  func setup(string: String) {
+    lebel.text = string
+  }
 }

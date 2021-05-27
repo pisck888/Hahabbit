@@ -23,10 +23,7 @@
 		E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6F2653506800B717F8 /* ProfileViewController.swift */; };
 		E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E722653560400B717F8 /* ProfileTableViewCell.swift */; };
 		E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */; };
-		E7052E792653CCE500B717F8 /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E782653CCE500B717F8 /* AchievementsTableViewCell.swift */; };
-		E7052E7B2653D18900B717F8 /* AchievementsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E7A2653D18900B717F8 /* AchievementsCollectionViewCell.swift */; };
-		E7052E7E2653D34800B717F8 /* AllAchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E7D2653D34800B717F8 /* AllAchievementsViewController.swift */; };
-		E7052E812653D59D00B717F8 /* AchievementsDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E802653D59D00B717F8 /* AchievementsDetailTableViewCell.swift */; };
+		E7052E812653D59D00B717F8 /* AchievementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E802653D59D00B717F8 /* AchievementsTableViewCell.swift */; };
 		E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E832654C1BB00B717F8 /* PublicHabitDetailViewController.swift */; };
 		E7052E872654E62500B717F8 /* HabitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E862654E62500B717F8 /* HabitManager.swift */; };
 		E7052E892654E9D800B717F8 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E882654E9D800B717F8 /* Habit.swift */; };
@@ -35,6 +32,14 @@
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F423E265B89F300C9AB3D /* PublicHabitDetailCell.swift */; };
 		E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */; };
+		E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */; };
+		E74F424C265CF71500C9AB3D /* AchievementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F424B265CF71500C9AB3D /* AchievementViewModel.swift */; };
+		E74F424E265CF74A00C9AB3D /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F424D265CF74A00C9AB3D /* Achievement.swift */; };
+		E74F425F265E9D6100C9AB3D /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4252265E9D6100C9AB3D /* PresentedViewController.swift */; };
+		E74F4260265E9D6100C9AB3D /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4253265E9D6100C9AB3D /* CustomPresentationController.swift */; };
+		E74F4261265E9D6100C9AB3D /* SJDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4254265E9D6100C9AB3D /* SJDatePicker.swift */; };
+		E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4255265E9D6100C9AB3D /* PickerStyle.swift */; };
+		E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */; };
 		E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756742126598AE600B236E3 /* GraphViewModel.swift */; };
 		E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */; };
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
@@ -74,10 +79,7 @@
 		E7052E6F2653506800B717F8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E7052E722653560400B717F8 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		E7052E782653CCE500B717F8 /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
-		E7052E7A2653D18900B717F8 /* AchievementsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsCollectionViewCell.swift; sourceTree = "<group>"; };
-		E7052E7D2653D34800B717F8 /* AllAchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllAchievementsViewController.swift; sourceTree = "<group>"; };
-		E7052E802653D59D00B717F8 /* AchievementsDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E802653D59D00B717F8 /* AchievementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsTableViewCell.swift; sourceTree = "<group>"; };
 		E7052E832654C1BB00B717F8 /* PublicHabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E862654E62500B717F8 /* HabitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManager.swift; sourceTree = "<group>"; };
 		E7052E882654E9D800B717F8 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		E74F423E265B89F300C9AB3D /* PublicHabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitDetailCell.swift; sourceTree = "<group>"; };
 		E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsChecker.swift; sourceTree = "<group>"; };
+		E74F424B265CF71500C9AB3D /* AchievementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewModel.swift; sourceTree = "<group>"; };
+		E74F424D265CF74A00C9AB3D /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+		E74F4252265E9D6100C9AB3D /* PresentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
+		E74F4253265E9D6100C9AB3D /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
+		E74F4254265E9D6100C9AB3D /* SJDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJDatePicker.swift; sourceTree = "<group>"; };
+		E74F4255265E9D6100C9AB3D /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
+		E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationAnimationController.swift; sourceTree = "<group>"; };
 		E756742126598AE600B236E3 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
 		E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitViewModel.swift; sourceTree = "<group>"; };
 		E786041F265AA11500AC0F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -143,6 +153,7 @@
 				E7052E4F26524B6900B717F8 /* MockData.swift */,
 				E7052E882654E9D800B717F8 /* Habit.swift */,
 				E786041F265AA11500AC0F36 /* User.swift */,
+				E74F424D265CF74A00C9AB3D /* Achievement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,29 +273,12 @@
 			path = SettingsCell;
 			sourceTree = "<group>";
 		};
-		E7052E772653CCAE00B717F8 /* AchievementsCell */ = {
+		E7052E7F2653D57600B717F8 /* AchievementsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				E7052E782653CCE500B717F8 /* AchievementsTableViewCell.swift */,
-				E7052E7A2653D18900B717F8 /* AchievementsCollectionViewCell.swift */,
+				E7052E802653D59D00B717F8 /* AchievementsTableViewCell.swift */,
 			);
-			path = AchievementsCell;
-			sourceTree = "<group>";
-		};
-		E7052E7C2653D31400B717F8 /* AllAchievementsPage */ = {
-			isa = PBXGroup;
-			children = (
-				E7052E7D2653D34800B717F8 /* AllAchievementsViewController.swift */,
-			);
-			path = AllAchievementsPage;
-			sourceTree = "<group>";
-		};
-		E7052E7F2653D57600B717F8 /* AchievementsDetailCell */ = {
-			isa = PBXGroup;
-			children = (
-				E7052E802653D59D00B717F8 /* AchievementsDetailTableViewCell.swift */,
-			);
-			path = AchievementsDetailCell;
+			path = AchievementsTableViewCell;
 			sourceTree = "<group>";
 		};
 		E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */ = {
@@ -299,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				E7052E862654E62500B717F8 /* HabitManager.swift */,
+				E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -343,6 +338,27 @@
 			path = ProfileViewModel;
 			sourceTree = "<group>";
 		};
+		E74F424A265CF6D300C9AB3D /* AchievementViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E74F424B265CF71500C9AB3D /* AchievementViewModel.swift */,
+			);
+			path = AchievementViewModel;
+			sourceTree = "<group>";
+		};
+		E74F4251265E9D6100C9AB3D /* SJDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E74F4252265E9D6100C9AB3D /* PresentedViewController.swift */,
+				E74F4253265E9D6100C9AB3D /* CustomPresentationController.swift */,
+				E74F4254265E9D6100C9AB3D /* SJDatePicker.swift */,
+				E74F4255265E9D6100C9AB3D /* PickerStyle.swift */,
+				E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */,
+			);
+			name = SJDatePicker;
+			path = SJDatePicker/SJDatePicker;
+			sourceTree = "<group>";
+		};
 		E756742026598AB600B236E3 /* GraphViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +396,7 @@
 		E7910F4D264AE777003F0DAC /* Hahabbit */ = {
 			isa = PBXGroup;
 			children = (
+				E74F4251265E9D6100C9AB3D /* SJDatePicker */,
 				E7052E8A2655F23700B717F8 /* util */,
 				E7052E852654E5D700B717F8 /* Network */,
 				E7910F68264B7EF7003F0DAC /* Controller */,
@@ -399,8 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				E74F423D265B891E00C9AB3D /* PublicHabitDetailCell */,
-				E7052E7F2653D57600B717F8 /* AchievementsDetailCell */,
-				E7052E772653CCAE00B717F8 /* AchievementsCell */,
+				E7052E7F2653D57600B717F8 /* AchievementsTableViewCell */,
 				E7052E742653573700B717F8 /* SettingsCell */,
 				E7052E71265355CB00B717F8 /* ProfileCell */,
 				E7052E692652D71200B717F8 /* PublicGoalsCell */,
@@ -416,6 +432,7 @@
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E74F424A265CF6D300C9AB3D /* AchievementViewModel */,
 				E74F4244265BC64F00C9AB3D /* ProfileViewModel */,
 				E786041C265A9A6000AC0F36 /* PublicHabitViewModel */,
 				E756742026598AB600B236E3 /* GraphViewModel */,
@@ -429,7 +446,6 @@
 			isa = PBXGroup;
 			children = (
 				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
-				E7052E7C2653D31400B717F8 /* AllAchievementsPage */,
 				E7052E6E2653502200B717F8 /* ProfilePage */,
 				E7052E662652A9FF00B717F8 /* PublicHabitsPage */,
 				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
@@ -611,17 +627,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E74F424C265CF71500C9AB3D /* AchievementViewModel.swift in Sources */,
 				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
+				E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */,
 				E7052E8C2655F25700B717F8 /* Box.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
 				E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */,
 				E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */,
-				E7052E7E2653D34800B717F8 /* AllAchievementsViewController.swift in Sources */,
-				E7052E7B2653D18900B717F8 /* AchievementsCollectionViewCell.swift in Sources */,
+				E74F425F265E9D6100C9AB3D /* PresentedViewController.swift in Sources */,
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
 				E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */,
 				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
 				E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */,
+				E74F4260265E9D6100C9AB3D /* CustomPresentationController.swift in Sources */,
 				E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */,
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E7052E5026524B6900B717F8 /* MockData.swift in Sources */,
@@ -630,8 +648,9 @@
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
 				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
 				E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */,
-				E7052E812653D59D00B717F8 /* AchievementsDetailTableViewCell.swift in Sources */,
+				E7052E812653D59D00B717F8 /* AchievementsTableViewCell.swift in Sources */,
 				E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */,
+				E74F4261265E9D6100C9AB3D /* SJDatePicker.swift in Sources */,
 				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */,
@@ -641,11 +660,13 @@
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
 				E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */,
 				E7052E872654E62500B717F8 /* HabitManager.swift in Sources */,
+				E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */,
 				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
-				E7052E792653CCE500B717F8 /* AchievementsTableViewCell.swift in Sources */,
+				E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */,
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
 				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,
+				E74F424E265CF74A00C9AB3D /* Achievement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

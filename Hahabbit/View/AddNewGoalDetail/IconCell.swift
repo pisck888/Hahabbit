@@ -10,8 +10,17 @@ import UIKit
 class IconCell: UICollectionViewCell {
     
   @IBOutlet weak var iconImage: UIImageView!
+
+  var imageName: String?
+
   override func layoutSubviews() {
+    self.layer.backgroundColor = UIColor.systemGray5.cgColor
     self.layer.cornerRadius = 10
     self.layer.masksToBounds = true
+  }
+
+  func setup(string: String) {
+    imageName = string
+    iconImage.image = UIImage(named: string)
   }
 }

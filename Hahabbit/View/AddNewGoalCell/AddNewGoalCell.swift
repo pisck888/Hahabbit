@@ -8,10 +8,12 @@
 import UIKit
 
 class AddNewGoalCell: UITableViewCell {
-  @IBOutlet weak var mainImage: UIImageView! {
+  @IBOutlet weak var backView: UIView! {
     didSet {
-      mainImage.layer.cornerRadius = 10
+      backView.layer.cornerRadius = 10
+      backView.clipsToBounds = true
     }
   }
-  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var mainImage: UIImageView!
 }

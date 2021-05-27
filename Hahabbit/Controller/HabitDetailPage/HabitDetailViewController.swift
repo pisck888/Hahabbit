@@ -9,6 +9,7 @@ import UIKit
 import ScrollableGraphView
 import FSCalendar
 import MBCircularProgressBar
+import Kingfisher
 
 class HabitDetailViewController: UITableViewController {
 
@@ -32,6 +33,7 @@ class HabitDetailViewController: UITableViewController {
   @IBOutlet weak var totalCounterLabel: UILabel!
   @IBOutlet weak var maxConsecutiveLabel: UILabel!
 
+  @IBOutlet weak var mainImage: UIImageView!
   @IBOutlet weak var iconImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var sloganLabel: UILabel!
@@ -148,6 +150,9 @@ class HabitDetailViewController: UITableViewController {
 
   func setupHabitDetail() {
     if let habit = habit {
+      let url = URL(string: habit.photo)
+      mainImage.kf.setImage(with: url)
+      iconImage.image = UIImage(named: habit.icon)
       titleLabel.text = habit.title
       sloganLabel.text = habit.slogan
       detailLabel.text = habit.detail

@@ -18,14 +18,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkO-Y7-weW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bsU-rg-kUG"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUm-8j-AAw">
                                 <rect key="frame" x="0.0" y="138" width="414" height="675"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="nTF-df-k9q"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lLp-yd-0Yy"/>
@@ -571,6 +571,7 @@
                         <outlet property="graphView" destination="R4C-vQ-GOg" id="V1W-iR-2o8"/>
                         <outlet property="iconImage" destination="e80-bU-V4v" id="LIp-E7-9tA"/>
                         <outlet property="locationLabel" destination="s0D-wY-MgR" id="xlN-YW-nq3"/>
+                        <outlet property="mainImage" destination="ErU-4l-RSc" id="Bs3-jW-T9a"/>
                         <outlet property="maxConsecutiveLabel" destination="ty6-5B-DTk" id="yJ4-Az-pDH"/>
                         <outlet property="maxConsecutiveView" destination="jDu-3g-hQ3" id="NC8-zV-je8"/>
                         <outlet property="membersCountLabel" destination="AaS-CF-ayF" id="zAi-Mc-GUG"/>

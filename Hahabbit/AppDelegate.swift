@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // setup Firebase
     FirebaseApp.configure()
+
+    // 在程式一啟動即詢問使用者是否接受圖文(alert)、聲音(sound)、數字(badge)三種類型的通知
+    UNUserNotificationCenter.current()
+      .requestAuthorization(options: [.alert, .sound, .badge, .carPlay]) { granted, error in
+        if granted {
+          print("允許")
+        } else {
+          print("不允許")
+        }
+      }
     return true
   }
 

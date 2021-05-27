@@ -56,7 +56,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="507-3g-hhW" firstAttribute="top" secondItem="rof-Xn-AYW" secondAttribute="top" constant="16" id="2bI-3u-LgD"/>
                             <constraint firstItem="MQZ-RK-1Z4" firstAttribute="centerY" secondItem="rof-Xn-AYW" secondAttribute="centerY" id="Ndr-Ey-qe0"/>
@@ -69,6 +69,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemGray5Color"/>
                 <constraints>
                     <constraint firstItem="rof-Xn-AYW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="OuL-EU-2dP"/>
                     <constraint firstItem="rof-Xn-AYW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Sno-9L-1Ae"/>
@@ -90,8 +91,8 @@
         <image name="check" width="512" height="512"/>
         <image name="uncheck" width="512" height="512"/>
         <image name="water" width="512" height="512"/>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

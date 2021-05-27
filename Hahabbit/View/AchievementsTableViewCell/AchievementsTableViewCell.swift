@@ -7,16 +7,23 @@
 
 import UIKit
 
-class AchievementsDetailTableViewCell: UITableViewCell {
+class AchievementsTableViewCell: UITableViewCell {
   @IBOutlet weak var backView: UIView!
   @IBOutlet weak var mainImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var messageLabel: UILabel!
+  @IBOutlet weak var rewardLabel: UILabel!
   override func awakeFromNib() {
     super.awakeFromNib()
+    mainImage.layer.cornerRadius = 10
+    mainImage.clipsToBounds = true
     backView.layer.cornerRadius = 10
-    backView.layer.borderColor = UIColor.black.cgColor
-    backView.layer.borderWidth = 1
+  }
+
+  func setup(achievement: Achievement) {
+    titleLabel.text = achievement.title
+    messageLabel.text = achievement.discription
+    rewardLabel.text = String(achievement.reward)
   }
 
   override func setSelected(_ selected: Bool, animated: Bool) {

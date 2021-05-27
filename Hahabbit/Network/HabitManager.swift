@@ -49,7 +49,7 @@ class HabitManager {
           let formatter = DateFormatter()
           formatter.dateFormat = "yyyyMMdd"
           let today = formatter.string(from: date)
-
+          // set today isDone status
           self.db.collection("habits")
             .document(habit.id)
             .collection("isDone")
@@ -62,24 +62,86 @@ class HabitManager {
                   .document(self.currentUser)
                   .setData([today: false], merge: true)
               }
-//              print(habit)
+//                            print(habit)
             }
         }
       }
   }
-//  func addNewHabit(title: String, type: Int, detail: String, slogan: String) {
-//    let habits = db.collection("tsetHabits").document()
-//    let data: [String: Any] = [
-//      "id": habits.documentID,
-//      "title": title,
-//      "type": type,
-//      "detail": detail,
-//      "icon": "",
-//      "isCompleted": false,
-//      "isDone": false,
-//      "slogan": slogan,
-//      "userID": "pisck780527@gmail.com"
-//    ]
-//    habits.setData(data)
-//  }
+  func addNewHabit(habit: Habit, hours: [Int], minutes: [Int]) {
+    let habits = db.collection("habits").document()
+    let notification = db.collection("habits")
+      .document(habits.documentID)
+      .collection("notification")
+      .document(currentUser)
+    let data: [String: Any] = [
+      "id": habits.documentID,
+      "title": habit.title,
+      "type": habit.type,
+      "detail": habit.detail,
+      "location": habit.location,
+      "members": [currentUser],
+      "icon": habit.icon,
+      "slogan": habit.slogan,
+      "owner": currentUser,
+      "weekday": habit.weekday,
+      "photo": habit.photo
+    ]
+
+    habits.setData(data)
+    notification.setData(["hours": hours], merge: true)
+    notification.setData(["minutes": minutes], merge: true)
+  }
+
+  func setAllNotifications() {
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    db.collection("habits")
+      .whereField("members", arrayContains: currentUser)
+      .getDocuments { querySnapshot, error in
+        guard let documents = querySnapshot?.documents else {
+          return
+        }
+        let habits = documents.compactMap { queryDocumentSnapshot in
+          try?  queryDocumentSnapshot.data(as: Habit.self)
+        }
+        for habit in habits {
+          // set notification
+          for weekday in 1...7 {
+            if habit.weekday[String(weekday)] == true {
+
+              let notificationContent = UNMutableNotificationContent()
+              notificationContent.title = habit.title
+              notificationContent.body = habit.slogan
+              notificationContent.badge = NSNumber(value: 1)
+              notificationContent.sound = .default
+
+              self.db.collection("habits")
+                .document(habit.id)
+                .collection("notification")
+                .document(self.currentUser)
+                .getDocument { documentSnapshot, error in
+                  if let hours = documentSnapshot?.data()?["hours"] as? [Int],
+                    let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
+                    !hours.isEmpty,
+                    !minutes.isEmpty {
+                    for i in 0...(hours.count - 1) {
+                      var datComp = DateComponents()
+                      datComp.weekday = weekday
+                      datComp.hour = hours[i]
+                      datComp.minute = minutes[i]
+
+                      let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
+                      let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+                      UNUserNotificationCenter.current().add(request) { error in
+                        if let err = error {
+                          print(err.localizedDescription)
+                        }
+                      }
+                    }
+                  }
+                }
+            }
+          }
+        }
+      }
+  }
 }

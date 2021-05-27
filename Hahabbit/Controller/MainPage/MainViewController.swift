@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    HabitManager.shared.setAllNotifications()
+
     viewModel.refreshView = { [weak self] () in
       DispatchQueue.main.async {
         self?.tableView.reloadData()
@@ -32,7 +34,7 @@ class MainViewController: UIViewController {
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
     setPinterestSegment()
-    let segment = PinterestSegment(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50), segmentStyle: style, titles: ["All", "Public", "Private", "Art", "Sport", "Evening"])
+    let segment = PinterestSegment(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50), segmentStyle: style, titles: ["All", "Public", "Private", "運動", "學習", "自我", "其他"])
     segmentView.addSubview(segment)
 
     segment.valueChange = { index in
