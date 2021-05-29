@@ -29,8 +29,10 @@ target 'Hahabbit' do
   pod 'ContextMenuSwift'
   # for AlertController
   pod 'CustomizableActionSheet'
-  # for DatePicker
-  pod 'DatePickerDialog'
-
+  pod 'SPAlert'
+  # for keychain
+  pod 'SwiftKeychainWrapper'
+  # for pickerView
+  pod "McPicker"
 
 end

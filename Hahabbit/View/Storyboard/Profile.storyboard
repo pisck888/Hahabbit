@@ -30,7 +30,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="yRV-Mc-rW7">
                                                     <rect key="frame" x="16" y="16" width="87" height="87"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="hb0-c2-F6p"/>
+                                                        <constraint firstAttribute="height" constant="90" id="hb0-c2-F6p"/>
                                                         <constraint firstAttribute="width" secondItem="yRV-Mc-rW7" secondAttribute="height" multiplier="1:1" id="ttH-cN-Uno"/>
                                                     </constraints>
                                                 </imageView>
@@ -69,15 +69,32 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-8v-B5D">
+                                                    <rect key="frame" x="16" y="16" width="87" height="87"/>
+                                                    <connections>
+                                                        <action selector="changePhotoImage:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="g2u-zV-4kz"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2P-8H-gkp">
+                                                    <rect key="frame" x="119" y="36" width="95" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="changeNameAndTitle:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="iCK-md-5Oh"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4w3-x2-wVg" firstAttribute="centerY" secondItem="yRV-Mc-rW7" secondAttribute="centerY" id="00I-PW-Ulz"/>
                                                 <constraint firstItem="ze0-Xu-OP0" firstAttribute="leading" secondItem="yRV-Mc-rW7" secondAttribute="trailing" constant="16" id="PnK-Vh-F4C"/>
                                                 <constraint firstItem="ze0-Xu-OP0" firstAttribute="centerY" secondItem="yRV-Mc-rW7" secondAttribute="centerY" id="S0q-y8-fc4"/>
                                                 <constraint firstAttribute="trailing" secondItem="4w3-x2-wVg" secondAttribute="trailing" constant="16" id="ZdC-3S-acY"/>
+                                                <constraint firstItem="dxC-8v-B5D" firstAttribute="height" secondItem="yRV-Mc-rW7" secondAttribute="height" id="bKV-J5-0el"/>
                                                 <constraint firstAttribute="bottom" secondItem="yRV-Mc-rW7" secondAttribute="bottom" constant="16" id="cbk-Ol-Voi"/>
+                                                <constraint firstItem="dxC-8v-B5D" firstAttribute="centerY" secondItem="yRV-Mc-rW7" secondAttribute="centerY" id="kIH-Y6-jcT"/>
+                                                <constraint firstItem="dxC-8v-B5D" firstAttribute="width" secondItem="yRV-Mc-rW7" secondAttribute="width" id="onG-Qj-vqX"/>
                                                 <constraint firstItem="yRV-Mc-rW7" firstAttribute="top" secondItem="9JM-pp-7Kz" secondAttribute="top" constant="16" id="rWR-LH-SLQ"/>
                                                 <constraint firstItem="yRV-Mc-rW7" firstAttribute="leading" secondItem="9JM-pp-7Kz" secondAttribute="leading" constant="16" id="uld-74-3Im"/>
+                                                <constraint firstItem="dxC-8v-B5D" firstAttribute="centerX" secondItem="yRV-Mc-rW7" secondAttribute="centerX" id="vYW-lh-696"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -86,6 +103,7 @@
                                             <outlet property="coinLabel" destination="oYC-iW-axc" id="9of-9w-aoP"/>
                                             <outlet property="nameLabel" destination="qo6-v5-Cy1" id="Y9E-7c-E2c"/>
                                             <outlet property="titleLabel" destination="0NI-Qg-9xz" id="8UY-MK-tt4"/>
+                                            <segue destination="yGk-i2-98d" kind="show" id="u90-Re-sBr"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" rowHeight="60" id="Btf-27-7Xz" customClass="SettingsTableViewCell" customModule="Hahabbit" customModuleProvider="target">
@@ -146,6 +164,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="757.97101449275374" y="75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="F8b-vj-adQ">
+            <objects>
+                <viewController id="yGk-i2-98d" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="20u-oU-d7n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ypa-pO-KgD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LkG-Zf-IHa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEw-BA-IZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5J0-yi-3z2">

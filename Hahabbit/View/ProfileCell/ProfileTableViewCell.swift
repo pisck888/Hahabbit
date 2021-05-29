@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileTableViewCell: UITableViewCell {
 
@@ -21,6 +22,8 @@ class ProfileTableViewCell: UITableViewCell {
     }
 
   func setup(user: User) {
+    let url = URL(string: user.image)
+    avatarImage.kf.setImage(with: url)
     nameLabel.text = user.name
     titleLabel.text = "<\(user.title)>"
     coinLabel.text = String(user.coin)

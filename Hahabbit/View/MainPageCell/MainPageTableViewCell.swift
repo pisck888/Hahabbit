@@ -7,12 +7,14 @@
 
 import UIKit
 
+
 class MainPageTableViewCell: UITableViewCell {
 
   @IBOutlet weak var backView: UIView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var sloganLabel: UILabel!
   @IBOutlet weak var checkButton: UIButton!
+  @IBOutlet weak var iconImage: UIImageView!
 
   var id: String = ""
   let formatter = DateFormatter()
@@ -52,6 +54,7 @@ class MainPageTableViewCell: UITableViewCell {
       }
     titleLabel.text = viewModel.title
     sloganLabel.text = viewModel.slogan
+    iconImage.image = UIImage(named: viewModel.icon)
   }
 
   @IBAction func pressCheckButton(_ sender: UIButton) {

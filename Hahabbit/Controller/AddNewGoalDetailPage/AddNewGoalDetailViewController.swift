@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseStorage
+import SPAlert
 
 class AddNewGoalDetailViewController: UITableViewController {
 
@@ -86,6 +87,7 @@ class AddNewGoalDetailViewController: UITableViewController {
           print(url.absoluteString)
           HabitManager.shared.addNewHabit(habit: self.newHabit, hours: self.hours, minutes: self.minutes)
           HabitManager.shared.setAllNotifications()
+          SPAlert.present(title: "Done", preset: .done)
         }
       }
     }

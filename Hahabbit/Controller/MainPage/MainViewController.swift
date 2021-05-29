@@ -7,6 +7,7 @@
 
 import UIKit
 import PinterestSegment
+import SwiftKeychainWrapper
 
 class MainViewController: UIViewController {
 
@@ -41,6 +42,8 @@ class MainViewController: UIViewController {
       self.type = index
       self.viewModel.fetchData(type: index)
     }
+//    let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "Hahabbit")
+//    print(removeSuccessful)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -86,5 +89,22 @@ extension MainViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let habit = viewModel.habitViewModels.value[indexPath.row]
     performSegue(withIdentifier: "SegueToDetail", sender: habit)
+  }
+
+  func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    let deleteAction = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
+      HabitManager.shared.deleteHabit(id: self.viewModel.habitViewModels.value[indexPath.row].id)
+      self.viewModel.habitViewModels.value.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade)
+      completionHandler(true)
+    }
+    deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: 40, height: 40)).image { _ in
+      UIImage(named: "water")?.draw(in: CGRect(x: 0, y: 0, width: 40, height: 40))
+    }
+    deleteAction.backgroundColor = .systemGray5
+
+    let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+    configuration.performsFirstActionWithFullSwipe = false
+    return configuration
   }
 }

@@ -220,7 +220,6 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.7)
   - ContextMenuSwift (0.0.8)
   - CustomizableActionSheet (1.2.3)
-  - DatePickerDialog (4.0)
   - DisplaySwitcher (2.0)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
@@ -292,6 +291,7 @@ PODS:
   - Kingfisher (6.2.1)
   - leveldb-library (1.22.1)
   - MBCircularProgressBar (0.3.5)
+  - McPicker (3.0.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -300,13 +300,14 @@ PODS:
   - PinterestSegment (1.2.3)
   - PromisesObjC (1.2.12)
   - ScrollableGraphView (4.0.6)
+  - SPAlert (2.1.4)
+  - SwiftKeychainWrapper (4.0.1)
   - SwiftLint (0.43.1)
   - YNDropDownMenu (3.1.0)
 
 DEPENDENCIES:
   - ContextMenuSwift
   - CustomizableActionSheet
-  - DatePickerDialog
   - DisplaySwitcher (~> 2.0)
   - Firebase/Firestore
   - Firebase/Storage
@@ -315,8 +316,11 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher (~> 6.0)
   - MBCircularProgressBar
+  - McPicker
   - PinterestSegment
   - ScrollableGraphView
+  - SPAlert
+  - SwiftKeychainWrapper
   - SwiftLint
   - YNDropDownMenu
 
@@ -326,7 +330,6 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - ContextMenuSwift
     - CustomizableActionSheet
-    - DatePickerDialog
     - DisplaySwitcher
     - Firebase
     - FirebaseCore
@@ -344,10 +347,13 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - MBCircularProgressBar
+    - McPicker
     - nanopb
     - PinterestSegment
     - PromisesObjC
     - ScrollableGraphView
+    - SPAlert
+    - SwiftKeychainWrapper
     - SwiftLint
     - YNDropDownMenu
 
@@ -356,7 +362,6 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   ContextMenuSwift: b4d4066b9ebe47a43f7734a4a6989cf03efe5ad8
   CustomizableActionSheet: 2a855974bcdc347a4237b5ae94ac9b15fdbac17d
-  DatePickerDialog: ccff2f91ff7a018057a4d72fa5ad6de49c8cb0cd
   DisplaySwitcher: 1db23ee6a45fbebac733917cc002204adad37d28
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
@@ -374,13 +379,16 @@ SPEC CHECKSUMS:
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
+  McPicker: ba38be56a8194faa5249eca4226c364eed628044
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PinterestSegment: 3dd673ffd9feb00dc7816bb1e503d70459e8eaa8
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
+  SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
+  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   YNDropDownMenu: 9c88e36c5f913bc614aaf0f3d0a7968f6251268b
 
-PODFILE CHECKSUM: 710527b99b75e4b272bea4febb17088e753a67e0
+PODFILE CHECKSUM: d5340bd96b5f4080b6c079784b3227878ba755c0
 
 COCOAPODS: 1.10.1

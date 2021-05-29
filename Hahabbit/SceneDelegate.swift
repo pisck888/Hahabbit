@@ -7,6 +7,8 @@
 // swiftlint:disable unused_optional_binding 
 
 import UIKit
+import AuthenticationServices
+import SwiftKeychainWrapper
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -39,6 +41,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func sceneWillEnterForeground(_ scene: UIScene) {
     // Called as the scene transitions from the background to the foreground.
     // Use this method to undo the changes made on entering the background.
+//    if let userID = KeychainWrapper.standard.string(forKey: "Hahabbit") {
+//
+//      let appleIDProvider = ASAuthorizationAppleIDProvider()
+//      appleIDProvider.getCredentialState(forUserID: userID) { credentialState, error in
+//        if let err = error {
+//          print(err)
+//        }
+//        switch credentialState {
+//        case .authorized:
+//          UserManager.shared.currentUser = userID
+//          HabitManager.shared.currentUser = userID
+//          print("userid set into UserManager successful")
+//        case .revoked, .notFound:
+//          DispatchQueue.main.async {
+//            self.window?.rootViewController?.showLoginController()
+//          }
+//        default:
+//          break
+//        }
+//      }
+//    } else {
+//      DispatchQueue.main.async {
+//        print("no user id in keychain")
+//        self.window?.rootViewController?.showLoginController()
+//      }
+//    }
   }
 
   func sceneDidEnterBackground(_ scene: UIScene) {

@@ -16,7 +16,7 @@ enum FirebaseError: Error {
 class HabitManager {
   static let shared = HabitManager()
 
-  let currentUser = "pisck780527@gmail.com"
+  var currentUser = "002002.a6e1581b3bdd4cb783a8777381001738.0822"
 
   var habits: [Habit] = []
 
@@ -90,6 +90,17 @@ class HabitManager {
     habits.setData(data)
     notification.setData(["hours": hours], merge: true)
     notification.setData(["minutes": minutes], merge: true)
+  }
+
+  func deleteHabit(id: String) {
+    db.collection("habits")
+      .document(id)
+      .delete { error in
+        guard error == nil else {
+          print(error)
+          return
+        }
+      }    
   }
 
   func setAllNotifications() {

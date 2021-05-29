@@ -11,7 +11,8 @@ struct User: Decodable {
   var id: String
   var title: String
   var name: String
-  var location: String
   var image: String
   var coin: Int
+  var email: String
+  var titleArray: [String]
 }

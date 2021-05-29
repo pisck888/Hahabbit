@@ -81,6 +81,7 @@
             <connections>
                 <outlet property="backView" destination="rof-Xn-AYW" id="Rkm-Zs-2NA"/>
                 <outlet property="checkButton" destination="bKw-Kc-Nck" id="aNH-k6-Hn8"/>
+                <outlet property="iconImage" destination="507-3g-hhW" id="O53-eG-naP"/>
                 <outlet property="sloganLabel" destination="fty-PB-oei" id="xir-00-XQW"/>
                 <outlet property="titleLabel" destination="Wk2-ln-buG" id="2Rg-xJ-RZv"/>
             </connections>

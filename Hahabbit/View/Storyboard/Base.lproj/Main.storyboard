@@ -599,11 +599,45 @@
             </objects>
             <point key="canvasLocation" x="2228.985507246377" y="97.767857142857139"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="tI4-zT-faT">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="M8o-Ct-9LX" customClass="LoginViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1vi-XE-Qjm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2l-D0-bMs">
+                                <rect key="frame" x="57" y="418" width="300" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GCS-kx-gH9"/>
+                                    <constraint firstAttribute="width" constant="300" id="VMj-ep-mC4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Pif-uT-Vab"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y2l-D0-bMs" firstAttribute="centerX" secondItem="1vi-XE-Qjm" secondAttribute="centerX" id="KIB-Xf-9Ox"/>
+                            <constraint firstItem="y2l-D0-bMs" firstAttribute="centerY" secondItem="1vi-XE-Qjm" secondAttribute="centerY" id="gn4-er-Hb5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signInButtonView" destination="y2l-D0-bMs" id="A41-R7-gkC"/>
+                        <segue destination="WVe-9w-DHy" kind="presentation" identifier="SegueToMainPage" modalPresentationStyle="fullScreen" id="2G2-TK-EP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SmJ-d6-Nzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-819" y="98"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Fvp-vS-2wi">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WVe-9w-DHy" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="svh-pN-Dl6"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="30p-b0-rkZ">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
