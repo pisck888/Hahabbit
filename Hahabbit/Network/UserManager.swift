@@ -11,7 +11,7 @@ import Firebase
 class UserManager {
   static let shared = UserManager()
 
-  var currentUser = "002002.a6e1581b3bdd4cb783a8777381001738.0822"
+  var currentUser = "pisck780527@gmail.com"
 
   lazy var db = Firestore.firestore()
 

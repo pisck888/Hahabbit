@@ -34,5 +34,8 @@ target 'Hahabbit' do
   pod 'SwiftKeychainWrapper'
   # for pickerView
   pod "McPicker"
+  # for chat room
+  pod 'MessageKit'
+  pod 'GrowingTextView', '0.7.2'
 
 end

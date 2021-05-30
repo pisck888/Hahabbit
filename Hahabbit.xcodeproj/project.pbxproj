@@ -33,6 +33,7 @@
 		E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C112661070600E0A1C4 /* UserManager.swift */; };
 		E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C9D266282DD00E0A1C4 /* ProfileEditView.swift */; };
 		E74D4CA02662830100E0A1C4 /* ProfileEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E74D4C9F2662830100E0A1C4 /* ProfileEditView.xib */; };
+		E74D4CA32662A2B000E0A1C4 /* ChatPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4CA22662A2B000E0A1C4 /* ChatPageViewController.swift */; };
 		E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F423E265B89F300C9AB3D /* PublicHabitDetailCell.swift */; };
 		E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */; };
 		E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */; };
@@ -61,6 +62,9 @@
 		E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */; };
 		E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F78264BC0FB003F0DAC /* Constants.swift */; };
 		E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */; };
+		E7C54EEA2662C441004A1ACA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EE92662C441004A1ACA /* Message.swift */; };
+		E7C54EEC2662C44E004A1ACA /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EEB2662C44E004A1ACA /* Chat.swift */; };
+		E7C54EEE2662C74A004A1ACA /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EED2662C74A004A1ACA /* ChatUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +97,7 @@
 		E74D4C112661070600E0A1C4 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		E74D4C9D266282DD00E0A1C4 /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		E74D4C9F2662830100E0A1C4 /* ProfileEditView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileEditView.xib; sourceTree = "<group>"; };
+		E74D4CA22662A2B000E0A1C4 /* ChatPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPageViewController.swift; sourceTree = "<group>"; };
 		E74F423E265B89F300C9AB3D /* PublicHabitDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitDetailCell.swift; sourceTree = "<group>"; };
 		E74F4245265BC66C00C9AB3D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsChecker.swift; sourceTree = "<group>"; };
@@ -123,6 +128,9 @@
 		E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalCell.swift; sourceTree = "<group>"; };
 		E7910F78264BC0FB003F0DAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		E7C54EE92662C441004A1ACA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E7C54EEB2662C44E004A1ACA /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		E7C54EED2662C74A004A1ACA /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +168,9 @@
 				E7052E882654E9D800B717F8 /* Habit.swift */,
 				E786041F265AA11500AC0F36 /* User.swift */,
 				E74F424D265CF74A00C9AB3D /* Achievement.swift */,
+				E7C54EE92662C441004A1ACA /* Message.swift */,
+				E7C54EEB2662C44E004A1ACA /* Chat.swift */,
+				E7C54EED2662C74A004A1ACA /* ChatUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -346,6 +357,14 @@
 			path = ProfileEditView;
 			sourceTree = "<group>";
 		};
+		E74D4CA126629EEE00E0A1C4 /* ChatPage */ = {
+			isa = PBXGroup;
+			children = (
+				E74D4CA22662A2B000E0A1C4 /* ChatPageViewController.swift */,
+			);
+			path = ChatPage;
+			sourceTree = "<group>";
+		};
 		E74F423D265B891E00C9AB3D /* PublicHabitDetailCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +490,7 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E74D4CA126629EEE00E0A1C4 /* ChatPage */,
 				E74D4C0C2660D05A00E0A1C4 /* LoginPage */,
 				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
 				E7052E6E2653502200B717F8 /* ProfilePage */,
@@ -657,6 +677,7 @@
 			files = (
 				E74F424C265CF71500C9AB3D /* AchievementViewModel.swift in Sources */,
 				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
+				E74D4CA32662A2B000E0A1C4 /* ChatPageViewController.swift in Sources */,
 				E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */,
 				E7052E8C2655F25700B717F8 /* Box.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
@@ -664,13 +685,16 @@
 				E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */,
 				E74F425F265E9D6100C9AB3D /* PresentedViewController.swift in Sources */,
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
+				E7C54EEE2662C74A004A1ACA /* ChatUser.swift in Sources */,
 				E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */,
 				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
 				E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */,
+				E7C54EEC2662C44E004A1ACA /* Chat.swift in Sources */,
 				E74F4260265E9D6100C9AB3D /* CustomPresentationController.swift in Sources */,
 				E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */,
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */,
+				E7C54EEA2662C441004A1ACA /* Message.swift in Sources */,
 				E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */,
 				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */,

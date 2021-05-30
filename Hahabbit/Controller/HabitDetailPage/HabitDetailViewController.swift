@@ -42,6 +42,7 @@ class HabitDetailViewController: UITableViewController {
   @IBOutlet weak var membersCountLabel: UILabel!
 
   @IBOutlet var weekdayButtons: [UIButton]!
+  @IBOutlet weak var chatRoomButton: UIBarButtonItem!
 
   var habit: HabitViewModel?
   let dateFormatter = DateFormatter()
@@ -162,12 +163,27 @@ class HabitDetailViewController: UITableViewController {
         guard let staus = habit.weekday["\(i + 1)"] else { return }
         weekdayButtons[i].isSelected = staus
       }
+      if habit.type["1"] == false {
+        chatRoomButton.isEnabled = false
+        chatRoomButton.tintColor = .clear
+      } else {
+        chatRoomButton.isEnabled = true
+        chatRoomButton.tintColor = .label
+      }
     }
 
   }
 
   func setupRecordLabel() {
     viewModel.fetchRecordData(habitID: habit?.id ?? "")
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "SegeuToChatRoom" {
+      let vc = segue.destination as? ChatPageViewController
+      vc?.habitID = habit?.id
+      vc?.members = habit?.members
+    }
   }
 }
 

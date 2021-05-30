@@ -262,6 +262,7 @@ PODS:
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
+  - GrowingTextView (0.7.2)
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
     - "gRPC-C++/Interface (= 1.28.2)"
@@ -287,11 +288,16 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.5.0)
+  - InputBarAccessoryView (4.3.3):
+    - InputBarAccessoryView/Core (= 4.3.3)
+  - InputBarAccessoryView/Core (4.3.3)
   - IQKeyboardManagerSwift (6.5.6)
   - Kingfisher (6.2.1)
   - leveldb-library (1.22.1)
   - MBCircularProgressBar (0.3.5)
   - McPicker (3.0.0)
+  - MessageKit (3.1.1):
+    - InputBarAccessoryView (~> 4.3.0)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -313,10 +319,12 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - FSCalendar
+  - GrowingTextView (= 0.7.2)
   - IQKeyboardManagerSwift
   - Kingfisher (~> 6.0)
   - MBCircularProgressBar
   - McPicker
+  - MessageKit
   - PinterestSegment
   - ScrollableGraphView
   - SPAlert
@@ -340,14 +348,17 @@ SPEC REPOS:
     - FSCalendar
     - GoogleDataTransport
     - GoogleUtilities
+    - GrowingTextView
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - InputBarAccessoryView
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
     - MBCircularProgressBar
     - McPicker
+    - MessageKit
     - nanopb
     - PinterestSegment
     - PromisesObjC
@@ -372,14 +383,17 @@ SPEC CHECKSUMS:
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
+  MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PinterestSegment: 3dd673ffd9feb00dc7816bb1e503d70459e8eaa8
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -389,6 +403,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   YNDropDownMenu: 9c88e36c5f913bc614aaf0f3d0a7968f6251268b
 
-PODFILE CHECKSUM: d5340bd96b5f4080b6c079784b3227878ba755c0
+PODFILE CHECKSUM: 0d81c8ba4b8b37ed0b47bb9ec56f0d19eff5deb9
 
 COCOAPODS: 1.10.1

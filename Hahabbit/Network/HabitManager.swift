@@ -16,7 +16,7 @@ enum FirebaseError: Error {
 class HabitManager {
   static let shared = HabitManager()
 
-  var currentUser = "002002.a6e1581b3bdd4cb783a8777381001738.0822"
+  var currentUser = "pisck780527@gmail.com"
 
   var habits: [Habit] = []
 

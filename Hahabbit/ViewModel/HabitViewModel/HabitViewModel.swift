@@ -43,12 +43,20 @@ class HabitViewModel {
     return habit.members.count
   }
 
+  var members: [String] {
+    return habit.members
+  }
+
   var icon: String {
     return habit.icon
   }
 
   var photo: String {
     return habit.photo
+  }
+
+  var type: [String: Bool] {
+    return habit.type
   }
 
 }

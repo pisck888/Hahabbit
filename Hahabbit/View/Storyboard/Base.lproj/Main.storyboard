@@ -560,12 +560,19 @@
                             <outlet property="delegate" destination="aMJ-8S-rsl" id="7dl-Ke-TWq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Detail" id="pMD-mw-6ix"/>
+                    <navigationItem key="navigationItem" title="Detail" id="pMD-mw-6ix">
+                        <barButtonItem key="rightBarButtonItem" image="bubble.left.and.bubble.right.fill" catalog="system" id="5ZP-0E-vls">
+                            <connections>
+                                <segue destination="l2o-PE-qUc" kind="show" identifier="SegeuToChatRoom" id="3ch-t3-wEO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calendar" destination="kKS-g6-Tqv" id="0oU-Y3-WJv"/>
                         <outlet property="chartViewOne" destination="fiw-h3-ZQh" id="jQ7-Ql-ACN"/>
                         <outlet property="chartViewThree" destination="9yZ-OX-THb" id="m31-Jz-8Rx"/>
                         <outlet property="chartViewTwo" destination="qqD-8e-RMf" id="Tt9-6o-YV7"/>
+                        <outlet property="chatRoomButton" destination="5ZP-0E-vls" id="nxf-i7-Yxd"/>
                         <outlet property="detailLabel" destination="Y5a-Wg-XcQ" id="gpN-pB-WIN"/>
                         <outlet property="detailView" destination="dED-HK-Ko8" id="UiT-ha-PRp"/>
                         <outlet property="graphView" destination="R4C-vQ-GOg" id="V1W-iR-2o8"/>
@@ -598,6 +605,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUb-NP-7GU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2228.985507246377" y="97.767857142857139"/>
+        </scene>
+        <!--多人混戰-->
+        <scene sceneID="bgE-jp-sJM">
+            <objects>
+                <viewController id="l2o-PE-qUc" customClass="ChatPageViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zec-AB-4Td">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="WhK-ZC-Ixz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="多人混戰" id="DCy-mA-J1I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPv-To-dmd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2939" y="98"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tI4-zT-faT">
@@ -771,6 +794,7 @@
         <segue reference="h0N-K7-h9C"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="bubble.left.and.bubble.right.fill" catalog="system" width="128" height="97"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="flame.fill" catalog="system" width="108" height="128"/>
         <image name="rectangle.grid.3x2.fill" catalog="system" width="128" height="101"/>
