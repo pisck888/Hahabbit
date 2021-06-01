@@ -14,6 +14,9 @@ import IQKeyboardManagerSwift
 
 class PublichHabitsViewController: UIViewController {
 
+  @IBOutlet weak var locationButton: UIButton!
+  @IBOutlet weak var weekdayButton: UIButton!
+  @IBOutlet weak var typeButton: UIButton!
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentView: UIView!
@@ -29,7 +32,11 @@ class PublichHabitsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    navigationItem.backButtonTitle = ""
+    
     viewModel.fetchData()
+
     viewModel.publicHabits.bind { habits in
       self.searchHabitsArray = habits
       self.tableView.reloadData()
@@ -39,6 +46,7 @@ class PublichHabitsViewController: UIViewController {
 
     tableView.register(UINib(nibName: K.publicGoalsTableViewCell, bundle: nil), forCellReuseIdentifier: K.publicGoalsTableViewCell)
 
+    setupButton()
     setPinterestSegment()
     let segment = PinterestSegment(frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40), segmentStyle: style, titles: ["跑步", "重訓", "英文", "日文", "減肥", "喝水", "冥想"])
     segmentView.addSubview(segment)
@@ -48,13 +56,19 @@ class PublichHabitsViewController: UIViewController {
     }
 
     func setPinterestSegment() {
-      style.indicatorColor = UIColor(white: 0.95, alpha: 1)
-      style.titleMargin = 10
+      style.indicatorColor = .darkGray
+      style.titleMargin = 16
       style.titlePendingHorizontal = 14
       style.titlePendingVertical = 14
       style.titleFont = UIFont.boldSystemFont(ofSize: 14)
-      style.normalTitleColor = UIColor.lightGray
-      style.selectedTitleColor = UIColor.darkGray
+      style.normalTitleColor = .darkGray
+      style.selectedTitleColor = .white
+    }
+
+    func setupButton() {
+      locationButton.layer.cornerRadius = 10
+      weekdayButton.layer.cornerRadius = 10
+      typeButton.layer.cornerRadius = 10
     }
   }
 
@@ -64,8 +78,8 @@ class PublichHabitsViewController: UIViewController {
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     testTitle = sender.titleLabel?.text ?? ""
   }
-  @IBAction func pressTimePeriodButton(_ sender: UIButton) {
-    CM.items = ["早上", "下午", "晚上", "不限"]
+  @IBAction func pressWeekdayButton(_ sender: UIButton) {
+    CM.items = [ "周日", "周一", "周二", "周三", "周四", "周五", "周六"]
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
   }
   @IBAction func pressLocationButton(_ sender: UIButton) {

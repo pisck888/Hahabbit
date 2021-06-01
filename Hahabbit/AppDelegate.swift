@@ -18,6 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+    //    UINavigationBar.appearance().barTintColor = .systemGray6
+    //    UINavigationBar.appearance().layer.borderWidth = 0
+    //    UINavigationBar.appearance().clipsToBounds = true
+
+    //    UITabBar.appearance().barTintColor = .black
+    UITabBar.appearance().tintColor = .black
+    // This is for removing top line from the tabbar.
+    //    UITabBar.appearance().layer.borderWidth = 0.0
+    //    UITabBar.appearance().clipsToBounds = true
+
+    let image = UIImage(named: "arrowCircleLeft")
+    UINavigationBar.appearance().backIndicatorImage = image
+    UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
+    UINavigationBar.appearance().tintColor = .black
+
     // setup IQKeyboard
     IQKeyboardManager.shared.enable = true
     IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(ChatPageViewController.self)

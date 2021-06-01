@@ -31,6 +31,7 @@ class ChatPageViewController: MessagesViewController {
   let db = Firestore.firestore()
   override func viewDidLoad() {
     super.viewDidLoad()
+    messagesCollectionView.backgroundColor = .systemGray6
 
     viewModel.userViewModel.bind { user in
       self.currentUser = user
@@ -54,6 +55,7 @@ class ChatPageViewController: MessagesViewController {
     maintainPositionOnKeyboardFrameChanged = true
     messageInputBar.delegate = self
     messagesCollectionView.messageCellDelegate = self
+    configureInputBarItems()
   }
 
   func loadChat() {
@@ -122,6 +124,12 @@ class ChatPageViewController: MessagesViewController {
       }
   }
 
+  func configureInputBarItems() {
+    messageInputBar.sendButton.image = UIImage(named: "arrowCircleRight")
+    messageInputBar.sendButton.title = nil
+  }
+
+
 
 }
 
@@ -178,6 +186,8 @@ extension ChatPageViewController: MessagesDisplayDelegate {
       .getDocuments { querySnapshot, error in
         guard let user = querySnapshot?.documents[0].data() else { return }
         guard let url = URL(string: user["image"] as? String ?? "") else { return }
+//        avatarView.layer.borderWidth = 1
+//        avatarView.layer.borderColor = UIColor.systemGray.cgColor
         avatarView.kf.setImage(with: url)
       }
   }
@@ -190,6 +200,16 @@ extension ChatPageViewController: MessagesDisplayDelegate {
   ) -> MessageStyle {
     let tail: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
     return .bubbleTail(tail, .curved)
+  }
+
+  func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
+    switch message.sender.senderId {
+
+    case UserManager.shared.currentUser:
+      return .darkGray
+    default:
+      return .white
+    }
   }
 
 }

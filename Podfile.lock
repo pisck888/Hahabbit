@@ -298,6 +298,7 @@ PODS:
   - McPicker (3.0.0)
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
+  - MKGradientView (2.0.2)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -325,6 +326,7 @@ DEPENDENCIES:
   - MBCircularProgressBar
   - McPicker
   - MessageKit
+  - MKGradientView
   - PinterestSegment
   - ScrollableGraphView
   - SPAlert
@@ -359,6 +361,7 @@ SPEC REPOS:
     - MBCircularProgressBar
     - McPicker
     - MessageKit
+    - MKGradientView
     - nanopb
     - PinterestSegment
     - PromisesObjC
@@ -394,6 +397,7 @@ SPEC CHECKSUMS:
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   McPicker: ba38be56a8194faa5249eca4226c364eed628044
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
+  MKGradientView: 3ba213002a8258d96d098188655596c5f35ab659
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PinterestSegment: 3dd673ffd9feb00dc7816bb1e503d70459e8eaa8
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -403,6 +407,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   YNDropDownMenu: 9c88e36c5f913bc614aaf0f3d0a7968f6251268b
 
-PODFILE CHECKSUM: 0d81c8ba4b8b37ed0b47bb9ec56f0d19eff5deb9
+PODFILE CHECKSUM: 587b40f85a8c2b51b5cb46679cdddd70195dff65
 
 COCOAPODS: 1.10.1

@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SPAlert
 
 class PublicHabitDetailViewController: UIViewController {
 
@@ -27,6 +28,9 @@ class PublicHabitDetailViewController: UIViewController {
           ["members" : FieldValue.arrayUnion([HabitManager.shared.currentUser])]
         )
     }
+    SPAlert.present(title: "Done", preset: .done)
+    navigationController?.popViewController(animated: true)
+
   }
 
 }

@@ -10,9 +10,24 @@ import FSCalendar
 
 class CalendarPageViewController: UIViewController {
 
+  @IBOutlet var popupView: UIView!
+  @IBOutlet weak var popupImage: UIImageView!
+  @IBOutlet weak var popupTitleLabel: UILabel!
+  @IBOutlet weak var popupMessageLabel: UILabel!
+  @IBOutlet weak var closeButton: UIButton!
+
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var calendar: FSCalendar!
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
+
+  lazy var blurView: UIView = {
+
+    let blurView = UIView(frame: view.frame)
+
+    blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+
+    return blurView
+  }()
 
   let viewModel = HomeViewModel()
   var chosenDay = Date()
@@ -28,6 +43,10 @@ class CalendarPageViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    navigationItem.backButtonTitle = " "
+
+    AchievementsChecker.checker.delegate = self
 
     viewModel.refreshView = { [weak self] () in
       DispatchQueue.main.async {
@@ -48,6 +67,8 @@ class CalendarPageViewController: UIViewController {
   }
 
   func setupCalendar() {
+    calendar.select(Date())
+    calendar.today = nil
     calendar.scope = .month
     calendar.appearance.headerMinimumDissolvedAlpha = 0.0
     calendar.appearance.headerDateFormat = "yyyy-MM"
@@ -58,6 +79,11 @@ class CalendarPageViewController: UIViewController {
     if segue.identifier == "SegueToDetail" {
       controller?.habit = sender as? HabitViewModel
     }
+  }
+
+  @IBAction func pressCloseButton(_ sender: UIButton) {
+    blurView.removeFromSuperview()
+    popupView.removeFromSuperview()
   }
 }
 
@@ -128,7 +154,46 @@ extension CalendarPageViewController: FSCalendarDelegate {
 }
 
 extension CalendarPageViewController: FSCalendarDataSource {
-//  func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//    5
-//  }
+  //  func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+  //    5
+  //  }
+}
+
+
+extension CalendarPageViewController: AchievementsCheckerDelegate {
+  func showPopupView(title: String, message: String, image: String) {
+    // set popView
+    blurView.alpha = 0.4
+    popupView.layer.cornerRadius = 20
+    popupView.frame.size = CGSize(width: view.frame.width * 0.9, height: popupImage.frame.height + 220)
+    popupView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+    popupView.center = view.center
+    closeButton.layer.cornerRadius = closeButton.frame.width / 2
+
+    UIView.animate(withDuration: 0.3,
+                   delay: 0,
+                   usingSpringWithDamping: 0.7,
+                   initialSpringVelocity: 0.7,
+                   options: .curveLinear) {
+      self.popupView.transform = .identity
+    } completion: { _ in
+      self.popupView.shake()
+    }
+    popupTitleLabel.text = title
+    popupMessageLabel.text = message
+    popupImage.image = UIImage(named: image)
+
+    view.addSubview(blurView)
+    view.addSubview(popupView)
+  }
+
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    let touch = touches.first
+    if touch?.view == blurView {
+      blurView.removeFromSuperview()
+      popupView.removeFromSuperview()
+    }
+  }
+
+
 }

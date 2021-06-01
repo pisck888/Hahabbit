@@ -18,7 +18,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-53-doW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AchievementsTableViewCell" rowHeight="114" id="fBd-u4-wbZ" userLabel="AchievementsTableViewCell" customClass="AchievementsTableViewCell" customModule="Hahabbit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="114"/>
@@ -31,31 +31,31 @@
                                                     <rect key="frame" x="16" y="8" width="382" height="98"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vau-rP-WPZ">
-                                                            <rect key="frame" x="92" y="24.5" width="165.5" height="49"/>
+                                                            <rect key="frame" x="82" y="24.5" width="156" height="49"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="灌水王" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgS-Ui-eiZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="165.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連續達成喝水目標7天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9K-lX-gYd">
-                                                                    <rect key="frame" x="0.0" y="28.5" width="165.5" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="29.5" width="156" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cosmic-egg" translatesAutoresizingMaskIntoConstraints="NO" id="T2l-Z4-6XG">
-                                                            <rect key="frame" x="16" y="16" width="60" height="66"/>
+                                                            <rect key="frame" x="16" y="16" width="50" height="66"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="EOd-S5-ozN"/>
-                                                                <constraint firstAttribute="height" constant="60" id="qGT-w8-qbC"/>
+                                                                <constraint firstAttribute="width" constant="50" id="EOd-S5-ozN"/>
+                                                                <constraint firstAttribute="height" constant="50" id="qGT-w8-qbC"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="x8C-So-C3s">
-                                                            <rect key="frame" x="323" y="39" width="43" height="20"/>
+                                                            <rect key="frame" x="324.5" y="39" width="41.5" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hnZ-hB-ajR">
                                                                     <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
@@ -66,8 +66,8 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0y-A7-sv3">
-                                                                    <rect key="frame" x="22" y="0.0" width="21" height="20"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="22" y="0.0" width="19.5" height="20"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -86,6 +86,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Y3a-ud-OXO" secondAttribute="trailing" constant="16" id="3OR-fF-fyo"/>
                                                 <constraint firstAttribute="bottom" secondItem="Y3a-ud-OXO" secondAttribute="bottom" constant="8" id="Thc-Ym-t72"/>
@@ -119,7 +120,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Achievements" id="3S5-80-c5r">
-                        <barButtonItem key="rightBarButtonItem" image="square.grid.3x3.fill" catalog="system" id="KZ1-sb-QzB">
+                        <barButtonItem key="rightBarButtonItem" image="viewGridCard" id="KZ1-sb-QzB">
                             <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
                     </navigationItem>
@@ -142,7 +143,7 @@
         <scene sceneID="TPY-tw-O5D">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KIY-ok-vVG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="checkmark.shield.fill" catalog="system" id="jcO-K4-UFz"/>
+                    <tabBarItem key="tabBarItem" title="" image="fiveStarBadge" id="jcO-K4-UFz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oca-8j-qh0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -159,10 +160,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark.shield.fill" catalog="system" width="128" height="118"/>
         <image name="cosmic-egg" width="512" height="512"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
-        <image name="square.grid.3x3.fill" catalog="system" width="128" height="112"/>
+        <image name="fiveStarBadge" width="24" height="24"/>
+        <image name="viewGridCard" width="24" height="24"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -171,6 +172,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

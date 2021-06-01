@@ -18,16 +18,16 @@ class AchievementsTableViewCell: UITableViewCell {
     mainImage.layer.cornerRadius = 10
     mainImage.clipsToBounds = true
     backView.layer.cornerRadius = 10
+    backView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    backView.layer.shadowOpacity = 0.5
+    backView.layer.shadowRadius = 2
+    backView.layer.shadowColor = UIColor.black.cgColor
   }
 
   func setup(achievement: Achievement) {
     titleLabel.text = achievement.title
     messageLabel.text = achievement.discription
     rewardLabel.text = String(achievement.reward)
+    mainImage.image = UIImage(named: achievement.image)
   }
-
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-  }
-
 }

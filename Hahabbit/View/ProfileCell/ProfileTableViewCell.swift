@@ -10,6 +10,7 @@ import Kingfisher
 
 class ProfileTableViewCell: UITableViewCell {
 
+
   @IBOutlet weak var avatarImage: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var titleLabel: UILabel!

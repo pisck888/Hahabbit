@@ -21,7 +21,11 @@ class AchievementViewModel {
 
   func fetchData() {
     HabitManager.shared.db.collection("achievements")
-      .getDocuments { querySnapshot, error in
+      .addSnapshotListener { querySnapshot, error in
+        guard error == nil else {
+          print(error?.localizedDescription)
+          return
+        }
 
         guard let documents = querySnapshot?.documents else {
           return
@@ -30,6 +34,9 @@ class AchievementViewModel {
         self.allAchievements = documents.compactMap { queryDocumentSnapshot in
           try?  queryDocumentSnapshot.data(as: Achievement.self)
         }
+        self.userAchievements.value.removeAll()
+        self.dailyAchievements.value.removeAll()
+        self.specialAchievements.value.removeAll()
 
         for achievement in self.allAchievements {
           if achievement.isDone.contains(HabitManager.shared.currentUser) {
@@ -42,11 +49,4 @@ class AchievementViewModel {
         }
       }
   }
-
-
-  //  init(model achievement: Achievement) {
-  //    self.achievement = achievement
-  //  }
-
 }
-

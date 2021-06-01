@@ -11,6 +11,7 @@ class AchievementsViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
 
+
   let viewModel = AchievementViewModel()
 
   override func viewDidLoad() {
@@ -46,6 +47,12 @@ extension AchievementsViewController: UITableViewDataSource {
     default:
       return "特殊成就"
     }
+  }
+
+  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    let header = view as! UITableViewHeaderFooterView
+    header.contentView.backgroundColor = .systemGray6
+    header.textLabel?.font = UIFont(name: "PingFangTC-Medium", size: 16)
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

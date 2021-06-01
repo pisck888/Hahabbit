@@ -19,21 +19,39 @@ class AddNewGoalDetailViewController: UITableViewController {
   @IBOutlet weak var locationCollectionView: UICollectionView!
   @IBOutlet weak var iconCollectionView: UICollectionView!
   @IBOutlet weak var remindersCollectionView: UICollectionView!
+
   @IBOutlet weak var publicButton: UIButton!
 
   @IBOutlet weak var titleTextField: UITextField!
   @IBOutlet weak var messageTextField: UITextField!
-  @IBOutlet weak var detailTextView: UITextView!
-  @IBOutlet weak var photoImage: UIImageView!
+
+  @IBOutlet weak var detailTextView: UITextView! {
+    didSet {
+      detailTextView.layer.cornerRadius = 5
+      detailTextView.layer.borderColor = UIColor.systemGray5.cgColor
+      detailTextView.layer.borderWidth = 1
+    }
+  }
+  @IBOutlet weak var photoImage: UIImageView! {
+    didSet {
+      photoImage.layer.cornerRadius = 10
+      photoImage.clipsToBounds = true
+    }
+  }
 
   var reminders = ["+"]
   let location = ["台北市", "新北市", "桃園市", "台中市", "台南市", "高雄市"]
   let weekday = ["Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."]
-  let icon = ["accordion", "dollar", "water", "accordion", "dollar", "water",
-              "accordion", "dollar", "water", "accordion", "dollar", "water",
-              "accordion", "dollar", "water", "accordion", "dollar", "water",
-              "accordion", "dollar", "water", "accordion", "dollar", "water",
-              "accordion", "dollar", "water", "accordion", "dollar", "water"]
+  let icon = [
+    "abstract", "accordion", "balet", "banjo", "basket", "beach", "beer",
+    "beer2", "book", "boomerang", "boots", "candles", "cheeseMeat", "coat",
+    "coconut-drink", "coffee", "coin", "dancer", "dog", "donations", "drum",
+    "envelope", "excalibur", "fireworks", "food", "gifts", "guitar", "harp",
+    "heart", "icecream", "lion", "love", "mask2", "monalisa", "no-alchool",
+    "no-cookie", "no-music", "no-shopping", "no-tech", "people-love", "perfume",
+    "peru", "pray-down", "pray", "rain", "roses", "scroll", "slippers", "smoke",
+    "stopwatch", "sunrise", "sword", "symbol", "tea"
+  ]
   var type = ""
   var hours: [Int] = []
   var minutes: [Int] = []
@@ -42,10 +60,10 @@ class AddNewGoalDetailViewController: UITableViewController {
     title: "",
     weekday: ["1": false, "2": false, "3": false, "4": false, "5": false, "6": false, "7": false],
     slogan: "",
-    members: [HabitManager.shared.currentUser],
+    members: [UserManager.shared.currentUser],
     detail: "",
     location: "",
-    owner: HabitManager.shared.currentUser,
+    owner: UserManager.shared.currentUser,
     type: ["0": true, "1": false, "2": true, "3": false, "4": false, "5": false, "6": false],
     icon: "",
     photo: ""
@@ -138,8 +156,10 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
       if cell.isSelected == true {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.backgroundColor = .systemGray4
       } else {
         cell.layer.borderWidth = 0
+        cell.contentView.backgroundColor = .systemGray6
       }
       return cell
 
@@ -149,8 +169,10 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
       if cell.isSelected == true {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.backgroundColor = .systemGray4
       } else {
         cell.layer.borderWidth = 0
+        cell.contentView.backgroundColor = .systemGray6
       }
       return cell
 
@@ -160,8 +182,10 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
       if cell.isSelected == true {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.backgroundColor = .systemGray4
       } else {
         cell.layer.borderWidth = 0
+        cell.contentView.backgroundColor = .systemGray6
       }
       return cell
 
@@ -221,18 +245,21 @@ extension AddNewGoalDetailViewController: UICollectionViewDelegate {
     }
     collectionView.cellForItem(at: indexPath)?.isSelected = false
     collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 0
+    collectionView.cellForItem(at: indexPath)?.contentView.backgroundColor = .systemGray6
   }
 
   func setCellStates(collectionView: UICollectionView, indexPath: IndexPath) {
     collectionView.cellForItem(at: indexPath)?.isSelected = true
     collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
     collectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.black.cgColor
+    collectionView.cellForItem(at: indexPath)?.contentView.backgroundColor = .systemGray4
   }
 }
 
 extension AddNewGoalDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func showImagePickerActionSheet() {
     let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
+    alert.view.tintColor = .black
 
     let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
       self.showImagePicker(sourceType: .photoLibrary)

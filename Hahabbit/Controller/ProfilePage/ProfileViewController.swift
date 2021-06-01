@@ -13,7 +13,6 @@ import Kingfisher
 
 class ProfileViewController: UIViewController {
 
-
   @IBOutlet weak var tableView: UITableView!
   let settingsTitle = ["Language", "Vibrate", "Dark Mode", "Touch ID"]
 
@@ -46,8 +45,33 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func changePhotoImage(_ sender: UIButton) {
-    showImagePickerActionSheet()
+    var items = [CustomizableActionSheetItem]()
+    let cameraItem = CustomizableActionSheetItem()
+    cameraItem.type = .button
+    cameraItem.label = "Take from camera"
+    cameraItem.height = 60
+    cameraItem.textColor = .black
+    cameraItem.selectAction = { action -> Void in
+      self.showImagePicker(sourceType: .camera)
+      action.dismiss()
+    }
+    items.append(cameraItem)
+
+    let libraryItem = CustomizableActionSheetItem()
+    libraryItem.type = .button
+    libraryItem.label = "Choose from library"
+    libraryItem.height = 60
+    libraryItem.textColor = .black
+    libraryItem.selectAction = { action -> Void in
+      self.showImagePicker(sourceType: .photoLibrary)
+      action.dismiss()
+    }
+    items.append(libraryItem)
+
+    let actionSheet = CustomizableActionSheet()
+    actionSheet.showInView(self.view, items: items)
   }
+
   @IBAction func changeNameAndTitle(_ sender: UIButton) {
     var items = [CustomizableActionSheetItem]()
 
@@ -59,21 +83,9 @@ class ProfileViewController: UIViewController {
       items.append(profileEditViewItem)
     }
 
-    // Second button
-    let okItem = CustomizableActionSheetItem(type: .button)
-    okItem.label = "OK"
-    okItem.backgroundColor = UIColor(red: 1, green: 0.41, blue: 0.38, alpha: 1)
-    okItem.textColor = UIColor.white
-    okItem.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
-      self.view.backgroundColor = UIColor.white
-      actionSheet.dismiss()
-    }
-    items.append(okItem)
-
-    // Third button
     let cancelItem = CustomizableActionSheetItem(type: .button)
     cancelItem.label = "Cancel"
-    cancelItem.textColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+    cancelItem.textColor = .black
     cancelItem.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
       actionSheet.dismiss()
     }
@@ -107,6 +119,8 @@ extension ProfileViewController: UITableViewDataSource {
       let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
       cell.setup(user: viewModel.userViewModel.value)
       cell.selectionStyle = .none
+      cell.layer.masksToBounds = false
+      cell.clipsToBounds = false
       return cell
     default:
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
@@ -138,25 +152,25 @@ extension ProfileViewController: UITableViewDelegate {
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-  func showImagePickerActionSheet() {
-    let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
-
-    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
-      self.showImagePicker(sourceType: .photoLibrary)
-    }
-
-    let cameraAction = UIAlertAction(title: "Take from camera", style: .default) { action in
-      self.showImagePicker(sourceType: .camera)
-    }
-
-    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-
-    alert.addAction(photoLibraryAction)
-    alert.addAction(cameraAction)
-    alert.addAction(cancelAction)
-
-    present(alert, animated: true, completion: nil)
-  }
+//  func showImagePickerActionSheet() {
+//    let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
+//
+//    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
+//      self.showImagePicker(sourceType: .photoLibrary)
+//    }
+//
+//    let cameraAction = UIAlertAction(title: "Take from camera", style: .default) { action in
+//      self.showImagePicker(sourceType: .camera)
+//    }
+//
+//    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+//
+//    alert.addAction(photoLibraryAction)
+//    alert.addAction(cameraAction)
+//    alert.addAction(cancelAction)
+//
+//    present(alert, animated: true, completion: nil)
+//  }
 
   func showImagePicker(sourceType: UIImagePickerController.SourceType) {
     let imagePicker = UIImagePickerController()

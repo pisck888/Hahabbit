@@ -10,10 +10,12 @@ import UIKit
 class AddNewGoalViewController: UIViewController {
 
   let addGoalTitle = ["運動健身", "學習技能", "自我管理", "其他自訂"]
+  let imageArray = ["Fitness", "Designer", "Meditation", "Adventurer"]
 
   @IBOutlet weak var tableView: UITableView!
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.backButtonTitle = ""
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,28 +29,20 @@ class AddNewGoalViewController: UIViewController {
 }
 
 extension AddNewGoalViewController: UITableViewDataSource {
-  func numberOfSections(in tableView: UITableView) -> Int {
-    addGoalTitle.count
-  }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    1
+    addGoalTitle.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: K.addNewGoalCell, for: indexPath) as? AddNewGoalCell
-    cell?.titleLabel.text = addGoalTitle[indexPath.section]
+    cell?.titleLabel.text = addGoalTitle[indexPath.row]
+    cell?.mainImage.image = UIImage(named: imageArray[indexPath.row])
     cell?.selectionStyle = .none
     return cell ?? AddNewGoalCell()
   }
 }
 
 extension AddNewGoalViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    16
-  }
-  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-    view.tintColor = .systemGray5
-  }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "SegueToAddHabitDetail", sender: indexPath.section)
+    performSegue(withIdentifier: "SegueToAddHabitDetail", sender: indexPath.row)
   }
 }

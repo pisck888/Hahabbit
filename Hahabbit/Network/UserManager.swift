@@ -70,4 +70,9 @@ class UserManager {
     db.collection("users").document(currentUser)
       .updateData(["title": newTitle])
   }
+  
+  func updateCoin(newCoin: Int) {
+    db.collection("users").document(currentUser)
+      .updateData(["coin": newCoin])
+  }
 }

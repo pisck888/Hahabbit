@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PublicHabitDetailCell: UITableViewCell {
 
@@ -21,16 +22,24 @@ class PublicHabitDetailCell: UITableViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
+    mainImage.layer.cornerRadius = 10
     detailBackView.layer.cornerRadius = 10
-    detailBackView.clipsToBounds = true
+    detailBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    detailBackView.layer.shadowOpacity = 0.5
+    detailBackView.layer.shadowRadius = 2
+    detailBackView.layer.shadowColor = UIColor.black.cgColor
   }
 
   func setup(with habit: Habit) {
+    let url = URL(string: habit.photo)
+
     titleLabel.text = habit.title
     sloganLabel.text = habit.slogan
     locationLabel.text = "地點：\(habit.location)"
     memberNumbersLabel.text = "\(habit.members.count)人已加入"
     detailLabel.text = habit.detail
+    mainImage.kf.setImage(with: url)
+    iconImage.image = UIImage(named: habit.icon)
 
     for i in 0...6 {
       guard let staus = habit.weekday["\(i + 1)"] else { return }

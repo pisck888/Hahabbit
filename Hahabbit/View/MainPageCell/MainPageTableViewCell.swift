@@ -28,7 +28,7 @@ class MainPageTableViewCell: UITableViewCell {
     backView.layer.cornerRadius = 10
 
     backView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    backView.layer.shadowOpacity = 0.3
+    backView.layer.shadowOpacity = 0.5
     backView.layer.shadowRadius = 2
     backView.layer.shadowColor = UIColor.black.cgColor
   }
@@ -58,10 +58,13 @@ class MainPageTableViewCell: UITableViewCell {
   }
 
   @IBAction func pressCheckButton(_ sender: UIButton) {
-
-    AchievementsChecker.checker.checkAchievements1()
-
+    let stringToday = formatter.string(from: Date())
     let stringDate = formatter.string(from: chosenDay)
+
+    if stringDate == stringToday {
+    AchievementsChecker.checker.checkAllAchievements(checked: sender.isSelected)
+    }
+
     HabitManager.shared.db.collection("habits")
       .document(id)
       .collection("isDone")

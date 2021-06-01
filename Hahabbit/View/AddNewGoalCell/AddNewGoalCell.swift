@@ -11,9 +11,16 @@ class AddNewGoalCell: UITableViewCell {
   @IBOutlet weak var backView: UIView! {
     didSet {
       backView.layer.cornerRadius = 10
-      backView.clipsToBounds = true
+      backView.layer.shadowOffset = CGSize(width: 2, height: 2)
+      backView.layer.shadowOpacity = 0.5
+      backView.layer.shadowRadius = 2
+      backView.layer.shadowColor = UIColor.black.cgColor
     }
   }
   @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var mainImage: UIImageView!
+  @IBOutlet weak var mainImage: UIImageView! {
+    didSet {
+      mainImage.layer.cornerRadius = 10
+    }
+  }
 }

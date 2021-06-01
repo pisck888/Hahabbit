@@ -18,38 +18,39 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rof-Xn-AYW">
-                        <rect key="frame" x="8" y="8" width="428" height="80"/>
+                        <rect key="frame" x="16" y="8" width="412" height="80"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water" translatesAutoresizingMaskIntoConstraints="NO" id="507-3g-hhW">
-                                <rect key="frame" x="16" y="16" width="48" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banjo" translatesAutoresizingMaskIntoConstraints="NO" id="507-3g-hhW">
+                                <rect key="frame" x="16" y="17.5" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="507-3g-hhW" secondAttribute="height" multiplier="1:1" id="4Pe-Ok-gBd"/>
+                                    <constraint firstAttribute="height" constant="45" id="z6x-Ks-MIS"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKw-Kc-Nck">
-                                <rect key="frame" x="382" y="25" width="30" height="30"/>
+                                <rect key="frame" x="366" y="25" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="7yY-rl-PGb"/>
                                     <constraint firstAttribute="height" constant="30" id="C5D-nk-XvG"/>
                                 </constraints>
-                                <state key="normal" image="uncheck"/>
-                                <state key="selected" image="check"/>
+                                <state key="normal" image="round"/>
+                                <state key="selected" image="checkedMark"/>
                                 <connections>
                                     <action selector="pressCheckButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xkh-NW-S1b"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-RK-1Z4">
-                                <rect key="frame" x="80" y="14.5" width="208" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-RK-1Z4">
+                                <rect key="frame" x="77" y="15.5" width="196" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="健身" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wk2-ln-buG">
-                                        <rect key="frame" x="0.0" y="0.0" width="208" height="26.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="196" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不能逃！不能逃！不能逃！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fty-PB-oei">
-                                        <rect key="frame" x="0.0" y="30.5" width="208" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="29.5" width="196" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -58,9 +59,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="507-3g-hhW" firstAttribute="top" secondItem="rof-Xn-AYW" secondAttribute="top" constant="16" id="2bI-3u-LgD"/>
+                            <constraint firstItem="507-3g-hhW" firstAttribute="centerY" secondItem="rof-Xn-AYW" secondAttribute="centerY" id="1RH-C5-tBt"/>
                             <constraint firstItem="MQZ-RK-1Z4" firstAttribute="centerY" secondItem="rof-Xn-AYW" secondAttribute="centerY" id="Ndr-Ey-qe0"/>
-                            <constraint firstAttribute="bottom" secondItem="507-3g-hhW" secondAttribute="bottom" constant="16" id="O0j-s1-xF7"/>
                             <constraint firstItem="507-3g-hhW" firstAttribute="leading" secondItem="rof-Xn-AYW" secondAttribute="leading" constant="16" id="ZaU-Eg-I39"/>
                             <constraint firstAttribute="height" constant="80" id="i6C-yc-6L4"/>
                             <constraint firstAttribute="trailing" secondItem="bKw-Kc-Nck" secondAttribute="trailing" constant="16" id="jro-wB-HxU"/>
@@ -69,11 +69,11 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                <color key="backgroundColor" systemColor="systemGray6Color"/>
                 <constraints>
                     <constraint firstItem="rof-Xn-AYW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="OuL-EU-2dP"/>
-                    <constraint firstItem="rof-Xn-AYW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Sno-9L-1Ae"/>
-                    <constraint firstAttribute="trailing" secondItem="rof-Xn-AYW" secondAttribute="trailing" constant="8" id="gfJ-ej-bG5"/>
+                    <constraint firstItem="rof-Xn-AYW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Sno-9L-1Ae"/>
+                    <constraint firstAttribute="trailing" secondItem="rof-Xn-AYW" secondAttribute="trailing" constant="16" id="gfJ-ej-bG5"/>
                     <constraint firstAttribute="bottom" secondItem="rof-Xn-AYW" secondAttribute="bottom" constant="8" id="hTd-y1-nrl"/>
                 </constraints>
             </tableViewCellContentView>
@@ -89,11 +89,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="check" width="512" height="512"/>
-        <image name="uncheck" width="512" height="512"/>
-        <image name="water" width="512" height="512"/>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="banjo" width="64" height="64"/>
+        <image name="checkedMark" width="24" height="24"/>
+        <image name="round" width="24" height="24"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

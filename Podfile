@@ -37,5 +37,7 @@ target 'Hahabbit' do
   # for chat room
   pod 'MessageKit'
   pod 'GrowingTextView', '0.7.2'
+  # for gradient view
+  pod 'MKGradientView'
 
 end

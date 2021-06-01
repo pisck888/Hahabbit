@@ -13,6 +13,7 @@ struct Achievement: Decodable {
   var reward: Int
   var title: String
   var discription: String
-  var requirement: Int
+  var requirement: String
   var isDone: [String]
+  var image: String
 }

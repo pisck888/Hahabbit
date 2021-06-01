@@ -50,6 +50,7 @@ class HabitDetailViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     viewModel.monthRecord.bind { [unowned self] in
       self.monthCounterLabel.text = String($0) + "天"
     }
@@ -60,6 +61,8 @@ class HabitDetailViewController: UITableViewController {
       self.maxConsecutiveLabel.text = String($0) + "天"
     }
 
+    navigationItem.backButtonTitle = ""
+
     graphView.dataSource = self
     setupHabitDetail()
     setupGraphView()
@@ -67,6 +70,7 @@ class HabitDetailViewController: UITableViewController {
     setupViews()
     setupRecordLabel()
   }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     DispatchQueue.main.async {
@@ -78,39 +82,46 @@ class HabitDetailViewController: UITableViewController {
   }
 
   func setupViews() {
-    detailView.layer.cornerRadius = 10
-    detailView.clipsToBounds = true
-    chartViewOne.layer.cornerRadius = 10
-    chartViewTwo.layer.cornerRadius = 10
-    chartViewThree.layer.cornerRadius = 10
+    mainImage.layer.cornerRadius = 10
+    setShadowAndCornerRadius(view: detailView)
+
     calendar.layer.cornerRadius = 10
+    setShadowAndCornerRadius(view: chartViewOne)
+
     graphView.layer.cornerRadius = 10
-    monthCircularBackView.layer.cornerRadius = 10
-    yearCircularBackView.layer.cornerRadius = 10
-    monthCounterView.layer.cornerRadius = 10
-    totalCounterView.layer.cornerRadius = 10
-    maxConsecutiveView.layer.cornerRadius = 10
+    setShadowAndCornerRadius(view: chartViewTwo)
+
+    setShadowAndCornerRadius(view: monthCircularBackView)
+    setShadowAndCornerRadius(view: yearCircularBackView)
+    setShadowAndCornerRadius(view: monthCounterView)
+    setShadowAndCornerRadius(view: totalCounterView)
+    setShadowAndCornerRadius(view: maxConsecutiveView)
   }
 
   func setupGraphView() {
     viewModel.fetchGraphData(graphView: graphView, habitID: habit?.id ?? "")
 
     let linePlot = LinePlot(identifier: "line")
-    let dotPlot = DotPlot(identifier: "darkLineDot")
+    let dotPlot = DotPlot(identifier: "dot")
     let referenceLines = ReferenceLines()
 
     linePlot.lineStyle = ScrollableGraphViewLineStyle.smooth
     linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+    linePlot.shouldFill = true
+    linePlot.fillType = ScrollableGraphViewFillType.gradient
+    linePlot.fillGradientType = ScrollableGraphViewGradientType.radial
+    linePlot.fillGradientStartColor = .black
+    linePlot.fillGradientEndColor = .white
 
     dotPlot.dataPointSize = 3
     dotPlot.dataPointFillColor = .black
 
     referenceLines.positionType = .absolute
-    // Reference lines will be shown at these values on the y-axis.
     referenceLines.absolutePositions = [0, 4, 8, 12, 16, 20, 24, 28, 31]
-    referenceLines.includeMinMax = false
+    referenceLines.referenceLineColor = .systemGray
+    referenceLines.includeMinMax = true
 
-    graphView.dataPointSpacing = 30
+    graphView.dataPointSpacing = 35
     graphView.shouldAnimateOnStartup = true
     graphView.shouldAdaptRange = true
     graphView.shouldRangeAlwaysStartAtZero = true
@@ -122,6 +133,7 @@ class HabitDetailViewController: UITableViewController {
 
   func setupCalendar() {
     guard let habit = habit else { return }
+    calendar.today = nil
     calendar.allowsMultipleSelection = true
     calendar.appearance.headerMinimumDissolvedAlpha = 0.0
     calendar.appearance.headerDateFormat = "yyyy-MM"
@@ -180,10 +192,18 @@ class HabitDetailViewController: UITableViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "SegeuToChatRoom" {
-      let vc = segue.destination as? ChatPageViewController
-      vc?.habitID = habit?.id
-      vc?.members = habit?.members
+      let viewController = segue.destination as? ChatPageViewController
+      viewController?.habitID = habit?.id
+      viewController?.members = habit?.members
     }
+  }
+
+  func setShadowAndCornerRadius(view: UIView) {
+    view.layer.shadowOffset = CGSize(width: 2, height: 2)
+    view.layer.shadowOpacity = 0.5
+    view.layer.shadowRadius = 2
+    view.layer.shadowColor = UIColor.black.cgColor
+    view.layer.cornerRadius = 10
   }
 }
 
@@ -193,7 +213,7 @@ extension HabitDetailViewController: ScrollableGraphViewDataSource {
     switch plot.identifier {
     case "line":
       return Double(viewModel.counter[pointIndex])
-    case "darkLineDot":
+    case "dot":
       return Double(viewModel.counter[pointIndex])
     default:
       return 0
