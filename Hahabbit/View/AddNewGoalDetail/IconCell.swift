@@ -19,8 +19,8 @@ class IconCell: UICollectionViewCell {
     self.layer.masksToBounds = true
   }
 
-  func setup(string: String) {
-    imageName = string
-    iconImage.image = UIImage(named: string)
+  func setup(imageName: String) {
+    self.imageName = imageName
+    iconImage.image = UIImage(named: imageName)
   }
 }

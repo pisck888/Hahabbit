@@ -59,4 +59,8 @@ class HabitViewModel {
     return habit.type
   }
 
+  var owner: String {
+    return habit.owner
+  }
+
 }

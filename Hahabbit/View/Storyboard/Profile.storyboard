@@ -164,6 +164,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="xQq-az-mmb" id="rDy-si-SUy"/>
+                        <segue destination="lCD-d6-XhH" kind="show" identifier="SegueToBlacklistPage" id="nhf-LN-PjU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -185,6 +186,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oEw-BA-IZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1459" y="75"/>
+        </scene>
+        <!--封鎖名單-->
+        <scene sceneID="2Bv-vf-jOE">
+            <objects>
+                <viewController id="lCD-d6-XhH" customClass="BlacklistViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dXZ-ew-KYX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YY8-Zi-sJg">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blacklistCell" translatesAutoresizingMaskIntoConstraints="NO" id="Anr-5U-bTu" customClass="BlacklistTableViewCell" customModule="Hahabbit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="62.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Anr-5U-bTu" id="N0r-r7-11f">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ni-rr-OBc">
+                                                    <rect key="frame" x="336" y="16.5" width="62" height="30"/>
+                                                    <state key="normal" title="解除封鎖"/>
+                                                    <connections>
+                                                        <action selector="pressUnblockButton:" destination="lCD-d6-XhH" eventType="touchUpInside" id="cmT-nn-pl1"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYc-7w-OkQ">
+                                                    <rect key="frame" x="62.5" y="21" width="78.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VmR-nt-gy9">
+                                                    <rect key="frame" x="16" y="16" width="30.5" height="30.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="VmR-nt-gy9" secondAttribute="height" multiplier="1:1" id="0xz-5H-i3v"/>
+                                                        <constraint firstAttribute="height" constant="30" id="RTg-RJ-lbs"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VmR-nt-gy9" firstAttribute="leading" secondItem="N0r-r7-11f" secondAttribute="leading" constant="16" id="8Kd-AP-zgs"/>
+                                                <constraint firstItem="eYc-7w-OkQ" firstAttribute="centerY" secondItem="VmR-nt-gy9" secondAttribute="centerY" id="L4L-C8-atv"/>
+                                                <constraint firstAttribute="trailing" secondItem="7ni-rr-OBc" secondAttribute="trailing" constant="16" id="OOb-75-7l3"/>
+                                                <constraint firstItem="eYc-7w-OkQ" firstAttribute="leading" secondItem="VmR-nt-gy9" secondAttribute="trailing" constant="16" id="a1g-OA-4vv"/>
+                                                <constraint firstAttribute="bottom" secondItem="VmR-nt-gy9" secondAttribute="bottom" constant="16" id="cgd-fZ-Fqt"/>
+                                                <constraint firstItem="7ni-rr-OBc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eYc-7w-OkQ" secondAttribute="trailing" constant="16" id="nGP-fI-Xeo"/>
+                                                <constraint firstItem="VmR-nt-gy9" firstAttribute="top" secondItem="N0r-r7-11f" secondAttribute="top" constant="16" id="vee-if-pCF"/>
+                                                <constraint firstItem="7ni-rr-OBc" firstAttribute="centerY" secondItem="VmR-nt-gy9" secondAttribute="centerY" id="vyO-kl-qOG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="unblockButton" destination="7ni-rr-OBc" id="I5j-H7-Ccf"/>
+                                            <outlet property="userImage" destination="VmR-nt-gy9" id="M0x-x0-cID"/>
+                                            <outlet property="userName" destination="eYc-7w-OkQ" id="cis-z3-98Z"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lCD-d6-XhH" id="omJ-H8-zmf"/>
+                                    <outlet property="delegate" destination="lCD-d6-XhH" id="P8w-JR-1Mc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ATd-wF-W6o"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YY8-Zi-sJg" firstAttribute="top" secondItem="ATd-wF-W6o" secondAttribute="top" id="0Qu-Kb-F9I"/>
+                            <constraint firstItem="YY8-Zi-sJg" firstAttribute="leading" secondItem="ATd-wF-W6o" secondAttribute="leading" id="aID-cc-NDj"/>
+                            <constraint firstItem="ATd-wF-W6o" firstAttribute="trailing" secondItem="YY8-Zi-sJg" secondAttribute="trailing" id="pRI-cB-q6A"/>
+                            <constraint firstItem="ATd-wF-W6o" firstAttribute="bottom" secondItem="YY8-Zi-sJg" secondAttribute="bottom" id="sFs-Cf-KVw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="封鎖名單" id="xX2-kG-1ML"/>
+                    <connections>
+                        <outlet property="tableView" destination="YY8-Zi-sJg" id="GXQ-aK-5Bt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i46-bg-rJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757.97101449275374" y="751.33928571428567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5J0-yi-3z2">

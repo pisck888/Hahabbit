@@ -43,6 +43,7 @@ class HabitDetailViewController: UITableViewController {
 
   @IBOutlet var weekdayButtons: [UIButton]!
   @IBOutlet weak var chatRoomButton: UIBarButtonItem!
+  @IBOutlet weak var editButton: UIButton!
 
   var habit: HabitViewModel?
   let dateFormatter = DateFormatter()
@@ -50,6 +51,8 @@ class HabitDetailViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    HabitManager.shared.delegate = self
 
     viewModel.monthRecord.bind { [unowned self] in
       self.monthCounterLabel.text = String($0) + "天"
@@ -182,6 +185,11 @@ class HabitDetailViewController: UITableViewController {
         chatRoomButton.isEnabled = true
         chatRoomButton.tintColor = .label
       }
+      if habit.owner == UserManager.shared.currentUser {
+        editButton.isHidden = false
+      } else {
+        editButton.isHidden = true
+      }
     }
 
   }
@@ -191,10 +199,16 @@ class HabitDetailViewController: UITableViewController {
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "SegeuToChatRoom" {
+    switch segue.identifier {
+    case Segue.toAddNewGoalDetailPage:
+      let viewController = segue.destination as? AddNewGoalDetailViewController
+      viewController?.editHabit = habit?.habit
+    case Segue.toChatRoomPage:
       let viewController = segue.destination as? ChatPageViewController
       viewController?.habitID = habit?.id
       viewController?.members = habit?.members
+    default:
+      print("error")
     }
   }
 
@@ -205,6 +219,11 @@ class HabitDetailViewController: UITableViewController {
     view.layer.shadowColor = UIColor.black.cgColor
     view.layer.cornerRadius = 10
   }
+
+  @IBAction func pressEditButton(_ sender: UIButton) {
+    performSegue(withIdentifier: Segue.toAddNewGoalDetailPage, sender: habit)
+  }
+
 }
 
 extension HabitDetailViewController: ScrollableGraphViewDataSource {
@@ -231,4 +250,14 @@ extension HabitDetailViewController: FSCalendarDataSource {
   func maximumDate(for calendar: FSCalendar) -> Date {
     Date()
   }
+}
+
+extension HabitDetailViewController: HabitManagerDelegate {
+  func setNewData(data: Habit) {
+    habit?.habit = data
+    setupHabitDetail()
+//    tableView.reloadData()
+  }
+
+
 }

@@ -8,13 +8,12 @@
 import UIKit
 import FirebaseFirestoreSwift
 import CustomizableActionSheet
-import McPicker
 import Kingfisher
 
 class ProfileViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
-  let settingsTitle = ["Language", "Vibrate", "Dark Mode", "Touch ID"]
+  let settingsTitle = ["Language", "blacklist", "Vibrate", "Dark Mode", "Touch ID"]
 
   var items: [CustomizableActionSheetItem] = []
 
@@ -23,10 +22,12 @@ class ProfileViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    viewModel.userViewModel.bind { user in
+    navigationItem.backButtonTitle = ""
+
+    viewModel.currentUserViewModel.bind { user in
       self.tableView.reloadData()
     }
-    viewModel.fetchData()
+    viewModel.fetchCurrentUser()
     setupActionSheetItem(string: "English")
     setupActionSheetItem(string: "Traditional Chinese")
   }
@@ -77,7 +78,7 @@ class ProfileViewController: UIViewController {
 
     // First view
     if let profileEditView = UINib(nibName: "ProfileEditView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
-      profileEditView.user = viewModel.userViewModel.value
+      profileEditView.user = viewModel.currentUserViewModel.value
       let profileEditViewItem = CustomizableActionSheetItem(type: .view, height: 300)
       profileEditViewItem.view = profileEditView
       items.append(profileEditViewItem)
@@ -94,8 +95,6 @@ class ProfileViewController: UIViewController {
     let actionSheet = CustomizableActionSheet()
     actionSheet.showInView(self.view, items: items)
   }
-
-
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -117,7 +116,7 @@ extension ProfileViewController: UITableViewDataSource {
     switch indexPath.section {
     case 0:
       let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
-      cell.setup(user: viewModel.userViewModel.value)
+      cell.setup(user: viewModel.currentUserViewModel.value)
       cell.selectionStyle = .none
       cell.layer.masksToBounds = false
       cell.clipsToBounds = false
@@ -142,10 +141,15 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.section == 1 {
-
-      // Show
-      let actionSheet = CustomizableActionSheet()
-      actionSheet.showInView(self.view, items: items)
+      switch indexPath.row {
+      case 0:
+        let actionSheet = CustomizableActionSheet()
+        actionSheet.showInView(self.view, items: items)
+      case 1:
+        performSegue(withIdentifier: Segue.toBlacklistPage, sender: nil)
+      default:
+        print("nothing happened")
+      }
     }
   }
 }

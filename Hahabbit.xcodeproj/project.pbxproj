@@ -29,6 +29,12 @@
 		E7052E8C2655F25700B717F8 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8B2655F25700B717F8 /* Box.swift */; };
 		E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8E2656090A00B717F8 /* HomeViewModel.swift */; };
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
+		E736858D266735AD002E2278 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736858C266735AD002E2278 /* extension.swift */; };
+		E73685FA266768AC002E2278 /* crocodile.png in Resources */ = {isa = PBXBuildFile; fileRef = E73685F9266768AC002E2278 /* crocodile.png */; };
+		E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73685FD26687465002E2278 /* NotificationsViewModel.swift */; };
+		E7368604266A3674002E2278 /* BlacklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7368603266A3674002E2278 /* BlacklistViewController.swift */; };
+		E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */; };
+		E7368610266A49EE002E2278 /* BlacklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860F266A49EE002E2278 /* BlacklistViewModel.swift */; };
 		E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */; };
 		E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C112661070600E0A1C4 /* UserManager.swift */; };
 		E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C9D266282DD00E0A1C4 /* ProfileEditView.swift */; };
@@ -94,6 +100,12 @@
 		E7052E8B2655F25700B717F8 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		E736858C266735AD002E2278 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		E73685F9266768AC002E2278 /* crocodile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crocodile.png; sourceTree = "<group>"; };
+		E73685FD26687465002E2278 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		E7368603266A3674002E2278 /* BlacklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistViewController.swift; sourceTree = "<group>"; };
+		E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
+		E736860F266A49EE002E2278 /* BlacklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistViewModel.swift; sourceTree = "<group>"; };
 		E74D4C0B2660CFC200E0A1C4 /* Hahabbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hahabbit.entitlements; sourceTree = "<group>"; };
 		E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E74D4C112661070600E0A1C4 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -344,6 +356,46 @@
 			path = HabitViewModel;
 			sourceTree = "<group>";
 		};
+		E73685FB2667693E002E2278 /* HabitIcons */ = {
+			isa = PBXGroup;
+			children = (
+				E73685F9266768AC002E2278 /* crocodile.png */,
+			);
+			path = HabitIcons;
+			sourceTree = "<group>";
+		};
+		E73685FC26687451002E2278 /* NotificationsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E73685FD26687465002E2278 /* NotificationsViewModel.swift */,
+			);
+			path = NotificationsViewModel;
+			sourceTree = "<group>";
+		};
+		E7368602266A3654002E2278 /* BlacklistPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7368603266A3674002E2278 /* BlacklistViewController.swift */,
+			);
+			path = BlacklistPage;
+			sourceTree = "<group>";
+		};
+		E736860B266A38EB002E2278 /* BlacklistCell */ = {
+			isa = PBXGroup;
+			children = (
+				E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */,
+			);
+			path = BlacklistCell;
+			sourceTree = "<group>";
+		};
+		E736860E266A49CA002E2278 /* BlacklistViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E736860F266A49EE002E2278 /* BlacklistViewModel.swift */,
+			);
+			path = BlacklistViewModel;
+			sourceTree = "<group>";
+		};
 		E74D4C0C2660D05A00E0A1C4 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +515,7 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E736860B266A38EB002E2278 /* BlacklistCell */,
 				E7C54EEF26640ABE004A1ACA /* PopupView(temp) */,
 				E74D4C9C266281CD00E0A1C4 /* ProfileEditView */,
 				E74F423D265B891E00C9AB3D /* PublicHabitDetailCell */,
@@ -482,6 +535,8 @@
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E736860E266A49CA002E2278 /* BlacklistViewModel */,
+				E73685FC26687451002E2278 /* NotificationsViewModel */,
 				E74F424A265CF6D300C9AB3D /* AchievementViewModel */,
 				E74F4244265BC64F00C9AB3D /* ProfileViewModel */,
 				E786041C265A9A6000AC0F36 /* PublicHabitViewModel */,
@@ -495,6 +550,7 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7368602266A3654002E2278 /* BlacklistPage */,
 				E74D4CA126629EEE00E0A1C4 /* ChatPage */,
 				E74D4C0C2660D05A00E0A1C4 /* LoginPage */,
 				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
@@ -526,8 +582,10 @@
 		E7910F6A264B7F5E003F0DAC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E73685FB2667693E002E2278 /* HabitIcons */,
 				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
 				E7910F78264BC0FB003F0DAC /* Constants.swift */,
+				E736858C266735AD002E2278 /* extension.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -618,6 +676,7 @@
 				E74D4CA02662830100E0A1C4 /* ProfileEditView.xib in Resources */,
 				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
+				E73685FA266768AC002E2278 /* crocodile.png in Resources */,
 				E7C54EF126640AF8004A1ACA /* PopupView.xib in Resources */,
 				E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */,
 				E7910F56264AE777003F0DAC /* Main.storyboard in Resources */,
@@ -722,17 +781,22 @@
 				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */,
+				E7368604266A3674002E2278 /* BlacklistViewController.swift in Sources */,
 				E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */,
 				E7C54EF326640B20004A1ACA /* PopupView.swift in Sources */,
 				E7052E892654E9D800B717F8 /* Habit.swift in Sources */,
+				E7368610266A49EE002E2278 /* BlacklistViewModel.swift in Sources */,
 				E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */,
 				E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */,
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
 				E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */,
+				E736858D266735AD002E2278 /* extension.swift in Sources */,
 				E7052E872654E62500B717F8 /* HabitManager.swift in Sources */,
 				E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */,
+				E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */,
 				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
 				E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */,
+				E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */,
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
 				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,

@@ -24,7 +24,8 @@ class UserManager {
       "image": "",
       "coin": 0,
       "title": "菜逼",
-      "titleArray": []
+      "titleArray": [],
+      "blacklist": []
     ]
 
     UserManager.shared.db.collection("users")
@@ -43,10 +44,9 @@ class UserManager {
   }
 
   func uploadAvatarImage(imageData: Data) {
-    let uniqueString = UUID().uuidString
     let storageRef = Storage.storage().reference()
       .child("userAvatars")
-      .child("\(uniqueString).png")
+      .child("\(currentUser).png")
     storageRef.putData(imageData, metadata: nil) { data, error in
       if let err = error {
         print(err.localizedDescription)
@@ -62,17 +62,34 @@ class UserManager {
     }
   }
   func updateName(newName: String) {
-    db.collection("users").document(currentUser)
+    db.collection("users")
+      .document(currentUser)
       .updateData(["name": newName])
   }
 
   func updateTitle(newTitle: String) {
-    db.collection("users").document(currentUser)
+    db.collection("users")
+      .document(currentUser)
       .updateData(["title": newTitle])
   }
   
   func updateCoin(newCoin: Int) {
-    db.collection("users").document(currentUser)
+    db.collection("users")
+      .document(currentUser)
       .updateData(["coin": newCoin])
   }
+
+  func bolckUser(id: String) {
+    db.collection("users")
+      .document(currentUser)
+      .updateData(["blacklist": FieldValue.arrayUnion([id])])
+  }
+
+  func unBlockUser(id: String) {
+    db.collection("users")
+      .document(currentUser)
+      .updateData(["blacklist": FieldValue.arrayRemove([id])])
+  }
+
+
 }

@@ -32,7 +32,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x1x-FK-M2B">
                                                     <rect key="frame" x="16" y="16" width="382" height="201"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fitness_Two Color" translatesAutoresizingMaskIntoConstraints="NO" id="sSm-fL-wpO">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sSm-fL-wpO">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="201"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="160" id="DQX-Oj-HQd"/>
@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="97.767857142857139"/>
         </scene>
-        <!--添加目標-->
+        <!--編輯細節-->
         <scene sceneID="RxW-OA-WOg">
             <objects>
-                <tableViewController id="RGE-YX-8tp" customClass="AddNewGoalDetailViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddNewGoalDetailViewController" id="RGE-YX-8tp" customClass="AddNewGoalDetailViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vkD-kN-Pyk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,7 +376,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="huF-pu-GwK">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="huF-pu-GwK">
                                                     <rect key="frame" x="0.0" y="37.5" width="414" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
@@ -591,8 +591,8 @@
                             <outlet property="delegate" destination="RGE-YX-8tp" id="chp-8p-b4E"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="添加目標" id="rZe-1e-ygK">
-                        <barButtonItem key="rightBarButtonItem" image="add" id="cnp-xV-ecB">
+                    <navigationItem key="navigationItem" title="編輯細節" id="rZe-1e-ygK">
+                        <barButtonItem key="rightBarButtonItem" image="checked" id="cnp-xV-ecB">
                             <connections>
                                 <action selector="pressDoneButton:" destination="RGE-YX-8tp" id="hfE-3j-NXs"/>
                             </connections>
@@ -618,7 +618,7 @@
         <scene sceneID="sYw-TX-eHE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AWV-AP-71c" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus-cross" id="7Gu-Ai-qxG"/>
+                    <tabBarItem key="tabBarItem" title="" image="add" id="7Gu-Ai-qxG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mAF-an-kss">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -635,11 +635,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Fitness_Two Color" width="406" height="306"/>
         <image name="add" width="24" height="24"/>
         <image name="checked" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="plus-cross" width="24" height="24"/>
         <image name="round" width="24" height="24"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

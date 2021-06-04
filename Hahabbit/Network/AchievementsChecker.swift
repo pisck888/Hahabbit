@@ -40,7 +40,7 @@ class AchievementsChecker {
 
     let timeString = dateFormatter.string(from: Date())
 
-    if timeString == "12" {
+    if timeString == "23" {
       db.collection("achievements")
         .whereField("id", isEqualTo: 1)
         .whereField("isDone", arrayContains: UserManager.shared.currentUser)

@@ -12,6 +12,7 @@ import SwiftKeychainWrapper
 class LoginViewController: UIViewController {
 
   @IBOutlet weak var signInButtonView: UIView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupLoginView()

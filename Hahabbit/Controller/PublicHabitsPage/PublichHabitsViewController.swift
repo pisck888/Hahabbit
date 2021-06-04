@@ -6,11 +6,9 @@
 //
 
 import UIKit
-import YNDropDownMenu
 import ContextMenuSwift
 import PinterestSegment
 import IQKeyboardManagerSwift
-
 
 class PublichHabitsViewController: UIViewController {
 
@@ -20,10 +18,11 @@ class PublichHabitsViewController: UIViewController {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentView: UIView!
+
+  let segmentTitleArray = ["總覽", "跑步", "重訓", "英文", "日文", "減肥", "喝水", "冥想"]
   var style = PinterestSegmentStyle()
   let viewModel = PublicHabitViewModel()
-
-  var testTitle = ""
+  var buttonTitle = ""
   var searchHabitsArray: [Habit] = [] {
     didSet {
       tableView.reloadData()
@@ -35,6 +34,11 @@ class PublichHabitsViewController: UIViewController {
 
     navigationItem.backButtonTitle = ""
     
+    searchBar.backgroundImage = UIImage()
+    searchBar.barTintColor = .systemGray6
+    searchBar.searchTextField.backgroundColor = .white
+    searchBar.layer.borderColor = UIColor.systemGray6.cgColor
+    
     viewModel.fetchData()
 
     viewModel.publicHabits.bind { habits in
@@ -42,17 +46,21 @@ class PublichHabitsViewController: UIViewController {
       self.tableView.reloadData()
     }
 
-    self.searchBar.delegate = self
+    searchBar.delegate = self
 
     tableView.register(UINib(nibName: K.publicGoalsTableViewCell, bundle: nil), forCellReuseIdentifier: K.publicGoalsTableViewCell)
 
     setupButton()
     setPinterestSegment()
-    let segment = PinterestSegment(frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40), segmentStyle: style, titles: ["跑步", "重訓", "英文", "日文", "減肥", "喝水", "冥想"])
+    let segment = PinterestSegment(frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40), segmentStyle: style, titles: segmentTitleArray)
     segmentView.addSubview(segment)
     segment.valueChange = { index in
-      print(index)
-      self.viewModel.fetchData(withType: index)
+      switch index {
+      case 0:
+        self.searchHabitsArray = self.viewModel.publicHabits.value
+      default:
+        self.searchByTagTitle(title: self.segmentTitleArray[index])
+      }
     }
 
     func setPinterestSegment() {
@@ -74,17 +82,19 @@ class PublichHabitsViewController: UIViewController {
 
 
   @IBAction func pressTypeButton(_ sender: UIButton) {
-    CM.items = ["健身運動", "學習技能", "自我管理", "其他自訂"]
+    CM.items = Array.typeArray
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
-    testTitle = sender.titleLabel?.text ?? ""
+    buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressWeekdayButton(_ sender: UIButton) {
-    CM.items = [ "周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+    CM.items = Array.weekdayArray
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
+    buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressLocationButton(_ sender: UIButton) {
-    CM.items = ["台北市", "新北市", "台中市", "不限"]
+    CM.items = Array.locationArray
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
+    buttonTitle = sender.titleLabel?.text ?? ""
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,18 +103,30 @@ class PublichHabitsViewController: UIViewController {
       controller?.habit = sender as? Habit
     }
   }
+
+  func searchByTagTitle(title: String) {
+    searchHabitsArray = viewModel.publicHabits.value.filter { habit in
+      return habit.title.range(of: title, options: .caseInsensitive, range: nil, locale: nil) != nil
+    }
+  }
 }
 
 extension PublichHabitsViewController: ContextMenuDelegate {
   func contextMenuDidSelect(_ contextMenu: ContextMenu, cell: ContextMenuCell, targetedView: UIView, didSelect item: ContextMenuItem, forRowAt index: Int) -> Bool {
-    if testTitle == "種類" {
-      print(123)
-    }
-    print(contextMenu, index)
-    if item.title == "不限" {
-      viewModel.fetchData()
-    } else {
-      viewModel.fetchData(withLocation: item.title)
+
+    switch buttonTitle {
+    case "地區":
+      if item.title == "不限制" {
+        viewModel.fetchData()
+      } else {
+        viewModel.fetchData(withLocation: item.title)
+      }
+    case "星期":
+      viewModel.fetchData(withWeekday: (index + 1))
+    case "種類":
+      viewModel.fetchData(withType: (index + 3))
+    default:
+      print("no such title")
     }
     return true
   }
@@ -113,11 +135,11 @@ extension PublichHabitsViewController: ContextMenuDelegate {
   }
 
   func contextMenuDidAppear(_ contextMenu: ContextMenu) {
-//    print("contextMenuDidAppear")
+    //    print("contextMenuDidAppear")
   }
 
   func contextMenuDidDisappear(_ contextMenu: ContextMenu) {
-//    print("contextMenuDidDisappear")
+    //    print("contextMenuDidDisappear")
   }
 }
 
@@ -125,19 +147,16 @@ extension PublichHabitsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     searchHabitsArray.count
 
-//    viewModel.publicHabits.value.count
+    //    viewModel.publicHabits.value.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: K.publicGoalsTableViewCell, for: indexPath) as! PublicGoalsTableViewCell
     cell.setup(with: searchHabitsArray[indexPath.row])
-
-//    cell.setup(with: viewModel.publicHabits.value[indexPath.row])
+    //    cell.setup(with: viewModel.publicHabits.value[indexPath.row])
     cell.selectionStyle = .none
     return cell
   }
-
-
 }
 
 extension PublichHabitsViewController: UITableViewDelegate {
@@ -150,7 +169,6 @@ extension PublichHabitsViewController: UITableViewDelegate {
 extension PublichHabitsViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     print(searchText)
-
     searchHabitsArray = searchText.isEmpty ? viewModel.publicHabits.value : viewModel.publicHabits.value.filter { habit in
       return habit.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
     }
@@ -160,7 +178,6 @@ extension PublichHabitsViewController: UISearchBarDelegate {
     searchBar.endEditing(true)
   }
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//    searchBar.resignFirstResponder()
     searchBar.endEditing(true)
   }
 }

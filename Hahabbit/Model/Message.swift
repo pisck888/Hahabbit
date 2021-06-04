@@ -21,7 +21,8 @@ struct Message {
       "content": content,
       "created": created,
       "senderID": senderID,
-      "senderName":senderName]
+      "senderName": senderName
+    ]
   }
 }
 
@@ -32,8 +33,8 @@ extension Message {
           let created = dictionary["created"] as? Timestamp,
           let senderID = dictionary["senderID"] as? String,
           let senderName = dictionary["senderName"] as? String
-    else {return nil}
-    self.init(id: id, content: content, created: created, senderID: senderID, senderName:senderName)
+    else { return nil }
+    self.init(id: id, content: content, created: created, senderID: senderID, senderName: senderName)
   }
 }
 
@@ -51,4 +52,3 @@ extension Message: MessageType {
     return .text(content)
   }
 }
-

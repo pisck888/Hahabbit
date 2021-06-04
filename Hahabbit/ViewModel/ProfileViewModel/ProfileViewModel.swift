@@ -11,15 +11,36 @@ import FirebaseFirestoreSwift
 
 class ProfileViewModel {
 
-  var userViewModel: Box<User> = Box(User(id: "", title: "", name: "", image: "", coin: 0, email: "", titleArray: []))
+  var currentUserViewModel: Box<User> = Box(User(id: "", title: "", name: "", image: "", coin: 0, email: "", titleArray: [], blacklist: []))
 
-  func fetchData() {
+  var tappedUserViewModel: Box<User?> = Box(nil)
+
+  func fetchCurrentUser() {
     UserManager.shared.db
       .collection("users")
       .whereField("id", isEqualTo: UserManager.shared.currentUser)
       .addSnapshotListener { querySnapshot, error in
+        guard error == nil else {
+          print(error)
+          return
+        }
         if let user = try? querySnapshot?.documents[0].data(as: User.self) {
-          self.userViewModel.value = user
+          self.currentUserViewModel.value = user
+        }
+      }
+  }
+
+  func fetchTappedUser(id: String) {
+    UserManager.shared.db
+      .collection("users")
+      .whereField("id", isEqualTo: id)
+      .getDocuments { querySnapshot, error in
+        guard error == nil else {
+          print(error)
+          return
+        }
+        if let user = try? querySnapshot?.documents[0].data(as: User.self) {
+          self.tappedUserViewModel.value = user
         }
       }
   }

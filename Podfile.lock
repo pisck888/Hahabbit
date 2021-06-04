@@ -220,7 +220,7 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.7)
   - ContextMenuSwift (0.0.8)
   - CustomizableActionSheet (1.2.3)
-  - DisplaySwitcher (2.0)
+  - DynamicBlurView (4.1.0)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
   - Firebase/Firestore (6.34.0):
@@ -262,7 +262,6 @@ PODS:
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
-  - GrowingTextView (0.7.2)
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
     - "gRPC-C++/Interface (= 1.28.2)"
@@ -292,47 +291,44 @@ PODS:
     - InputBarAccessoryView/Core (= 4.3.3)
   - InputBarAccessoryView/Core (4.3.3)
   - IQKeyboardManagerSwift (6.5.6)
-  - Kingfisher (6.2.1)
+  - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
   - MBCircularProgressBar (0.3.5)
-  - McPicker (3.0.0)
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
-  - MKGradientView (2.0.2)
+  - MJRefresh (3.6.1)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PinterestSegment (1.2.3)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - PromisesObjC (1.2.12)
   - ScrollableGraphView (4.0.6)
   - SPAlert (2.1.4)
   - SwiftKeychainWrapper (4.0.1)
   - SwiftLint (0.43.1)
-  - YNDropDownMenu (3.1.0)
 
 DEPENDENCIES:
   - ContextMenuSwift
   - CustomizableActionSheet
-  - DisplaySwitcher (~> 2.0)
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - FSCalendar
-  - GrowingTextView (= 0.7.2)
   - IQKeyboardManagerSwift
   - Kingfisher (~> 6.0)
   - MBCircularProgressBar
-  - McPicker
   - MessageKit
-  - MKGradientView
+  - MJRefresh
   - PinterestSegment
+  - PopupDialog (~> 1.1)
   - ScrollableGraphView
   - SPAlert
   - SwiftKeychainWrapper
   - SwiftLint
-  - YNDropDownMenu
 
 SPEC REPOS:
   trunk:
@@ -340,7 +336,7 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - ContextMenuSwift
     - CustomizableActionSheet
-    - DisplaySwitcher
+    - DynamicBlurView
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -350,7 +346,6 @@ SPEC REPOS:
     - FSCalendar
     - GoogleDataTransport
     - GoogleUtilities
-    - GrowingTextView
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
@@ -359,24 +354,23 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - MBCircularProgressBar
-    - McPicker
     - MessageKit
-    - MKGradientView
+    - MJRefresh
     - nanopb
     - PinterestSegment
+    - PopupDialog
     - PromisesObjC
     - ScrollableGraphView
     - SPAlert
     - SwiftKeychainWrapper
     - SwiftLint
-    - YNDropDownMenu
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
   ContextMenuSwift: b4d4066b9ebe47a43f7734a4a6989cf03efe5ad8
   CustomizableActionSheet: 2a855974bcdc347a4237b5ae94ac9b15fdbac17d
-  DisplaySwitcher: 1db23ee6a45fbebac733917cc002204adad37d28
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
@@ -386,27 +380,25 @@ SPEC CHECKSUMS:
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
-  McPicker: ba38be56a8194faa5249eca4226c364eed628044
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
-  MKGradientView: 3ba213002a8258d96d098188655596c5f35ab659
+  MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PinterestSegment: 3dd673ffd9feb00dc7816bb1e503d70459e8eaa8
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
   SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
-  YNDropDownMenu: 9c88e36c5f913bc614aaf0f3d0a7968f6251268b
 
-PODFILE CHECKSUM: 587b40f85a8c2b51b5cb46679cdddd70195dff65
+PODFILE CHECKSUM: 8584abd5813d347788e320175bcf78deebe87848
 
 COCOAPODS: 1.10.1

@@ -89,6 +89,31 @@ class PublicHabitViewModel {
         }
       }
   }
+
+  func fetchData(withWeekday weekday: Int) {
+    HabitManager.shared.db
+      .collection("habits")
+      .whereField("weekday.\(weekday)", isEqualTo: true)
+      .getDocuments { querySnapshot, error in
+        guard error == nil else {
+          print("There was an issue retrieving data from Firebase. \(error)")
+          return
+        }
+        guard let documents = querySnapshot?.documents else {
+          return
+        }
+        let tempArray = documents.compactMap { queryDocumentSnapshot in
+          try?  queryDocumentSnapshot.data(as: Habit.self)
+        }
+        // only show i am not a member
+        self.publicHabits.value = []
+        for element in tempArray {
+          if !element.members.contains(HabitManager.shared.currentUser) {
+            self.publicHabits.value.append(element)
+          }
+        }
+      }
+  }
 }
 
 //class PublicHabitViewModelTest {

@@ -9,12 +9,18 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
+protocol HabitManagerDelegate: AnyObject {
+  func setNewData(data: Habit)
+}
+
 enum FirebaseError: Error {
   case documentError
 }
 
 class HabitManager {
   static let shared = HabitManager()
+
+  weak var delegate: HabitManagerDelegate?
 
   var currentUser = "pisck780527@gmail.com"
 
@@ -62,97 +68,165 @@ class HabitManager {
                   .document(self.currentUser)
                   .setData([today: false], merge: true)
               }
-//                            print(habit)
+              //                            print(habit)
             }
         }
       }
   }
-  func addNewHabit(habit: Habit, hours: [Int], minutes: [Int]) {
-    let habits = db.collection("habits").document()
-    let notification = db.collection("habits")
-      .document(habits.documentID)
-      .collection("notification")
-      .document(currentUser)
-    let data: [String: Any] = [
-      "id": habits.documentID,
-      "title": habit.title,
-      "type": habit.type,
-      "detail": habit.detail,
-      "location": habit.location,
-      "members": [currentUser],
-      "icon": habit.icon,
-      "slogan": habit.slogan,
-      "owner": currentUser,
-      "weekday": habit.weekday,
-      "photo": habit.photo
-    ]
-
-    habits.setData(data)
-    notification.setData(["hours": hours], merge: true)
-    notification.setData(["minutes": minutes], merge: true)
-  }
-
-  func deleteHabit(id: String) {
-    db.collection("habits")
-      .document(id)
-      .delete { error in
+  func uploadHabit(habit: Habit, hours: [Int], minutes: [Int]) {
+    if habit.id == "" {
+      let newHabitRef = db.collection("habits").document()
+      let notification = db.collection("habits")
+        .document(newHabitRef.documentID)
+        .collection("notification")
+        .document(UserManager.shared.currentUser)
+      let data: [String: Any] = [
+        "id": newHabitRef.documentID,
+        "title": habit.title,
+        "type": habit.type,
+        "detail": habit.detail,
+        "location": habit.location,
+        "members": [UserManager.shared.currentUser],
+        "icon": habit.icon,
+        "slogan": habit.slogan,
+        "owner": UserManager.shared.currentUser,
+        "weekday": habit.weekday,
+        "photo": habit.photo
+      ]
+      newHabitRef.setData(data)
+      notification.setData(["hours": hours], merge: true)
+      notification.setData(["minutes": minutes], merge: true)
+    } else {
+      let editHabitRef = db.collection("habits").document(habit.id)
+      let notification = db.collection("habits")
+        .document(habit.id)
+        .collection("notification")
+        .document(UserManager.shared.currentUser)
+      let data: [String: Any] = [
+        "id": habit.id,
+        "title": habit.title,
+        "type": habit.type,
+        "detail": habit.detail,
+        "location": habit.location,
+        "members": [UserManager.shared.currentUser],
+        "icon": habit.icon,
+        "slogan": habit.slogan,
+        "owner": UserManager.shared.currentUser,
+        "weekday": habit.weekday,
+        "photo": habit.photo
+      ]
+      notification.setData(["hours": hours], merge: true)
+      notification.setData(["minutes": minutes], merge: true)
+      editHabitRef.setData(data) { error in
         guard error == nil else {
           print(error)
           return
         }
-      }    
+        self.delegate?.setNewData(data: habit)
+      }
+    }
+
   }
 
-  func setAllNotifications() {
-    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    db.collection("habits")
-      .whereField("members", arrayContains: currentUser)
-      .getDocuments { querySnapshot, error in
-        guard let documents = querySnapshot?.documents else {
-          return
+  func deleteHabit(habit: Habit) {
+    if habit.owner == UserManager.shared.currentUser {
+      db.collection("habits")
+        .document(habit.id)
+        .delete { error in
+          guard error == nil else {
+            print(error)
+            return
+          }
         }
-        let habits = documents.compactMap { queryDocumentSnapshot in
-          try?  queryDocumentSnapshot.data(as: Habit.self)
+    } else {
+      db.collection("habits")
+        .document(habit.id)
+        .updateData([
+          "members": FieldValue.arrayRemove([UserManager.shared.currentUser])
+        ]) { error in
+          guard error == nil else {
+            print(error)
+            return
+          }
         }
-        for habit in habits {
-          // set notification
-          for weekday in 1...7 {
-            if habit.weekday[String(weekday)] == true {
+    }
+  }
 
-              let notificationContent = UNMutableNotificationContent()
-              notificationContent.title = habit.title
-              notificationContent.body = habit.slogan
-              notificationContent.badge = NSNumber(value: 1)
-              notificationContent.sound = .default
+    func deleteHabit(id: String) {
+      db.collection("habits")
+        .document(id)
+        .delete { error in
+          guard error == nil else {
+            print(error)
+            return
+          }
+        }
+    }
 
-              self.db.collection("habits")
-                .document(habit.id)
-                .collection("notification")
-                .document(self.currentUser)
-                .getDocument { documentSnapshot, error in
-                  if let hours = documentSnapshot?.data()?["hours"] as? [Int],
-                    let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
-                    !hours.isEmpty,
-                    !minutes.isEmpty {
-                    for i in 0...(hours.count - 1) {
-                      var datComp = DateComponents()
-                      datComp.weekday = weekday
-                      datComp.hour = hours[i]
-                      datComp.minute = minutes[i]
+    func fetchNotifications(id: String) {
+      db.collection("habits")
+        .document(id)
+        .collection("notification")
+        .document(UserManager.shared.currentUser)
+        .getDocument { documentSnapshot, error in
+          print(documentSnapshot?.data())
+        }
+    }
 
-                      let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
-                      let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
-                      UNUserNotificationCenter.current().add(request) { error in
-                        if let err = error {
-                          print(err.localizedDescription)
+    func setAllNotifications() {
+      UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+      db.collection("habits")
+        .whereField("members", arrayContains: currentUser)
+        .getDocuments { querySnapshot, error in
+          guard let documents = querySnapshot?.documents else {
+            return
+          }
+          let habits = documents.compactMap { queryDocumentSnapshot in
+            try?  queryDocumentSnapshot.data(as: Habit.self)
+          }
+          for habit in habits {
+            // set notification
+            for weekday in 1...7 {
+              if habit.weekday[String(weekday)] == true {
+
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.title = habit.title
+                notificationContent.body = habit.slogan
+                notificationContent.badge = 1
+                notificationContent.sound = .default
+
+                let imageURL = Bundle.main.url(forResource: "crocodile", withExtension: "png")!
+                let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
+                notificationContent.attachments = [attachment]
+
+                self.db.collection("habits")
+                  .document(habit.id)
+                  .collection("notification")
+                  .document(self.currentUser)
+                  .getDocument { documentSnapshot, error in
+                    if let hours = documentSnapshot?.data()?["hours"] as? [Int],
+                       let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
+                       !hours.isEmpty,
+                       !minutes.isEmpty {
+                      for i in 0...(hours.count - 1) {
+                        var datComp = DateComponents()
+                        datComp.weekday = weekday
+                        datComp.hour = hours[i]
+                        datComp.minute = minutes[i]
+
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request) { error in
+                          if let err = error {
+                            print(err.localizedDescription)
+                          }
                         }
                       }
                     }
                   }
-                }
+              }
             }
           }
         }
-      }
+    }
   }
-}

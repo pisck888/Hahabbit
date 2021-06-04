@@ -10,18 +10,23 @@ import MessageKit
 import InputBarAccessoryView
 import Firebase
 import Kingfisher
-
+import PopupDialog
 
 class ChatPageViewController: MessagesViewController {
+
   private let formatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd a HH:mm:ss"
+    formatter.dateFormat = "yyyy-MM-dd a HH:mm"
     return formatter
   }()
   let viewModel = ProfileViewModel()
   var habitID: String?
   var members: [String]?
-  var currentUser: User?
+  var currentUser: User? {
+    didSet {
+      loadChat()
+    }
+  }
   var messages: [Message] = [] {
     didSet {
       messagesCollectionView.reloadData()
@@ -33,16 +38,22 @@ class ChatPageViewController: MessagesViewController {
     super.viewDidLoad()
     messagesCollectionView.backgroundColor = .systemGray6
 
-    viewModel.userViewModel.bind { user in
+    viewModel.currentUserViewModel.bind { user in
       self.currentUser = user
     }
-    viewModel.fetchData()
+
+    viewModel.tappedUserViewModel.bind { user in
+      if let user = user {
+        self.showProfilePopup(user: user)
+      }
+    }
+
+    viewModel.fetchCurrentUser()
 
     setupChatViewAndInputBar()
   }
 
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
+  override func viewDidAppear(_ animated: Bool) {
     loadChat()
   }
 
@@ -81,8 +92,11 @@ class ChatPageViewController: MessagesViewController {
                   print(err)
                 } else {
                   guard let documents = querySnapshot?.documents else { return }
-                  self.messages = documents.compactMap {
+                  let messagesArray = documents.compactMap {
                     return Message(dictionary: $0.data())
+                  }
+                  self.messages = messagesArray.filter {
+                    !((self.currentUser?.blacklist.contains($0.senderID))!)
                   }
                 }
               }
@@ -128,9 +142,6 @@ class ChatPageViewController: MessagesViewController {
     messageInputBar.sendButton.image = UIImage(named: "arrowCircleRight")
     messageInputBar.sendButton.title = nil
   }
-
-
-
 }
 
 extension ChatPageViewController: MessagesDataSource {
@@ -186,8 +197,7 @@ extension ChatPageViewController: MessagesDisplayDelegate {
       .getDocuments { querySnapshot, error in
         guard let user = querySnapshot?.documents[0].data() else { return }
         guard let url = URL(string: user["image"] as? String ?? "") else { return }
-//        avatarView.layer.borderWidth = 1
-//        avatarView.layer.borderColor = UIColor.systemGray.cgColor
+        avatarView.kf.indicatorType = .activity
         avatarView.kf.setImage(with: url)
       }
   }
@@ -224,8 +234,57 @@ extension ChatPageViewController: InputBarAccessoryViewDelegate {
     inputBar.inputTextView.placeholder = "Aa"
   }
 }
+
+
 extension ChatPageViewController: MessageCellDelegate {
   @objc(didTapBackgroundIn:) func didTapBackground(in cell: MessageCollectionViewCell) {
     messageInputBar.inputTextView.resignFirstResponder()
+  }
+
+  func didTapAvatar(in cell: MessageCollectionViewCell) {
+
+    let indexPath = messagesCollectionView.indexPath(for: cell)!
+    let message = messageForItem(at: indexPath, in: messagesCollectionView)
+    print(message.sender.senderId)
+
+    viewModel.fetchTappedUser(id: message.sender.senderId)
+  }
+
+  func showProfilePopup(user: User) {
+    let url = URL(string: user.image)
+    let imageView = UIImageView()
+    let placeholder = UIImage(named: "avatar")
+    imageView.kf.indicatorType = .activity
+    imageView.kf.setImage(with: url, placeholder: placeholder) { result in
+      switch result {
+      case .success(let value):
+        let popup = PopupDialog(
+          title: user.name,
+          message: user.title,
+          image: value.image
+        )
+        let containerAppearance = PopupDialogContainerView.appearance()
+
+        let buttonOne = DestructiveButton(title: "封鎖") {
+          UserManager.shared.bolckUser(id: user.id)
+        }
+
+        let buttonTwo = CancelButton(title: "Close") {
+        }
+        if user.id != UserManager.shared.currentUser {
+          popup.addButtons([buttonOne, buttonTwo])
+        } else {
+          popup.addButton(buttonTwo)
+        }
+        popup.transitionStyle = .zoomIn
+        containerAppearance.cornerRadius = 10
+
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
+
+      case .failure(let error):
+        print(error.errorDescription as Any)
+      }
+    }
   }
 }

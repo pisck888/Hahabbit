@@ -15,8 +15,6 @@ target 'Hahabbit' do
   pod 'FirebaseFirestoreSwift'
   # for keyboard
   pod 'IQKeyboardManagerSwift'
-  # for collection view
-  pod 'DisplaySwitcher', '~> 2.0'
   # for segmented control
   pod 'PinterestSegment'
   # for calendar
@@ -25,19 +23,24 @@ target 'Hahabbit' do
   pod 'ScrollableGraphView'
   pod 'MBCircularProgressBar'
   # for DropDown
-  pod 'YNDropDownMenu'
+  # pod 'YNDropDownMenu'
   pod 'ContextMenuSwift'
+  # pod 'SwiftyMenu', '~> 0.6.5'
   # for AlertController
   pod 'CustomizableActionSheet'
   pod 'SPAlert'
   # for keychain
   pod 'SwiftKeychainWrapper'
   # for pickerView
-  pod "McPicker"
+  # pod 'McPicker'
   # for chat room
   pod 'MessageKit'
-  pod 'GrowingTextView', '0.7.2'
+  # pod 'GrowingTextView', '0.7.2'
   # for gradient view
-  pod 'MKGradientView'
+  # pod 'MKGradientView'
+  # for pull to refresh
+  pod 'MJRefresh'
+  # for popup View
+  pod 'PopupDialog', '~> 1.1'
 
 end

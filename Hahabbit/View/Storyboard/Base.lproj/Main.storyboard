@@ -71,7 +71,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="338" height="498"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cosmic-egg" translatesAutoresizingMaskIntoConstraints="NO" id="97c-3O-iCu">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="97c-3O-iCu">
                             <rect key="frame" x="16" y="16" width="306" height="306"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="97c-3O-iCu" secondAttribute="height" multiplier="1:1" id="NuN-p8-Ogi"/>
@@ -276,6 +276,13 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7R5-0T-2o8">
+                                                            <rect key="frame" x="334" y="332" width="24" height="24"/>
+                                                            <state key="normal" image="edit"/>
+                                                            <connections>
+                                                                <action selector="pressEditButton:" destination="aMJ-8S-rsl" eventType="touchUpInside" id="cKX-Nw-Zu6"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -292,10 +299,13 @@
                                                         <constraint firstAttribute="bottom" secondItem="Y5a-Wg-XcQ" secondAttribute="bottom" constant="16" id="SSa-Y1-Whk"/>
                                                         <constraint firstItem="7DE-j8-0lM" firstAttribute="leading" secondItem="e80-bU-V4v" secondAttribute="trailing" constant="16" id="Ubq-Me-WwG"/>
                                                         <constraint firstItem="s0D-wY-MgR" firstAttribute="leading" secondItem="dED-HK-Ko8" secondAttribute="leading" constant="16" id="XMt-yS-FsX"/>
+                                                        <constraint firstItem="7R5-0T-2o8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7DE-j8-0lM" secondAttribute="trailing" constant="16" id="Z4s-S7-FqH"/>
                                                         <constraint firstItem="e80-bU-V4v" firstAttribute="top" secondItem="ErU-4l-RSc" secondAttribute="bottom" constant="16" id="g1q-kX-PN6"/>
                                                         <constraint firstItem="wrB-3L-S45" firstAttribute="top" secondItem="e80-bU-V4v" secondAttribute="bottom" constant="16" id="hf6-3l-LMV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7R5-0T-2o8" secondAttribute="trailing" constant="16" id="lMp-tU-lPr"/>
                                                         <constraint firstAttribute="trailing" secondItem="ErU-4l-RSc" secondAttribute="trailing" constant="16" id="lsp-hu-AWy"/>
                                                         <constraint firstItem="ErU-4l-RSc" firstAttribute="leading" secondItem="dED-HK-Ko8" secondAttribute="leading" constant="16" id="mrN-8F-EPc"/>
+                                                        <constraint firstItem="7R5-0T-2o8" firstAttribute="top" secondItem="ErU-4l-RSc" secondAttribute="bottom" constant="16" id="wX9-ly-4uU"/>
                                                         <constraint firstAttribute="trailing" secondItem="wrB-3L-S45" secondAttribute="trailing" constant="16" id="xTk-8I-iZW"/>
                                                     </constraints>
                                                 </view>
@@ -708,7 +718,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="pMD-mw-6ix">
                         <barButtonItem key="rightBarButtonItem" image="communication" id="5ZP-0E-vls">
                             <connections>
-                                <segue destination="l2o-PE-qUc" kind="show" identifier="SegeuToChatRoom" id="3ch-t3-wEO"/>
+                                <segue destination="l2o-PE-qUc" kind="show" identifier="SegeuToChatRoomPage" id="3ch-t3-wEO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -720,6 +730,7 @@
                         <outlet property="chatRoomButton" destination="5ZP-0E-vls" id="nxf-i7-Yxd"/>
                         <outlet property="detailLabel" destination="Y5a-Wg-XcQ" id="gpN-pB-WIN"/>
                         <outlet property="detailView" destination="dED-HK-Ko8" id="UiT-ha-PRp"/>
+                        <outlet property="editButton" destination="7R5-0T-2o8" id="2CO-Ki-ES7"/>
                         <outlet property="graphView" destination="R4C-vQ-GOg" id="V1W-iR-2o8"/>
                         <outlet property="iconImage" destination="e80-bU-V4v" id="LIp-E7-9tA"/>
                         <outlet property="locationLabel" destination="s0D-wY-MgR" id="xlN-YW-nq3"/>
@@ -745,11 +756,22 @@
                         <outletCollection property="weekdayButtons" destination="D8N-DC-ny1" collectionClass="NSMutableArray" id="Fvu-aT-aft"/>
                         <outletCollection property="weekdayButtons" destination="YHe-80-7FW" collectionClass="NSMutableArray" id="Log-bR-e1r"/>
                         <outletCollection property="weekdayButtons" destination="6k1-ac-6Wj" collectionClass="NSMutableArray" id="S3q-72-tNA"/>
+                        <segue destination="Lc0-GG-X4v" kind="show" identifier="SegueToAddNewGoalDetailPage" id="BRn-Ws-jzI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUb-NP-7GU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2824.6376811594205" y="97.767857142857139"/>
+        </scene>
+        <!--AddNewGoalDetailViewController-->
+        <scene sceneID="SPd-z5-fyU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddNewGoal" referencedIdentifier="AddNewGoalDetailViewController" id="Lc0-GG-X4v" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Y1B-5g-rJ4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ca8-Tc-hyk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2825" y="475"/>
         </scene>
         <!--多人混戰-->
         <scene sceneID="bgE-jp-sJM">
@@ -948,7 +970,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="338" height="500"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cosmic-egg" translatesAutoresizingMaskIntoConstraints="NO" id="juq-pB-EBw">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="juq-pB-EBw">
                             <rect key="frame" x="16" y="16" width="306" height="306"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="juq-pB-EBw" secondAttribute="height" multiplier="1:1" id="InP-rf-xlp"/>
@@ -1024,13 +1046,13 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="GhL-96-IlX"/>
-        <segue reference="Fkq-zb-1ii"/>
+        <segue reference="h0N-K7-h9C"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>
         <image name="calendarThirty" width="24" height="24"/>
         <image name="communication" width="24" height="24"/>
-        <image name="cosmic-egg" width="512" height="512"/>
+        <image name="edit" width="24" height="24"/>
         <image name="viewGridCard" width="24" height="24"/>
         <image name="viewList" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

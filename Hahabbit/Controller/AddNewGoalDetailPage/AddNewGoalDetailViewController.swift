@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseStorage
 import SPAlert
+import Kingfisher
 
 class AddNewGoalDetailViewController: UITableViewController {
 
@@ -39,39 +40,66 @@ class AddNewGoalDetailViewController: UITableViewController {
     }
   }
 
-  var reminders = ["+"]
-  let location = ["台北市", "新北市", "桃園市", "台中市", "台南市", "高雄市"]
-  let weekday = ["Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."]
-  let icon = [
-    "abstract", "accordion", "balet", "banjo", "basket", "beach", "beer",
-    "beer2", "book", "boomerang", "boots", "candles", "cheeseMeat", "coat",
-    "coconut-drink", "coffee", "coin", "dancer", "dog", "donations", "drum",
-    "envelope", "excalibur", "fireworks", "food", "gifts", "guitar", "harp",
-    "heart", "icecream", "lion", "love", "mask2", "monalisa", "no-alchool",
-    "no-cookie", "no-music", "no-shopping", "no-tech", "people-love", "perfume",
-    "peru", "pray-down", "pray", "rain", "roses", "scroll", "slippers", "smoke",
-    "stopwatch", "sunrise", "sword", "symbol", "tea"
-  ]
+  var reminders = ["+"] {
+    didSet {
+      remindersCollectionView.reloadData()
+    }
+  }
   var type = ""
   var hours: [Int] = []
   var minutes: [Int] = []
+  var selectedIconIndexPath: IndexPath = [0, 0] {
+    didSet {
+      iconCollectionView.reloadData()
+    }
+  }
+  var selectedLocationIndexPath: IndexPath = [0, 0] {
+    didSet {
+      locationCollectionView.reloadData()
+    }
+  }
   var newHabit = Habit(
     id: "",
     title: "",
-    weekday: ["1": false, "2": false, "3": false, "4": false, "5": false, "6": false, "7": false],
+    weekday: ["1": true, "2": true, "3": true, "4": true, "5": true, "6": true, "7": true],
     slogan: "",
     members: [UserManager.shared.currentUser],
     detail: "",
-    location: "",
+    location: Array.locationArray[0],
     owner: UserManager.shared.currentUser,
     type: ["0": true, "1": false, "2": true, "3": false, "4": false, "5": false, "6": false],
-    icon: "",
+    icon: Array.habitIconArray[0],
     photo: ""
   )
+  var editHabit: Habit?
+  var viewModel = NotificationsViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
     newHabit.type[type] = true
+
+    viewModel.notification.bind { notification in
+      guard let time = notification else { return }
+      self.reminders.insert(time, at: self.reminders.count - 1)
+    }
+
+    viewModel.hour.bind { hour in
+      guard let hour = hour else { return }
+      self.hours.append(hour)
+    }
+
+    viewModel.minute.bind { minute in
+      guard let minute = minute else { return }
+      self.minutes.append(minute)
+    }
+    if editHabit == nil {
+      for i in 0...6 {
+        frequencyCollectionView.selectItem(at: [0, i], animated: true, scrollPosition: [])
+      }
+    } else {
+      viewModel.fetchNotifications(id: editHabit?.id ?? "")
+      setEditHabit()
+    }
   }
 
   @IBAction func pressPublicButton(_ sender: UIButton) {
@@ -103,9 +131,33 @@ class AddNewGoalDetailViewController: UITableViewController {
           }
           self.newHabit.photo = url.absoluteString
           print(url.absoluteString)
-          HabitManager.shared.addNewHabit(habit: self.newHabit, hours: self.hours, minutes: self.minutes)
+          HabitManager.shared.uploadHabit(habit: self.newHabit, hours: self.hours, minutes: self.minutes)
           HabitManager.shared.setAllNotifications()
           SPAlert.present(title: "Done", preset: .done)
+        }
+      }
+    }
+  }
+
+  func setEditHabit() {
+    if let editHabit = editHabit {
+      newHabit = editHabit
+      let url = URL(string: editHabit.photo)
+      titleTextField.text = editHabit.title
+      messageTextField.text = editHabit.slogan
+      detailTextView.text = editHabit.detail
+      photoImage.kf.setImage(with: url)
+      publicButton.isSelected = editHabit.type["1"] ?? true
+      if let indexRow = Array.habitIconArray.firstIndex(where: { $0 == editHabit.icon }) {
+        selectedIconIndexPath = [0, indexRow]
+      }
+      if let indexRow = Array.locationArray.firstIndex(where: { $0 == editHabit.location }) {
+        selectedLocationIndexPath = [0, indexRow]
+      }
+      for i in 1...7 {
+        newHabit.weekday[String(i)] = editHabit.weekday[String(i)]
+        if editHabit.weekday[String(i)] == true {
+          frequencyCollectionView.selectItem(at: [0, i - 1], animated: true, scrollPosition: [])
         }
       }
     }
@@ -135,11 +187,11 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch collectionView {
     case locationCollectionView:
-      return location.count
+      return Array.locationArray.count - 1
     case iconCollectionView:
-      return icon.count
+      return Array.habitIconArray.count
     case frequencyCollectionView:
-      return weekday.count
+      return Array.weekdayArray.count
     default:
       return reminders.count
     }
@@ -149,50 +201,45 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
     switch collectionView {
+    case iconCollectionView:
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! IconCell
+      cell.setup(imageName: Array.habitIconArray[indexPath.row])
+      if indexPath == selectedIconIndexPath {
+        cell.isSelected = true
+      }
+      setCellSelectedStatus(cell: cell)
+      return cell
 
     case locationCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as! FrequencyCell
-      cell.setup(string: location[indexPath.row])
-      if cell.isSelected == true {
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.contentView.backgroundColor = .systemGray4
-      } else {
-        cell.layer.borderWidth = 0
-        cell.contentView.backgroundColor = .systemGray6
+      cell.setup(string: Array.locationArray[indexPath.row])
+      if indexPath == selectedLocationIndexPath {
+        cell.isSelected = true
       }
-      return cell
-
-    case iconCollectionView:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! IconCell
-      cell.setup(string: icon[indexPath.row])
-      if cell.isSelected == true {
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.contentView.backgroundColor = .systemGray4
-      } else {
-        cell.layer.borderWidth = 0
-        cell.contentView.backgroundColor = .systemGray6
-      }
+      setCellSelectedStatus(cell: cell)
       return cell
 
     case frequencyCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "frequencyCell", for: indexPath) as! FrequencyCell
-      cell.setup(string: weekday[indexPath.row])
-      if cell.isSelected == true {
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.contentView.backgroundColor = .systemGray4
-      } else {
-        cell.layer.borderWidth = 0
-        cell.contentView.backgroundColor = .systemGray6
-      }
+      cell.setup(string: Array.weekdayArray[indexPath.row])
+      setCellSelectedStatus(cell: cell)
       return cell
 
     default:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "remindersCell", for: indexPath) as! FrequencyCell
       cell.lebel.text = reminders[indexPath.row]
       return cell
+    }
+  }
+
+  func setCellSelectedStatus(cell: UICollectionViewCell) {
+    if cell.isSelected == true {
+      cell.layer.borderWidth = 1
+      cell.layer.borderColor = UIColor.black.cgColor
+      cell.contentView.backgroundColor = .systemGray4
+    } else {
+      cell.layer.borderWidth = 0
+      cell.contentView.backgroundColor = .systemGray6
     }
   }
 
@@ -203,39 +250,26 @@ extension AddNewGoalDetailViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
     switch collectionView {
+
     case iconCollectionView:
       newHabit.icon = (collectionView.cellForItem(at: indexPath) as! IconCell).imageName ?? ""
+      selectedIconIndexPath = indexPath
       setCellStates(collectionView: collectionView, indexPath: indexPath)
 
     case locationCollectionView:
       newHabit.location = (collectionView.cellForItem(at: indexPath) as! FrequencyCell).lebel.text ?? ""
+      selectedLocationIndexPath = indexPath
       setCellStates(collectionView: collectionView, indexPath: indexPath)
 
     case frequencyCollectionView:
       newHabit.weekday[String(indexPath.row + 1)]?.toggle()
       setCellStates(collectionView: collectionView, indexPath: indexPath)
 
-    default:
-      if collectionView == remindersCollectionView && indexPath.row == reminders.count - 1 {
-        let picker = PresentedViewController()
-        picker.style.pickerMode = .time
-        picker.style.pickerColor = .color(.black)
-        picker.style.textColor = .black
-        picker.style.titleString = "Set time"
-        picker.block = { [weak self] date in
-          if let date = date {
-            let hour = Calendar.current.component(.hour, from: date)
-            let minute = Calendar.current.component(.minute, from: date)
-            guard !(self?.reminders.contains("\(hour):\(minute)"))! else { return }
-            self?.hours.append(hour)
-            self?.minutes.append(minute)
-            self?.reminders.insert("\(hour):\(minute)", at: (self?.reminders.count)! - 1)
-            collectionView.reloadData()
-          }
+    case remindersCollectionView:
+      setReminders(collectionView: collectionView, indexPath: indexPath)
 
-        }
-        self.present(picker, animated: true, completion: nil)
-      }
+    default:
+      print("error")
     }
   }
 
@@ -243,16 +277,57 @@ extension AddNewGoalDetailViewController: UICollectionViewDelegate {
     if collectionView == frequencyCollectionView {
       newHabit.weekday[String(indexPath.row + 1)]?.toggle()
     }
-    collectionView.cellForItem(at: indexPath)?.isSelected = false
-    collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 0
-    collectionView.cellForItem(at: indexPath)?.contentView.backgroundColor = .systemGray6
+    let cell = collectionView.cellForItem(at: indexPath)
+    cell?.isSelected = false
+    cell?.layer.borderWidth = 0
+    cell?.contentView.backgroundColor = .systemGray6
   }
 
   func setCellStates(collectionView: UICollectionView, indexPath: IndexPath) {
-    collectionView.cellForItem(at: indexPath)?.isSelected = true
-    collectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
-    collectionView.cellForItem(at: indexPath)?.layer.borderColor = UIColor.black.cgColor
-    collectionView.cellForItem(at: indexPath)?.contentView.backgroundColor = .systemGray4
+    let cell = collectionView.cellForItem(at: indexPath)
+    cell?.isSelected = true
+    cell?.layer.borderWidth = 1
+    cell?.layer.borderColor = UIColor.black.cgColor
+    cell?.contentView.backgroundColor = .systemGray4
+  }
+
+  func setReminders(collectionView: UICollectionView, indexPath: IndexPath) {
+    if collectionView == remindersCollectionView && indexPath.row == reminders.count - 1 {
+      let picker = PresentedViewController()
+      picker.style.pickerMode = .time
+      picker.style.pickerColor = .color(.black)
+      picker.style.textColor = .black
+      picker.style.titleString = "Set time"
+      picker.block = { [weak self] date in
+        if let date = date {
+          let hour = Calendar.current.component(.hour, from: date)
+          let minute = Calendar.current.component(.minute, from: date)
+          var stringHour = ""
+          var stringMinute = ""
+          switch hour {
+          case 0...9:
+            stringHour = "0\(hour)"
+          default:
+            stringHour = String(hour)
+          }
+          switch minute {
+          case 0...9:
+            stringMinute = "0\(minute)"
+          default:
+            stringMinute = String(minute)
+          }
+          guard !(self?.reminders.contains("\(stringHour):\(stringMinute)"))! else { return }
+          self?.hours.append(hour)
+          self?.minutes.append(minute)
+          self?.reminders.insert("\(stringHour):\(stringMinute)", at: (self?.reminders.count)! - 1)
+        }
+      }
+      self.present(picker, animated: true, completion: nil)
+    } else {
+      self.reminders.remove(at: indexPath.row)
+      self.hours.remove(at: indexPath.row)
+      self.minutes.remove(at: indexPath.row)
+    }
   }
 }
 

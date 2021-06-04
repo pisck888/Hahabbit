@@ -8,6 +8,7 @@
 import UIKit
 import PinterestSegment
 import SwiftKeychainWrapper
+import PopupDialog
 
 class MainViewController: UIViewController {
 
@@ -64,8 +65,8 @@ class MainViewController: UIViewController {
       self.type = index
       self.viewModel.fetchData(type: index)
     }
-//    let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "Hahabbit")
-//    print(removeSuccessful)
+    //    let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "Hahabbit")
+    //    print(removeSuccessful)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -119,9 +120,27 @@ extension MainViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let deleteAction = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
-      HabitManager.shared.deleteHabit(id: self.viewModel.habitViewModels.value[indexPath.row].id)
-      self.viewModel.habitViewModels.value.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .fade)
+
+      let popup = PopupDialog(title: "Delete Habit?",
+                              message: "確定要刪除習慣嗎？")
+      let containerAppearance = PopupDialogContainerView.appearance()
+
+      let buttonOne = DestructiveButton(title: "Delete") {
+        HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
+          self.viewModel.habitViewModels.value.remove(at: indexPath.row)
+          tableView.deleteRows(at: [indexPath], with: .fade)
+      }
+
+      let buttonTwo = CancelButton(title: "Cancel") {
+      }
+
+      popup.addButtons([buttonOne, buttonTwo])
+      popup.transitionStyle = .zoomIn
+      containerAppearance.cornerRadius = 10
+
+      // Present dialog
+      self.present(popup, animated: true, completion: nil)
+
       completionHandler(true)
     }
     deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: 25, height: 25)).image { _ in
@@ -171,27 +190,4 @@ extension MainViewController: AchievementsCheckerDelegate {
   }
 
 
-}
-
-extension UIView {
-  var shakeKey: String { return "ShakeAnimation" }
-  func shake() {
-          layer.removeAnimation(forKey: shakeKey)
-          let vals: [Double] = [-2, 2, -2, 2, 0]
-
-          let translation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-          translation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-          translation.values = vals
-
-          let rotation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-          rotation.values = vals.map { (degrees: Double) in
-              let radians: Double = (Double.pi * degrees) / 180.0
-              return radians
-          }
-
-          let shakeGroup = CAAnimationGroup()
-          shakeGroup.animations = [translation, rotation]
-          shakeGroup.duration = 0.3
-          self.layer.add(shakeGroup, forKey: shakeKey)
-      }
 }

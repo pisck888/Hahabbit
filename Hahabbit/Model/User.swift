@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Decodable {
+struct User: Decodable, Equatable {
   var id: String
   var title: String
   var name: String
@@ -15,4 +15,9 @@ struct User: Decodable {
   var coin: Int
   var email: String
   var titleArray: [String]
+  var blacklist: [String]
+
+  static func == (lhs: User, rhs:User) -> Bool {
+    lhs.id == rhs.id
+  }
 }
