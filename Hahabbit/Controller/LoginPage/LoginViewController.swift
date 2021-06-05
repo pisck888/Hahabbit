@@ -8,13 +8,28 @@
 import UIKit
 import AuthenticationServices
 import SwiftKeychainWrapper
+import WebKit
 
 class LoginViewController: UIViewController {
 
+  @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
   @IBOutlet weak var signInButtonView: UIView!
+  @IBOutlet var popupView: UIView!
+  @IBOutlet weak var webView: WKWebView!
+  @IBOutlet weak var closeButton: UIButton!
+
+  lazy var blurView: UIView = {
+
+    let blurView = UIView(frame: view.frame)
+
+    blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+
+    return blurView
+  }()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    webView.navigationDelegate = self
     setupLoginView()
   }
 
@@ -23,6 +38,40 @@ class LoginViewController: UIViewController {
     signInButton.addTarget(self, action: #selector(pressSignInButton), for: .touchUpInside)
     signInButton.frame = signInButtonView.bounds
     signInButtonView.addSubview(signInButton)
+  }
+
+  func showPopupView() {
+    // set popView
+    blurView.alpha = 0.4
+    popupView.layer.cornerRadius = 10
+    popupView.clipsToBounds = true
+    popupView.frame.size = CGSize(width: view.frame.width * 0.9, height: view.frame.height * 0.8)
+    popupView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+    popupView.center = view.center
+    closeButton.layer.cornerRadius = closeButton.frame.width / 2
+
+    UIView.animate(withDuration: 0.3,
+                   delay: 0,
+                   usingSpringWithDamping: 0.7,
+                   initialSpringVelocity: 0.7,
+                   options: .curveLinear) {
+      self.popupView.transform = .identity
+    }
+
+    if let url = URL(string: "https://www.privacypolicies.com/live/eadbc4ac-181f-4ad9-8395-935c0b6da7d0") {
+      webView.load(URLRequest(url: url))
+      view.addSubview(blurView)
+      view.addSubview(popupView)
+    }
+  }
+
+  @IBAction func pressPrivacyPolicyButton(_ sender: UIButton) {
+    showPopupView()
+  }
+  
+  @IBAction func pressCloseButton(_ sender: UIButton) {
+    blurView.removeFromSuperview()
+    popupView.removeFromSuperview()
   }
 
   @objc func pressSignInButton() {
@@ -93,5 +142,15 @@ extension UIViewController {
       loginViewController.modalPresentationStyle = .fullScreen
       self.present(loginViewController, animated: false, completion: nil)
     }
+  }
+}
+
+extension LoginViewController: WKNavigationDelegate {
+  func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    loadingIndicatorView.startAnimating()
+  }
+
+  func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    loadingIndicatorView.stopAnimating()
   }
 }

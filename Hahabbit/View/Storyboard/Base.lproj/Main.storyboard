@@ -814,6 +814,13 @@
                                     <segue destination="WVe-9w-DHy" kind="presentation" modalPresentationStyle="fullScreen" id="GhL-96-IlX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-oj-euV">
+                                <rect key="frame" x="159.5" y="554" width="95" height="30"/>
+                                <state key="normal" title="Privacy Policy"/>
+                                <connections>
+                                    <action selector="pressPrivacyPolicyButton:" destination="M8o-Ct-9LX" eventType="touchUpInside" id="E1f-gg-RLT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pif-uT-Vab"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -821,15 +828,68 @@
                             <constraint firstItem="ooJ-Tc-dAC" firstAttribute="centerX" secondItem="1vi-XE-Qjm" secondAttribute="centerX" id="7yC-a1-92E"/>
                             <constraint firstItem="y2l-D0-bMs" firstAttribute="centerX" secondItem="1vi-XE-Qjm" secondAttribute="centerX" id="KIB-Xf-9Ox"/>
                             <constraint firstItem="y2l-D0-bMs" firstAttribute="centerY" secondItem="1vi-XE-Qjm" secondAttribute="centerY" id="gn4-er-Hb5"/>
+                            <constraint firstItem="mLd-oj-euV" firstAttribute="top" secondItem="ooJ-Tc-dAC" secondAttribute="bottom" constant="30" id="kwX-b2-Kei"/>
                             <constraint firstItem="ooJ-Tc-dAC" firstAttribute="top" secondItem="y2l-D0-bMs" secondAttribute="bottom" constant="16" id="uq1-1D-ZWz"/>
+                            <constraint firstItem="mLd-oj-euV" firstAttribute="centerX" secondItem="1vi-XE-Qjm" secondAttribute="centerX" id="z76-fw-xRx"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="rq3-Lc-MWK" id="r8Z-99-y43"/>
+                        <outlet property="loadingIndicatorView" destination="VuW-ZB-mTT" id="tYG-1Z-lcQ"/>
+                        <outlet property="popupView" destination="0w8-8k-ELx" id="nXy-Ur-S4M"/>
                         <outlet property="signInButtonView" destination="y2l-D0-bMs" id="A41-R7-gkC"/>
+                        <outlet property="webView" destination="2c6-1K-opS" id="guO-AV-Snk"/>
                         <segue destination="WVe-9w-DHy" kind="presentation" identifier="SegueToMainPage" modalPresentationStyle="fullScreen" id="2G2-TK-EP2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SmJ-d6-Nzc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="0w8-8k-ELx">
+                    <rect key="frame" x="0.0" y="0.0" width="297" height="478"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2c6-1K-opS">
+                            <rect key="frame" x="0.0" y="0.0" width="297" height="416"/>
+                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <wkWebViewConfiguration key="configuration">
+                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                <wkPreferences key="preferences"/>
+                            </wkWebViewConfiguration>
+                        </wkWebView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rq3-Lc-MWK">
+                            <rect key="frame" x="133.5" y="432" width="30" height="30"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="CbI-2U-NiZ"/>
+                                <constraint firstAttribute="width" secondItem="rq3-Lc-MWK" secondAttribute="height" multiplier="1:1" id="eyR-Y1-zIQ"/>
+                            </constraints>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" image="multiply" catalog="system"/>
+                            <connections>
+                                <action selector="pressCloseButton:" destination="M8o-Ct-9LX" eventType="touchUpInside" id="m0M-eW-wy0"/>
+                            </connections>
+                        </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VuW-ZB-mTT">
+                            <rect key="frame" x="138.5" y="198" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="LQI-Z7-d8o"/>
+                                <constraint firstAttribute="height" constant="20" id="TkV-P5-XmI"/>
+                            </constraints>
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="fyU-Ii-rHf"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="fyU-Ii-rHf" firstAttribute="bottom" secondItem="rq3-Lc-MWK" secondAttribute="bottom" constant="16" id="1Ag-IW-Ngj"/>
+                        <constraint firstItem="2c6-1K-opS" firstAttribute="leading" secondItem="fyU-Ii-rHf" secondAttribute="leading" id="Hgd-hE-xgN"/>
+                        <constraint firstItem="VuW-ZB-mTT" firstAttribute="centerY" secondItem="2c6-1K-opS" secondAttribute="centerY" id="NIF-GH-U7F"/>
+                        <constraint firstItem="rq3-Lc-MWK" firstAttribute="centerX" secondItem="0w8-8k-ELx" secondAttribute="centerX" id="O5s-gH-o1Z"/>
+                        <constraint firstItem="2c6-1K-opS" firstAttribute="top" secondItem="0w8-8k-ELx" secondAttribute="top" id="iv0-1M-YEF"/>
+                        <constraint firstItem="VuW-ZB-mTT" firstAttribute="centerX" secondItem="2c6-1K-opS" secondAttribute="centerX" id="nTc-H1-SUH"/>
+                        <constraint firstItem="rq3-Lc-MWK" firstAttribute="top" secondItem="2c6-1K-opS" secondAttribute="bottom" constant="16" id="plI-ak-08E"/>
+                        <constraint firstItem="fyU-Ii-rHf" firstAttribute="trailing" secondItem="2c6-1K-opS" secondAttribute="trailing" id="rSi-4P-sb9"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="-819" y="98"/>
         </scene>
@@ -1053,6 +1113,7 @@
         <image name="calendarThirty" width="24" height="24"/>
         <image name="communication" width="24" height="24"/>
         <image name="edit" width="24" height="24"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="viewGridCard" width="24" height="24"/>
         <image name="viewList" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
