@@ -17,7 +17,6 @@ class PublicHabitDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     joinButton.layer.cornerRadius = 10
-    print(habit)
   }
 
   @IBAction func pressButton(_ sender: UIButton) {
@@ -25,7 +24,7 @@ class PublicHabitDetailViewController: UIViewController {
       HabitManager.shared.db.collection("habits")
         .document(habit.id)
         .updateData(
-          ["members" : FieldValue.arrayUnion([HabitManager.shared.currentUser])]
+          ["members": FieldValue.arrayUnion([UserManager.shared.currentUser])]
         )
     }
     SPAlert.present(title: "Done", preset: .done)

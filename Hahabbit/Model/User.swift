@@ -13,7 +13,7 @@ struct User: Decodable, Equatable {
   var name: String
   var image: String
   var coin: Int
-  var email: String
+  var signUpDate: String
   var titleArray: [String]
   var blacklist: [String]
 

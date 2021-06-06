@@ -39,12 +39,14 @@ class PublichHabitsViewController: UIViewController {
     searchBar.searchTextField.backgroundColor = .white
     searchBar.layer.borderColor = UIColor.systemGray6.cgColor
     
-    viewModel.fetchData()
+
 
     viewModel.publicHabits.bind { habits in
       self.searchHabitsArray = habits
       self.tableView.reloadData()
     }
+
+    viewModel.fetchData()
 
     searchBar.delegate = self
 
@@ -82,17 +84,17 @@ class PublichHabitsViewController: UIViewController {
 
 
   @IBAction func pressTypeButton(_ sender: UIButton) {
-    CM.items = Array.typeArray
+    CM.items = MyArray.typeArray
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressWeekdayButton(_ sender: UIButton) {
-    CM.items = Array.weekdayArray
+    CM.items = MyArray.weekdayArray
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressLocationButton(_ sender: UIButton) {
-    CM.items = Array.locationArray
+    CM.items = MyArray.locationArray
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
@@ -146,14 +148,11 @@ extension PublichHabitsViewController: ContextMenuDelegate {
 extension PublichHabitsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     searchHabitsArray.count
-
-    //    viewModel.publicHabits.value.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: K.publicGoalsTableViewCell, for: indexPath) as! PublicGoalsTableViewCell
     cell.setup(with: searchHabitsArray[indexPath.row])
-    //    cell.setup(with: viewModel.publicHabits.value[indexPath.row])
     cell.selectionStyle = .none
     return cell
   }

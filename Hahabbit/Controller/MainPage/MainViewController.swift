@@ -7,7 +7,6 @@
 
 import UIKit
 import PinterestSegment
-import SwiftKeychainWrapper
 import PopupDialog
 
 class MainViewController: UIViewController {
@@ -22,14 +21,11 @@ class MainViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
 
   lazy var blurView: UIView = {
-
     let blurView = UIView(frame: view.frame)
-
     blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-
     return blurView
   }()
-  
+
   var style = PinterestSegmentStyle()
   let viewModel = HomeViewModel()
   var type = 0
@@ -65,8 +61,6 @@ class MainViewController: UIViewController {
       self.type = index
       self.viewModel.fetchData(type: index)
     }
-    //    let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "Hahabbit")
-    //    print(removeSuccessful)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -121,8 +115,10 @@ extension MainViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let deleteAction = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
 
-      let popup = PopupDialog(title: "Delete Habit?",
-                              message: "確定要刪除習慣嗎？")
+      let popup = PopupDialog(
+        title: "Delete Habit?",
+        message: "確定要刪除習慣嗎？"
+      )
       let containerAppearance = PopupDialogContainerView.appearance()
 
       let buttonOne = DestructiveButton(title: "Delete") {

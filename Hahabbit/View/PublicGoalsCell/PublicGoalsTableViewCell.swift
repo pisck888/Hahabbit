@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PublicGoalsTableViewCell: UITableViewCell {
-  
+
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var membersLabel: UILabel!
   @IBOutlet weak var locationLabel: UILabel!
@@ -41,19 +42,21 @@ class PublicGoalsTableViewCell: UITableViewCell {
       weekdayButtons[i].isSelected = staus
     }
 
-    HabitManager.shared.db
+    UserManager.shared.db
       .collection("users")
       .whereField("id", isEqualTo: publicHabit.owner)
       .getDocuments { querySnapshot, error in
         guard error == nil else {
-          print(error)
+          print(error as Any)
           return
         }
-        guard let title = querySnapshot?.documents[0].data()["title"],
-              let name = querySnapshot?.documents[0].data()["name"] else {
-          return
+        if let user = querySnapshot?.documents, !user.isEmpty,
+           let title = user[0].data()["title"],
+           let name = user[0].data()["name"],
+           let url = URL(string: user[0].data()["image"] as? String ?? "") {
+          self.ownerLabel.text = "發起人：<\(title)> \(name)"
+          self.avatarImage.kf.setImage(with: url)
         }
-        self.ownerLabel.text = "發起人：<\(title)> \(name)"
       }
   }
 }

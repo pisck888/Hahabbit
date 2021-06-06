@@ -20,8 +20,6 @@ struct Habit: Codable {
   var icon: String
   var photo: String
 
-  //  enum CodingKeys: String, CodingKey {
-  //  }
 
 //  var toDict: [String: Any] {
 //    return [

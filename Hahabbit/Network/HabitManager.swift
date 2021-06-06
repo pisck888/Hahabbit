@@ -22,8 +22,6 @@ class HabitManager {
 
   weak var delegate: HabitManagerDelegate?
 
-  var currentUser = "pisck780527@gmail.com"
-
   var habits: [Habit] = []
 
   lazy var db = Firestore.firestore()
@@ -33,7 +31,7 @@ class HabitManager {
     let weekday = Calendar.current.component(.weekday, from: date)
 
     db.collection("habits")
-      .whereField("members", arrayContains: currentUser)
+      .whereField("members", arrayContains: UserManager.shared.currentUser)
       .whereField("weekday.\(weekday)", isEqualTo: true)
       .whereField("type.\(type)", isEqualTo: true)
       .getDocuments { querySnapshot, error in
@@ -59,16 +57,15 @@ class HabitManager {
           self.db.collection("habits")
             .document(habit.id)
             .collection("isDone")
-            .document(self.currentUser)
+            .document(UserManager.shared.currentUser)
             .getDocument { documentSnapshot, _ in
               if documentSnapshot?.data()?[today] == nil {
                 self.db.collection("habits")
                   .document(habit.id)
                   .collection("isDone")
-                  .document(self.currentUser)
+                  .document(UserManager.shared.currentUser)
                   .setData([today: false], merge: true)
               }
-              //                            print(habit)
             }
         }
       }
@@ -176,7 +173,7 @@ class HabitManager {
     func setAllNotifications() {
       UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
       db.collection("habits")
-        .whereField("members", arrayContains: currentUser)
+        .whereField("members", arrayContains: UserManager.shared.currentUser)
         .getDocuments { querySnapshot, error in
           guard let documents = querySnapshot?.documents else {
             return
@@ -202,7 +199,7 @@ class HabitManager {
                 self.db.collection("habits")
                   .document(habit.id)
                   .collection("notification")
-                  .document(self.currentUser)
+                  .document(UserManager.shared.currentUser)
                   .getDocument { documentSnapshot, error in
                     if let hours = documentSnapshot?.data()?["hours"] as? [Int],
                        let minutes = documentSnapshot?.data()?["minutes"] as? [Int],

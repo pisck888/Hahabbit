@@ -266,7 +266,7 @@ extension ChatPageViewController: MessageCellDelegate {
         let containerAppearance = PopupDialogContainerView.appearance()
 
         let buttonOne = DestructiveButton(title: "封鎖") {
-          UserManager.shared.bolckUser(id: user.id)
+          UserManager.shared.blockUser(id: user.id)
         }
 
         let buttonTwo = CancelButton(title: "Close") {

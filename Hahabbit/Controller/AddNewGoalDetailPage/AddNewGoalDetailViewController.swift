@@ -9,6 +9,7 @@ import UIKit
 import FirebaseStorage
 import SPAlert
 import Kingfisher
+import PopupDialog
 
 class AddNewGoalDetailViewController: UITableViewController {
 
@@ -65,10 +66,10 @@ class AddNewGoalDetailViewController: UITableViewController {
     slogan: "",
     members: [UserManager.shared.currentUser],
     detail: "",
-    location: Array.locationArray[0],
+    location: MyArray.locationArray[0],
     owner: UserManager.shared.currentUser,
     type: ["0": true, "1": false, "2": true, "3": false, "4": false, "5": false, "6": false],
-    icon: Array.habitIconArray[0],
+    icon: MyArray.habitIconArray[0],
     photo: ""
   )
   var editHabit: Habit?
@@ -109,11 +110,39 @@ class AddNewGoalDetailViewController: UITableViewController {
   }
 
   @IBAction func pressDoneButton(_ sender: UIButton) {
-    uploadNewHabit()
-    navigationController?.popViewController(animated: true)
+    if (titleTextField.text ?? "").isEmpty ||
+        (messageTextField.text ?? "").isEmpty ||
+        (detailTextView.text ?? "").isEmpty ||
+        photoImage.image == nil {
+      showAlertPopup()
+    } else {
+      uploadNewHabit()
+      navigationController?.popViewController(animated: true)
+    }
   }
   @IBAction func pressAddImageButton(_ sender: UIButton) {
     showImagePickerActionSheet()
+  }
+
+  func showAlertPopup() {
+    let popup = PopupDialog(
+      title: "有些欄位還是空的唷！",
+      message: "確認所有欄位都輸入了正確的資訊"
+    )
+
+    // Create buttons
+    let buttonOne = CancelButton(title: "OK") {
+    }
+    popup.addButton(buttonOne)
+
+    let containerAppearance = PopupDialogContainerView.appearance()
+    popup.transitionStyle = .zoomIn
+    containerAppearance.cornerRadius = 10
+
+    // Present dialog
+    self.present(popup, animated: true) {
+      popup.shake()
+    }
   }
 
   func uploadNewHabit() {
@@ -148,10 +177,10 @@ class AddNewGoalDetailViewController: UITableViewController {
       detailTextView.text = editHabit.detail
       photoImage.kf.setImage(with: url)
       publicButton.isSelected = editHabit.type["1"] ?? true
-      if let indexRow = Array.habitIconArray.firstIndex(where: { $0 == editHabit.icon }) {
+      if let indexRow = MyArray.habitIconArray.firstIndex(where: { $0 == editHabit.icon }) {
         selectedIconIndexPath = [0, indexRow]
       }
-      if let indexRow = Array.locationArray.firstIndex(where: { $0 == editHabit.location }) {
+      if let indexRow = MyArray.locationArray.firstIndex(where: { $0 == editHabit.location }) {
         selectedLocationIndexPath = [0, indexRow]
       }
       for i in 1...7 {
@@ -187,11 +216,11 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch collectionView {
     case locationCollectionView:
-      return Array.locationArray.count - 1
+      return MyArray.locationArray.count - 1
     case iconCollectionView:
-      return Array.habitIconArray.count
+      return MyArray.habitIconArray.count
     case frequencyCollectionView:
-      return Array.weekdayArray.count
+      return MyArray.weekdayArray.count
     default:
       return reminders.count
     }
@@ -203,7 +232,7 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
     switch collectionView {
     case iconCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! IconCell
-      cell.setup(imageName: Array.habitIconArray[indexPath.row])
+      cell.setup(imageName: MyArray.habitIconArray[indexPath.row])
       if indexPath == selectedIconIndexPath {
         cell.isSelected = true
       }
@@ -212,7 +241,7 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
 
     case locationCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as! FrequencyCell
-      cell.setup(string: Array.locationArray[indexPath.row])
+      cell.setup(string: MyArray.locationArray[indexPath.row])
       if indexPath == selectedLocationIndexPath {
         cell.isSelected = true
       }
@@ -221,7 +250,7 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
 
     case frequencyCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "frequencyCell", for: indexPath) as! FrequencyCell
-      cell.setup(string: Array.weekdayArray[indexPath.row])
+      cell.setup(string: MyArray.weekdayArray[indexPath.row])
       setCellSelectedStatus(cell: cell)
       return cell
 

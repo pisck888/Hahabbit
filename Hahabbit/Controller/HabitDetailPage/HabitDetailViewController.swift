@@ -147,7 +147,7 @@ class HabitDetailViewController: UITableViewController {
       .collection("habits")
       .document(habit.id)
       .collection("isDone")
-      .document(HabitManager.shared.currentUser)
+      .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
           print(error)
@@ -200,10 +200,10 @@ class HabitDetailViewController: UITableViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
-    case Segue.toAddNewGoalDetailPage:
+    case MySegue.toAddNewGoalDetailPage:
       let viewController = segue.destination as? AddNewGoalDetailViewController
       viewController?.editHabit = habit?.habit
-    case Segue.toChatRoomPage:
+    case MySegue.toChatRoomPage:
       let viewController = segue.destination as? ChatPageViewController
       viewController?.habitID = habit?.id
       viewController?.members = habit?.members
@@ -221,7 +221,7 @@ class HabitDetailViewController: UITableViewController {
   }
 
   @IBAction func pressEditButton(_ sender: UIButton) {
-    performSegue(withIdentifier: Segue.toAddNewGoalDetailPage, sender: habit)
+    performSegue(withIdentifier: MySegue.toAddNewGoalDetailPage, sender: habit)
   }
 
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FirebaseFirestoreSwift
 import CustomizableActionSheet
 import Kingfisher
@@ -100,15 +101,17 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDataSource {
 
   func numberOfSections(in tableView: UITableView) -> Int {
-    2
+    3
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch section {
     case 0:
       return 1
-    default:
+    case 1:
       return settingsTitle.count
+    default:
+      return 1
     }
   }
 
@@ -121,11 +124,16 @@ extension ProfileViewController: UITableViewDataSource {
       cell.layer.masksToBounds = false
       cell.clipsToBounds = false
       return cell
-    default:
+    case 1:
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
       cell.titleLabel.text = settingsTitle[indexPath.row]
       cell.selectionStyle = .none
       return cell
+    default:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell", for: indexPath)
+      cell.selectionStyle = .none
+      return cell
+
     }
   }
 
@@ -146,35 +154,44 @@ extension ProfileViewController: UITableViewDelegate {
         let actionSheet = CustomizableActionSheet()
         actionSheet.showInView(self.view, items: items)
       case 1:
-        performSegue(withIdentifier: Segue.toBlacklistPage, sender: nil)
+        performSegue(withIdentifier: MySegue.toBlacklistPage, sender: nil)
       default:
         print("nothing happened")
       }
+    }
+    if indexPath.section == 2 {
+      let firebaseAuth = Auth.auth()
+      do {
+        try firebaseAuth.signOut()
+      } catch let signOutError as NSError {
+        print ("Error signing out: %@", signOutError)
+      }
+      performSegue(withIdentifier: MySegue.toLoginPage, sender: nil)
     }
   }
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-//  func showImagePickerActionSheet() {
-//    let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
-//
-//    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
-//      self.showImagePicker(sourceType: .photoLibrary)
-//    }
-//
-//    let cameraAction = UIAlertAction(title: "Take from camera", style: .default) { action in
-//      self.showImagePicker(sourceType: .camera)
-//    }
-//
-//    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-//
-//    alert.addAction(photoLibraryAction)
-//    alert.addAction(cameraAction)
-//    alert.addAction(cancelAction)
-//
-//    present(alert, animated: true, completion: nil)
-//  }
+  //  func showImagePickerActionSheet() {
+  //    let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
+  //
+  //    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
+  //      self.showImagePicker(sourceType: .photoLibrary)
+  //    }
+  //
+  //    let cameraAction = UIAlertAction(title: "Take from camera", style: .default) { action in
+  //      self.showImagePicker(sourceType: .camera)
+  //    }
+  //
+  //    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+  //
+  //    alert.addAction(photoLibraryAction)
+  //    alert.addAction(cameraAction)
+  //    alert.addAction(cancelAction)
+  //
+  //    present(alert, animated: true, completion: nil)
+  //  }
 
   func showImagePicker(sourceType: UIImagePickerController.SourceType) {
     let imagePicker = UIImagePickerController()

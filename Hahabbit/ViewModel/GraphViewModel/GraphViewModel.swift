@@ -24,7 +24,7 @@ class GraphViewModel {
       .collection("habits")
       .document(habitID)
       .collection("isDone")
-      .document(HabitManager.shared.currentUser)
+      .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
           print(error)
@@ -79,7 +79,7 @@ class GraphViewModel {
       .collection("habits")
       .document(habitID)
       .collection("isDone")
-      .document(HabitManager.shared.currentUser)
+      .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
           print(error)

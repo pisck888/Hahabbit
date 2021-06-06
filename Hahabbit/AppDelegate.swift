@@ -7,9 +7,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 import IQKeyboardManagerSwift
 import UserNotifications
-import AuthenticationServices
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //    UITabBar.appearance().barTintColor = .black
     UITabBar.appearance().tintColor = .black
+
     // This is for removing top line from the tabbar.
     //    UITabBar.appearance().layer.borderWidth = 0.0
     //    UITabBar.appearance().clipsToBounds = true

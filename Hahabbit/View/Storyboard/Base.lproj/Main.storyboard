@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WVe-9w-DHy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M8o-Ct-9LX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -836,7 +836,7 @@
                     <connections>
                         <outlet property="closeButton" destination="rq3-Lc-MWK" id="r8Z-99-y43"/>
                         <outlet property="loadingIndicatorView" destination="VuW-ZB-mTT" id="tYG-1Z-lcQ"/>
-                        <outlet property="popupView" destination="0w8-8k-ELx" id="nXy-Ur-S4M"/>
+                        <outlet property="privacyPolicyView" destination="0w8-8k-ELx" id="nXy-Ur-S4M"/>
                         <outlet property="signInButtonView" destination="y2l-D0-bMs" id="A41-R7-gkC"/>
                         <outlet property="webView" destination="2c6-1K-opS" id="guO-AV-Snk"/>
                         <segue destination="WVe-9w-DHy" kind="presentation" identifier="SegueToMainPage" modalPresentationStyle="fullScreen" id="2G2-TK-EP2"/>
@@ -849,7 +849,7 @@
                     <subviews>
                         <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2c6-1K-opS">
                             <rect key="frame" x="0.0" y="0.0" width="297" height="416"/>
-                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <wkWebViewConfiguration key="configuration">
                                 <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                 <wkPreferences key="preferences"/>
@@ -896,7 +896,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Fvp-vS-2wi">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WVe-9w-DHy" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarViewController" automaticallyAdjustsScrollViewInsets="NO" id="WVe-9w-DHy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="svh-pN-Dl6"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="30p-b0-rkZ">
@@ -1105,8 +1105,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GhL-96-IlX"/>
-        <segue reference="h0N-K7-h9C"/>
+        <segue reference="2G2-TK-EP2"/>
+        <segue reference="Fkq-zb-1ii"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

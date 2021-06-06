@@ -39,7 +39,7 @@ class AchievementViewModel {
         self.specialAchievements.value.removeAll()
 
         for achievement in self.allAchievements {
-          if achievement.isDone.contains(HabitManager.shared.currentUser) {
+          if achievement.isDone.contains(UserManager.shared.currentUser) {
             self.userAchievements.value.append(achievement)
           } else if achievement.type == 0 {
             self.dailyAchievements.value.append(achievement)

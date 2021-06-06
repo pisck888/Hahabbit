@@ -28,10 +28,10 @@ class PublicHabitViewModel {
         let tempArray = documents.compactMap { queryDocumentSnapshot in
           try?  queryDocumentSnapshot.data(as: Habit.self)
         }
-        // only show i am not a member
+        // only show if current user is not in members
         self.publicHabits.value = []
         for element in tempArray {
-          if !element.members.contains(HabitManager.shared.currentUser) {
+          if !element.members.contains(UserManager.shared.currentUser) {
             self.publicHabits.value.append(element)
           }
         }
@@ -58,7 +58,7 @@ class PublicHabitViewModel {
         // only show i am not a member
         self.publicHabits.value = []
         for element in tempArray {
-          if !element.members.contains(HabitManager.shared.currentUser) {
+          if !element.members.contains(UserManager.shared.currentUser) {
             self.publicHabits.value.append(element)
           }
         }
@@ -83,7 +83,7 @@ class PublicHabitViewModel {
         // only show i am not a member
         self.publicHabits.value = []
         for element in tempArray {
-          if !element.members.contains(HabitManager.shared.currentUser) {
+          if !element.members.contains(UserManager.shared.currentUser) {
             self.publicHabits.value.append(element)
           }
         }
@@ -108,7 +108,7 @@ class PublicHabitViewModel {
         // only show i am not a member
         self.publicHabits.value = []
         for element in tempArray {
-          if !element.members.contains(HabitManager.shared.currentUser) {
+          if !element.members.contains(UserManager.shared.currentUser) {
             self.publicHabits.value.append(element)
           }
         }

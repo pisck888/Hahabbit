@@ -13,17 +13,17 @@ extension UIView {
   func shake() {
     layer.removeAnimation(forKey: shakeKey)
     let vals: [Double] = [-2, 2, -2, 2, 0]
-    
+
     let translation = CAKeyframeAnimation(keyPath: "transform.translation.x")
     translation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
     translation.values = vals
-    
+
     let rotation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
     rotation.values = vals.map { (degrees: Double) in
       let radians: Double = (Double.pi * degrees) / 180.0
       return radians
     }
-    
+
     let shakeGroup = CAAnimationGroup()
     shakeGroup.animations = [translation, rotation]
     shakeGroup.duration = 0.3
@@ -31,9 +31,10 @@ extension UIView {
   }
 }
 
-//extension UIImage {
-//    func getURL() -> URL? {
-//         guard let base64Image = pngData()?.base64EncodedString() else { return nil }
-//         return URL(string: "data:image/png;base64,\(base64Image)")
-//    }
-//}
+extension UIImage {
+  func resized(to size: CGSize) -> UIImage {
+    return UIGraphicsImageRenderer(size: size).image { _ in
+      draw(in: CGRect(origin: .zero, size: size))
+    }
+  }
+}

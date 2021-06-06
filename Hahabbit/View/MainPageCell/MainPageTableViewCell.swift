@@ -43,7 +43,7 @@ class MainPageTableViewCell: UITableViewCell {
     HabitManager.shared.db.collection("habits")
       .document(viewModel.id)
       .collection("isDone")
-      .document(HabitManager.shared.currentUser)
+      .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
           print(error!)
@@ -68,7 +68,7 @@ class MainPageTableViewCell: UITableViewCell {
     HabitManager.shared.db.collection("habits")
       .document(id)
       .collection("isDone")
-      .document(HabitManager.shared.currentUser)
+      .document(UserManager.shared.currentUser)
       .setData([stringDate: !sender.isSelected], merge: true)
 
     sender.isSelected.toggle()

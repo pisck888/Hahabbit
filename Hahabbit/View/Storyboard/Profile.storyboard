@@ -8,6 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--LoginViewController-->
+        <scene sceneID="4LY-fW-Row">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="LoginViewController" id="Av0-H9-KFT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWB-iB-Npv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1227" y="497"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -144,6 +152,27 @@
                                             <outlet property="titleLabel" destination="LUg-HZ-GoZ" id="mSt-60-fQx"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LogoutCell" id="Vq8-fZ-Cd0">
+                                        <rect key="frame" x="20" y="228.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vq8-fZ-Cd0" id="MLX-WA-bU8">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登出" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juv-Ke-eNC">
+                                                    <rect key="frame" x="169.5" y="12" width="35" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Juv-Ke-eNC" firstAttribute="centerY" secondItem="MLX-WA-bU8" secondAttribute="centerY" id="YOB-IO-REp"/>
+                                                <constraint firstItem="Juv-Ke-eNC" firstAttribute="centerX" secondItem="MLX-WA-bU8" secondAttribute="centerX" id="gjk-cq-Wkv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="DSd-Qu-DHa"/>
@@ -165,6 +194,7 @@
                     <connections>
                         <outlet property="tableView" destination="xQq-az-mmb" id="rDy-si-SUy"/>
                         <segue destination="lCD-d6-XhH" kind="show" identifier="SegueToBlacklistPage" id="nhf-LN-PjU"/>
+                        <segue destination="Av0-H9-KFT" kind="presentation" identifier="SegueToLoginPage" modalPresentationStyle="fullScreen" id="4MK-sK-JFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -207,8 +237,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ni-rr-OBc">
-                                                    <rect key="frame" x="336" y="16.5" width="62" height="30"/>
-                                                    <state key="normal" title="解除封鎖"/>
+                                                    <rect key="frame" x="318" y="14" width="80" height="35"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="a4w-ZL-Euv"/>
+                                                        <constraint firstAttribute="width" constant="80" id="kQi-q8-ivc"/>
+                                                    </constraints>
+                                                    <state key="normal" title="解除封鎖">
+                                                        <color key="titleColor" systemColor="systemGray6Color"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="pressUnblockButton:" destination="lCD-d6-XhH" eventType="touchUpInside" id="cmT-nn-pl1"/>
                                                     </connections>
@@ -267,7 +304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i46-bg-rJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757.97101449275374" y="751.33928571428567"/>
+            <point key="canvasLocation" x="757.97101449275374" y="817.63392857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5J0-yi-3z2">

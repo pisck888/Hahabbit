@@ -21,16 +21,25 @@ class CalendarPageViewController: UIViewController {
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
 
   lazy var blurView: UIView = {
-
     let blurView = UIView(frame: view.frame)
-
     blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-
     return blurView
   }()
 
   let viewModel = HomeViewModel()
   var chosenDay = Date()
+  var dailyHabitsCount: [Int: String] = [:] {
+    didSet {
+      calendar.reloadData()
+      print(dailyHabitsCount)
+    }
+  }
+
+  private lazy var dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd"
+    return formatter
+  }()
 
   private lazy var scopeGesture: UIPanGestureRecognizer = {
     [unowned self] in
@@ -44,7 +53,7 @@ class CalendarPageViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    navigationItem.backButtonTitle = " "
+    navigationItem.backButtonTitle = ""
 
     AchievementsChecker.checker.delegate = self
 
@@ -57,6 +66,10 @@ class CalendarPageViewController: UIViewController {
       self?.viewModel.onRefresh()
     }
 
+    UserManager.shared.fetchUserSignUpDate {
+      self.calendar.reloadData()
+    }
+
     viewModel.fetchData()
 
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
@@ -64,6 +77,18 @@ class CalendarPageViewController: UIViewController {
     view.addGestureRecognizer(scopeGesture)
     tableView.panGestureRecognizer.require(toFail: scopeGesture)
     setupCalendar()
+
+    for i in 1...7 {
+      HabitManager.shared.db
+        .collection("habits")
+        .whereField("members", arrayContains: UserManager.shared.currentUser)
+        .whereField("weekday.\(i)", isEqualTo: true)
+        .getDocuments { querySnapshot, error in
+          if let habits = querySnapshot?.documents {
+            self.dailyHabitsCount[i] = String(habits.count)
+          }
+        }
+    }
   }
 
   func setupCalendar() {
@@ -151,12 +176,34 @@ extension CalendarPageViewController: FSCalendarDelegate {
   func maximumDate(for calendar: FSCalendar) -> Date {
     Date()
   }
+  func minimumDate(for calendar: FSCalendar) -> Date {
+    dateFormatter.date(from: UserManager.shared.userSignUpDate) ?? Date()
+  }
 }
 
 extension CalendarPageViewController: FSCalendarDataSource {
-  //  func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-  //    5
-  //  }
+//  func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//    let weekday = Calendar.current.component(.weekday, from: date)
+//    if dailyHabitsCount.count < 7 {
+//      return UIImage()
+//    } else {
+//      return UIImage(systemName: "2.circle")
+//    }
+//  }
+
+  func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
+    let weekday = Calendar.current.component(.weekday, from: date)
+    if dailyHabitsCount.count < 7 {
+      return ""
+    } else {
+      return dailyHabitsCount[weekday]
+    }
+  }
+
+//  func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+//    1
+//  }
+
 }
 
 
@@ -170,11 +217,13 @@ extension CalendarPageViewController: AchievementsCheckerDelegate {
     popupView.center = view.center
     closeButton.layer.cornerRadius = closeButton.frame.width / 2
 
-    UIView.animate(withDuration: 0.3,
-                   delay: 0,
-                   usingSpringWithDamping: 0.7,
-                   initialSpringVelocity: 0.7,
-                   options: .curveLinear) {
+    UIView.animate(
+      withDuration: 0.3,
+      delay: 0,
+      usingSpringWithDamping: 0.7,
+      initialSpringVelocity: 0.7,
+      options: .curveLinear
+    ) {
       self.popupView.transform = .identity
     } completion: { _ in
       self.popupView.shake()
@@ -194,6 +243,4 @@ extension CalendarPageViewController: AchievementsCheckerDelegate {
       popupView.removeFromSuperview()
     }
   }
-
-
 }
