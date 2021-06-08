@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+  @IBOutlet weak var upImageBackView: UIView!
   @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
   @IBOutlet weak var signInButtonView: UIView!
   @IBOutlet var privacyPolicyView: UIView!
@@ -39,6 +40,17 @@ class LoginViewController: UIViewController {
     signInButton.addTarget(self, action: #selector(pressSignInButton), for: .touchUpInside)
     signInButton.frame = signInButtonView.bounds
     signInButtonView.addSubview(signInButton)
+    signInButtonView.layer.cornerRadius = 10
+    signInButtonView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    signInButtonView.layer.shadowOpacity = 0.5
+    signInButtonView.layer.shadowRadius = 2
+    signInButtonView.layer.shadowColor = UIColor.black.cgColor
+
+    upImageBackView.layer.cornerRadius = 10
+    upImageBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    upImageBackView.layer.shadowOpacity = 0.5
+    upImageBackView.layer.shadowRadius = 2
+    upImageBackView.layer.shadowColor = UIColor.black.cgColor
   }
 
   func showPrivacyPolicyView() {
@@ -206,16 +218,6 @@ extension LoginViewController: ASAuthorizationControllerPresentationContextProvi
     view.window!
   }
 }
-
-//extension UIViewController {
-//  func showLoginController() {
-//    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//    if let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-//      loginViewController.modalPresentationStyle = .fullScreen
-//      self.present(loginViewController, animated: false, completion: nil)
-//    }
-//  }
-//}
 
 extension LoginViewController: WKNavigationDelegate {
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

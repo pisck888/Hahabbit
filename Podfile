@@ -31,27 +31,25 @@ target 'Hahabbit' do
   pod 'MBCircularProgressBar'
 
   # for DropDown
-  # pod 'YNDropDownMenu'
   pod 'ContextMenuSwift'
 
   # for AlertController
   pod 'CustomizableActionSheet'
-  pod 'SPAlert'
-
-  # for keychain
-  pod 'SwiftKeychainWrapper'
 
   # for chat room
   pod 'MessageKit'
   # pod 'GrowingTextView', '0.7.2'
-
-  # for gradient view
-  # pod 'MKGradientView'
 
   # for pull to refresh
   pod 'MJRefresh'
 
   # for popup View
   pod 'PopupDialog', '~> 1.1'
+
+  # for animations
+  pod 'lottie-ios'
+
+  # for ProgressHUD
+  pod 'JGProgressHUD'
 
 end

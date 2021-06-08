@@ -38,12 +38,14 @@ extension ProfileEditView: UIPickerViewDataSource, UIPickerViewDelegate {
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     UserManager.shared.updateTitle(newTitle: user?.titleArray[row] ?? "新手")
   }
-
-
 }
 
 extension ProfileEditView: UITextFieldDelegate {
   func textFieldDidChangeSelection(_ textField: UITextField) {
+  }
+
+  func textFieldDidEndEditing(_ textField: UITextField) {
     UserManager.shared.updateName(newName: textField.text ?? "使用者")
+    UserManager.shared.updateChatRoomName(newName: textField.text ?? "使用者")
   }
 }

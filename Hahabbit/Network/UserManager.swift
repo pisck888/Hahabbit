@@ -15,9 +15,9 @@ class UserManager {
   var userSignUpDate = "20210101"
 
   private lazy var dateFormatter: DateFormatter = {
-      let formatter = DateFormatter()
-      formatter.dateFormat = "yyyyMMdd"
-      return formatter
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyyMMdd"
+    return formatter
   }()
 
   lazy var db = Firestore.firestore()
@@ -82,6 +82,36 @@ class UserManager {
         }
       }
     }
+  }
+  func updateChatRoomName(newName: String) {
+    HabitManager.shared.db
+      .collection("chats")
+      .whereField("members", arrayContains: UserManager.shared.currentUser)
+      .getDocuments { querySnapshot, error in
+        if let habits = querySnapshot?.documents {
+          let habitIDs = habits.compactMap { $0["id"] }
+          for habitID in habitIDs {
+            HabitManager.shared.db
+              .collection("chats")
+              .document(habitID as! String)
+              .collection("thread")
+              .whereField("senderID", isEqualTo: UserManager.shared.currentUser)
+              .getDocuments { querySnapshot, error in
+                if let messages = querySnapshot?.documents {
+                  let messageIDs = messages.compactMap { $0["id"] }
+                  for messageID in messageIDs {
+                    HabitManager.shared.db
+                      .collection("chats")
+                      .document(habitID as! String)
+                      .collection("thread")
+                      .document(messageID as! String)
+                      .updateData(["senderName": newName])
+                  }
+                }
+              }
+          }
+        }
+      }
   }
   func updateName(newName: String) {
     db.collection("users")

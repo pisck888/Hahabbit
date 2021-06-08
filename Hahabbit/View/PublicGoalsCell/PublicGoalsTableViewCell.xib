@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,44 +22,38 @@
                         <rect key="frame" x="16" y="8" width="431" height="150"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="A7v-PB-9bG">
-                                <rect key="frame" x="335" y="54" width="80" height="80"/>
+                                <rect key="frame" x="355" y="74" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="A7v-PB-9bG" secondAttribute="height" multiplier="1:1" id="194-B8-WQz"/>
-                                    <constraint firstAttribute="height" constant="80" id="H22-ma-FEP"/>
+                                    <constraint firstAttribute="height" constant="60" id="H22-ma-FEP"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23人已加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q3-Nm-Bto">
-                                <rect key="frame" x="330.5" y="16" width="84.5" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="xpB-1F-AyI">
-                                <rect key="frame" x="16" y="17" width="253.5" height="116.5"/>
+                                <rect key="frame" x="16" y="19" width="327" height="112.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一起來約跑吧😁 GO GO GO!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4m2-0b-W2p">
-                                        <rect key="frame" x="0.0" y="0.0" width="245.5" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="230.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地點：台北市大安區" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biW-qU-e30">
-                                        <rect key="frame" x="0.0" y="33.5" width="147" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="138" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="發起人：&lt;我要打十個&gt; 兔兔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUu-v0-zrk">
+                                        <rect key="frame" x="0.0" y="62.5" width="191" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="uAY-Ip-N5O">
-                                        <rect key="frame" x="0.0" y="65" width="253.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="92.5" width="188" height="20"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星期： " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7D-cd-myi">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="c23-1U-h9z">
-                                                <rect key="frame" x="53.5" y="0.0" width="200" height="20"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="c23-1U-h9z">
+                                                <rect key="frame" x="0.0" y="0.0" width="188" height="20"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYx-0B-FIt">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -66,79 +61,79 @@
                                                             <constraint firstAttribute="height" constant="20" id="C1f-NH-Ehe"/>
                                                             <constraint firstAttribute="width" constant="20" id="Vxr-ex-KZe"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="日">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFs-gu-ES7">
-                                                        <rect key="frame" x="30" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="28" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="Q0d-Mr-pGN"/>
                                                             <constraint firstAttribute="width" constant="20" id="Vqb-o4-NhE"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="一">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2B-FJ-YFr">
-                                                        <rect key="frame" x="60" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="56" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="b19-Vj-2Ma"/>
                                                             <constraint firstAttribute="height" constant="20" id="jns-gU-hB4"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="二">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kak-sN-qsk">
-                                                        <rect key="frame" x="90" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="84" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="0NW-Up-VBs"/>
                                                             <constraint firstAttribute="height" constant="20" id="llB-tZ-9Sw"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="三">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgO-mW-6ll">
-                                                        <rect key="frame" x="120" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="112" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="0cB-Va-7FY"/>
                                                             <constraint firstAttribute="width" constant="20" id="GQh-x5-FZQ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="四">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffH-if-W48">
-                                                        <rect key="frame" x="150" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="140" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="DKI-Va-q0a"/>
                                                             <constraint firstAttribute="width" constant="20" id="jdc-qM-lFu"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="五">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOM-1W-vp2">
-                                                        <rect key="frame" x="180" y="0.0" width="20" height="20"/>
+                                                        <rect key="frame" x="168" y="0.0" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="hoq-T0-efH"/>
                                                             <constraint firstAttribute="height" constant="20" id="vNg-ie-yGa"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="六">
                                                             <color key="titleColor" systemColor="systemGray4Color"/>
@@ -148,9 +143,21 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="發起人：&lt;我要打十個&gt; 兔兔" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUu-v0-zrk">
-                                        <rect key="frame" x="0.0" y="97" width="203.5" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4ae-Yk-Oza">
+                                <rect key="frame" x="357.5" y="19" width="57.5" height="20"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="people2" translatesAutoresizingMaskIntoConstraints="NO" id="Xou-b3-p9Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="UQq-4h-8JE"/>
+                                            <constraint firstAttribute="height" constant="20" id="g6E-Xr-JEj"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q3-Nm-Bto">
+                                        <rect key="frame" x="24" y="0.0" width="33.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -161,11 +168,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="A7v-PB-9bG" secondAttribute="trailing" constant="16" id="6kd-WE-O5J"/>
                             <constraint firstAttribute="height" constant="150" id="8UV-DT-nbk"/>
+                            <constraint firstAttribute="trailing" secondItem="4ae-Yk-Oza" secondAttribute="trailing" constant="16" id="AuZ-Vm-csW"/>
                             <constraint firstAttribute="bottom" secondItem="A7v-PB-9bG" secondAttribute="bottom" constant="16" id="CHI-6C-F0d"/>
-                            <constraint firstItem="5q3-Nm-Bto" firstAttribute="top" secondItem="o3O-Ao-z6s" secondAttribute="top" constant="16" id="Om0-36-xKF"/>
+                            <constraint firstItem="4ae-Yk-Oza" firstAttribute="centerY" secondItem="4m2-0b-W2p" secondAttribute="centerY" id="OxT-Ae-1eC"/>
                             <constraint firstItem="xpB-1F-AyI" firstAttribute="leading" secondItem="o3O-Ao-z6s" secondAttribute="leading" constant="16" id="Slf-sA-gIa"/>
                             <constraint firstItem="xpB-1F-AyI" firstAttribute="centerY" secondItem="o3O-Ao-z6s" secondAttribute="centerY" id="WLt-nH-cmm"/>
-                            <constraint firstAttribute="trailing" secondItem="5q3-Nm-Bto" secondAttribute="trailing" constant="16" id="frf-n3-PFL"/>
+                            <constraint firstItem="A7v-PB-9bG" firstAttribute="leading" secondItem="xpB-1F-AyI" secondAttribute="trailing" constant="12" id="lAW-oN-Bgd"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -185,7 +193,6 @@
                 <outlet property="membersLabel" destination="5q3-Nm-Bto" id="b4C-wQ-34x"/>
                 <outlet property="ownerLabel" destination="PUu-v0-zrk" id="wtp-3X-pPb"/>
                 <outlet property="titleLabel" destination="4m2-0b-W2p" id="QVA-m1-K11"/>
-                <outlet property="weekdayLabel" destination="t7D-cd-myi" id="Pzg-wX-YS1"/>
                 <outletCollection property="weekdayButtons" destination="wYx-0B-FIt" collectionClass="NSMutableArray" id="r4m-Ut-B9h"/>
                 <outletCollection property="weekdayButtons" destination="RFs-gu-ES7" collectionClass="NSMutableArray" id="gmB-ye-Ki6"/>
                 <outletCollection property="weekdayButtons" destination="N2B-FJ-YFr" collectionClass="NSMutableArray" id="pBe-uK-By1"/>
@@ -194,11 +201,12 @@
                 <outletCollection property="weekdayButtons" destination="ffH-if-W48" collectionClass="NSMutableArray" id="qfA-Fa-8lM"/>
                 <outletCollection property="weekdayButtons" destination="gOM-1W-vp2" collectionClass="NSMutableArray" id="wi2-hq-oRq"/>
             </connections>
-            <point key="canvasLocation" x="148.55072463768118" y="116.51785714285714"/>
+            <point key="canvasLocation" x="135.50724637681159" y="116.51785714285714"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="avatar" width="986" height="1364"/>
+        <image name="people2" width="24" height="24"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -4,11 +4,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Public Goals-->
+        <!--公開習慣-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="PublichHabitsViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9yv-kl-Eph">
-                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
+                                <rect key="frame" x="0.0" y="240" width="414" height="573"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="t2p-ji-z7k"/>
@@ -33,11 +34,12 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="f2c-Aj-jxG">
-                                <rect key="frame" x="16" y="155" width="382" height="50"/>
+                                <rect key="frame" x="16" y="147" width="382" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuU-IO-fX0">
-                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="116.5" height="35"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="地區">
                                             <color key="titleColor" systemColor="systemGray6Color"/>
                                         </state>
@@ -46,8 +48,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hds-M8-vsi">
-                                        <rect key="frame" x="132.5" y="0.0" width="117" height="50"/>
+                                        <rect key="frame" x="132.5" y="0.0" width="117" height="35"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="星期">
                                             <color key="titleColor" systemColor="systemGray6Color"/>
                                         </state>
@@ -56,8 +59,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3I-C7-Ecr">
-                                        <rect key="frame" x="265.5" y="0.0" width="116.5" height="50"/>
+                                        <rect key="frame" x="265.5" y="0.0" width="116.5" height="35"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="種類">
                                             <color key="titleColor" systemColor="systemGray6Color"/>
                                         </state>
@@ -67,11 +71,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8Cl-hF-ixH"/>
+                                    <constraint firstAttribute="height" constant="35" id="8Cl-hF-ixH"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3zX-Lz-I3l">
-                                <rect key="frame" x="0.0" y="213" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="190" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PmX-zh-8i5"/>
@@ -83,7 +87,7 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9yv-kl-Eph" secondAttribute="trailing" id="2f4-12-mSz"/>
                             <constraint firstItem="9yv-kl-Eph" firstAttribute="top" secondItem="3zX-Lz-I3l" secondAttribute="bottom" id="6av-Ue-K6b"/>
-                            <constraint firstItem="f2c-Aj-jxG" firstAttribute="top" secondItem="82B-fy-9PY" secondAttribute="bottom" constant="16" id="918-wg-s1f"/>
+                            <constraint firstItem="f2c-Aj-jxG" firstAttribute="top" secondItem="82B-fy-9PY" secondAttribute="bottom" constant="8" id="918-wg-s1f"/>
                             <constraint firstItem="82B-fy-9PY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AVn-l8-vhQ"/>
                             <constraint firstItem="82B-fy-9PY" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="BWb-uA-8DA"/>
                             <constraint firstItem="3zX-Lz-I3l" firstAttribute="top" secondItem="f2c-Aj-jxG" secondAttribute="bottom" constant="8" id="HDs-AP-hR5"/>
@@ -96,7 +100,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3zX-Lz-I3l" secondAttribute="trailing" id="zH3-mR-hkD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Public Goals" id="8df-tM-bFc"/>
+                    <navigationItem key="navigationItem" title="公開習慣" id="8df-tM-bFc"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="locationButton" destination="cuU-IO-fX0" id="XWb-tF-tVe"/>
@@ -112,7 +116,7 @@
             </objects>
             <point key="canvasLocation" x="794" y="75"/>
         </scene>
-        <!--Goal Detail-->
+        <!--習慣細節-->
         <scene sceneID="eU1-W5-WXs">
             <objects>
                 <viewController modalPresentationStyle="currentContext" id="fzb-aO-RBd" customClass="PublicHabitDetailViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,7 +131,7 @@
                                         <rect key="frame" x="16" y="16" width="382" height="48"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="加入">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" systemColor="systemGray6Color"/>
                                         </state>
                                         <connections>
                                             <action selector="pressButton:" destination="fzb-aO-RBd" eventType="touchUpInside" id="361-qa-ICC"/>
@@ -148,14 +152,14 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PublicHabitDetailCell" id="hte-sh-3dh" customClass="PublicHabitDetailCell" customModule="Hahabbit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="645.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="634.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hte-sh-3dh" id="GIg-HK-MhB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="645.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="634.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQk-D9-S6a">
-                                                    <rect key="frame" x="20" y="11" width="374" height="623.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="612.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Knp-8R-YHO">
                                                             <rect key="frame" x="16" y="16" width="342" height="300"/>
@@ -170,83 +174,83 @@
                                                                 <constraint firstAttribute="width" constant="45" id="wQ1-OB-zmP"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rc6-s0-el3">
-                                                            <rect key="frame" x="77" y="330" width="281" height="49"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rc6-s0-el3">
+                                                            <rect key="frame" x="77" y="332.5" width="281" height="44.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一起來約跑步吧！！！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-d8-laT">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="281" height="21.5"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="281" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="跑跑跑，向前跑～" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boi-rl-pfs">
-                                                                    <rect key="frame" x="0.0" y="29.5" width="281" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <rect key="frame" x="0.0" y="26.5" width="281" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地點：台北市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3x-Ka-oZE">
-                                                            <rect key="frame" x="16" y="438" width="98" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <rect key="frame" x="16" y="437" width="92" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-Nl-RTy">
-                                                            <rect key="frame" x="16" y="393" width="342" height="29"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-Nl-RTy">
+                                                            <rect key="frame" x="16" y="393" width="342" height="28"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8E-4y-d04">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="38.5" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周日">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MA6-py-moE">
-                                                                    <rect key="frame" x="50.5" y="0.0" width="38.5" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="50" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周一">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDo-Vo-qtN">
-                                                                    <rect key="frame" x="101" y="0.0" width="38.5" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="100" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周二">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRA-Ak-yEl">
-                                                                    <rect key="frame" x="151.5" y="0.0" width="39" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="150" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周三">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-PX-e5E">
-                                                                    <rect key="frame" x="202.5" y="0.0" width="38.5" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="200" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周四">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exK-7k-JTj">
-                                                                    <rect key="frame" x="253" y="0.0" width="38.5" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="250" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周五">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0s-dQ-RLC">
-                                                                    <rect key="frame" x="303.5" y="0.0" width="38.5" height="29"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <rect key="frame" x="300" y="0.0" width="42" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="周六">
                                                                         <color key="titleColor" systemColor="systemGray4Color"/>
@@ -255,15 +259,15 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234人已加入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNe-02-cP4">
-                                                            <rect key="frame" x="263.5" y="438" width="94.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <rect key="frame" x="269" y="437" width="89" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0N-pu-bLS">
-                                                            <rect key="frame" x="16" y="473.5" width="342" height="134"/>
+                                                            <rect key="frame" x="16" y="471" width="342" height="125.5"/>
                                                             <string key="text">就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步就是想要約跑步</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -337,7 +341,7 @@
                             <constraint firstItem="guN-eU-uj3" firstAttribute="top" secondItem="3B0-gU-pGc" secondAttribute="bottom" id="u2r-uQ-KzN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Goal Detail" id="nNI-aE-Njc"/>
+                    <navigationItem key="navigationItem" title="習慣細節" id="nNI-aE-Njc"/>
                     <connections>
                         <outlet property="joinButton" destination="wRq-fh-dt9" id="ciZ-Sf-E8R"/>
                     </connections>
@@ -355,6 +359,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LiL-AG-yyJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

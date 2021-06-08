@@ -7,11 +7,17 @@
 
 import UIKit
 import FirebaseStorage
-import SPAlert
 import Kingfisher
 import PopupDialog
+import JGProgressHUD
+
+protocol AddNewGoalDetailViewControllerDelegate: AnyObject {
+  func setNewData(data: Habit, photo: String)
+}
 
 class AddNewGoalDetailViewController: UITableViewController {
+
+  weak var delegate: AddNewGoalDetailViewControllerDelegate?
 
   @IBOutlet weak var frequencyCollectionView: UICollectionView! {
     didSet {
@@ -40,12 +46,20 @@ class AddNewGoalDetailViewController: UITableViewController {
       photoImage.clipsToBounds = true
     }
   }
+  @IBOutlet weak var plusBackViewLabel: UILabel! {
+    didSet {
+      plusBackViewLabel.layer.cornerRadius = 10
+      plusBackViewLabel.clipsToBounds = true
+    }
+  }
+  let loadingVC = LoadingViewController()
 
   var reminders = ["+"] {
     didSet {
       remindersCollectionView.reloadData()
     }
   }
+  var isPlusLabelHidden = false
   var type = ""
   var hours: [Int] = []
   var minutes: [Int] = []
@@ -117,7 +131,9 @@ class AddNewGoalDetailViewController: UITableViewController {
       showAlertPopup()
     } else {
       uploadNewHabit()
-      navigationController?.popViewController(animated: true)
+      loadingVC.modalTransitionStyle = .crossDissolve
+      loadingVC.modalPresentationStyle = .overFullScreen
+      present(loadingVC, animated: true, completion: nil)
     }
   }
   @IBAction func pressAddImageButton(_ sender: UIButton) {
@@ -127,10 +143,8 @@ class AddNewGoalDetailViewController: UITableViewController {
   func showAlertPopup() {
     let popup = PopupDialog(
       title: "有些欄位還是空的唷！",
-      message: "確認所有欄位都輸入了正確的資訊"
+      message: "確認所有的欄位都輸入了正確的資訊"
     )
-
-    // Create buttons
     let buttonOne = CancelButton(title: "OK") {
     }
     popup.addButton(buttonOne)
@@ -139,33 +153,50 @@ class AddNewGoalDetailViewController: UITableViewController {
     popup.transitionStyle = .zoomIn
     containerAppearance.cornerRadius = 10
 
-    // Present dialog
     self.present(popup, animated: true) {
       popup.shake()
     }
   }
 
   func uploadNewHabit() {
-    guard let imageData = photoImage.image?.pngData() else { return }
-    let uniqueString = UUID().uuidString
-    let storageRef = Storage.storage().reference().child("HahabbitUpload").child("\(uniqueString).png")
-    storageRef.putData(imageData, metadata: nil) { data, error in
-      if let err = error {
-        print(err.localizedDescription)
-      } else {
-        storageRef.downloadURL { url, error in
-          guard let url = url, error == nil else {
-            print(error)
-            return
+    HabitManager.shared.uploadHabit(habit: self.newHabit, hours: self.hours, minutes: self.minutes) { habitID in
+      guard let imageData = self.photoImage.image?.pngData() else { return }
+      let storageRef = Storage
+        .storage()
+        .reference()
+        .child("HahabbitUpload")
+        .child("\(habitID).png")
+      storageRef.putData(imageData, metadata: nil) { data, error in
+        if let err = error {
+          print(err.localizedDescription)
+        } else {
+          storageRef.downloadURL { url, error in
+            guard let url = url, error == nil else {
+              print(error as Any)
+              return
+            }
+            print(url.absoluteString)
+            self.newHabit.photo = url.absoluteString
+            HabitManager.shared.db.collection("habits").document(habitID).updateData(["photo": url.absoluteString])
+            HabitManager.shared.setAllNotifications()
+            self.delegate?.setNewData(data: self.newHabit, photo: url.absoluteString)
+            self.loadingVC.dismiss(animated: true) {
+              self.navigationController?.popViewController(animated: true)
+              self.presentDoneAlert()
+            }
           }
-          self.newHabit.photo = url.absoluteString
-          print(url.absoluteString)
-          HabitManager.shared.uploadHabit(habit: self.newHabit, hours: self.hours, minutes: self.minutes)
-          HabitManager.shared.setAllNotifications()
-          SPAlert.present(title: "Done", preset: .done)
         }
       }
     }
+  }
+
+  func presentDoneAlert() {
+    let hud = JGProgressHUD()
+    hud.textLabel.text = "完成"
+    hud.square = true
+    hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+    hud.show(in: (self.navigationController?.view)!, animated: true)
+    hud.dismiss(afterDelay: 1.5)
   }
 
   func setEditHabit() {
@@ -176,6 +207,7 @@ class AddNewGoalDetailViewController: UITableViewController {
       messageTextField.text = editHabit.slogan
       detailTextView.text = editHabit.detail
       photoImage.kf.setImage(with: url)
+      plusBackViewLabel.isHidden = isPlusLabelHidden
       publicButton.isSelected = editHabit.type["1"] ?? true
       if let indexRow = MyArray.habitIconArray.firstIndex(where: { $0 == editHabit.icon }) {
         selectedIconIndexPath = [0, indexRow]
@@ -191,7 +223,6 @@ class AddNewGoalDetailViewController: UITableViewController {
       }
     }
   }
-
 }
 
 extension AddNewGoalDetailViewController: UITextFieldDelegate {
@@ -271,15 +302,11 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
       cell.contentView.backgroundColor = .systemGray6
     }
   }
-
-
 }
 
 extension AddNewGoalDetailViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
     switch collectionView {
-
     case iconCollectionView:
       newHabit.icon = (collectionView.cellForItem(at: indexPath) as! IconCell).imageName ?? ""
       selectedIconIndexPath = indexPath
@@ -393,8 +420,10 @@ extension AddNewGoalDetailViewController: UIImagePickerControllerDelegate, UINav
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
     if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
       photoImage.image = editedImage
+      plusBackViewLabel.isHidden = true
     } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
       photoImage.image = originalImage
+      plusBackViewLabel.isHidden = true
     }
     dismiss(animated: true, completion: nil)
   }

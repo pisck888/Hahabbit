@@ -52,8 +52,6 @@ class HabitDetailViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    HabitManager.shared.delegate = self
-
     viewModel.monthRecord.bind { [unowned self] in
       self.monthCounterLabel.text = String($0) + "天"
     }
@@ -62,6 +60,18 @@ class HabitDetailViewController: UITableViewController {
     }
     viewModel.consecutiveRecord.bind { [unowned self] in
       self.maxConsecutiveLabel.text = String($0) + "天"
+    }
+
+    viewModel.monthPercentage.bind { percentage in
+      DispatchQueue.main.async {
+        self.monthCircularProgressView.value = percentage
+      }
+    }
+
+    viewModel.yearPercentage.bind { percentage in
+      DispatchQueue.main.async {
+        self.yearCircularProgressView.value = percentage
+      }
     }
 
     navigationItem.backButtonTitle = ""
@@ -74,16 +84,6 @@ class HabitDetailViewController: UITableViewController {
     setupRecordLabel()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
-    DispatchQueue.main.async {
-      UIView.animate(withDuration: 5, delay: 0, options: .curveLinear) {
-        self.monthCircularProgressView.value = 50
-        self.yearCircularProgressView.value = 87
-      }
-    }
-  }
-
   func setupViews() {
     mainImage.layer.cornerRadius = 10
     setShadowAndCornerRadius(view: detailView)
@@ -150,7 +150,7 @@ class HabitDetailViewController: UITableViewController {
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
-          print(error)
+          print(error as Any)
           return
         }
         guard let keys = documentSnapshot?.data()?.keys else { return }
@@ -203,6 +203,8 @@ class HabitDetailViewController: UITableViewController {
     case MySegue.toAddNewGoalDetailPage:
       let viewController = segue.destination as? AddNewGoalDetailViewController
       viewController?.editHabit = habit?.habit
+      viewController?.isPlusLabelHidden = true
+      viewController?.delegate = self
     case MySegue.toChatRoomPage:
       let viewController = segue.destination as? ChatPageViewController
       viewController?.habitID = habit?.id
@@ -250,14 +252,16 @@ extension HabitDetailViewController: FSCalendarDataSource {
   func maximumDate(for calendar: FSCalendar) -> Date {
     Date()
   }
+  func minimumDate(for calendar: FSCalendar) -> Date {
+    dateFormatter.date(from: UserManager.shared.userSignUpDate) ?? Date()
+  }
 }
 
-extension HabitDetailViewController: HabitManagerDelegate {
-  func setNewData(data: Habit) {
+extension HabitDetailViewController: AddNewGoalDetailViewControllerDelegate {
+  func setNewData(data: Habit, photo: String) {
+    let url = URL(string: photo)
     habit?.habit = data
     setupHabitDetail()
-//    tableView.reloadData()
+    mainImage.kf.setImage(with: url)
   }
-
-
 }

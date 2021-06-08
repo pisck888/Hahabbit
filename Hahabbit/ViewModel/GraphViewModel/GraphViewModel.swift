@@ -9,12 +9,33 @@ import Foundation
 import ScrollableGraphView
 
 class GraphViewModel {
-  var counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  var counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] {
+    didSet {
+      yearDoneDays = counter.reduce(0, +)
+    }
+  }
   var monthRecord: Box<Int> = Box(0)
-  var monthTotalCount = 0
-  var monthPercentage: CGFloat = 0
+  var monthDoneDays = 0 {
+    didSet {
+      let month = Calendar.current.component(.month, from: Date())
+      switch month {
+      case 1, 3, 5, 7, 8, 10, 12:
+        monthPercentage.value = (CGFloat(monthDoneDays) / CGFloat(31)) * 100
+      case 2:
+        monthPercentage.value = (CGFloat(monthDoneDays) / CGFloat(28)) * 100
+      default:
+        monthPercentage.value = (CGFloat(monthDoneDays) / CGFloat(30)) * 100
+      }
+    }
+  }
+  var yearDoneDays = 0 {
+    didSet {
+      yearPercentage.value = (CGFloat(yearDoneDays) / CGFloat(365)) * 100
+    }
+  }
+  var monthPercentage: Box<CGFloat> = Box(0)
+  var yearPercentage: Box<CGFloat> = Box(0)
   var totalRecord: Box<Int> = Box(0)
-  var totalPercentage: CGFloat = 0
   var consecutiveRecordArray: [Bool] = []
   var consecutiveRecord: Box<Int> = Box(0)
 
@@ -27,7 +48,7 @@ class GraphViewModel {
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
-          print(error)
+          print(error as Any)
           return
         }
         guard let keys = documentSnapshot?.data()?.keys else { return }
@@ -82,7 +103,7 @@ class GraphViewModel {
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
-          print(error)
+          print(error as Any)
           return
         }
         guard let keys = documentSnapshot?.data()?.keys else { return }
@@ -99,7 +120,6 @@ class GraphViewModel {
           // count totalRecord
           self.totalRecord.value += 1
         }
-        // TODO: count totalPercentage
 
         for key in keys {
           guard let date = Int(key) else { return }
@@ -108,15 +128,14 @@ class GraphViewModel {
             // count monthRecord
             if documentSnapshot?.data()?[String(date)] as! Bool == true {
               self.monthRecord.value += 1
+              // count monthPercentage
+              self.monthDoneDays += 1
             }
           default:
             break
           }
         }
-        // TODO: count monthPercentage
-//        print(self.monthRecord, self.totalRecord)
       }
-
   }
 
   func findMaxConsecutiveTrue(array: [Bool]) -> Int {

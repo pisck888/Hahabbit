@@ -8,6 +8,7 @@
 import UIKit
 import PinterestSegment
 import PopupDialog
+import JGProgressHUD
 
 class MainViewController: UIViewController {
 
@@ -38,6 +39,8 @@ class MainViewController: UIViewController {
     AchievementsChecker.checker.delegate = self
 
     HabitManager.shared.setAllNotifications()
+    UserManager.shared.fetchUserSignUpDate {
+    }
 
     viewModel.refreshView = { [weak self] () in
       DispatchQueue.main.async {
@@ -54,7 +57,7 @@ class MainViewController: UIViewController {
     let segment = PinterestSegment(
       frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50),
       segmentStyle: style,
-      titles: ["All", "Public", "Private", "exercise", "skill", "self control", "other"])
+      titles: ["全部習慣", "公開習慣", "私人習慣", "運動健身", "技能學習", "自我管理", "其他自定"])
     segmentView.addSubview(segment)
 
     segment.valueChange = { index in
@@ -70,7 +73,7 @@ class MainViewController: UIViewController {
 
   func setPinterestSegment() {
     style.indicatorColor = .darkGray
-    style.titleMargin = 16
+    style.titleMargin = 6
     style.titlePendingHorizontal = 14
     style.titlePendingVertical = 14
     style.titleFont = UIFont.boldSystemFont(ofSize: 14)
@@ -81,6 +84,14 @@ class MainViewController: UIViewController {
     blurView.removeFromSuperview()
     popupView.removeFromSuperview()
   }
+
+  @IBAction func test(_ sender: UIBarButtonItem) {
+    let hud = JGProgressHUD()
+    hud.textLabel.text = "Loading"
+    hud.show(in: self.view)
+    hud.dismiss(afterDelay: 3.0)
+  }
+
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let controller = segue.destination as? HabitDetailViewController

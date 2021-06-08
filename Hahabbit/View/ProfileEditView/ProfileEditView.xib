@@ -19,7 +19,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="hno-gy-Es3"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xjs-rM-5Di">
@@ -30,7 +30,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="HVM-M0-oiq"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -39,7 +39,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Bys-NA-6mi"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>

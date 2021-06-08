@@ -39,19 +39,19 @@
                                     <action selector="pressCheckButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xkh-NW-S1b"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-RK-1Z4">
-                                <rect key="frame" x="77" y="15.5" width="196" height="49"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-RK-1Z4">
+                                <rect key="frame" x="77" y="18" width="277" height="44.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="健身" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wk2-ln-buG">
-                                        <rect key="frame" x="0.0" y="0.0" width="196" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="277" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="不能逃！不能逃！不能逃！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fty-PB-oei">
-                                        <rect key="frame" x="0.0" y="29.5" width="196" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="26.5" width="277" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -60,6 +60,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="507-3g-hhW" firstAttribute="centerY" secondItem="rof-Xn-AYW" secondAttribute="centerY" id="1RH-C5-tBt"/>
+                            <constraint firstItem="bKw-Kc-Nck" firstAttribute="leading" secondItem="MQZ-RK-1Z4" secondAttribute="trailing" constant="12" id="4D3-gg-ufR"/>
                             <constraint firstItem="MQZ-RK-1Z4" firstAttribute="centerY" secondItem="rof-Xn-AYW" secondAttribute="centerY" id="Ndr-Ey-qe0"/>
                             <constraint firstItem="507-3g-hhW" firstAttribute="leading" secondItem="rof-Xn-AYW" secondAttribute="leading" constant="16" id="ZaU-Eg-I39"/>
                             <constraint firstAttribute="height" constant="80" id="i6C-yc-6L4"/>

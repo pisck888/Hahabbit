@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-import SPAlert
+import JGProgressHUD
 
 class PublicHabitDetailViewController: UIViewController {
 
@@ -27,9 +27,13 @@ class PublicHabitDetailViewController: UIViewController {
           ["members": FieldValue.arrayUnion([UserManager.shared.currentUser])]
         )
     }
-    SPAlert.present(title: "Done", preset: .done)
     navigationController?.popViewController(animated: true)
-
+    let hud = JGProgressHUD()
+    hud.textLabel.text = "完成"
+    hud.square = true
+    hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+    hud.show(in: (self.navigationController?.view)!, animated: true)
+    hud.dismiss(afterDelay: 1.5)
   }
 
 }

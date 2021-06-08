@@ -9,18 +9,12 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-protocol HabitManagerDelegate: AnyObject {
-  func setNewData(data: Habit)
-}
-
 enum FirebaseError: Error {
   case documentError
 }
 
 class HabitManager {
   static let shared = HabitManager()
-
-  weak var delegate: HabitManagerDelegate?
 
   var habits: [Habit] = []
 
@@ -70,7 +64,7 @@ class HabitManager {
         }
       }
   }
-  func uploadHabit(habit: Habit, hours: [Int], minutes: [Int]) {
+  func uploadHabit(habit: Habit, hours: [Int], minutes: [Int], completionHandler: ((String) -> Void)?) {
     if habit.id == "" {
       let newHabitRef = db.collection("habits").document()
       let notification = db.collection("habits")
@@ -93,6 +87,7 @@ class HabitManager {
       newHabitRef.setData(data)
       notification.setData(["hours": hours], merge: true)
       notification.setData(["minutes": minutes], merge: true)
+      completionHandler?(newHabitRef.documentID)
     } else {
       let editHabitRef = db.collection("habits").document(habit.id)
       let notification = db.collection("habits")
@@ -119,7 +114,7 @@ class HabitManager {
           print(error)
           return
         }
-        self.delegate?.setNewData(data: habit)
+        completionHandler?(habit.id)
       }
     }
 
@@ -131,10 +126,26 @@ class HabitManager {
         .document(habit.id)
         .delete { error in
           guard error == nil else {
-            print(error)
+            print(error as Any)
             return
           }
         }
+      db.collection("chats")
+        .document(habit.id)
+        .delete() { error in
+          guard error == nil else {
+            print(error as Any)
+            return
+          }
+        }
+      let storage = Storage.storage()
+      let storageRef = storage.reference(forURL: habit.photo)
+      storageRef.delete { error in
+        guard error == nil else {
+          print(error as Any)
+          return
+        }
+      }
     } else {
       db.collection("habits")
         .document(habit.id)
@@ -142,88 +153,87 @@ class HabitManager {
           "members": FieldValue.arrayRemove([UserManager.shared.currentUser])
         ]) { error in
           guard error == nil else {
-            print(error)
+            print(error as Any)
+            return
+          }
+        }
+      db.collection("chats")
+        .document(habit.id)
+        .updateData([
+          "members": FieldValue.arrayRemove([UserManager.shared.currentUser])
+        ]) { error in
+          guard error == nil else {
+            print(error as Any)
             return
           }
         }
     }
   }
 
-    func deleteHabit(id: String) {
-      db.collection("habits")
-        .document(id)
-        .delete { error in
-          guard error == nil else {
-            print(error)
-            return
-          }
+  func fetchNotifications(id: String) {
+    db.collection("habits")
+      .document(id)
+      .collection("notification")
+      .document(UserManager.shared.currentUser)
+      .getDocument { documentSnapshot, error in
+        print(documentSnapshot?.data())
+      }
+  }
+
+  func setAllNotifications() {
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    db.collection("habits")
+      .whereField("members", arrayContains: UserManager.shared.currentUser)
+      .getDocuments { querySnapshot, error in
+        guard let documents = querySnapshot?.documents else {
+          return
         }
-    }
-
-    func fetchNotifications(id: String) {
-      db.collection("habits")
-        .document(id)
-        .collection("notification")
-        .document(UserManager.shared.currentUser)
-        .getDocument { documentSnapshot, error in
-          print(documentSnapshot?.data())
+        let habits = documents.compactMap { queryDocumentSnapshot in
+          try?  queryDocumentSnapshot.data(as: Habit.self)
         }
-    }
+        for habit in habits {
+          // set notification
+          for weekday in 1...7 {
+            if habit.weekday[String(weekday)] == true {
 
-    func setAllNotifications() {
-      UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-      db.collection("habits")
-        .whereField("members", arrayContains: UserManager.shared.currentUser)
-        .getDocuments { querySnapshot, error in
-          guard let documents = querySnapshot?.documents else {
-            return
-          }
-          let habits = documents.compactMap { queryDocumentSnapshot in
-            try?  queryDocumentSnapshot.data(as: Habit.self)
-          }
-          for habit in habits {
-            // set notification
-            for weekday in 1...7 {
-              if habit.weekday[String(weekday)] == true {
+              let notificationContent = UNMutableNotificationContent()
+              notificationContent.title = habit.title
+              notificationContent.body = habit.slogan
+              notificationContent.badge = 1
+              notificationContent.sound = .default
 
-                let notificationContent = UNMutableNotificationContent()
-                notificationContent.title = habit.title
-                notificationContent.body = habit.slogan
-                notificationContent.badge = 1
-                notificationContent.sound = .default
+              let imageURL = Bundle.main.url(forResource: "crocodile", withExtension: "png")!
+              let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
+              notificationContent.attachments = [attachment]
 
-                let imageURL = Bundle.main.url(forResource: "crocodile", withExtension: "png")!
-                let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
-                notificationContent.attachments = [attachment]
+              self.db.collection("habits")
+                .document(habit.id)
+                .collection("notification")
+                .document(UserManager.shared.currentUser)
+                .getDocument { documentSnapshot, error in
+                  if let hours = documentSnapshot?.data()?["hours"] as? [Int],
+                     let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
+                     !hours.isEmpty,
+                     !minutes.isEmpty {
+                    for i in 0...(hours.count - 1) {
+                      var datComp = DateComponents()
+                      datComp.weekday = weekday
+                      datComp.hour = hours[i]
+                      datComp.minute = minutes[i]
 
-                self.db.collection("habits")
-                  .document(habit.id)
-                  .collection("notification")
-                  .document(UserManager.shared.currentUser)
-                  .getDocument { documentSnapshot, error in
-                    if let hours = documentSnapshot?.data()?["hours"] as? [Int],
-                       let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
-                       !hours.isEmpty,
-                       !minutes.isEmpty {
-                      for i in 0...(hours.count - 1) {
-                        var datComp = DateComponents()
-                        datComp.weekday = weekday
-                        datComp.hour = hours[i]
-                        datComp.minute = minutes[i]
-
-                        let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
-                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
-                        UNUserNotificationCenter.current().add(request) { error in
-                          if let err = error {
-                            print(err.localizedDescription)
-                          }
+                      let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
+                      let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+                      UNUserNotificationCenter.current().add(request) { error in
+                        if let err = error {
+                          print(err.localizedDescription)
                         }
                       }
                     }
                   }
-              }
+                }
             }
           }
         }
-    }
+      }
   }
+}

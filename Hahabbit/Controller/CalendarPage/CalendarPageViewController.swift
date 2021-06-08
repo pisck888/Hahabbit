@@ -31,7 +31,6 @@ class CalendarPageViewController: UIViewController {
   var dailyHabitsCount: [Int: String] = [:] {
     didSet {
       calendar.reloadData()
-      print(dailyHabitsCount)
     }
   }
 
@@ -64,10 +63,6 @@ class CalendarPageViewController: UIViewController {
     }
     viewModel.habitViewModels.bind { [weak self] habits in
       self?.viewModel.onRefresh()
-    }
-
-    UserManager.shared.fetchUserSignUpDate {
-      self.calendar.reloadData()
     }
 
     viewModel.fetchData()
@@ -182,14 +177,6 @@ extension CalendarPageViewController: FSCalendarDelegate {
 }
 
 extension CalendarPageViewController: FSCalendarDataSource {
-//  func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-//    let weekday = Calendar.current.component(.weekday, from: date)
-//    if dailyHabitsCount.count < 7 {
-//      return UIImage()
-//    } else {
-//      return UIImage(systemName: "2.circle")
-//    }
-//  }
 
   func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
     let weekday = Calendar.current.component(.weekday, from: date)
@@ -199,13 +186,7 @@ extension CalendarPageViewController: FSCalendarDataSource {
       return dailyHabitsCount[weekday]
     }
   }
-
-//  func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//    1
-//  }
-
 }
-
 
 extension CalendarPageViewController: AchievementsCheckerDelegate {
   func showPopupView(title: String, message: String, image: String) {

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Achievements-->
+        <!--成就統計-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController id="Y6W-OH-hqX" customClass="AchievementsViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,19 +30,19 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3a-ud-OXO">
                                                     <rect key="frame" x="16" y="8" width="382" height="98"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vau-rP-WPZ">
-                                                            <rect key="frame" x="82" y="24.5" width="156" height="49"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vau-rP-WPZ">
+                                                            <rect key="frame" x="82" y="27" width="146.5" height="44.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="灌水王" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgS-Ui-eiZ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="21.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="146.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連續達成喝水目標7天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9K-lX-gYd">
-                                                                    <rect key="frame" x="0.0" y="29.5" width="156" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="0.0" y="26.5" width="146.5" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -119,7 +119,7 @@
                             <constraint firstItem="rH9-53-doW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bkh-je-2GE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Achievements" id="3S5-80-c5r">
+                    <navigationItem key="navigationItem" title="成就統計" id="3S5-80-c5r">
                         <barButtonItem key="rightBarButtonItem" image="viewGridCard" id="KZ1-sb-QzB">
                             <color key="tintColor" systemColor="labelColor"/>
                         </barButtonItem>
@@ -148,6 +148,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Oca-8j-qh0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

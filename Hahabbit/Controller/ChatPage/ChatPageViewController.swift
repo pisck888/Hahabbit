@@ -119,23 +119,19 @@ class ChatPageViewController: MessagesViewController {
   private func save(_ message: Message) {
     guard let id = habitID else { return }
     // Preparing the data as per our firestore collection
+    let newMessageRef = db.collection("chats")
+      .document(id)
+      .collection("thread")
+      .document()
     let data: [String: Any] = [
       "content": message.content,
       "created": message.created,
-      "id": message.id,
+      "id": newMessageRef.documentID,
       "senderID": message.senderID,
       "senderName": message.senderName
     ]
     // Writing it to the thread using the saved document reference we saved in load chat function
-    db.collection("chats")
-      .document(id)
-      .collection("thread")
-      .addDocument(data: data) { error in
-        if let error = error {
-          print("Error Sending message: \(error)")
-          return
-        }
-      }
+    newMessageRef.setData(data)
   }
 
   func configureInputBarItems() {
@@ -227,7 +223,7 @@ extension ChatPageViewController: MessagesDisplayDelegate {
 extension ChatPageViewController: InputBarAccessoryViewDelegate {
   func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
     guard let user = currentUser else { return }
-    let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: user.id, senderName: user.name)
+    let message = Message(id: "", content: text, created: Timestamp(), senderID: user.id, senderName: user.name)
     // calling function to insert and save message
     save(message)
     inputBar.inputTextView.text = ""

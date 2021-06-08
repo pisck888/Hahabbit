@@ -29,7 +29,4 @@ class ProfileTableViewCell: UITableViewCell {
     titleLabel.text = "<\(user.title)>"
     coinLabel.text = String(user.coin)
   }
-
-
-
 }

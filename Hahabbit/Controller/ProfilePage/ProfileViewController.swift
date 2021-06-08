@@ -14,7 +14,7 @@ import Kingfisher
 class ProfileViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
-  let settingsTitle = ["Language", "blacklist", "Vibrate", "Dark Mode", "Touch ID"]
+  let settingsTitle = ["語言設置", "封鎖名單", "震動功能", "暗黑模式", "主題顏色", "Touch ID"]
 
   var items: [CustomizableActionSheetItem] = []
 
@@ -80,18 +80,19 @@ class ProfileViewController: UIViewController {
     // First view
     if let profileEditView = UINib(nibName: "ProfileEditView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
       profileEditView.user = viewModel.currentUserViewModel.value
+      profileEditView.textField.text = viewModel.currentUserViewModel.value.name
       let profileEditViewItem = CustomizableActionSheetItem(type: .view, height: 300)
       profileEditViewItem.view = profileEditView
       items.append(profileEditViewItem)
     }
 
-    let cancelItem = CustomizableActionSheetItem(type: .button)
-    cancelItem.label = "Cancel"
-    cancelItem.textColor = .black
-    cancelItem.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
+    let OKItem = CustomizableActionSheetItem(type: .button)
+    OKItem.label = "OK"
+    OKItem.textColor = .black
+    OKItem.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
       actionSheet.dismiss()
     }
-    items.append(cancelItem)
+    items.append(OKItem)
 
     let actionSheet = CustomizableActionSheet()
     actionSheet.showInView(self.view, items: items)
@@ -164,7 +165,7 @@ extension ProfileViewController: UITableViewDelegate {
       do {
         try firebaseAuth.signOut()
       } catch let signOutError as NSError {
-        print ("Error signing out: %@", signOutError)
+        print("Error signing out: %@", signOutError)
       }
       performSegue(withIdentifier: MySegue.toLoginPage, sender: nil)
     }
@@ -172,26 +173,6 @@ extension ProfileViewController: UITableViewDelegate {
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-  //  func showImagePickerActionSheet() {
-  //    let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
-  //
-  //    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
-  //      self.showImagePicker(sourceType: .photoLibrary)
-  //    }
-  //
-  //    let cameraAction = UIAlertAction(title: "Take from camera", style: .default) { action in
-  //      self.showImagePicker(sourceType: .camera)
-  //    }
-  //
-  //    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-  //
-  //    alert.addAction(photoLibraryAction)
-  //    alert.addAction(cameraAction)
-  //    alert.addAction(cancelAction)
-  //
-  //    present(alert, animated: true, completion: nil)
-  //  }
 
   func showImagePicker(sourceType: UIImagePickerController.SourceType) {
     let imagePicker = UIImagePickerController()

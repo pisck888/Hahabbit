@@ -310,8 +310,10 @@ PODS:
     - InputBarAccessoryView/Core (= 4.3.3)
   - InputBarAccessoryView/Core (4.3.3)
   - IQKeyboardManagerSwift (6.5.6)
+  - JGProgressHUD (2.2)
   - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
+  - lottie-ios (3.2.3)
   - MBCircularProgressBar (0.3.5)
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
@@ -326,8 +328,6 @@ PODS:
     - DynamicBlurView (~> 4.0)
   - PromisesObjC (1.2.12)
   - ScrollableGraphView (4.0.6)
-  - SPAlert (2.1.4)
-  - SwiftKeychainWrapper (4.0.1)
   - SwiftLint (0.43.1)
 
 DEPENDENCIES:
@@ -339,15 +339,15 @@ DEPENDENCIES:
   - FirebaseFirestoreSwift
   - FSCalendar
   - IQKeyboardManagerSwift
+  - JGProgressHUD
   - Kingfisher (~> 6.0)
+  - lottie-ios
   - MBCircularProgressBar
   - MessageKit
   - MJRefresh
   - PinterestSegment
   - PopupDialog (~> 1.1)
   - ScrollableGraphView
-  - SPAlert
-  - SwiftKeychainWrapper
   - SwiftLint
 
 SPEC REPOS:
@@ -372,8 +372,10 @@ SPEC REPOS:
     - GTMSessionFetcher
     - InputBarAccessoryView
     - IQKeyboardManagerSwift
+    - JGProgressHUD
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - MBCircularProgressBar
     - MessageKit
     - MJRefresh
@@ -382,8 +384,6 @@ SPEC REPOS:
     - PopupDialog
     - PromisesObjC
     - ScrollableGraphView
-    - SPAlert
-    - SwiftKeychainWrapper
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -407,8 +407,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   InputBarAccessoryView: 8e7fc09e9cba75e0fee5da13450e15c194806f69
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
@@ -417,10 +419,8 @@ SPEC CHECKSUMS:
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
-  SPAlert: 1a8afa1c6ac86a82ab5b2cfdf7f9a51e68cb6c0c
-  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: a2d77b6e1a25cab35dcda460746d34c235014fab
+PODFILE CHECKSUM: 3fdea9f512c1b1c4f57ffffad4f23d2c399272ae
 
 COCOAPODS: 1.10.1
