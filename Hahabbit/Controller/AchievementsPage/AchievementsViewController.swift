@@ -10,12 +10,15 @@ import UIKit
 class AchievementsViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
-
+  @IBOutlet weak var gridModeButton: UIBarButtonItem!
+  
 
   let viewModel = AchievementViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    gridModeButton.isEnabled = false
+    gridModeButton.tintColor = .clear
 
     viewModel.userAchievements.bind { achievements in
       self.tableView.reloadData()

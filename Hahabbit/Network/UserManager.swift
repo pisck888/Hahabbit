@@ -28,11 +28,11 @@ class UserManager {
     let userInfo: [String: Any] = [
       "id": id,
       "name": name,
-      "image": "",
+      "image": "https://firebasestorage.googleapis.com/v0/b/hahabbit-8f194.appspot.com/o/userAvatars%2FUserPlaceHolder.svg?alt=media&token=609c696c-f160-4153-89e9-56d0d66d1b2b",
       "coin": 0,
-      "title": "菜逼",
+      "title": "初心者",
       "signUpDate": today,
-      "titleArray": [],
+      "titleArray": ["初心者"],
       "blacklist": []
     ]
 

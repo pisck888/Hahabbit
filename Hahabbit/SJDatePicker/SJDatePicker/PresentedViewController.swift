@@ -15,7 +15,7 @@ class PresentedViewController: UIViewController {
     
     private var picker:SJDatePicker = SJDatePicker()
     private var confirmButton:UIButton = UIButton()
-    private let cornerRadius:CGFloat = 7.5
+    private let cornerRadius:CGFloat = 10
     private let pickerHeight:CGFloat = 216
     private let pickerWidth:CGFloat = UIScreen.main.bounds.size.width - 10
     
@@ -29,7 +29,7 @@ class PresentedViewController: UIViewController {
     
     func injected() {
         let btnConfirm = UIButton(type: .custom)
-        btnConfirm.setTitle("OK", for: .normal)
+        btnConfirm.setTitle("確定", for: .normal)
         btnConfirm.backgroundColor = style.textColor
         btnConfirm.layer.cornerRadius = cornerRadius
         btnConfirm.layer.masksToBounds = true

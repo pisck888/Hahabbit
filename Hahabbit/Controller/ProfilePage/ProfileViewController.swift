@@ -14,7 +14,7 @@ import Kingfisher
 class ProfileViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
-  let settingsTitle = ["語言設置", "封鎖名單", "震動功能", "暗黑模式", "主題顏色", "Touch ID"]
+  let settingsTitle = ["封鎖名單", "語言設置", "震動功能", "暗黑模式", "主題顏色", "Touch ID"]
 
   var items: [CustomizableActionSheetItem] = []
 
@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController {
     var items = [CustomizableActionSheetItem]()
     let cameraItem = CustomizableActionSheetItem()
     cameraItem.type = .button
-    cameraItem.label = "Take from camera"
+    cameraItem.label = "相機拍攝"
     cameraItem.height = 60
     cameraItem.textColor = .black
     cameraItem.selectAction = { action -> Void in
@@ -61,7 +61,7 @@ class ProfileViewController: UIViewController {
 
     let libraryItem = CustomizableActionSheetItem()
     libraryItem.type = .button
-    libraryItem.label = "Choose from library"
+    libraryItem.label = "照片圖庫"
     libraryItem.height = 60
     libraryItem.textColor = .black
     libraryItem.selectAction = { action -> Void in
@@ -87,7 +87,7 @@ class ProfileViewController: UIViewController {
     }
 
     let OKItem = CustomizableActionSheetItem(type: .button)
-    OKItem.label = "OK"
+    OKItem.label = "確定"
     OKItem.textColor = .black
     OKItem.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
       actionSheet.dismiss()
@@ -110,7 +110,7 @@ extension ProfileViewController: UITableViewDataSource {
     case 0:
       return 1
     case 1:
-      return settingsTitle.count
+      return 1
     default:
       return 1
     }
@@ -152,10 +152,10 @@ extension ProfileViewController: UITableViewDelegate {
     if indexPath.section == 1 {
       switch indexPath.row {
       case 0:
+        performSegue(withIdentifier: MySegue.toBlacklistPage, sender: nil)
+      case 1:
         let actionSheet = CustomizableActionSheet()
         actionSheet.showInView(self.view, items: items)
-      case 1:
-        performSegue(withIdentifier: MySegue.toBlacklistPage, sender: nil)
       default:
         print("nothing happened")
       }

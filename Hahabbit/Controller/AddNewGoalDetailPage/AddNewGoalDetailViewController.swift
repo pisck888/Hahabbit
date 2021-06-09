@@ -352,8 +352,8 @@ extension AddNewGoalDetailViewController: UICollectionViewDelegate {
       let picker = PresentedViewController()
       picker.style.pickerMode = .time
       picker.style.pickerColor = .color(.black)
-      picker.style.textColor = .black
-      picker.style.titleString = "Set time"
+      picker.style.textColor = .darkGray
+      picker.style.titleString = "設置提醒"
       picker.block = { [weak self] date in
         if let date = date {
           let hour = Calendar.current.component(.hour, from: date)
@@ -389,22 +389,29 @@ extension AddNewGoalDetailViewController: UICollectionViewDelegate {
 
 extension AddNewGoalDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func showImagePickerActionSheet() {
-    let alert = UIAlertController(title: "Choose your image", message: nil, preferredStyle: .actionSheet)
+    let alert = UIAlertController(title: "上傳照片", message: nil, preferredStyle: .actionSheet)
+
     alert.view.tintColor = .black
 
-    let photoLibraryAction = UIAlertAction(title: "Choose from library", style: .default) { action in
-      self.showImagePicker(sourceType: .photoLibrary)
-    }
-
-    let cameraAction = UIAlertAction(title: "Take from camera", style: .default) { action in
+    let cameraAction = UIAlertAction(title: "相機拍攝", style: .default) { action in
       self.showImagePicker(sourceType: .camera)
     }
 
-    let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+    let photoLibraryAction = UIAlertAction(title: "照片圖庫", style: .default) { action in
+      self.showImagePicker(sourceType: .photoLibrary)
+    }
 
-    alert.addAction(photoLibraryAction)
+    let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+
     alert.addAction(cameraAction)
+    alert.addAction(photoLibraryAction)
     alert.addAction(cancelAction)
+
+    if let popoverController = alert.popoverPresentationController {
+      popoverController.sourceView = self.view
+      popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+      popoverController.permittedArrowDirections = []
+    }
 
     present(alert, animated: true, completion: nil)
   }

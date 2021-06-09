@@ -26,7 +26,7 @@ class ProfileTableViewCell: UITableViewCell {
     let url = URL(string: user.image)
     avatarImage.kf.setImage(with: url)
     nameLabel.text = user.name
-    titleLabel.text = "<\(user.title)>"
+    titleLabel.text = user.title
     coinLabel.text = String(user.coin)
   }
 }

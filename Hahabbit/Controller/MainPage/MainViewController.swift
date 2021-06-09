@@ -8,7 +8,6 @@
 import UIKit
 import PinterestSegment
 import PopupDialog
-import JGProgressHUD
 
 class MainViewController: UIViewController {
 
@@ -20,6 +19,7 @@ class MainViewController: UIViewController {
 
   @IBOutlet weak var segmentView: UIView!
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var gridModeButton: UIBarButtonItem!
 
   lazy var blurView: UIView = {
     let blurView = UIView(frame: view.frame)
@@ -35,6 +35,8 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
 
     navigationItem.backButtonTitle = ""
+    gridModeButton.isEnabled = false
+    gridModeButton.tintColor = .clear
 
     AchievementsChecker.checker.delegate = self
 
@@ -86,10 +88,6 @@ class MainViewController: UIViewController {
   }
 
   @IBAction func test(_ sender: UIBarButtonItem) {
-    let hud = JGProgressHUD()
-    hud.textLabel.text = "Loading"
-    hud.show(in: self.view)
-    hud.dismiss(afterDelay: 3.0)
   }
 
 

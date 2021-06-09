@@ -167,6 +167,39 @@ extension CalendarPageViewController: FSCalendarDelegate {
       calendar.setCurrentPage(date, animated: true)
     }
   }
+  
+//  func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+//    if date > Date() {
+//      print(123)
+//      return false
+//    } else {
+//      return true
+//    }
+//
+//  }
+//  // 本月開始日期
+//  func startOfCurrentMonth() -> Date {
+//    let date = Date()
+//    let calendar = NSCalendar.current
+//    let components = calendar.dateComponents(Set<Calendar.Component>([.year, .month]), from: date)
+//    let startOfMonth = calendar.date(from: components)!
+//    return startOfMonth
+//  }
+//
+//  // 本月结束日期
+//  func endOfCurrentMonth(returnEndTime: Bool = false) -> Date {
+//    let calendar = NSCalendar.current
+//    var components = DateComponents()
+//    components.month = 1
+//    if returnEndTime {
+//      components.second = -1
+//    } else {
+//      components.day = -1
+//    }
+//
+//    let endOfMonth = calendar.date(byAdding: components, to: startOfCurrentMonth())!
+//    return endOfMonth
+//  }
 
   func maximumDate(for calendar: FSCalendar) -> Date {
     Date()

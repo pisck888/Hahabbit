@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="50" id="bsU-rg-kUG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUm-8j-AAw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vUm-8j-AAw">
                                 <rect key="frame" x="0.0" y="138" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <connections>
@@ -34,7 +34,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="WkO-Y7-weW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ico-lQ-516"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vUm-8j-AAw" secondAttribute="bottom" id="SjU-oG-ggd"/>
@@ -47,7 +47,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="今天" id="K07-vq-ZSp">
                         <barButtonItem key="leftBarButtonItem" image="calendarThirty" id="yNb-br-Kcy">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="9Xa-vU-QpH" kind="show" id="pVC-Xf-OnL"/>
                             </connections>
@@ -61,6 +60,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="closeButton" destination="ztU-s5-GW6" id="AGg-ZE-ZTs"/>
+                        <outlet property="gridModeButton" destination="i2b-3u-5Eb" id="2CI-nZ-YXd"/>
                         <outlet property="popupImage" destination="97c-3O-iCu" id="wmM-io-Ixa"/>
                         <outlet property="popupMessageLabel" destination="mrh-V1-Zfp" id="pLX-fr-lou"/>
                         <outlet property="popupTitleLabel" destination="vq3-8q-ptD" id="CdV-j7-WWA"/>
@@ -296,6 +296,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="AaS-CF-ayF" secondAttribute="trailing" constant="16" id="BAy-Bs-eqy"/>
                                                         <constraint firstItem="Y5a-Wg-XcQ" firstAttribute="leading" secondItem="dED-HK-Ko8" secondAttribute="leading" constant="16" id="CbE-tu-e3e"/>
                                                         <constraint firstItem="e80-bU-V4v" firstAttribute="leading" secondItem="dED-HK-Ko8" secondAttribute="leading" constant="16" id="FGc-jA-4On"/>
+                                                        <constraint firstItem="AaS-CF-ayF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s0D-wY-MgR" secondAttribute="trailing" constant="16" id="Fjd-yT-ggU"/>
                                                         <constraint firstItem="7DE-j8-0lM" firstAttribute="centerY" secondItem="e80-bU-V4v" secondAttribute="centerY" id="HjE-kv-iky"/>
                                                         <constraint firstItem="wrB-3L-S45" firstAttribute="leading" secondItem="dED-HK-Ko8" secondAttribute="leading" constant="16" id="HqL-Lf-gb1"/>
                                                         <constraint firstItem="AaS-CF-ayF" firstAttribute="centerY" secondItem="s0D-wY-MgR" secondAttribute="centerY" id="K92-av-FdC"/>
@@ -403,7 +404,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每月完成次數統計" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SF-g9-zS1">
-                                                            <rect key="frame" x="16" y="16" width="131" height="19.5"/>
+                                                            <rect key="frame" x="16" y="16" width="342" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -416,6 +417,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="R4C-vQ-GOg" secondAttribute="trailing" id="TYm-EW-wo9"/>
                                                         <constraint firstItem="R4C-vQ-GOg" firstAttribute="top" secondItem="0SF-g9-zS1" secondAttribute="bottom" constant="8" id="dgj-Em-0wG"/>
                                                         <constraint firstItem="R4C-vQ-GOg" firstAttribute="leading" secondItem="qqD-8e-RMf" secondAttribute="leading" id="gJx-OS-sN3"/>
+                                                        <constraint firstAttribute="trailing" secondItem="0SF-g9-zS1" secondAttribute="trailing" constant="16" id="ma6-xg-iOL"/>
                                                         <constraint firstItem="0SF-g9-zS1" firstAttribute="top" secondItem="qqD-8e-RMf" secondAttribute="top" constant="16" id="sKP-24-tOb"/>
                                                     </constraints>
                                                 </view>

@@ -54,7 +54,7 @@ class PublicGoalsTableViewCell: UITableViewCell {
            let title = user[0].data()["title"],
            let name = user[0].data()["name"],
            let url = URL(string: user[0].data()["image"] as? String ?? "") {
-          self.ownerLabel.text = "發起人：<\(title)> \(name)"
+          self.ownerLabel.text = "發起人：[\(title)] \(name)"
           self.avatarImage.kf.setImage(with: url)
         }
       }

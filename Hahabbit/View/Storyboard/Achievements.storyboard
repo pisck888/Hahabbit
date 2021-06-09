@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-53-doW">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rH9-53-doW">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
@@ -47,7 +47,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cosmic-egg" translatesAutoresizingMaskIntoConstraints="NO" id="T2l-Z4-6XG">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2l-Z4-6XG">
                                                             <rect key="frame" x="16" y="16" width="50" height="66"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="EOd-S5-ozN"/>
@@ -76,6 +76,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="x8C-So-C3s" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vau-rP-WPZ" secondAttribute="trailing" constant="16" id="0PA-06-ksf"/>
                                                         <constraint firstItem="vau-rP-WPZ" firstAttribute="centerY" secondItem="Y3a-ud-OXO" secondAttribute="centerY" id="0u4-32-KkB"/>
                                                         <constraint firstItem="x8C-So-C3s" firstAttribute="centerY" secondItem="Y3a-ud-OXO" secondAttribute="centerY" id="46E-G2-n62"/>
                                                         <constraint firstAttribute="trailing" secondItem="x8C-So-C3s" secondAttribute="trailing" constant="16" id="Ydl-mp-VuU"/>
@@ -111,7 +112,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rH9-53-doW" secondAttribute="bottom" id="QGL-0m-YSW"/>
                             <constraint firstItem="rH9-53-doW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="QmY-Mo-idp"/>
@@ -126,6 +127,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="gridModeButton" destination="KZ1-sb-QzB" id="skl-Hg-1Qk"/>
                         <outlet property="tableView" destination="rH9-53-doW" id="ndP-ro-E9I"/>
                     </connections>
                 </viewController>
@@ -163,7 +165,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cosmic-egg" width="512" height="512"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="fiveStarBadge" width="24" height="24"/>
         <image name="viewGridCard" width="24" height="24"/>

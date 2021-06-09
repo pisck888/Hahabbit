@@ -31,7 +31,6 @@
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */; };
 		E736858D266735AD002E2278 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736858C266735AD002E2278 /* extension.swift */; };
-		E73685FA266768AC002E2278 /* crocodile.png in Resources */ = {isa = PBXBuildFile; fileRef = E73685F9266768AC002E2278 /* crocodile.png */; };
 		E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73685FD26687465002E2278 /* NotificationsViewModel.swift */; };
 		E7368604266A3674002E2278 /* BlacklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7368603266A3674002E2278 /* BlacklistViewController.swift */; };
 		E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */; };
@@ -52,6 +51,7 @@
 		E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4255265E9D6100C9AB3D /* PickerStyle.swift */; };
 		E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */; };
 		E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756742126598AE600B236E3 /* GraphViewModel.swift */; };
+		E7673BEB26708CDE00527585 /* catPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7673BEA26708CDE00527585 /* catPlaceholder.png */; };
 		E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */; };
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
@@ -68,8 +68,6 @@
 		E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */; };
 		E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F78264BC0FB003F0DAC /* Constants.swift */; };
 		E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */; };
-		E7BDCCF6266D03E300C0B1A2 /* lottie-loading-text-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCF4266D03E300C0B1A2 /* lottie-loading-text-animation.json */; };
-		E7BDCCF7266D03E300C0B1A2 /* pacman.json in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCF5266D03E300C0B1A2 /* pacman.json */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
 		E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */; };
@@ -106,7 +104,6 @@
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		E736858C266735AD002E2278 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
-		E73685F9266768AC002E2278 /* crocodile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crocodile.png; sourceTree = "<group>"; };
 		E73685FD26687465002E2278 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		E7368603266A3674002E2278 /* BlacklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistViewController.swift; sourceTree = "<group>"; };
 		E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +125,7 @@
 		E74F4255265E9D6100C9AB3D /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
 		E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationAnimationController.swift; sourceTree = "<group>"; };
 		E756742126598AE600B236E3 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		E7673BEA26708CDE00527585 /* catPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catPlaceholder.png; sourceTree = "<group>"; };
 		E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitViewModel.swift; sourceTree = "<group>"; };
 		E786041F265AA11500AC0F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,8 +145,6 @@
 		E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalCell.swift; sourceTree = "<group>"; };
 		E7910F78264BC0FB003F0DAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
-		E7BDCCF4266D03E300C0B1A2 /* lottie-loading-text-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-loading-text-animation.json"; sourceTree = "<group>"; };
-		E7BDCCF5266D03E300C0B1A2 /* pacman.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pacman.json; sourceTree = "<group>"; };
 		E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
@@ -369,7 +365,7 @@
 		E73685FB2667693E002E2278 /* HabitIcons */ = {
 			isa = PBXGroup;
 			children = (
-				E73685F9266768AC002E2278 /* crocodile.png */,
+				E7673BEA26708CDE00527585 /* catPlaceholder.png */,
 			);
 			path = HabitIcons;
 			sourceTree = "<group>";
@@ -594,7 +590,6 @@
 		E7910F6A264B7F5E003F0DAC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				E7BDCCF3266D03D000C0B1A2 /* lottie */,
 				E73685FB2667693E002E2278 /* HabitIcons */,
 				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
 				E7910F78264BC0FB003F0DAC /* Constants.swift */,
@@ -609,15 +604,6 @@
 				E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */,
 			);
 			path = AddNewGoalCell;
-			sourceTree = "<group>";
-		};
-		E7BDCCF3266D03D000C0B1A2 /* lottie */ = {
-			isa = PBXGroup;
-			children = (
-				E7BDCCF4266D03E300C0B1A2 /* lottie-loading-text-animation.json */,
-				E7BDCCF5266D03E300C0B1A2 /* pacman.json */,
-			);
-			path = lottie;
 			sourceTree = "<group>";
 		};
 		E7BDCCF8266D04B400C0B1A2 /* LoadingView */ = {
@@ -657,8 +643,9 @@
 				E7910F47264AE777003F0DAC /* Sources */,
 				E7910F48264AE777003F0DAC /* Frameworks */,
 				E7910F49264AE777003F0DAC /* Resources */,
-				E7910F62264AEE07003F0DAC /* ShellScript */,
 				E5E5113AEEC8C53E7D4A3193 /* [CP] Embed Pods Frameworks */,
+				E7910F62264AEE07003F0DAC /* ShellScript */,
+				E7673BE9266FC5A500527585 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -706,8 +693,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7BDCCF6266D03E300C0B1A2 /* lottie-loading-text-animation.json in Resources */,
 				E7052E6D2652D74500B717F8 /* PublicGoalsTableViewCell.xib in Resources */,
+				E7673BEB26708CDE00527585 /* catPlaceholder.png in Resources */,
 				E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */,
 				E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */,
 				E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */,
@@ -717,9 +704,7 @@
 				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
 				E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
-				E73685FA266768AC002E2278 /* crocodile.png in Resources */,
 				E7C54EF126640AF8004A1ACA /* PopupView.xib in Resources */,
-				E7BDCCF7266D03E300C0B1A2 /* pacman.json in Resources */,
 				E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */,
 				E7910F56264AE777003F0DAC /* Main.storyboard in Resources */,
 			);
@@ -766,6 +751,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hahabbit/Pods-Hahabbit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E7673BE9266FC5A500527585 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		E7910F62264AEE07003F0DAC /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -904,7 +909,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

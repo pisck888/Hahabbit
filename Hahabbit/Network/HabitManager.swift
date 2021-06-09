@@ -202,7 +202,7 @@ class HabitManager {
               notificationContent.badge = 1
               notificationContent.sound = .default
 
-              let imageURL = Bundle.main.url(forResource: "crocodile", withExtension: "png")!
+              let imageURL = Bundle.main.url(forResource: "catPlaceholder", withExtension: "png")!
               let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
               notificationContent.attachments = [attachment]
 

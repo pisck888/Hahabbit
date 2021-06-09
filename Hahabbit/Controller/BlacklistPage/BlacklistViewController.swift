@@ -33,12 +33,15 @@ class BlacklistViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
+
+  }
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
     showPopView()
   }
 
   func showPopView() {
     if viewModel.blockedUsersViewModel.value.isEmpty {
-      view.addSubview(popupView)
       popupView.layer.shadowOffset = CGSize(width: 2, height: 2)
       popupView.layer.shadowOpacity = 0.5
       popupView.layer.shadowRadius = 2
@@ -46,6 +49,7 @@ class BlacklistViewController: UIViewController {
       popupView.layer.cornerRadius = 10
       popupView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
       popupView.center = tableView.center
+      view.addSubview(popupView)
 
       UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveLinear) {
         self.popupView.transform = .identity

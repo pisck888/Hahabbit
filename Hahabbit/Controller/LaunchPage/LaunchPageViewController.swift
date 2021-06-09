@@ -13,8 +13,8 @@ class LaunchPageViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
   override func viewDidLoad() {
     super.viewDidLoad()
-
   }
+  
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     imageView.center = view.center
@@ -44,4 +44,3 @@ class LaunchPageViewController: UIViewController {
 
   }
 }
-

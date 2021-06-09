@@ -221,17 +221,34 @@ PODS:
   - ContextMenuSwift (0.0.8)
   - CustomizableActionSheet (1.2.3)
   - DynamicBlurView (4.1.0)
+  - Firebase/Analytics (6.34.0):
+    - Firebase/Core
   - Firebase/Auth (6.34.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.9.2)
+  - Firebase/Core (6.34.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.9.0)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
+  - Firebase/Crashlytics (6.34.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 4.6.2)
   - Firebase/Firestore (6.34.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.19.0)
   - Firebase/Storage (6.34.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 3.9.1)
+  - FirebaseAnalytics (6.9.0):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.7)
+    - GoogleAppMeasurement (= 6.9.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/MethodSwizzler (~> 6.7)
+    - GoogleUtilities/Network (~> 6.7)
+    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+    - nanopb (~> 1.30906.0)
   - FirebaseAuth (6.9.2):
     - FirebaseCore (~> 6.10)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
@@ -246,6 +263,12 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30906.0)
+  - FirebaseCrashlytics (4.6.2):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleDataTransport (~> 7.2)
+    - nanopb (~> 1.30906.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseFirestore (1.19.0):
     - abseil/algorithm (= 0.20200225.0)
     - abseil/base (= 0.20200225.0)
@@ -260,10 +283,21 @@ PODS:
     - nanopb (~> 1.30906.0)
   - FirebaseFirestoreSwift (0.4.0):
     - FirebaseFirestore (>= 1.6.1, ~> 1.6)
+  - FirebaseInstallations (1.7.0):
+    - FirebaseCore (~> 6.10)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - PromisesObjC (~> 1.2)
   - FirebaseStorage (3.9.1):
     - FirebaseCore (~> 6.10)
     - GTMSessionFetcher/Core (~> 1.1)
   - FSCalendar (2.8.2)
+  - GoogleAppMeasurement (6.9.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/MethodSwizzler (~> 6.7)
+    - GoogleUtilities/Network (~> 6.7)
+    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+    - nanopb (~> 1.30906.0)
   - GoogleDataTransport (7.5.1):
     - nanopb (~> 1.30906.0)
   - GoogleUtilities/AppDelegateSwizzler (6.7.2):
@@ -274,12 +308,16 @@ PODS:
     - PromisesObjC (~> 1.2)
   - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.7.2):
+    - GoogleUtilities/Logger
   - GoogleUtilities/Network (6.7.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (6.7.2)"
   - GoogleUtilities/Reachability (6.7.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
@@ -313,7 +351,6 @@ PODS:
   - JGProgressHUD (2.2)
   - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
-  - lottie-ios (3.2.3)
   - MBCircularProgressBar (0.3.5)
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
@@ -333,7 +370,9 @@ PODS:
 DEPENDENCIES:
   - ContextMenuSwift
   - CustomizableActionSheet
+  - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Crashlytics
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseFirestoreSwift
@@ -341,7 +380,6 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JGProgressHUD
   - Kingfisher (~> 6.0)
-  - lottie-ios
   - MBCircularProgressBar
   - MessageKit
   - MJRefresh
@@ -358,13 +396,17 @@ SPEC REPOS:
     - CustomizableActionSheet
     - DynamicBlurView
     - Firebase
+    - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseFirestore
     - FirebaseFirestoreSwift
+    - FirebaseInstallations
     - FirebaseStorage
     - FSCalendar
+    - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -375,7 +417,6 @@ SPEC REPOS:
     - JGProgressHUD
     - Kingfisher
     - leveldb-library
-    - lottie-ios
     - MBCircularProgressBar
     - MessageKit
     - MJRefresh
@@ -393,13 +434,17 @@ SPEC CHECKSUMS:
   CustomizableActionSheet: 2a855974bcdc347a4237b5ae94ac9b15fdbac17d
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
+  FirebaseAnalytics: 3bb096873ee0d7fa4b6c70f5e9166b6da413cc7f
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
+  FirebaseCrashlytics: 1a747c9cc084a24dc6d9511c991db1cd078154eb
   FirebaseFirestore: 9b2f1b9b9a6f2f0b6fb7484b9e32ab7e39243554
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
+  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
@@ -410,7 +455,6 @@ SPEC CHECKSUMS:
   JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
-  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
@@ -421,6 +465,6 @@ SPEC CHECKSUMS:
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 3fdea9f512c1b1c4f57ffffad4f23d2c399272ae
+PODFILE CHECKSUM: 6e50cd69cf3d8fa180e137023aea4e4f0dad6e2b
 
 COCOAPODS: 1.10.1

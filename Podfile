@@ -15,6 +15,8 @@ target 'Hahabbit' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Analytics'
   pod 'FirebaseFirestoreSwift'
 
   # for keyboard
@@ -38,7 +40,6 @@ target 'Hahabbit' do
 
   # for chat room
   pod 'MessageKit'
-  # pod 'GrowingTextView', '0.7.2'
 
   # for pull to refresh
   pod 'MJRefresh'
@@ -47,7 +48,7 @@ target 'Hahabbit' do
   pod 'PopupDialog', '~> 1.1'
 
   # for animations
-  pod 'lottie-ios'
+  # pod 'lottie-ios'
 
   # for ProgressHUD
   pod 'JGProgressHUD'
