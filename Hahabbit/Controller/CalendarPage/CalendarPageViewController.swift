@@ -7,6 +7,7 @@
 
 import UIKit
 import FSCalendar
+import Localize_Swift
 
 class CalendarPageViewController: UIViewController {
 
@@ -53,6 +54,9 @@ class CalendarPageViewController: UIViewController {
     super.viewDidLoad()
 
     navigationItem.backButtonTitle = ""
+    self.navigationItem.title = "月曆".localized()
+
+    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
     AchievementsChecker.checker.delegate = self
 
@@ -84,6 +88,10 @@ class CalendarPageViewController: UIViewController {
           }
         }
     }
+  }
+
+  @objc func setText() {
+    navigationItem.title = "月曆".localized()
   }
 
   func setupCalendar() {
@@ -167,7 +175,7 @@ extension CalendarPageViewController: FSCalendarDelegate {
       calendar.setCurrentPage(date, animated: true)
     }
   }
-  
+
 //  func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
 //    if date > Date() {
 //      print(123)

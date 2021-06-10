@@ -19,6 +19,8 @@ class BlacklistViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    navigationItem.title = "封鎖名單".localized()
+
     viewModel.blockedUsersViewModel.bind { _ in
       self.showPopView()
       self.tableView.reloadData()

@@ -351,6 +351,12 @@ PODS:
   - JGProgressHUD (2.2)
   - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
+  - Localize-Swift (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore (= 3.2.0)
+    - Localize-Swift/UIKit (= 3.2.0)
+  - Localize-Swift/LocalizeSwiftCore (3.2.0)
+  - Localize-Swift/UIKit (3.2.0):
+    - Localize-Swift/LocalizeSwiftCore
   - MBCircularProgressBar (0.3.5)
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
@@ -380,6 +386,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JGProgressHUD
   - Kingfisher (~> 6.0)
+  - Localize-Swift (~> 3.2)
   - MBCircularProgressBar
   - MessageKit
   - MJRefresh
@@ -417,6 +424,7 @@ SPEC REPOS:
     - JGProgressHUD
     - Kingfisher
     - leveldb-library
+    - Localize-Swift
     - MBCircularProgressBar
     - MessageKit
     - MJRefresh
@@ -455,6 +463,7 @@ SPEC CHECKSUMS:
   JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  Localize-Swift: 6f4475136bdb0d7b2882ea3d4ea919d70142b232
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
@@ -465,6 +474,6 @@ SPEC CHECKSUMS:
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 6e50cd69cf3d8fa180e137023aea4e4f0dad6e2b
+PODFILE CHECKSUM: 59e2ed4c3b60d4a4eb17fa382964e0d62c2dcc84
 
 COCOAPODS: 1.10.1

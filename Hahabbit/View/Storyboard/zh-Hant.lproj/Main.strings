@@ -1,0 +1,117 @@
+
+/* Class = "UILabel"; text = "每月完成次數統計"; ObjectID = "0SF-g9-zS1"; */
+"0SF-g9-zS1.text" = "每月完成次數統計";
+
+/* Class = "UILabel"; text = "本月完成"; ObjectID = "2Lu-Ax-3UM"; */
+"2Lu-Ax-3UM.text" = "本月完成";
+
+/* Class = "UILabel"; text = "總共完成"; ObjectID = "4z2-cs-P9h"; */
+"4z2-cs-P9h.text" = "總共完成";
+
+/* Class = "UILabel"; text = "Best way to develop a habit !"; ObjectID = "5Js-dC-HTk"; */
+"5Js-dC-HTk.text" = "Best way to develop a habit !";
+
+/* Class = "UIButton"; normalTitle = "周六"; ObjectID = "6k1-ac-6Wj"; */
+"6k1-ac-6Wj.normalTitle" = "周六";
+
+/* Class = "UILabel"; text = "234人已加入"; ObjectID = "AaS-CF-ayF"; */
+"AaS-CF-ayF.text" = "234人已加入";
+
+/* Class = "UILabel"; text = "本年達成率"; ObjectID = "BOQ-OH-fah"; */
+"BOQ-OH-fah.text" = "本年達成率";
+
+/* Class = "UIButton"; normalTitle = "周四"; ObjectID = "D8N-DC-ny1"; */
+"D8N-DC-ny1.normalTitle" = "周四";
+
+/* Class = "UINavigationItem"; title = "交誼大廳"; ObjectID = "DCy-mA-J1I"; */
+"DCy-mA-J1I.title" = "交誼大廳";
+
+/* Class = "UILabel"; text = "最長持續"; ObjectID = "ERe-GW-0rK"; */
+"ERe-GW-0rK.text" = "最長持續";
+
+/* Class = "UILabel"; text = "每月完成概況"; ObjectID = "IRH-wc-T0T"; */
+"IRH-wc-T0T.text" = "每月完成概況";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "IkS-Yd-NMh"; */
+"IkS-Yd-NMh.title" = "Item";
+
+/* Class = "UILabel"; text = "當您登入及表示您已同意我們的"; ObjectID = "JvK-d1-d5U"; */
+"JvK-d1-d5U.text" = "當您登入及表示您已同意我們的";
+
+/* Class = "UINavigationItem"; title = "今天"; ObjectID = "K07-vq-ZSp"; */
+"K07-vq-ZSp.title" = "今天";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KM8-He-qT3"; */
+"KM8-He-qT3.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "  "; ObjectID = "KWv-hc-sAB"; */
+"KWv-hc-sAB.title" = "  ";
+
+/* Class = "UILabel"; text = "加油加油加油"; ObjectID = "Kmx-oQ-9T5"; */
+"Kmx-oQ-9T5.text" = "加油加油加油";
+
+/* Class = "UILabel"; text = "20天"; ObjectID = "KrO-da-o35"; */
+"KrO-da-o35.text" = "20天";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "LX6-UJ-5jg"; */
+"LX6-UJ-5jg.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "周二"; ObjectID = "P17-QH-xex"; */
+"P17-QH-xex.normalTitle" = "周二";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "PKY-6f-9u6"; */
+"PKY-6f-9u6.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "周一"; ObjectID = "QjY-NS-W7a"; */
+"QjY-NS-W7a.normalTitle" = "周一";
+
+/* Class = "UIButton"; normalTitle = "周日"; ObjectID = "S87-wD-bLn"; */
+"S87-wD-bLn.normalTitle" = "周日";
+
+/* Class = "UILabel"; text = "每週運動三天，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨！！！"; ObjectID = "Y5a-Wg-XcQ"; */
+"Y5a-Wg-XcQ.text" = "每週運動三天，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨，我想要變巨巨！！！";
+
+/* Class = "UILabel"; text = "健身"; ObjectID = "Y6B-hj-gew"; */
+"Y6B-hj-gew.text" = "健身";
+
+/* Class = "UIButton"; normalTitle = "周五"; ObjectID = "YHe-80-7FW"; */
+"YHe-80-7FW.normalTitle" = "周五";
+
+/* Class = "UIButton"; normalTitle = "周三"; ObjectID = "gGy-Ag-lXs"; */
+"gGy-Ag-lXs.normalTitle" = "周三";
+
+/* Class = "UILabel"; text = "本月達成率"; ObjectID = "hfU-PM-VgY"; */
+"hfU-PM-VgY.text" = "本月達成率";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "hhd-KQ-M6f"; */
+"hhd-KQ-M6f.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "隱私權政策"; ObjectID = "mLd-oj-euV"; */
+"mLd-oj-euV.normalTitle" = "隱私權政策";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mrh-V1-Zfp"; */
+"mrh-V1-Zfp.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Skip"; ObjectID = "ooJ-Tc-dAC"; */
+"ooJ-Tc-dAC.normalTitle" = "Skip";
+
+/* Class = "UINavigationItem"; title = "習慣細節"; ObjectID = "pMD-mw-6ix"; */
+"pMD-mw-6ix.title" = "習慣細節";
+
+/* Class = "UILabel"; text = "10天"; ObjectID = "ruM-kB-uiA"; */
+"ruM-kB-uiA.text" = "10天";
+
+/* Class = "UILabel"; text = "地點：台北市"; ObjectID = "s0D-wY-MgR"; */
+"s0D-wY-MgR.text" = "地點：台北市";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "szp-gz-Qne"; */
+"szp-gz-Qne.title" = "Item";
+
+/* Class = "UILabel"; text = "5天"; ObjectID = "ty6-5B-DTk"; */
+"ty6-5B-DTk.text" = "5天";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vq3-8q-ptD"; */
+"vq3-8q-ptD.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "月曆"; ObjectID = "xNU-EF-k1C"; */
+"xNU-EF-k1C.title" = "月曆";

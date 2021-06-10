@@ -10,14 +10,15 @@ import FirebaseStorage
 import Kingfisher
 import PopupDialog
 import JGProgressHUD
+import Localize_Swift
 
-protocol AddNewGoalDetailViewControllerDelegate: AnyObject {
+protocol AddNewHabitDetailViewControllerDelegate: AnyObject {
   func setNewData(data: Habit, photo: String)
 }
 
-class AddNewGoalDetailViewController: UITableViewController {
+class AddNewHabitDetailViewController: UITableViewController {
 
-  weak var delegate: AddNewGoalDetailViewControllerDelegate?
+  weak var delegate: AddNewHabitDetailViewControllerDelegate?
 
   @IBOutlet weak var frequencyCollectionView: UICollectionView! {
     didSet {
@@ -27,6 +28,16 @@ class AddNewGoalDetailViewController: UITableViewController {
   @IBOutlet weak var locationCollectionView: UICollectionView!
   @IBOutlet weak var iconCollectionView: UICollectionView!
   @IBOutlet weak var remindersCollectionView: UICollectionView!
+
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var iconLabel: UILabel!
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var frequencyLabel: UILabel!
+  @IBOutlet weak var remindersLabel: UILabel!
+  @IBOutlet weak var messageLabel: UILabel!
+  @IBOutlet weak var detailLabel: UILabel!
+  @IBOutlet weak var publicLabel: UILabel!
+  @IBOutlet weak var photoLabel: UILabel!
 
   @IBOutlet weak var publicButton: UIButton!
 
@@ -93,6 +104,12 @@ class AddNewGoalDetailViewController: UITableViewController {
     super.viewDidLoad()
     newHabit.type[type] = true
 
+    setLabelString()
+    navigationItem.title = "編輯細節".localized()
+
+    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+
+
     viewModel.notification.bind { notification in
       guard let time = notification else { return }
       self.reminders.insert(time, at: self.reminders.count - 1)
@@ -117,6 +134,12 @@ class AddNewGoalDetailViewController: UITableViewController {
     }
   }
 
+  @objc func setText() {
+    navigationItem.title = "編輯細節".localized()
+    frequencyCollectionView.reloadData()
+    setLabelString()
+  }
+
   @IBAction func pressPublicButton(_ sender: UIButton) {
     sender.isSelected.toggle()
     newHabit.type["1"]?.toggle()
@@ -138,6 +161,18 @@ class AddNewGoalDetailViewController: UITableViewController {
   }
   @IBAction func pressAddImageButton(_ sender: UIButton) {
     showImagePickerActionSheet()
+  }
+
+  func setLabelString() {
+    nameLabel.text = "習慣名稱".localized()
+    iconLabel.text = "選擇圖示".localized()
+    locationLabel.text = "選擇地點".localized()
+    frequencyLabel.text = "選擇頻率".localized()
+    remindersLabel.text = "設置提醒".localized()
+    messageLabel.text = "加油小語".localized()
+    detailLabel.text = "習慣詳情".localized()
+    publicLabel.text = "是否公開".localized()
+    photoLabel.text = "上傳照片".localized()
   }
 
   func showAlertPopup() {
@@ -225,7 +260,7 @@ class AddNewGoalDetailViewController: UITableViewController {
   }
 }
 
-extension AddNewGoalDetailViewController: UITextFieldDelegate {
+extension AddNewHabitDetailViewController: UITextFieldDelegate {
   func textFieldDidChangeSelection(_ textField: UITextField) {
     guard let text = textField.text else { return }
     switch textField {
@@ -237,13 +272,13 @@ extension AddNewGoalDetailViewController: UITextFieldDelegate {
   }
 }
 
-extension AddNewGoalDetailViewController: UITextViewDelegate {
+extension AddNewHabitDetailViewController: UITextViewDelegate {
   func textViewDidChangeSelection(_ textView: UITextView) {
     newHabit.detail = textView.text
   }
 }
 
-extension AddNewGoalDetailViewController: UICollectionViewDataSource {
+extension AddNewHabitDetailViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch collectionView {
     case locationCollectionView:
@@ -281,7 +316,7 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
 
     case frequencyCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "frequencyCell", for: indexPath) as! FrequencyCell
-      cell.setup(string: MyArray.weekdayArray[indexPath.row])
+      cell.setup(string: MyArray.weekdayArray[indexPath.row].localized())
       setCellSelectedStatus(cell: cell)
       return cell
 
@@ -304,7 +339,7 @@ extension AddNewGoalDetailViewController: UICollectionViewDataSource {
   }
 }
 
-extension AddNewGoalDetailViewController: UICollectionViewDelegate {
+extension AddNewHabitDetailViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     switch collectionView {
     case iconCollectionView:
@@ -387,7 +422,7 @@ extension AddNewGoalDetailViewController: UICollectionViewDelegate {
   }
 }
 
-extension AddNewGoalDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension AddNewHabitDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func showImagePickerActionSheet() {
     let alert = UIAlertController(title: "上傳照片", message: nil, preferredStyle: .actionSheet)
 

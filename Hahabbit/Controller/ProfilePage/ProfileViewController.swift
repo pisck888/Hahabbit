@@ -10,13 +10,11 @@ import FirebaseAuth
 import FirebaseFirestoreSwift
 import CustomizableActionSheet
 import Kingfisher
+import Localize_Swift
 
 class ProfileViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
-  let settingsTitle = ["封鎖名單", "語言設置", "震動功能", "暗黑模式", "主題顏色", "Touch ID"]
-
-  var items: [CustomizableActionSheetItem] = []
 
   let viewModel = ProfileViewModel()
 
@@ -24,33 +22,22 @@ class ProfileViewController: UIViewController {
     super.viewDidLoad()
 
     navigationItem.backButtonTitle = ""
+    navigationItem.title = "個人頁面".localized()
 
     viewModel.currentUserViewModel.bind { user in
       self.tableView.reloadData()
     }
-    viewModel.fetchCurrentUser()
-    setupActionSheetItem(string: "English")
-    setupActionSheetItem(string: "Traditional Chinese")
-  }
 
-  func setupActionSheetItem(string: String) {
-    // Setup button
-    let item = CustomizableActionSheetItem()
-    item.type = .button
-    item.label = string
-    item.height = 60
-    item.textColor = .black
-    item.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
-      actionSheet.dismiss()
-    }
-    items.append(item)
+    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+
+    viewModel.fetchCurrentUser()
   }
 
   @IBAction func changePhotoImage(_ sender: UIButton) {
     var items = [CustomizableActionSheetItem]()
     let cameraItem = CustomizableActionSheetItem()
     cameraItem.type = .button
-    cameraItem.label = "相機拍攝"
+    cameraItem.label = "相機拍攝".localized()
     cameraItem.height = 60
     cameraItem.textColor = .black
     cameraItem.selectAction = { action -> Void in
@@ -61,7 +48,7 @@ class ProfileViewController: UIViewController {
 
     let libraryItem = CustomizableActionSheetItem()
     libraryItem.type = .button
-    libraryItem.label = "照片圖庫"
+    libraryItem.label = "照片圖庫".localized()
     libraryItem.height = 60
     libraryItem.textColor = .black
     libraryItem.selectAction = { action -> Void in
@@ -87,7 +74,7 @@ class ProfileViewController: UIViewController {
     }
 
     let OKItem = CustomizableActionSheetItem(type: .button)
-    OKItem.label = "確定"
+    OKItem.label = "確定".localized()
     OKItem.textColor = .black
     OKItem.selectAction = { (actionSheet: CustomizableActionSheet) -> Void in
       actionSheet.dismiss()
@@ -96,6 +83,39 @@ class ProfileViewController: UIViewController {
 
     let actionSheet = CustomizableActionSheet()
     actionSheet.showInView(self.view, items: items)
+  }
+
+  func pressChangeLanguage() {
+    var items = [CustomizableActionSheetItem]()
+    let englishItem = CustomizableActionSheetItem()
+    englishItem.type = .button
+    englishItem.label = "英文".localized()
+    englishItem.height = 60
+    englishItem.textColor = .black
+    englishItem.selectAction = { action -> Void in
+      Localize.setCurrentLanguage("en")
+      action.dismiss()
+    }
+    items.append(englishItem)
+
+    let chineseItem = CustomizableActionSheetItem()
+    chineseItem.type = .button
+    chineseItem.label = "繁體中文".localized()
+    chineseItem.height = 60
+    chineseItem.textColor = .black
+    chineseItem.selectAction = { action -> Void in
+      Localize.setCurrentLanguage("zh-Hant")
+      action.dismiss()
+    }
+    items.append(chineseItem)
+
+    let actionSheet = CustomizableActionSheet()
+    actionSheet.showInView(self.view, items: items)
+  }
+
+  @objc func setText() {
+    navigationItem.title = "個人頁面".localized()
+    self.tableView.reloadData()
   }
 }
 
@@ -110,7 +130,7 @@ extension ProfileViewController: UITableViewDataSource {
     case 0:
       return 1
     case 1:
-      return 1
+      return 2
     default:
       return 1
     }
@@ -127,11 +147,12 @@ extension ProfileViewController: UITableViewDataSource {
       return cell
     case 1:
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
-      cell.titleLabel.text = settingsTitle[indexPath.row]
+      cell.setup(string: MyArray.settingsTitle[indexPath.row])
       cell.selectionStyle = .none
       return cell
     default:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell", for: indexPath)
+      let cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell", for: indexPath) as! SignOutTableViewCell
+      cell.setup(string: "登出".localized())
       cell.selectionStyle = .none
       return cell
 
@@ -152,10 +173,9 @@ extension ProfileViewController: UITableViewDelegate {
     if indexPath.section == 1 {
       switch indexPath.row {
       case 0:
-        performSegue(withIdentifier: MySegue.toBlacklistPage, sender: nil)
+        pressChangeLanguage()
       case 1:
-        let actionSheet = CustomizableActionSheet()
-        actionSheet.showInView(self.view, items: items)
+        performSegue(withIdentifier: MySegue.toBlacklistPage, sender: nil)
       default:
         print("nothing happened")
       }

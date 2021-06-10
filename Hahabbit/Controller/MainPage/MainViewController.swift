@@ -8,6 +8,7 @@
 import UIKit
 import PinterestSegment
 import PopupDialog
+import Localize_Swift
 
 class MainViewController: UIViewController {
 
@@ -28,6 +29,7 @@ class MainViewController: UIViewController {
   }()
 
   var style = PinterestSegmentStyle()
+  var segment = PinterestSegment()
   let viewModel = HomeViewModel()
   var type = 0
 
@@ -35,8 +37,11 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
 
     navigationItem.backButtonTitle = ""
+    navigationItem.title = "今天".localized()
     gridModeButton.isEnabled = false
     gridModeButton.tintColor = .clear
+
+    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
     AchievementsChecker.checker.delegate = self
 
@@ -56,10 +61,11 @@ class MainViewController: UIViewController {
     tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
 
     setPinterestSegment()
-    let segment = PinterestSegment(
+    segment = PinterestSegment(
       frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50),
       segmentStyle: style,
-      titles: ["全部習慣", "公開習慣", "私人習慣", "運動健身", "技能學習", "自我管理", "其他自定"])
+      titles: MyArray.mainPageTag.map { $0.localized() }
+    )
     segmentView.addSubview(segment)
 
     segment.valueChange = { index in
@@ -71,6 +77,11 @@ class MainViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     viewModel.fetchData(type: type)
+  }
+
+  @objc func setText() {
+    navigationItem.title = "今天".localized()
+    segment.titles = MyArray.mainPageTag.map { $0.localized() }
   }
 
   func setPinterestSegment() {

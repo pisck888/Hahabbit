@@ -53,4 +53,7 @@ target 'Hahabbit' do
   # for ProgressHUD
   pod 'JGProgressHUD'
 
+  # for localization
+  pod 'Localize-Swift', '~> 3.2'
+
 end

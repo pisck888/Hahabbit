@@ -37,6 +37,7 @@ class ChatPageViewController: MessagesViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     messagesCollectionView.backgroundColor = .systemGray6
+    self.navigationItem.title = NSLocalizedString("交誼大廳")
 
     viewModel.currentUserViewModel.bind { user in
       self.currentUser = user

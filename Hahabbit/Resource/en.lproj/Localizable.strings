@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  Hahabbit
+
+  Created by TSAI TSUNG-HAN on 2021/6/9.
+  
+*/
+
+"今天" = "Today";
+"全部習慣" = "All";
+"公開習慣" = "Public";
+"私人習慣" = "Private";
+"運動健身" = "Exercise";
+"技能學習" = "Skill";
+"自我管理" = "Self Control";
+"其他自訂" = "Other";
+"月曆" = "Calendar";
+"交誼大廳" = "Chat room";
+"建立新習慣" = "Add new Habit";
+"編輯細節" = "Edit details";
+"習慣名稱" = "Name the habit";
+"選擇圖示" = "Pick an icon";
+"選擇地點" = "Location";
+"選擇頻率" = "Frequency";
+"設置提醒" = "Reminders";
+"加油小語" = "Motivation Messages";
+"習慣詳情" = "Details";
+"是否公開" = "Public";
+"上傳照片" = "Choose a photo";
+"成就統計" = "Achievements";
+"我已達成" = "My achievements";
+"每日任務" = "Daily achievements";
+"特殊成就" = "Special Achievements";
+"地區" = "Location";
+"星期" = "Weekday";
+"種類" = "Type";
+"總覽" = "All";
+"跑步" = "Jogging";
+"重訓" = "Work out ";
+"英文" = "English";
+"日文" = "Japanese";
+"減肥" = "Lose weight ";
+"喝水" = "Drink water";
+"冥想" = "Meditation";
+"周日" = "Sun.";
+"周一" = "Mon.";
+"周二" = "Tue.";
+"周三" = "Wed.";
+"周四" = "Thu.";
+"周五" = "Fri.";
+"周六" = "Sat.";
+"習慣細節" = "Details";
+"加入" = "Join";
+"個人頁面" = "Profile";
+"封鎖名單" = "Blacklist";
+"語言設置" = "Language";
+"登出" = "Sign out";
+"英文" = "English";
+"繁體中文" = "Traditional Chinese";
+"相機拍攝" = "Camera";
+"照片圖庫" = "Photo Library";
+"確定" = "OK";
+"商城" = "Mall";
+

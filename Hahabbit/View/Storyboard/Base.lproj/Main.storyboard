@@ -935,6 +935,7 @@
                         <outlet property="loadingIndicatorView" destination="VuW-ZB-mTT" id="tYG-1Z-lcQ"/>
                         <outlet property="privacyPolicyView" destination="0w8-8k-ELx" id="nXy-Ur-S4M"/>
                         <outlet property="signInButtonView" destination="y2l-D0-bMs" id="A41-R7-gkC"/>
+                        <outlet property="skipButton" destination="ooJ-Tc-dAC" id="6eK-VE-FpR"/>
                         <outlet property="upImageBackView" destination="mDj-oy-vUc" id="YvV-jZ-IJx"/>
                         <outlet property="webView" destination="2c6-1K-opS" id="guO-AV-Snk"/>
                         <segue destination="WVe-9w-DHy" kind="presentation" identifier="SegueToMainPage" modalPresentationStyle="fullScreen" id="2G2-TK-EP2"/>

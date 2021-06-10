@@ -13,7 +13,7 @@
 		E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E522652510400B717F8 /* CalendarPageViewController.swift */; };
 		E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */; };
 		E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5A26527C0800B717F8 /* IconCell.swift */; };
-		E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */; };
+		E7052E5E26527D5F00B717F8 /* AddNewHabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */; };
 		E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6126528A3400B717F8 /* FrequencyViewController.swift */; };
 		E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6426528BA300B717F8 /* FrequencyCell.swift */; };
 		E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */; };
@@ -52,6 +52,9 @@
 		E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */; };
 		E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756742126598AE600B236E3 /* GraphViewModel.swift */; };
 		E7673BEB26708CDE00527585 /* catPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7673BEA26708CDE00527585 /* catPlaceholder.png */; };
+		E7673BF02670F72700527585 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7673BF22670F72700527585 /* Localizable.strings */; };
+		E7673BF82671E5E600527585 /* SignOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */; };
+		E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7673BFA2671E7CC00527585 /* MallViewController.swift */; };
 		E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */; };
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
@@ -64,7 +67,7 @@
 		E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6D264B9190003F0DAC /* Achievements.storyboard */; };
 		E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */; };
 		E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F71264B9243003F0DAC /* Profile.storyboard */; };
-		E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */; };
+		E7910F74264BA7FF003F0DAC /* AddNewhHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F73264BA7FF003F0DAC /* AddNewhHabitViewController.swift */; };
 		E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */; };
 		E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F78264BC0FB003F0DAC /* Constants.swift */; };
 		E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */; };
@@ -87,7 +90,7 @@
 		E7052E522652510400B717F8 /* CalendarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageViewController.swift; sourceTree = "<group>"; };
 		E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E5A26527C0800B717F8 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
-		E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalDetailViewController.swift; sourceTree = "<group>"; };
+		E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E6126528A3400B717F8 /* FrequencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyViewController.swift; sourceTree = "<group>"; };
 		E7052E6426528BA300B717F8 /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
 		E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublichHabitsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +129,12 @@
 		E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationAnimationController.swift; sourceTree = "<group>"; };
 		E756742126598AE600B236E3 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
 		E7673BEA26708CDE00527585 /* catPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catPlaceholder.png; sourceTree = "<group>"; };
+		E7673BEC2670F4A600527585 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		E7673BED2670F4A600527585 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		E7673BF12670F72700527585 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E7673BF32670F76500527585 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutTableViewCell.swift; sourceTree = "<group>"; };
+		E7673BFA2671E7CC00527585 /* MallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MallViewController.swift; sourceTree = "<group>"; };
 		E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitViewModel.swift; sourceTree = "<group>"; };
 		E786041F265AA11500AC0F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +150,7 @@
 		E7910F6D264B9190003F0DAC /* Achievements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievements.storyboard; sourceTree = "<group>"; };
 		E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicGoals.storyboard; sourceTree = "<group>"; };
 		E7910F71264B9243003F0DAC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalViewController.swift; sourceTree = "<group>"; };
+		E7910F73264BA7FF003F0DAC /* AddNewhHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewhHabitViewController.swift; sourceTree = "<group>"; };
 		E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalCell.swift; sourceTree = "<group>"; };
 		E7910F78264BC0FB003F0DAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
@@ -230,12 +239,12 @@
 			path = AchievementsPage;
 			sourceTree = "<group>";
 		};
-		E7052E5526525BBB00B717F8 /* AddNewGoalPage */ = {
+		E7052E5526525BBB00B717F8 /* AddNewHabitPage */ = {
 			isa = PBXGroup;
 			children = (
-				E7910F73264BA7FF003F0DAC /* AddNewGoalViewController.swift */,
+				E7910F73264BA7FF003F0DAC /* AddNewhHabitViewController.swift */,
 			);
-			path = AddNewGoalPage;
+			path = AddNewHabitPage;
 			sourceTree = "<group>";
 		};
 		E7052E5626525CF600B717F8 /* HabitDetailPage */ = {
@@ -254,13 +263,13 @@
 			path = AddNewGoalDetail;
 			sourceTree = "<group>";
 		};
-		E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */ = {
+		E7052E5C26527D3300B717F8 /* AddNewHabitDetailPage */ = {
 			isa = PBXGroup;
 			children = (
-				E7052E5D26527D5F00B717F8 /* AddNewGoalDetailViewController.swift */,
+				E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */,
 				E7052E6126528A3400B717F8 /* FrequencyViewController.swift */,
 			);
-			path = AddNewGoalDetailPage;
+			path = AddNewHabitDetailPage;
 			sourceTree = "<group>";
 		};
 		E7052E6326528B6600B717F8 /* FrequencyCell */ = {
@@ -472,6 +481,22 @@
 			path = GraphViewModel;
 			sourceTree = "<group>";
 		};
+		E7673BF62671E53700527585 /* SignOutCell */ = {
+			isa = PBXGroup;
+			children = (
+				E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */,
+			);
+			path = SignOutCell;
+			sourceTree = "<group>";
+		};
+		E7673BF92671E7B100527585 /* MallPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7673BFA2671E7CC00527585 /* MallViewController.swift */,
+			);
+			path = MallPage;
+			sourceTree = "<group>";
+		};
 		E786041C265A9A6000AC0F36 /* PublicHabitViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +546,7 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E7673BF62671E53700527585 /* SignOutCell */,
 				E7BDCCF8266D04B400C0B1A2 /* LoadingView */,
 				E736860B266A38EB002E2278 /* BlacklistCell */,
 				E7C54EEF26640ABE004A1ACA /* PopupView(temp) */,
@@ -557,6 +583,7 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7673BF92671E7B100527585 /* MallPage */,
 				E7BDCD00266E645100C0B1A2 /* LaunchPage */,
 				E7368602266A3654002E2278 /* BlacklistPage */,
 				E74D4CA126629EEE00E0A1C4 /* ChatPage */,
@@ -564,9 +591,9 @@
 				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
 				E7052E6E2653502200B717F8 /* ProfilePage */,
 				E7052E662652A9FF00B717F8 /* PublicHabitsPage */,
-				E7052E5C26527D3300B717F8 /* AddNewGoalDetailPage */,
+				E7052E5C26527D3300B717F8 /* AddNewHabitDetailPage */,
 				E7052E5626525CF600B717F8 /* HabitDetailPage */,
-				E7052E5526525BBB00B717F8 /* AddNewGoalPage */,
+				E7052E5526525BBB00B717F8 /* AddNewHabitPage */,
 				E7052E5426525BA800B717F8 /* AchievementsPage */,
 				E7052E51265250DC00B717F8 /* CalendarPage */,
 				E7052E492652422300B717F8 /* MainPage */,
@@ -594,6 +621,7 @@
 				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
 				E7910F78264BC0FB003F0DAC /* Constants.swift */,
 				E736858C266735AD002E2278 /* extension.swift */,
+				E7673BF22670F72700527585 /* Localizable.strings */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -677,6 +705,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = E7910F42264AE777003F0DAC;
 			productRefGroup = E7910F4C264AE777003F0DAC /* Products */;
@@ -703,6 +732,7 @@
 				E74D4CA02662830100E0A1C4 /* ProfileEditView.xib in Resources */,
 				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
 				E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */,
+				E7673BF02670F72700527585 /* Localizable.strings in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
 				E7C54EF126640AF8004A1ACA /* PopupView.xib in Resources */,
 				E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */,
@@ -816,17 +846,19 @@
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */,
 				E7C54EEA2662C441004A1ACA /* Message.swift in Sources */,
+				E7673BF82671E5E600527585 /* SignOutTableViewCell.swift in Sources */,
 				E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */,
 				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
-				E7910F74264BA7FF003F0DAC /* AddNewGoalViewController.swift in Sources */,
+				E7910F74264BA7FF003F0DAC /* AddNewhHabitViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
 				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
 				E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */,
 				E7052E812653D59D00B717F8 /* AchievementsTableViewCell.swift in Sources */,
 				E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */,
 				E74F4261265E9D6100C9AB3D /* SJDatePicker.swift in Sources */,
-				E7052E5E26527D5F00B717F8 /* AddNewGoalDetailViewController.swift in Sources */,
+				E7052E5E26527D5F00B717F8 /* AddNewHabitDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
+				E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */,
 				E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */,
 				E7368604266A3674002E2278 /* BlacklistViewController.swift in Sources */,
 				E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */,
@@ -856,10 +888,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E7673BF22670F72700527585 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7673BF12670F72700527585 /* en */,
+				E7673BF32670F76500527585 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E7910F54264AE777003F0DAC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E7910F55264AE777003F0DAC /* Base */,
+				E7673BED2670F4A600527585 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -868,6 +910,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7910F5A264AE77C003F0DAC /* Base */,
+				E7673BEC2670F4A600527585 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -879,6 +922,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -926,7 +970,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -940,6 +984,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -981,7 +1026,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

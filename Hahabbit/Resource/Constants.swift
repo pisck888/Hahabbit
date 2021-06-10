@@ -35,10 +35,28 @@ enum MyArray {
     "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "台東縣", "澎湖縣", "金門縣",
     "連江縣", "不限制"
   ]
-  static let weekdayArray = [ "周日", "周一", "周二", "周三", "周四", "周五", "周六"]
-  static let typeArray = ["健身運動", "學習技能", "自我管理", "其他自訂"]
 
-  static let weekday = ["Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."]
+  static let mainPageTag = [
+    "全部習慣", "公開習慣", "私人習慣", "運動健身", "技能學習", "自我管理", "其他自訂"
+  ]
+
+  static let addGoalTitle = [
+    "運動健身", "技能學習", "自我管理", "其他自訂"
+  ]
+
+  static let publicHabitsPageTag = [
+    "總覽", "跑步", "重訓", "英文", "日文", "減肥", "喝水", "冥想"
+  ]
+
+  static let weekdayArray = [
+    "周日", "周一", "周二", "周三", "周四", "周五", "周六"
+  ]
+
+  static let typeArray = [
+    "運動健身", "技能學習", "自我管理", "其他自訂"
+  ]
+
+  static let settingsTitle = ["語言設置", "封鎖名單", "震動功能", "暗黑模式", "主題顏色", "Touch ID"]
 
   static let habitIconArray = [
     "abstract", "accordion", "balet", "banjo", "basket", "beach", "beer",

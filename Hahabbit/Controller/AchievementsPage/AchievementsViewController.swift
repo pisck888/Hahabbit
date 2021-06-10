@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import Localize_Swift
 
 class AchievementsViewController: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var gridModeButton: UIBarButtonItem!
-  
 
   let viewModel = AchievementViewModel()
 
@@ -19,6 +19,9 @@ class AchievementsViewController: UIViewController {
     super.viewDidLoad()
     gridModeButton.isEnabled = false
     gridModeButton.tintColor = .clear
+
+    navigationItem.title = "成就統計".localized()
+    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
     viewModel.userAchievements.bind { achievements in
       self.tableView.reloadData()
@@ -34,6 +37,11 @@ class AchievementsViewController: UIViewController {
 
     viewModel.fetchData()
   }
+
+  @objc func setText() {
+    navigationItem.title = "成就統計".localized()
+    tableView.reloadData()
+  }
 }
 
 extension AchievementsViewController: UITableViewDataSource {
@@ -44,11 +52,11 @@ extension AchievementsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch section {
     case 0:
-      return "我已達成"
+      return "我已達成".localized()
     case 1:
-      return "每日任務"
+      return "每日任務".localized()
     default:
-      return "特殊成就"
+      return "特殊成就".localized()
     }
   }
 

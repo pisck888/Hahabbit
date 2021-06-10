@@ -11,8 +11,8 @@ class SettingsTableViewCell: UITableViewCell {
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var detailLabel: UILabel!
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    // Initialization code
+
+  func setup(string: String) {
+    titleLabel.text = string.localized()
   }
 }

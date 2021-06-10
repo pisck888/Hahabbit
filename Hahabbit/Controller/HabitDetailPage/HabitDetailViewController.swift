@@ -10,6 +10,7 @@ import ScrollableGraphView
 import FSCalendar
 import MBCircularProgressBar
 import Kingfisher
+import Localize_Swift
 
 class HabitDetailViewController: UITableViewController {
 
@@ -51,6 +52,8 @@ class HabitDetailViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationItem.title = "習慣細節".localized()
+    navigationItem.backButtonTitle = ""
 
     viewModel.monthRecord.bind { [unowned self] in
       self.monthCounterLabel.text = String($0) + "天"
@@ -74,7 +77,7 @@ class HabitDetailViewController: UITableViewController {
       }
     }
 
-    navigationItem.backButtonTitle = ""
+    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
     graphView.dataSource = self
     setupHabitDetail()
@@ -82,6 +85,9 @@ class HabitDetailViewController: UITableViewController {
     setupCalendar()
     setupViews()
     setupRecordLabel()
+  }
+  @objc func setText() {
+    navigationItem.title = "習慣細節".localized()
   }
   
   func setupViews() {
@@ -201,7 +207,7 @@ class HabitDetailViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
     case MySegue.toAddNewGoalDetailPage:
-      let viewController = segue.destination as? AddNewGoalDetailViewController
+      let viewController = segue.destination as? AddNewHabitDetailViewController
       viewController?.editHabit = habit?.habit
       viewController?.isPlusLabelHidden = true
       viewController?.delegate = self
@@ -257,7 +263,7 @@ extension HabitDetailViewController: FSCalendarDataSource {
   }
 }
 
-extension HabitDetailViewController: AddNewGoalDetailViewControllerDelegate {
+extension HabitDetailViewController: AddNewHabitDetailViewControllerDelegate {
   func setNewData(data: Habit, photo: String) {
     let url = URL(string: photo)
     habit?.habit = data

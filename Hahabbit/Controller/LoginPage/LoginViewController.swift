@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+  @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var upImageBackView: UIView!
   @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
   @IBOutlet weak var signInButtonView: UIView!
@@ -21,7 +22,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var closeButton: UIButton!
 
   // Unhashed nonce.
-  fileprivate var currentNonce: String?
+  private var currentNonce: String?
 
   lazy var blurView: UIView = {
     let blurView = UIView(frame: view.frame)
@@ -33,6 +34,7 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     webView.navigationDelegate = self
     setupLoginView()
+//    skipButton.isHidden = true
   }
 
   func setupLoginView() {

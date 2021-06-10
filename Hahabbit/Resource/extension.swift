@@ -49,3 +49,7 @@ public extension UIApplication {
   }
 }
 
+func NSLocalizedString(_ key: String) -> String {
+
+    return NSLocalizedString(key, comment: "")
+}
