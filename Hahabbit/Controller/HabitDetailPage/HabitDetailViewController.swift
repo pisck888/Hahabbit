@@ -19,6 +19,14 @@ class HabitDetailViewController: UITableViewController {
   @IBOutlet weak var chartViewTwo: UIView!
   @IBOutlet weak var chartViewThree: UIView!
 
+  @IBOutlet weak var chartOneTitle: UILabel!
+  @IBOutlet weak var chartTwoTitle: UILabel!
+  @IBOutlet weak var chartThreeTitle: UILabel!
+  @IBOutlet weak var chartFourTitle: UILabel!
+  @IBOutlet weak var recordOneTitle: UILabel!
+  @IBOutlet weak var recordTwoTitle: UILabel!
+  @IBOutlet weak var recordThreeTitle: UILabel!
+
   @IBOutlet weak var calendar: FSCalendar!
   @IBOutlet weak var graphView: ScrollableGraphView!
   @IBOutlet weak var monthCircularProgressView: MBCircularProgressBarView!
@@ -56,13 +64,13 @@ class HabitDetailViewController: UITableViewController {
     navigationItem.backButtonTitle = ""
 
     viewModel.monthRecord.bind { [unowned self] in
-      self.monthCounterLabel.text = String($0) + "天"
+      self.monthCounterLabel.text = String($0) + "天".localized()
     }
     viewModel.totalRecord.bind { [unowned self] in
-      self.totalCounterLabel.text = String($0) + "天"
+      self.totalCounterLabel.text = String($0) + "天".localized()
     }
     viewModel.consecutiveRecord.bind { [unowned self] in
-      self.maxConsecutiveLabel.text = String($0) + "天"
+      self.maxConsecutiveLabel.text = String($0) + "天".localized()
     }
 
     viewModel.monthPercentage.bind { percentage in
@@ -85,11 +93,30 @@ class HabitDetailViewController: UITableViewController {
     setupCalendar()
     setupViews()
     setupRecordLabel()
+    setLabelString()
   }
   @objc func setText() {
     navigationItem.title = "習慣細節".localized()
+    setLabelString()
   }
-  
+
+  func setLabelString() {
+    chartOneTitle.text = "每月完成概況".localized()
+    chartOneTitle.adjustsFontSizeToFitWidth = true
+    chartTwoTitle.text = "每月完成次數統計".localized()
+    chartTwoTitle.adjustsFontSizeToFitWidth = true
+    chartThreeTitle.text = "本月達成率".localized()
+    chartThreeTitle.adjustsFontSizeToFitWidth = true
+    chartFourTitle.text = "本年達成率".localized()
+    chartFourTitle.adjustsFontSizeToFitWidth = true
+    recordOneTitle.text = "本月完成".localized()
+    recordOneTitle.adjustsFontSizeToFitWidth = true
+    recordTwoTitle.text = "總共完成".localized()
+    recordTwoTitle.adjustsFontSizeToFitWidth = true
+    recordThreeTitle.text = "最長持續".localized()
+    recordThreeTitle.adjustsFontSizeToFitWidth = true
+  }
+
   func setupViews() {
     mainImage.layer.cornerRadius = 10
     setShadowAndCornerRadius(view: detailView)

@@ -64,6 +64,24 @@ class HabitManager {
         }
       }
   }
+
+  func fetchAllHabits(completion: @escaping (Result<[Habit], Error>) -> Void) {
+    db.collection("habits")
+      .whereField("members", arrayContains: UserManager.shared.currentUser)
+      .addSnapshotListener { querySnapshot, error in
+        if let err = error {
+          completion(.failure(err))
+        }
+        guard let documents = querySnapshot?.documents else {
+          return
+        }
+        self.habits = documents.compactMap { queryDocumentSnapshot in
+          try?  queryDocumentSnapshot.data(as: Habit.self)
+        }
+        completion(.success(self.habits))
+      }
+  }
+  
   func uploadHabit(habit: Habit, hours: [Int], minutes: [Int], completionHandler: ((String) -> Void)?) {
     if habit.id == "" {
       let newHabitRef = db.collection("habits").document()

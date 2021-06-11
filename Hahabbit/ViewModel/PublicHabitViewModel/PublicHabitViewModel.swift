@@ -68,6 +68,7 @@ class PublicHabitViewModel {
   func fetchData(withType type: Int) {
     HabitManager.shared.db
       .collection("habits")
+      .whereField("type.1", isEqualTo: true)
       .whereField("type.\(type)", isEqualTo: true)
       .getDocuments { querySnapshot, error in
         guard error == nil else {
@@ -93,6 +94,7 @@ class PublicHabitViewModel {
   func fetchData(withWeekday weekday: Int) {
     HabitManager.shared.db
       .collection("habits")
+      .whereField("type.1", isEqualTo: true)
       .whereField("weekday.\(weekday)", isEqualTo: true)
       .getDocuments { querySnapshot, error in
         guard error == nil else {
@@ -115,14 +117,3 @@ class PublicHabitViewModel {
       }
   }
 }
-
-//class PublicHabitViewModelTest {
-//
-//  var publicHabit: Habit
-//  var ownerInfo: User
-//
-//  init(habit: Habit, ownerInfo: User) {
-//    self.publicHabit = habit
-//    self.ownerInfo = ownerInfo
-//  }
-//}

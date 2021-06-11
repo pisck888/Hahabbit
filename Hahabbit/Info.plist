@@ -23,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>開啟相機來拍攝習慣主題照或個人檔案照</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>開啟相簿來選擇習慣主題照或個人檔案照</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

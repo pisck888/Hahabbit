@@ -43,7 +43,7 @@ class PublichHabitsViewController: UIViewController {
 
     viewModel.publicHabits.bind { habits in
       self.searchHabitsArray = habits
-      self.tableView.reloadData()
+//      self.tableView.reloadData()
     }
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
@@ -167,6 +167,7 @@ extension PublichHabitsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: K.publicGoalsTableViewCell, for: indexPath) as! PublicGoalsTableViewCell
     cell.setup(with: searchHabitsArray[indexPath.row])
+    cell.viewController = self
     cell.selectionStyle = .none
     return cell
   }

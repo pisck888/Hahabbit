@@ -20,7 +20,6 @@ class MainViewController: UIViewController {
 
   @IBOutlet weak var segmentView: UIView!
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var gridModeButton: UIBarButtonItem!
 
   lazy var blurView: UIView = {
     let blurView = UIView(frame: view.frame)
@@ -38,8 +37,6 @@ class MainViewController: UIViewController {
 
     navigationItem.backButtonTitle = ""
     navigationItem.title = "今天".localized()
-    gridModeButton.isEnabled = false
-    gridModeButton.tintColor = .clear
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
@@ -97,10 +94,6 @@ class MainViewController: UIViewController {
     blurView.removeFromSuperview()
     popupView.removeFromSuperview()
   }
-
-  @IBAction func test(_ sender: UIBarButtonItem) {
-  }
-
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let controller = segue.destination as? HabitDetailViewController

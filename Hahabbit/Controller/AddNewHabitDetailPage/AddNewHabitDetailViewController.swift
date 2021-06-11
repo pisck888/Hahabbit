@@ -311,7 +311,7 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
 
     case locationCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as! FrequencyCell
-      cell.setup(string: MyArray.locationArray[indexPath.row])
+      cell.setup(string: MyArray.locationArray[indexPath.row].localized())
       if indexPath == selectedLocationIndexPath {
         cell.isSelected = true
       }

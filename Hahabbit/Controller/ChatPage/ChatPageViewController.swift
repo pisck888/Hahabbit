@@ -197,6 +197,7 @@ extension ChatPageViewController: MessagesDisplayDelegate {
         guard let url = URL(string: user["image"] as? String ?? "") else { return }
         avatarView.kf.indicatorType = .activity
         avatarView.kf.setImage(with: url)
+        avatarView.backgroundColor = .white
       }
   }
 

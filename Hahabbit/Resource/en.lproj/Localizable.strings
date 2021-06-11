@@ -15,9 +15,10 @@
 "自我管理" = "Self Control";
 "其他自訂" = "Other";
 "月曆" = "Calendar";
-"交誼大廳" = "Chat room";
-"建立新習慣" = "Add new Habit";
-"編輯細節" = "Edit details";
+"所有習慣" = "All Habits";
+"交誼大廳" = "Chat Room";
+"建立新習慣" = "Add New Habit";
+"編輯細節" = "Edit Details";
 "習慣名稱" = "Name the habit";
 "選擇圖示" = "Pick an icon";
 "選擇地點" = "Location";
@@ -72,6 +73,34 @@
 "取消" = "Cancel";
 "請選擇稱號" = "Please choose your title.";
 "輸入你的暱稱吧" = "Please enter your name.";
-
-
-
+"台北市" = "TPE";
+"新北市" = "TPH";
+"基隆市" = "KLU";
+"桃園市" = "TYC";
+"新竹市" = "HSC";
+"新竹縣" = "HSH";
+"苗栗縣" = "MAL";
+"台中市" = "TXG";
+"彰化縣" = "CWH";
+"南投縣" = "NTO";
+"雲林縣" = "YLH";
+"嘉義市" = "CYI";
+"嘉義縣" = "CHY";
+"台南市" = "TNN";
+"高雄市" = "KHH";
+"屏東縣" = "IUH";
+"宜蘭縣" = "ILN";
+"花蓮縣" = "HWA";
+"台東縣" = "TTT";
+"澎湖縣" = "PEH";
+"金門縣" = "KMN";
+"連江縣" = "LNN";
+"不限制" = "ALL";
+"每月完成概況" = "Monthly overview";
+"每月完成次數統計" = "Number of days checked per month";
+"本月達成率" = "Checked rate of this month";
+"本年達成率" = "Checked rate of this year";
+"本月完成" = "Month checked";
+"總共完成" = "Total checked";
+"最長持續" = "Streaks record";
+"天" = "days";

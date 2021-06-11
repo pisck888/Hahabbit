@@ -50,7 +50,6 @@ class MainPageTableViewCell: UITableViewCell {
           return
         }
         self.checkButton.isSelected = documentSnapshot?.data()?[stringDate] as? Bool ?? false
-        print(viewModel.title, stringDate, documentSnapshot?.data()?[stringDate])
       }
     titleLabel.text = viewModel.title
     sloganLabel.text = viewModel.slogan

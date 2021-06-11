@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -21,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o3O-Ao-z6s">
                         <rect key="frame" x="16" y="8" width="431" height="150"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="A7v-PB-9bG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A7v-PB-9bG">
                                 <rect key="frame" x="355" y="74" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="A7v-PB-9bG" secondAttribute="height" multiplier="1:1" id="194-B8-WQz"/>
@@ -163,6 +164,12 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vwf-jA-Yx5">
+                                <rect key="frame" x="355" y="74" width="60" height="60"/>
+                                <connections>
+                                    <action selector="tapImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sPJ-Hh-I9H"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -170,10 +177,14 @@
                             <constraint firstAttribute="height" constant="150" id="8UV-DT-nbk"/>
                             <constraint firstAttribute="trailing" secondItem="4ae-Yk-Oza" secondAttribute="trailing" constant="16" id="AuZ-Vm-csW"/>
                             <constraint firstAttribute="bottom" secondItem="A7v-PB-9bG" secondAttribute="bottom" constant="16" id="CHI-6C-F0d"/>
+                            <constraint firstItem="Vwf-jA-Yx5" firstAttribute="centerY" secondItem="A7v-PB-9bG" secondAttribute="centerY" id="HZE-7C-KYt"/>
                             <constraint firstItem="4ae-Yk-Oza" firstAttribute="centerY" secondItem="4m2-0b-W2p" secondAttribute="centerY" id="OxT-Ae-1eC"/>
                             <constraint firstItem="xpB-1F-AyI" firstAttribute="leading" secondItem="o3O-Ao-z6s" secondAttribute="leading" constant="16" id="Slf-sA-gIa"/>
                             <constraint firstItem="xpB-1F-AyI" firstAttribute="centerY" secondItem="o3O-Ao-z6s" secondAttribute="centerY" id="WLt-nH-cmm"/>
+                            <constraint firstItem="Vwf-jA-Yx5" firstAttribute="height" secondItem="A7v-PB-9bG" secondAttribute="height" id="bHh-JV-teU"/>
                             <constraint firstItem="A7v-PB-9bG" firstAttribute="leading" secondItem="xpB-1F-AyI" secondAttribute="trailing" constant="12" id="lAW-oN-Bgd"/>
+                            <constraint firstItem="Vwf-jA-Yx5" firstAttribute="width" secondItem="A7v-PB-9bG" secondAttribute="width" id="rcX-5f-4dR"/>
+                            <constraint firstItem="Vwf-jA-Yx5" firstAttribute="centerX" secondItem="A7v-PB-9bG" secondAttribute="centerX" id="w2A-fz-AfO"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -189,6 +200,7 @@
             <connections>
                 <outlet property="avatarImage" destination="A7v-PB-9bG" id="Rhi-c1-MCZ"/>
                 <outlet property="backView" destination="o3O-Ao-z6s" id="ozg-Ul-KQt"/>
+                <outlet property="imageButton" destination="Vwf-jA-Yx5" id="ePO-Q6-Wdm"/>
                 <outlet property="locationLabel" destination="biW-qU-e30" id="yBM-T9-WVg"/>
                 <outlet property="membersLabel" destination="5q3-Nm-Bto" id="b4C-wQ-34x"/>
                 <outlet property="ownerLabel" destination="PUu-v0-zrk" id="wtp-3X-pPb"/>
@@ -205,7 +217,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="avatar" width="986" height="1364"/>
         <image name="people2" width="24" height="24"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

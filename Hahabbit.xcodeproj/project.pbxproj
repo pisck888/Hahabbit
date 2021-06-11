@@ -57,6 +57,8 @@
 		E7673BF82671E5E600527585 /* SignOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */; };
 		E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7673BFA2671E7CC00527585 /* MallViewController.swift */; };
 		E777F7E9267276CF00BCD59E /* catReading.json in Resources */ = {isa = PBXBuildFile; fileRef = E777F7E8267276CF00BCD59E /* catReading.json */; };
+		E777F7EC267364EB00BCD59E /* AllHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777F7EB267364EB00BCD59E /* AllHabitsViewController.swift */; };
+		E777F7EF26736B1A00BCD59E /* AllHabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777F7EE26736B1A00BCD59E /* AllHabitsViewModel.swift */; };
 		E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */; };
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
@@ -139,6 +141,8 @@
 		E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutTableViewCell.swift; sourceTree = "<group>"; };
 		E7673BFA2671E7CC00527585 /* MallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MallViewController.swift; sourceTree = "<group>"; };
 		E777F7E8267276CF00BCD59E /* catReading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = catReading.json; sourceTree = "<group>"; };
+		E777F7EB267364EB00BCD59E /* AllHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHabitsViewController.swift; sourceTree = "<group>"; };
+		E777F7EE26736B1A00BCD59E /* AllHabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHabitsViewModel.swift; sourceTree = "<group>"; };
 		E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitViewModel.swift; sourceTree = "<group>"; };
 		E786041F265AA11500AC0F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +505,22 @@
 			path = MallPage;
 			sourceTree = "<group>";
 		};
+		E777F7EA267364C300BCD59E /* AllHabitsPage */ = {
+			isa = PBXGroup;
+			children = (
+				E777F7EB267364EB00BCD59E /* AllHabitsViewController.swift */,
+			);
+			path = AllHabitsPage;
+			sourceTree = "<group>";
+		};
+		E777F7ED26736AFB00BCD59E /* AllHabitsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E777F7EE26736B1A00BCD59E /* AllHabitsViewModel.swift */,
+			);
+			path = AllHabitsViewModel;
+			sourceTree = "<group>";
+		};
 		E786041C265A9A6000AC0F36 /* PublicHabitViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,6 +592,7 @@
 		E7910F67264B7EED003F0DAC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E777F7ED26736AFB00BCD59E /* AllHabitsViewModel */,
 				E736860E266A49CA002E2278 /* BlacklistViewModel */,
 				E73685FC26687451002E2278 /* NotificationsViewModel */,
 				E74F424A265CF6D300C9AB3D /* AchievementViewModel */,
@@ -587,6 +608,7 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E777F7EA267364C300BCD59E /* AllHabitsPage */,
 				E7673BF92671E7B100527585 /* MallPage */,
 				E7BDCD00266E645100C0B1A2 /* LaunchPage */,
 				E7368602266A3654002E2278 /* BlacklistPage */,
@@ -866,6 +888,7 @@
 				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewhHabitViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
+				E777F7EC267364EB00BCD59E /* AllHabitsViewController.swift in Sources */,
 				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
 				E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */,
 				E7052E812653D59D00B717F8 /* AchievementsTableViewCell.swift in Sources */,
@@ -889,6 +912,7 @@
 				E7052E872654E62500B717F8 /* HabitManager.swift in Sources */,
 				E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */,
 				E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */,
+				E777F7EF26736B1A00BCD59E /* AllHabitsViewModel.swift in Sources */,
 				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
 				E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */,
 				E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */,
