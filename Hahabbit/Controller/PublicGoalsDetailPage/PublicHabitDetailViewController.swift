@@ -19,7 +19,7 @@ class PublicHabitDetailViewController: UIViewController {
     super.viewDidLoad()
     joinButton.layer.cornerRadius = 10
     joinButton.setTitle("加入".localized(), for: .normal)
-    
+
     navigationItem.title = "習慣細節".localized()
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)

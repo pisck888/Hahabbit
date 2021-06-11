@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class BlacklistViewModel {
+class BlocklistViewModel {
 
   var blockedUsersViewModel: Box<[User]> = Box([])
 

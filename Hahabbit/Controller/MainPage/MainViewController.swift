@@ -136,18 +136,18 @@ extension MainViewController: UITableViewDelegate {
     let deleteAction = UIContextualAction(style: .normal, title: nil) { action, view, completionHandler in
 
       let popup = PopupDialog(
-        title: "Delete Habit?",
-        message: "確定要刪除習慣嗎？"
+        title: "確定要刪除習慣嗎？".localized(),
+        message: "刪除以後無法復原囉".localized()
       )
       let containerAppearance = PopupDialogContainerView.appearance()
 
-      let buttonOne = DestructiveButton(title: "Delete") {
+      let buttonOne = DestructiveButton(title: "刪除".localized()) {
         HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
           self.viewModel.habitViewModels.value.remove(at: indexPath.row)
           tableView.deleteRows(at: [indexPath], with: .fade)
       }
 
-      let buttonTwo = CancelButton(title: "Cancel") {
+      let buttonTwo = CancelButton(title: "取消".localized()) {
       }
 
       popup.addButtons([buttonOne, buttonTwo])

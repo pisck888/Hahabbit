@@ -10,16 +10,19 @@ import AuthenticationServices
 import WebKit
 import CryptoKit
 import FirebaseAuth
+import Lottie
 
 class LoginViewController: UIViewController {
 
   @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var upImageBackView: UIView!
   @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
-  @IBOutlet weak var signInButtonView: UIView!
+  @IBOutlet weak var loginButtonBackView: UIView!
+  @IBOutlet weak var signInWithAppleButton: MyAuthorizationAppleIDButton!
   @IBOutlet var privacyPolicyView: UIView!
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var closeButton: UIButton!
+  @IBOutlet weak var catReading: AnimationView!
 
   // Unhashed nonce.
   private var currentNonce: String?
@@ -29,24 +32,29 @@ class LoginViewController: UIViewController {
     blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
     return blurView
   }()
+  let animationView = AnimationView(name: "catReading")
 
   override func viewDidLoad() {
     super.viewDidLoad()
     webView.navigationDelegate = self
     setupLoginView()
-//    skipButton.isHidden = true
+    skipButton.isHidden = true
   }
 
+
   func setupLoginView() {
-    let signInButton = ASAuthorizationAppleIDButton()
-    signInButton.addTarget(self, action: #selector(pressSignInButton), for: .touchUpInside)
-    signInButton.frame = signInButtonView.bounds
-    signInButtonView.addSubview(signInButton)
-    signInButtonView.layer.cornerRadius = 10
-    signInButtonView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    signInButtonView.layer.shadowOpacity = 0.5
-    signInButtonView.layer.shadowRadius = 2
-    signInButtonView.layer.shadowColor = UIColor.black.cgColor
+    catReading.play()
+    catReading.loopMode = .loop
+    catReading.contentMode = .scaleAspectFit
+
+    signInWithAppleButton.layer.cornerRadius = 10
+    signInWithAppleButton.clipsToBounds = true
+
+    loginButtonBackView.layer.cornerRadius = 10
+    loginButtonBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
+    loginButtonBackView.layer.shadowOpacity = 0.5
+    loginButtonBackView.layer.shadowRadius = 2
+    loginButtonBackView.layer.shadowColor = UIColor.black.cgColor
 
     upImageBackView.layer.cornerRadius = 10
     upImageBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
@@ -83,17 +91,17 @@ class LoginViewController: UIViewController {
     }
   }
 
+  @IBAction func pressAppleButton(_ sender: MyAuthorizationAppleIDButton) {
+    startSignInWithAppleFlow()
+  }
+
   @IBAction func pressPrivacyPolicyButton(_ sender: UIButton) {
     showPrivacyPolicyView()
   }
-  
+
   @IBAction func pressCloseButton(_ sender: UIButton) {
     blurView.removeFromSuperview()
     privacyPolicyView.removeFromSuperview()
-  }
-
-  @objc func pressSignInButton() {
-    startSignInWithAppleFlow()
   }
 
   @available(iOS 13, *)
@@ -179,7 +187,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
 
       Auth.auth().signIn(with: credential) { authResult, error in
         if error != nil {
-          print(error!.localizedDescription)
+          print(error?.localizedDescription as Any)
           return
         }
         if let user = authResult?.user {

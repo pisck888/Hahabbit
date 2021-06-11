@@ -106,6 +106,8 @@ class AddNewHabitDetailViewController: UITableViewController {
 
     setLabelString()
     navigationItem.title = "編輯細節".localized()
+    titleTextField.placeholder = "在此輸入你想要培養的習慣吧～".localized()
+    messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
@@ -136,6 +138,8 @@ class AddNewHabitDetailViewController: UITableViewController {
 
   @objc func setText() {
     navigationItem.title = "編輯細節".localized()
+    titleTextField.placeholder = "在此輸入你想要培養的習慣吧～".localized()
+    messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
     frequencyCollectionView.reloadData()
     setLabelString()
   }
@@ -177,10 +181,10 @@ class AddNewHabitDetailViewController: UITableViewController {
 
   func showAlertPopup() {
     let popup = PopupDialog(
-      title: "有些欄位還是空的唷！",
-      message: "確認所有的欄位都輸入了正確的資訊"
+      title: "有些欄位還是空的唷！".localized(),
+      message: "確認所有的欄位都輸入了正確的資訊".localized()
     )
-    let buttonOne = CancelButton(title: "OK") {
+    let buttonOne = CancelButton(title: "確定".localized()) {
     }
     popup.addButton(buttonOne)
 

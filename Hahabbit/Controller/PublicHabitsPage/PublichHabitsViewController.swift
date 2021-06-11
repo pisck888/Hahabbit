@@ -46,8 +46,6 @@ class PublichHabitsViewController: UIViewController {
       self.tableView.reloadData()
     }
 
-    viewModel.fetchData()
-
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
     searchBar.delegate = self
@@ -66,6 +64,11 @@ class PublichHabitsViewController: UIViewController {
         self.searchByTagTitle(title: MyArray.publicHabitsPageTag.map { $0.localized() }[index])
       }
     }
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    viewModel.fetchData()
   }
 
   @objc func setText() {
@@ -95,12 +98,12 @@ class PublichHabitsViewController: UIViewController {
 
 
   @IBAction func pressTypeButton(_ sender: UIButton) {
-    CM.items = MyArray.typeArray
+    CM.items = MyArray.typeArray.map{ $0.localized() }
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressWeekdayButton(_ sender: UIButton) {
-    CM.items = MyArray.weekdayArray
+    CM.items = MyArray.weekdayArray.map{ $0.localized() }
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }

@@ -8,6 +8,7 @@
 import UIKit
 import FSCalendar
 import Localize_Swift
+import PopupDialog
 
 class CalendarPageViewController: UIViewController {
 
@@ -176,45 +177,40 @@ extension CalendarPageViewController: FSCalendarDelegate {
     }
   }
 
-//  func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
-//    if date > Date() {
-//      print(123)
-//      return false
-//    } else {
-//      return true
-//    }
-//
-//  }
-//  // 本月開始日期
-//  func startOfCurrentMonth() -> Date {
-//    let date = Date()
-//    let calendar = NSCalendar.current
-//    let components = calendar.dateComponents(Set<Calendar.Component>([.year, .month]), from: date)
-//    let startOfMonth = calendar.date(from: components)!
-//    return startOfMonth
-//  }
-//
-//  // 本月结束日期
-//  func endOfCurrentMonth(returnEndTime: Bool = false) -> Date {
-//    let calendar = NSCalendar.current
-//    var components = DateComponents()
-//    components.month = 1
-//    if returnEndTime {
-//      components.second = -1
-//    } else {
-//      components.day = -1
-//    }
-//
-//    let endOfMonth = calendar.date(byAdding: components, to: startOfCurrentMonth())!
-//    return endOfMonth
-//  }
+  func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+    if let userSignUpDate = dateFormatter.date(from: UserManager.shared.userSignUpDate)  {
+      if date > Date() {
+        showAlertPopup(title: "喔喔，不能提前為未來打卡唷！", message: nil)
+        return false
+      } else if date < userSignUpDate {
+        showAlertPopup(title: "註冊日期以前沒有紀錄唷！", message: nil)
+        return false
+      } else {
+        return true
+      }
+    } else {
+      return true
+    }
+  }
 
-  func maximumDate(for calendar: FSCalendar) -> Date {
-    Date()
+  func showAlertPopup(title: String?, message: String?) {
+    let popup = PopupDialog(
+      title: title,
+      message: message
+    )
+    let buttonOne = CancelButton(title: "OK") {
+    }
+    popup.addButton(buttonOne)
+
+    let containerAppearance = PopupDialogContainerView.appearance()
+    popup.transitionStyle = .zoomIn
+    containerAppearance.cornerRadius = 10
+
+    self.present(popup, animated: true) {
+      popup.shake()
+    }
   }
-  func minimumDate(for calendar: FSCalendar) -> Date {
-    dateFormatter.date(from: UserManager.shared.userSignUpDate) ?? Date()
-  }
+
 }
 
 extension CalendarPageViewController: FSCalendarDataSource {

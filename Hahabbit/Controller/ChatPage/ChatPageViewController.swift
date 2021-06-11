@@ -11,6 +11,7 @@ import InputBarAccessoryView
 import Firebase
 import Kingfisher
 import PopupDialog
+import Localize_Swift
 
 class ChatPageViewController: MessagesViewController {
 
@@ -37,7 +38,7 @@ class ChatPageViewController: MessagesViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     messagesCollectionView.backgroundColor = .systemGray6
-    self.navigationItem.title = NSLocalizedString("交誼大廳")
+    navigationItem.title = "交誼大廳".localized()
 
     viewModel.currentUserViewModel.bind { user in
       self.currentUser = user

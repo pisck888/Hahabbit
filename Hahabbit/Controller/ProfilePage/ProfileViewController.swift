@@ -175,7 +175,7 @@ extension ProfileViewController: UITableViewDelegate {
       case 0:
         pressChangeLanguage()
       case 1:
-        performSegue(withIdentifier: MySegue.toBlacklistPage, sender: nil)
+        performSegue(withIdentifier: MySegue.toBlocklistPage, sender: nil)
       default:
         print("nothing happened")
       }

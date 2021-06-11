@@ -30,11 +30,12 @@
 		E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8E2656090A00B717F8 /* HomeViewModel.swift */; };
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */; };
+		E7362FF3267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */; };
 		E736858D266735AD002E2278 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736858C266735AD002E2278 /* extension.swift */; };
 		E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73685FD26687465002E2278 /* NotificationsViewModel.swift */; };
-		E7368604266A3674002E2278 /* BlacklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7368603266A3674002E2278 /* BlacklistViewController.swift */; };
+		E7368604266A3674002E2278 /* BlocklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7368603266A3674002E2278 /* BlocklistViewController.swift */; };
 		E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */; };
-		E7368610266A49EE002E2278 /* BlacklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860F266A49EE002E2278 /* BlacklistViewModel.swift */; };
+		E7368610266A49EE002E2278 /* BlocklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860F266A49EE002E2278 /* BlocklistViewModel.swift */; };
 		E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */; };
 		E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C112661070600E0A1C4 /* UserManager.swift */; };
 		E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C9D266282DD00E0A1C4 /* ProfileEditView.swift */; };
@@ -55,6 +56,7 @@
 		E7673BF02670F72700527585 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7673BF22670F72700527585 /* Localizable.strings */; };
 		E7673BF82671E5E600527585 /* SignOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */; };
 		E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7673BFA2671E7CC00527585 /* MallViewController.swift */; };
+		E777F7E9267276CF00BCD59E /* catReading.json in Resources */ = {isa = PBXBuildFile; fileRef = E777F7E8267276CF00BCD59E /* catReading.json */; };
 		E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */; };
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
@@ -106,11 +108,12 @@
 		E7052E8B2655F25700B717F8 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuthorizationAppleIDButton.swift; sourceTree = "<group>"; };
 		E736858C266735AD002E2278 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E73685FD26687465002E2278 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
-		E7368603266A3674002E2278 /* BlacklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistViewController.swift; sourceTree = "<group>"; };
+		E7368603266A3674002E2278 /* BlocklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistViewController.swift; sourceTree = "<group>"; };
 		E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
-		E736860F266A49EE002E2278 /* BlacklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistViewModel.swift; sourceTree = "<group>"; };
+		E736860F266A49EE002E2278 /* BlocklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistViewModel.swift; sourceTree = "<group>"; };
 		E74D4C0B2660CFC200E0A1C4 /* Hahabbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hahabbit.entitlements; sourceTree = "<group>"; };
 		E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E74D4C112661070600E0A1C4 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 		E7673BF32670F76500527585 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		E7673BF72671E5E600527585 /* SignOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutTableViewCell.swift; sourceTree = "<group>"; };
 		E7673BFA2671E7CC00527585 /* MallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MallViewController.swift; sourceTree = "<group>"; };
+		E777F7E8267276CF00BCD59E /* catReading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = catReading.json; sourceTree = "<group>"; };
 		E786041D265A9B4000AC0F36 /* PublicHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitViewModel.swift; sourceTree = "<group>"; };
 		E786041F265AA11500AC0F36 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,7 +394,7 @@
 		E7368602266A3654002E2278 /* BlacklistPage */ = {
 			isa = PBXGroup;
 			children = (
-				E7368603266A3674002E2278 /* BlacklistViewController.swift */,
+				E7368603266A3674002E2278 /* BlocklistViewController.swift */,
 			);
 			path = BlacklistPage;
 			sourceTree = "<group>";
@@ -406,7 +410,7 @@
 		E736860E266A49CA002E2278 /* BlacklistViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E736860F266A49EE002E2278 /* BlacklistViewModel.swift */,
+				E736860F266A49EE002E2278 /* BlocklistViewModel.swift */,
 			);
 			path = BlacklistViewModel;
 			sourceTree = "<group>";
@@ -617,11 +621,13 @@
 		E7910F6A264B7F5E003F0DAC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E7AC30B42672450D00422C30 /* Lottie */,
 				E73685FB2667693E002E2278 /* HabitIcons */,
 				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
 				E7910F78264BC0FB003F0DAC /* Constants.swift */,
 				E736858C266735AD002E2278 /* extension.swift */,
 				E7673BF22670F72700527585 /* Localizable.strings */,
+				E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -632,6 +638,14 @@
 				E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */,
 			);
 			path = AddNewGoalCell;
+			sourceTree = "<group>";
+		};
+		E7AC30B42672450D00422C30 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				E777F7E8267276CF00BCD59E /* catReading.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		E7BDCCF8266D04B400C0B1A2 /* LoadingView */ = {
@@ -731,6 +745,7 @@
 				E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */,
 				E74D4CA02662830100E0A1C4 /* ProfileEditView.xib in Resources */,
 				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
+				E777F7E9267276CF00BCD59E /* catReading.json in Resources */,
 				E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */,
 				E7673BF02670F72700527585 /* Localizable.strings in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
@@ -860,11 +875,11 @@
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */,
 				E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */,
-				E7368604266A3674002E2278 /* BlacklistViewController.swift in Sources */,
+				E7368604266A3674002E2278 /* BlocklistViewController.swift in Sources */,
 				E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */,
 				E7C54EF326640B20004A1ACA /* PopupView.swift in Sources */,
 				E7052E892654E9D800B717F8 /* Habit.swift in Sources */,
-				E7368610266A49EE002E2278 /* BlacklistViewModel.swift in Sources */,
+				E7368610266A49EE002E2278 /* BlocklistViewModel.swift in Sources */,
 				E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */,
 				E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */,
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
@@ -882,6 +897,7 @@
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
 				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,
 				E74F424E265CF74A00C9AB3D /* Achievement.swift in Sources */,
+				E7362FF3267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,7 +986,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1026,7 +1042,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1044,6 +1060,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hahabbit/Hahabbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = B6VUKK5MCY;
 				INFOPLIST_FILE = Hahabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1053,7 +1070,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.max.Hahabbit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1065,16 +1082,18 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hahabbit/Hahabbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = B6VUKK5MCY;
 				INFOPLIST_FILE = Hahabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.max.Hahabbit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fhT-nf-YvU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -108,6 +109,7 @@
                                                 <constraint firstItem="dxC-8v-B5D" firstAttribute="width" secondItem="yRV-Mc-rW7" secondAttribute="width" id="onG-Qj-vqX"/>
                                                 <constraint firstItem="yRV-Mc-rW7" firstAttribute="leading" secondItem="9JM-pp-7Kz" secondAttribute="leading" constant="16" id="uld-74-3Im"/>
                                                 <constraint firstItem="dxC-8v-B5D" firstAttribute="centerX" secondItem="yRV-Mc-rW7" secondAttribute="centerX" id="vYW-lh-696"/>
+                                                <constraint firstItem="4w3-x2-wVg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ze0-Xu-OP0" secondAttribute="trailing" constant="16" id="woO-va-TGT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -196,7 +198,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="xQq-az-mmb" id="rDy-si-SUy"/>
-                        <segue destination="lCD-d6-XhH" kind="show" identifier="SegueToBlacklistPage" id="nhf-LN-PjU"/>
+                        <segue destination="lCD-d6-XhH" kind="show" identifier="SegueToBlocklistPage" id="nhf-LN-PjU"/>
                         <segue destination="Av0-H9-KFT" kind="presentation" identifier="SegueToLoginPage" modalPresentationStyle="fullScreen" id="4MK-sK-JFt"/>
                     </connections>
                 </viewController>
@@ -235,7 +237,7 @@
         <!--封鎖名單-->
         <scene sceneID="2Bv-vf-jOE">
             <objects>
-                <viewController id="lCD-d6-XhH" customClass="BlacklistViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lCD-d6-XhH" customClass="BlocklistViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dXZ-ew-KYX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,6 +319,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="封鎖名單" id="xX2-kG-1ML"/>
                     <connections>
+                        <outlet property="messageLabel" destination="Sjp-r6-jjm" id="lqp-dU-gvi"/>
                         <outlet property="popupView" destination="Ghg-of-j0F" id="SCt-Bl-Hv8"/>
                         <outlet property="tableView" destination="YY8-Zi-sJg" id="GXQ-aK-5Bt"/>
                     </connections>

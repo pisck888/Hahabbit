@@ -48,7 +48,7 @@ target 'Hahabbit' do
   pod 'PopupDialog', '~> 1.1'
 
   # for animations
-  # pod 'lottie-ios'
+  pod 'lottie-ios'
 
   # for ProgressHUD
   pod 'JGProgressHUD'

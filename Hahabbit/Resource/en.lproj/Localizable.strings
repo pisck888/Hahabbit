@@ -28,8 +28,8 @@
 "是否公開" = "Public";
 "上傳照片" = "Choose a photo";
 "成就統計" = "Achievements";
-"我已達成" = "My achievements";
-"每日任務" = "Daily achievements";
+"我已達成" = "My Achievements";
+"每日任務" = "Daily Achievements";
 "特殊成就" = "Special Achievements";
 "地區" = "Location";
 "星期" = "Weekday";
@@ -52,7 +52,7 @@
 "習慣細節" = "Details";
 "加入" = "Join";
 "個人頁面" = "Profile";
-"封鎖名單" = "Blacklist";
+"封鎖名單" = "Blocklist";
 "語言設置" = "Language";
 "登出" = "Sign out";
 "英文" = "English";
@@ -61,4 +61,17 @@
 "照片圖庫" = "Photo Library";
 "確定" = "OK";
 "商城" = "Mall";
+"封鎖名單目前還是空的唷～" = "Blocklist is empty.";
+"在此輸入你想要培養的習慣吧～" = "Running, Swimming, etc.";
+"不能逃！不能逃！不能逃！" = "Come on! You're almost there!";
+"有些欄位還是空的唷！" = "Some fields are still empty.";
+"確認所有的欄位都輸入了正確的資訊" = "Make sure all fields are filled in correctly.";
+"確定要刪除習慣嗎？" = "Delete habit?";
+"刪除以後無法復原囉" = "Data cannot be restored after deletion.";
+"刪除" = "Delete";
+"取消" = "Cancel";
+"請選擇稱號" = "Please choose your title.";
+"輸入你的暱稱吧" = "Please enter your name.";
+
+
 

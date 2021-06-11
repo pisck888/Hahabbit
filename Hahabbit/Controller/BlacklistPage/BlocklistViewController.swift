@@ -7,13 +7,14 @@
 
 import UIKit
 
-class BlacklistViewController: UIViewController {
+class BlocklistViewController: UIViewController {
 
   var user: User?
 
-  var viewModel = BlacklistViewModel()
+  var viewModel = BlocklistViewModel()
   var currentUserViewModel = ProfileViewModel()
 
+  @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet var popupView: UIView!
   @IBOutlet weak var tableView: UITableView!
   override func viewDidLoad() {
@@ -44,6 +45,7 @@ class BlacklistViewController: UIViewController {
 
   func showPopView() {
     if viewModel.blockedUsersViewModel.value.isEmpty {
+      messageLabel.text = "封鎖名單目前還是空的唷～".localized()
       popupView.layer.shadowOffset = CGSize(width: 2, height: 2)
       popupView.layer.shadowOpacity = 0.5
       popupView.layer.shadowRadius = 2
@@ -71,7 +73,7 @@ class BlacklistViewController: UIViewController {
   }
 }
 
-extension BlacklistViewController: UITableViewDataSource {
+extension BlocklistViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     viewModel.blockedUsersViewModel.value.count
   }

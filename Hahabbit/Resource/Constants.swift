@@ -21,7 +21,7 @@ enum MySegue {
 
   static let toChatRoomPage = "SegeuToChatRoomPage"
 
-  static let toBlacklistPage = "SegueToBlacklistPage"
+  static let toBlocklistPage = "SegueToBlocklistPage"
 
   static let toMainPage = "SegueToMainPage"
 

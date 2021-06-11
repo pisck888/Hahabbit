@@ -11,6 +11,16 @@ class ProfileEditView: UIView {
 
   var user: User?
 
+  @IBOutlet weak var titleLabel: UILabel! {
+    didSet {
+      titleLabel.text = "請選擇稱號".localized()
+    }
+  }
+  @IBOutlet weak var nameLabel: UILabel! {
+    didSet {
+      nameLabel.text = "輸入你的暱稱吧".localized()
+    }
+  }
   @IBOutlet weak var pickerView: UIPickerView! {
     didSet {
       pickerView.dataSource = self
