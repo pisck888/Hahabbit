@@ -22,12 +22,7 @@ class CalendarPageViewController: UIViewController {
   @IBOutlet weak var calendar: FSCalendar!
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
 
-  lazy var blurView: UIView = {
-    let blurView = UIView(frame: view.frame)
-    blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-    return blurView
-  }()
-
+  let generator = UIImpactFeedbackGenerator(style: .light)
   let viewModel = HomeViewModel()
   var chosenDay = Date()
   var dailyHabitsCount: [Int: String] = [:] {
@@ -55,9 +50,11 @@ class CalendarPageViewController: UIViewController {
     super.viewDidLoad()
 
     navigationItem.backButtonTitle = ""
-    self.navigationItem.title = "月曆".localized()
+    navigationItem.title = "月曆".localized()
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+
+    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
 
     AchievementsChecker.checker.delegate = self
 
@@ -93,6 +90,11 @@ class CalendarPageViewController: UIViewController {
 
   @objc func setText() {
     navigationItem.title = "月曆".localized()
+    setupCalendarLanguage()
+  }
+
+  @objc func setThemeColor(notification: Notification) {
+    setCalendarColor()
   }
 
   func setupCalendar() {
@@ -101,6 +103,22 @@ class CalendarPageViewController: UIViewController {
     calendar.scope = .month
     calendar.appearance.headerMinimumDissolvedAlpha = 0.0
     calendar.appearance.headerDateFormat = "yyyy-MM"
+    setupCalendarLanguage()
+    setCalendarColor()
+  }
+
+  func setupCalendarLanguage() {
+    if navigationItem.title == "月曆" {
+      calendar.locale = Locale(identifier: "zh-CN")
+    } else {
+      calendar.locale = Locale(identifier: "en")
+    }
+  }
+
+  func setCalendarColor() {
+    calendar.appearance.selectionColor = UserManager.shared.themeColor
+    calendar.appearance.weekdayTextColor = UserManager.shared.themeColor
+    calendar.appearance.headerTitleColor = UserManager.shared.themeColor
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,11 +126,6 @@ class CalendarPageViewController: UIViewController {
     if segue.identifier == "SegueToDetail" {
       controller?.habit = sender as? HabitViewModel
     }
-  }
-
-  @IBAction func pressCloseButton(_ sender: UIButton) {
-    blurView.removeFromSuperview()
-    popupView.removeFromSuperview()
   }
 }
 
@@ -194,6 +207,10 @@ extension CalendarPageViewController: FSCalendarDelegate {
   }
 
   func showAlertPopup(title: String?, message: String?) {
+
+    if UserManager.shared.isHapticFeedback {
+      generator.impactOccurred()
+    }
     let popup = PopupDialog(
       title: title,
       message: message
@@ -210,7 +227,6 @@ extension CalendarPageViewController: FSCalendarDelegate {
       popup.shake()
     }
   }
-
 }
 
 extension CalendarPageViewController: FSCalendarDataSource {
@@ -227,38 +243,19 @@ extension CalendarPageViewController: FSCalendarDataSource {
 
 extension CalendarPageViewController: AchievementsCheckerDelegate {
   func showPopupView(title: String, message: String, image: String) {
-    // set popView
-    blurView.alpha = 0.4
-    popupView.layer.cornerRadius = 20
-    popupView.frame.size = CGSize(width: view.frame.width * 0.9, height: popupImage.frame.height + 220)
-    popupView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-    popupView.center = view.center
-    closeButton.layer.cornerRadius = closeButton.frame.width / 2
+    let mainImage = UIImage(named: image)?.withBackground(color: UserManager.shared.themeColor)
+    let popup = PopupDialog(
+      title: title,
+      message: message,
+      image: mainImage
+    )
+    let containerAppearance = PopupDialogContainerView.appearance()
+    popup.transitionStyle = .zoomIn
+    containerAppearance.cornerRadius = 10
 
-    UIView.animate(
-      withDuration: 0.3,
-      delay: 0,
-      usingSpringWithDamping: 0.7,
-      initialSpringVelocity: 0.7,
-      options: .curveLinear
-    ) {
-      self.popupView.transform = .identity
-    } completion: { _ in
-      self.popupView.shake()
-    }
-    popupTitleLabel.text = title
-    popupMessageLabel.text = message
-    popupImage.image = UIImage(named: image)
-
-    view.addSubview(blurView)
-    view.addSubview(popupView)
-  }
-
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    let touch = touches.first
-    if touch?.view == blurView {
-      blurView.removeFromSuperview()
-      popupView.removeFromSuperview()
+    // Present dialog
+    self.present(popup, animated: true) {
+      popup.shake()
     }
   }
 }

@@ -17,6 +17,7 @@ class AchievementsTableViewCell: UITableViewCell {
     super.awakeFromNib()
     mainImage.layer.cornerRadius = 10
     mainImage.clipsToBounds = true
+    mainImage.theme_backgroundColor = ThemeColor.color
     backView.layer.cornerRadius = 10
     backView.layer.shadowOffset = CGSize(width: 2, height: 2)
     backView.layer.shadowOpacity = 0.5

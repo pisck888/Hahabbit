@@ -19,6 +19,8 @@ class MainPageTableViewCell: UITableViewCell {
   var id: String = ""
   let formatter = DateFormatter()
   var chosenDay = Date()
+  let generator = UIImpactFeedbackGenerator(style: .light)
+
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -71,5 +73,9 @@ class MainPageTableViewCell: UITableViewCell {
       .setData([stringDate: !sender.isSelected], merge: true)
 
     sender.isSelected.toggle()
+
+    if UserManager.shared.isHapticFeedback {
+      generator.impactOccurred()
+    }
   }
 }

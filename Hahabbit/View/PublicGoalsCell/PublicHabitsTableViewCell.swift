@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import PopupDialog
 
-class PublicGoalsTableViewCell: UITableViewCell {
+class PublicHabitsTableViewCell: UITableViewCell {
 
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var membersLabel: UILabel!
@@ -67,6 +67,7 @@ class PublicGoalsTableViewCell: UITableViewCell {
     for i in 0...6 {
       guard let staus = publicHabit.weekday["\(i + 1)"] else { return }
       weekdayButtons[i].isSelected = staus
+      weekdayButtons[i].theme_tintColor = ThemeColor.color
     }
 
     UserManager.shared.db

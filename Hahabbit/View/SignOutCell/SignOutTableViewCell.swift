@@ -12,5 +12,6 @@ class SignOutTableViewCell: UITableViewCell {
   @IBOutlet weak var signOutLabel: UILabel!
   func setup(string: String) {
     signOutLabel.text = string
+    
   }
 }

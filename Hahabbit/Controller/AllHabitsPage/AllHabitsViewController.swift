@@ -15,6 +15,8 @@ class AllHabitsViewController: UIViewController {
 
   let viewModel = AllHabitsViewModel()
 
+  let generator = UIImpactFeedbackGenerator(style: .light)
+
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.backButtonTitle = ""
@@ -83,6 +85,9 @@ extension AllHabitsViewController: UITableViewDelegate {
       let containerAppearance = PopupDialogContainerView.appearance()
 
       let buttonOne = DestructiveButton(title: "刪除".localized()) {
+        if UserManager.shared.isHapticFeedback {
+          self.generator.impactOccurred()
+        }
         HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
           self.viewModel.habitViewModels.value.remove(at: indexPath.row)
           tableView.deleteRows(at: [indexPath], with: .fade)
@@ -97,6 +102,10 @@ extension AllHabitsViewController: UITableViewDelegate {
 
       // Present dialog
       self.present(popup, animated: true, completion: nil)
+
+      if UserManager.shared.isHapticFeedback {
+        self.generator.impactOccurred()
+      }
 
       completionHandler(true)
     }

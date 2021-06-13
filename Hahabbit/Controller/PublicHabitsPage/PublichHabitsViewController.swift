@@ -43,14 +43,15 @@ class PublichHabitsViewController: UIViewController {
 
     viewModel.publicHabits.bind { habits in
       self.searchHabitsArray = habits
-//      self.tableView.reloadData()
     }
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
+    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
+
     searchBar.delegate = self
 
-    tableView.register(UINib(nibName: K.publicGoalsTableViewCell, bundle: nil), forCellReuseIdentifier: K.publicGoalsTableViewCell)
+    tableView.register(UINib(nibName: K.publicHabitsTableViewCell, bundle: nil), forCellReuseIdentifier: K.publicHabitsTableViewCell)
 
     setupButton()
     setPinterestSegment()
@@ -77,22 +78,29 @@ class PublichHabitsViewController: UIViewController {
     segment.titles = MyArray.publicHabitsPageTag.map { $0.localized() }
   }
 
+  @objc func setThemeColor() {
+    segment.style.indicatorColor = UserManager.shared.themeColor
+  }
+
   func setPinterestSegment() {
-    style.indicatorColor = .darkGray
+    style.indicatorColor = UserManager.shared.themeColor
     style.titleMargin = 16
     style.titlePendingHorizontal = 14
     style.titlePendingVertical = 14
     style.titleFont = UIFont.boldSystemFont(ofSize: 14)
-    style.normalTitleColor = .darkGray
+    style.normalTitleColor = .gray
     style.selectedTitleColor = .white
   }
 
   func setupButton() {
     locationButton.layer.cornerRadius = 10
+    locationButton.theme_backgroundColor = ThemeColor.color
     locationButton.setTitle("地區".localized(), for: .normal)
     weekdayButton.layer.cornerRadius = 10
+    weekdayButton.theme_backgroundColor = ThemeColor.color
     weekdayButton.setTitle("星期".localized(), for: .normal)
     typeButton.layer.cornerRadius = 10
+    typeButton.theme_backgroundColor = ThemeColor.color
     typeButton.setTitle("種類".localized(), for: .normal)
   }
 
@@ -165,7 +173,7 @@ extension PublichHabitsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: K.publicGoalsTableViewCell, for: indexPath) as! PublicGoalsTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: K.publicHabitsTableViewCell, for: indexPath) as! PublicHabitsTableViewCell
     cell.setup(with: searchHabitsArray[indexPath.row])
     cell.viewController = self
     cell.selectionStyle = .none

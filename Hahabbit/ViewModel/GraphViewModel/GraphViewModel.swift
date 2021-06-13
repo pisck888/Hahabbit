@@ -53,6 +53,7 @@ class GraphViewModel {
         }
         guard let keys = documentSnapshot?.data()?.keys else { return }
         // count GraphViewNumbers
+        self.counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for key in keys {
           if documentSnapshot?.data()?[key] as! Bool == true {
             guard let date = Int(key) else { return }

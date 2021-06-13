@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 import IQKeyboardManagerSwift
 import UserNotifications
+import SwiftTheme
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,13 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     UIApplication.shared.clearLaunchScreenCache()
+    ThemeManager.setTheme(index: UserManager.shared.themeColorNumber)
 
-    UITabBar.appearance().tintColor = .black
+    UITabBar.appearance().theme_tintColor = ThemeColor.color
 
     let image = UIImage(named: "arrowCircleLeft")
     UINavigationBar.appearance().backIndicatorImage = image
     UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
-    UINavigationBar.appearance().tintColor = .black
+    UINavigationBar.appearance().theme_tintColor = ThemeColor.color
 
     // setup IQKeyboard
     IQKeyboardManager.shared.enable = true

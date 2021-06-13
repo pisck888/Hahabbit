@@ -17,8 +17,8 @@
 		E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6126528A3400B717F8 /* FrequencyViewController.swift */; };
 		E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6426528BA300B717F8 /* FrequencyCell.swift */; };
 		E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */; };
-		E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */; };
-		E7052E6D2652D74500B717F8 /* PublicGoalsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */; };
+		E7052E6C2652D74500B717F8 /* PublicHabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6A2652D74500B717F8 /* PublicHabitsTableViewCell.swift */; };
+		E7052E6D2652D74500B717F8 /* PublicHabitsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E6B2652D74500B717F8 /* PublicHabitsTableViewCell.xib */; };
 		E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6F2653506800B717F8 /* ProfileViewController.swift */; };
 		E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E722653560400B717F8 /* ProfileTableViewCell.swift */; };
 		E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */; };
@@ -30,6 +30,7 @@
 		E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E8E2656090A00B717F8 /* HomeViewModel.swift */; };
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */; };
+		E724FCCF267683FE009FE57A /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */; };
 		E7362FF3267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */; };
 		E736858D266735AD002E2278 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736858C266735AD002E2278 /* extension.swift */; };
 		E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73685FD26687465002E2278 /* NotificationsViewModel.swift */; };
@@ -75,6 +76,8 @@
 		E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */; };
 		E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F78264BC0FB003F0DAC /* Constants.swift */; };
 		E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */; };
+		E79F12432674AC5D0064531A /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F12422674AC5D0064531A /* ThemeColorViewController.swift */; };
+		E79F12462674B0C40064531A /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
 		E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */; };
@@ -98,8 +101,8 @@
 		E7052E6126528A3400B717F8 /* FrequencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyViewController.swift; sourceTree = "<group>"; };
 		E7052E6426528BA300B717F8 /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
 		E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublichHabitsViewController.swift; sourceTree = "<group>"; };
-		E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicGoalsTableViewCell.swift; sourceTree = "<group>"; };
-		E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicGoalsTableViewCell.xib; sourceTree = "<group>"; };
+		E7052E6A2652D74500B717F8 /* PublicHabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitsTableViewCell.swift; sourceTree = "<group>"; };
+		E7052E6B2652D74500B717F8 /* PublicHabitsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublicHabitsTableViewCell.xib; sourceTree = "<group>"; };
 		E7052E6F2653506800B717F8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E7052E722653560400B717F8 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		E7052E752653574A00B717F8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		E7052E8B2655F25700B717F8 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
 		E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuthorizationAppleIDButton.swift; sourceTree = "<group>"; };
 		E736858C266735AD002E2278 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E73685FD26687465002E2278 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 		E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGoalCell.swift; sourceTree = "<group>"; };
 		E7910F78264BC0FB003F0DAC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		E79F12422674AC5D0064531A /* ThemeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
+		E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
@@ -299,8 +305,8 @@
 		E7052E692652D71200B717F8 /* PublicGoalsCell */ = {
 			isa = PBXGroup;
 			children = (
-				E7052E6A2652D74500B717F8 /* PublicGoalsTableViewCell.swift */,
-				E7052E6B2652D74500B717F8 /* PublicGoalsTableViewCell.xib */,
+				E7052E6A2652D74500B717F8 /* PublicHabitsTableViewCell.swift */,
+				E7052E6B2652D74500B717F8 /* PublicHabitsTableViewCell.xib */,
 			);
 			path = PublicGoalsCell;
 			sourceTree = "<group>";
@@ -377,6 +383,14 @@
 				E7052E9126560F5300B717F8 /* HabitViewModel.swift */,
 			);
 			path = HabitViewModel;
+			sourceTree = "<group>";
+		};
+		E724FCCD267683C9009FE57A /* TabBarPage */ = {
+			isa = PBXGroup;
+			children = (
+				E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */,
+			);
+			path = TabBarPage;
 			sourceTree = "<group>";
 		};
 		E73685FB2667693E002E2278 /* HabitIcons */ = {
@@ -570,6 +584,7 @@
 		E7910F65264B7EDC003F0DAC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E79F12442674B0790064531A /* ColorCell */,
 				E7673BF62671E53700527585 /* SignOutCell */,
 				E7BDCCF8266D04B400C0B1A2 /* LoadingView */,
 				E736860B266A38EB002E2278 /* BlacklistCell */,
@@ -608,6 +623,8 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E724FCCD267683C9009FE57A /* TabBarPage */,
+				E79F12412674ABB90064531A /* ThemeColorPage */,
 				E777F7EA267364C300BCD59E /* AllHabitsPage */,
 				E7673BF92671E7B100527585 /* MallPage */,
 				E7BDCD00266E645100C0B1A2 /* LaunchPage */,
@@ -660,6 +677,22 @@
 				E7910F76264BC011003F0DAC /* AddNewGoalCell.swift */,
 			);
 			path = AddNewGoalCell;
+			sourceTree = "<group>";
+		};
+		E79F12412674ABB90064531A /* ThemeColorPage */ = {
+			isa = PBXGroup;
+			children = (
+				E79F12422674AC5D0064531A /* ThemeColorViewController.swift */,
+			);
+			path = ThemeColorPage;
+			sourceTree = "<group>";
+		};
+		E79F12442674B0790064531A /* ColorCell */ = {
+			isa = PBXGroup;
+			children = (
+				E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */,
+			);
+			path = ColorCell;
 			sourceTree = "<group>";
 		};
 		E7AC30B42672450D00422C30 /* Lottie */ = {
@@ -758,7 +791,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7052E6D2652D74500B717F8 /* PublicGoalsTableViewCell.xib in Resources */,
+				E7052E6D2652D74500B717F8 /* PublicHabitsTableViewCell.xib in Resources */,
 				E7673BEB26708CDE00527585 /* catPlaceholder.png in Resources */,
 				E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */,
 				E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */,
@@ -867,6 +900,7 @@
 				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
 				E74D4CA32662A2B000E0A1C4 /* ChatPageViewController.swift in Sources */,
 				E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */,
+				E724FCCF267683FE009FE57A /* MyTabBarViewController.swift in Sources */,
 				E7052E8C2655F25700B717F8 /* Box.swift in Sources */,
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
 				E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */,
@@ -880,6 +914,7 @@
 				E7C54EEC2662C44E004A1ACA /* Chat.swift in Sources */,
 				E74F4260265E9D6100C9AB3D /* CustomPresentationController.swift in Sources */,
 				E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */,
+				E79F12462674B0C40064531A /* ColorCollectionViewCell.swift in Sources */,
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */,
 				E7C54EEA2662C441004A1ACA /* Message.swift in Sources */,
@@ -904,7 +939,7 @@
 				E7052E892654E9D800B717F8 /* Habit.swift in Sources */,
 				E7368610266A49EE002E2278 /* BlocklistViewModel.swift in Sources */,
 				E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */,
-				E7052E6C2652D74500B717F8 /* PublicGoalsTableViewCell.swift in Sources */,
+				E7052E6C2652D74500B717F8 /* PublicHabitsTableViewCell.swift in Sources */,
 				E7910F79264BC0FB003F0DAC /* Constants.swift in Sources */,
 				E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */,
 				E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */,
@@ -913,6 +948,7 @@
 				E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */,
 				E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */,
 				E777F7EF26736B1A00BCD59E /* AllHabitsViewModel.swift in Sources */,
+				E79F12432674AC5D0064531A /* ThemeColorViewController.swift in Sources */,
 				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
 				E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */,
 				E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */,
@@ -1084,13 +1120,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hahabbit/Hahabbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B6VUKK5MCY;
 				INFOPLIST_FILE = Hahabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.max.Hahabbit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1106,13 +1143,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hahabbit/Hahabbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B6VUKK5MCY;
 				INFOPLIST_FILE = Hahabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.max.Hahabbit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

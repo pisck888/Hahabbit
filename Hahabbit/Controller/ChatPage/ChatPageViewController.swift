@@ -215,7 +215,7 @@ extension ChatPageViewController: MessagesDisplayDelegate {
     switch message.sender.senderId {
 
     case UserManager.shared.currentUser:
-      return .darkGray
+      return UserManager.shared.themeColor
     default:
       return .white
     }

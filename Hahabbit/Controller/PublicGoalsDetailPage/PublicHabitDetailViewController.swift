@@ -19,6 +19,7 @@ class PublicHabitDetailViewController: UIViewController {
     super.viewDidLoad()
     joinButton.layer.cornerRadius = 10
     joinButton.setTitle("加入".localized(), for: .normal)
+    joinButton.theme_backgroundColor = ThemeColor.color
 
     navigationItem.title = "習慣細節".localized()
 

@@ -64,6 +64,7 @@ class AddNewHabitDetailViewController: UITableViewController {
     }
   }
   let loadingVC = LoadingViewController()
+  let generator = UIImpactFeedbackGenerator(style: .light)
 
   var reminders = ["+"] {
     didSet {
@@ -111,6 +112,7 @@ class AddNewHabitDetailViewController: UITableViewController {
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
+    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
 
     viewModel.notification.bind { notification in
       guard let time = notification else { return }
@@ -142,6 +144,18 @@ class AddNewHabitDetailViewController: UITableViewController {
     messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
     frequencyCollectionView.reloadData()
     setLabelString()
+  }
+
+  @objc func setThemeColor(notification: Notification) {
+    iconCollectionView.reloadData()
+    locationCollectionView.reloadData()
+    frequencyCollectionView.reloadData()
+    remindersCollectionView.reloadData()
+    for i in 0...6 {
+      if newHabit.weekday[String(i + 1)] == true {
+        frequencyCollectionView.selectItem(at: [0, i], animated: true, scrollPosition: [])
+      }
+    }
   }
 
   @IBAction func pressPublicButton(_ sender: UIButton) {
@@ -180,6 +194,10 @@ class AddNewHabitDetailViewController: UITableViewController {
   }
 
   func showAlertPopup() {
+    if UserManager.shared.isHapticFeedback {
+      generator.impactOccurred()
+    }
+
     let popup = PopupDialog(
       title: "有些欄位還是空的唷！".localized(),
       message: "確認所有的欄位都輸入了正確的資訊".localized()
@@ -306,7 +324,7 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       if indexPath == selectedIconIndexPath {
         cell.isSelected = true
       }
-      setCellSelectedStatus(cell: cell)
+      setCellAppearance(cell: cell)
       return cell
 
     case locationCollectionView:
@@ -315,27 +333,35 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       if indexPath == selectedLocationIndexPath {
         cell.isSelected = true
       }
-      setCellSelectedStatus(cell: cell)
+      setCellAppearance(cell: cell)
       return cell
 
     case frequencyCollectionView:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "frequencyCell", for: indexPath) as! FrequencyCell
       cell.setup(string: MyArray.weekdayArray[indexPath.row].localized())
-      setCellSelectedStatus(cell: cell)
+      setCellAppearance(cell: cell)
       return cell
 
     default:
       let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "remindersCell", for: indexPath) as! FrequencyCell
+      if indexPath.row != reminders.count - 1 {
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.contentView.backgroundColor = UserManager.shared.themeColor.withAlphaComponent(0.3)
+      } else {
+        cell.layer.borderWidth = 0
+        cell.contentView.backgroundColor = .systemGray6
+      }
       cell.lebel.text = reminders[indexPath.row]
       return cell
     }
   }
 
-  func setCellSelectedStatus(cell: UICollectionViewCell) {
+  func setCellAppearance(cell: UICollectionViewCell) {
     if cell.isSelected == true {
       cell.layer.borderWidth = 1
       cell.layer.borderColor = UIColor.black.cgColor
-      cell.contentView.backgroundColor = .systemGray4
+      cell.contentView.backgroundColor = UserManager.shared.themeColor.withAlphaComponent(0.3)
     } else {
       cell.layer.borderWidth = 0
       cell.contentView.backgroundColor = .systemGray6
@@ -349,12 +375,10 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
     case iconCollectionView:
       newHabit.icon = (collectionView.cellForItem(at: indexPath) as! IconCell).imageName ?? ""
       selectedIconIndexPath = indexPath
-      setCellStates(collectionView: collectionView, indexPath: indexPath)
 
     case locationCollectionView:
       newHabit.location = (collectionView.cellForItem(at: indexPath) as! FrequencyCell).lebel.text ?? ""
       selectedLocationIndexPath = indexPath
-      setCellStates(collectionView: collectionView, indexPath: indexPath)
 
     case frequencyCollectionView:
       newHabit.weekday[String(indexPath.row + 1)]?.toggle()
@@ -383,7 +407,7 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
     cell?.isSelected = true
     cell?.layer.borderWidth = 1
     cell?.layer.borderColor = UIColor.black.cgColor
-    cell?.contentView.backgroundColor = .systemGray4
+    cell?.contentView.backgroundColor = UserManager.shared.themeColor.withAlphaComponent(0.3)
   }
 
   func setReminders(collectionView: UICollectionView, indexPath: IndexPath) {
@@ -429,17 +453,13 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
 extension AddNewHabitDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func showImagePickerActionSheet() {
     let alert = UIAlertController(title: "上傳照片", message: nil, preferredStyle: .actionSheet)
-
     alert.view.tintColor = .black
-
     let cameraAction = UIAlertAction(title: "相機拍攝", style: .default) { action in
       self.showImagePicker(sourceType: .camera)
     }
-
     let photoLibraryAction = UIAlertAction(title: "照片圖庫", style: .default) { action in
       self.showImagePicker(sourceType: .photoLibrary)
     }
-
     let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
 
     alert.addAction(cameraAction)

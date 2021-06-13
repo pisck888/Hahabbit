@@ -56,4 +56,12 @@ target 'Hahabbit' do
   # for localization
   pod 'Localize-Swift', '~> 3.2'
 
+  # for collectionView
+  pod 'Blueprints'
+
+  # for theme color
+  pod 'SwiftTheme'
+  pod 'SwiftHEXColors'
+  pod 'UIGradient'
+
 end

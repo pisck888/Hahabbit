@@ -11,6 +11,12 @@ import Firebase
 class UserManager {
   static let shared = UserManager()
 
+  let themeColorNumber = UserDefaults().value(forKey: "ThemeColorNumber") as? Int ?? 0
+
+  var themeColor = ThemeColor.colorArray[UserDefaults().value(forKey: "ThemeColorNumber") as? Int ?? 0]
+
+  var isHapticFeedback = UserDefaults().value(forKey: "IsHapticFeedback") as? Bool ?? false
+
   var currentUser = "pisck780527@gmail.com"
   var userSignUpDate = "20210101"
 
@@ -32,7 +38,7 @@ class UserManager {
       "coin": 0,
       "title": "初心者",
       "signUpDate": today,
-      "titleArray": ["初心者"],
+      "titleArray": ["初心者", "新來的", "煞氣a"],
       "blacklist": []
     ]
 

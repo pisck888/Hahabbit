@@ -44,6 +44,7 @@ class PublicHabitDetailCell: UITableViewCell {
     for i in 0...6 {
       guard let staus = habit.weekday["\(i + 1)"] else { return }
       weekdayButtons[i].isSelected = staus
+      weekdayButtons[i].theme_tintColor = ThemeColor.color
     }
   }
 }

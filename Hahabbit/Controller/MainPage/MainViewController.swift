@@ -21,12 +21,7 @@ class MainViewController: UIViewController {
   @IBOutlet weak var segmentView: UIView!
   @IBOutlet weak var tableView: UITableView!
 
-  lazy var blurView: UIView = {
-    let blurView = UIView(frame: view.frame)
-    blurView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-    return blurView
-  }()
-
+  let generator = UIImpactFeedbackGenerator(style: .light)
   var style = PinterestSegmentStyle()
   var segment = PinterestSegment()
   let viewModel = HomeViewModel()
@@ -39,6 +34,8 @@ class MainViewController: UIViewController {
     navigationItem.title = "今天".localized()
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+
+    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
 
     AchievementsChecker.checker.delegate = self
 
@@ -81,20 +78,19 @@ class MainViewController: UIViewController {
     segment.titles = MyArray.mainPageTag.map { $0.localized() }
   }
 
+  @objc func setThemeColor() {
+    segment.style.indicatorColor = UserManager.shared.themeColor
+  }
+
   func setPinterestSegment() {
-    style.indicatorColor = .darkGray
+    style.indicatorColor = UserManager.shared.themeColor
     style.titleMargin = 6
     style.titlePendingHorizontal = 14
     style.titlePendingVertical = 14
     style.titleFont = UIFont.boldSystemFont(ofSize: 14)
-    style.normalTitleColor = .darkGray
+    style.normalTitleColor = .gray
     style.selectedTitleColor = .white
   }
-  @IBAction func pressCloseButton(_ sender: UIButton) {
-    blurView.removeFromSuperview()
-    popupView.removeFromSuperview()
-  }
-
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let controller = segue.destination as? HabitDetailViewController
     if segue.identifier == "SegueToDetail" {
@@ -135,6 +131,9 @@ extension MainViewController: UITableViewDelegate {
       let containerAppearance = PopupDialogContainerView.appearance()
 
       let buttonOne = DestructiveButton(title: "刪除".localized()) {
+        if UserManager.shared.isHapticFeedback {
+          self.generator.impactOccurred()
+        }
         HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
           self.viewModel.habitViewModels.value.remove(at: indexPath.row)
           tableView.deleteRows(at: [indexPath], with: .fade)
@@ -149,6 +148,9 @@ extension MainViewController: UITableViewDelegate {
 
       // Present dialog
       self.present(popup, animated: true, completion: nil)
+      if UserManager.shared.isHapticFeedback {
+        self.generator.impactOccurred()
+      }
 
       completionHandler(true)
     }
@@ -165,38 +167,19 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: AchievementsCheckerDelegate {
   func showPopupView(title: String, message: String, image: String) {
-    // set popView
-    blurView.alpha = 0.4
-    popupView.layer.cornerRadius = 20
-    popupView.frame.size = CGSize(width: view.frame.width * 0.9, height: popupImage.frame.height + 220)
-    popupView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-    popupView.center = view.center
-    closeButton.layer.cornerRadius = closeButton.frame.width / 2
+    let mainImage = UIImage(named: image)?.withBackground(color: UserManager.shared.themeColor)
+    let popup = PopupDialog(
+      title: title,
+      message: message,
+      image: mainImage
+    )
+    let containerAppearance = PopupDialogContainerView.appearance()
 
-    UIView.animate(withDuration: 0.3,
-                   delay: 0,
-                   usingSpringWithDamping: 0.7,
-                   initialSpringVelocity: 0.7,
-                   options: .curveLinear) {
-      self.popupView.transform = .identity
-    } completion: { _ in
-      self.popupView.shake()
-    }
-    popupTitleLabel.text = title
-    popupMessageLabel.text = message
-    popupImage.image = UIImage(named: image)
+    popup.transitionStyle = .zoomIn
+    containerAppearance.cornerRadius = 10
 
-    view.addSubview(blurView)
-    view.addSubview(popupView)
-  }
-
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    let touch = touches.first
-    if touch?.view == blurView {
-      blurView.removeFromSuperview()
-      popupView.removeFromSuperview()
+    self.present(popup, animated: true) {
+      popup.shake()
     }
   }
-
-
 }

@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
 
   let viewModel = ProfileViewModel()
 
+  let generator = UIImpactFeedbackGenerator(style: .light)
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -130,7 +132,7 @@ extension ProfileViewController: UITableViewDataSource {
     case 0:
       return 1
     case 1:
-      return 2
+      return 4
     default:
       return 1
     }
@@ -147,12 +149,13 @@ extension ProfileViewController: UITableViewDataSource {
       return cell
     case 1:
       let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
-      cell.setup(string: MyArray.settingsTitle[indexPath.row])
+      cell.setup(string: MyArray.settingsTitle[indexPath.row], indexPathRow: indexPath.row)
       cell.selectionStyle = .none
       return cell
     default:
       let cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell", for: indexPath) as! SignOutTableViewCell
       cell.setup(string: "登出".localized())
+      cell.contentView.theme_backgroundColor = ThemeColor.color
       cell.selectionStyle = .none
       return cell
 
@@ -176,6 +179,15 @@ extension ProfileViewController: UITableViewDelegate {
         pressChangeLanguage()
       case 1:
         performSegue(withIdentifier: MySegue.toBlocklistPage, sender: nil)
+      case 2:
+        performSegue(withIdentifier: MySegue.toThemePage, sender: nil)
+      case 3:
+        UserManager.shared.isHapticFeedback.toggle()
+        UserDefaults().setValue(UserManager.shared.isHapticFeedback, forKey: "IsHapticFeedback")
+        if UserManager.shared.isHapticFeedback {
+          generator.impactOccurred()
+        }
+        tableView.reloadData()
       default:
         print("nothing happened")
       }

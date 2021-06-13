@@ -58,6 +58,10 @@ class HabitDetailViewController: UITableViewController {
   let dateFormatter = DateFormatter()
   let viewModel = GraphViewModel()
 
+  let linePlot = LinePlot(identifier: "line")
+  let dotPlot = DotPlot(identifier: "dot")
+  let referenceLines = ReferenceLines()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "習慣細節".localized()
@@ -87,17 +91,28 @@ class HabitDetailViewController: UITableViewController {
 
     NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
+    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
+
     graphView.dataSource = self
     setupHabitDetail()
     setupGraphView()
+    setupProgressView()
     setupCalendar()
     setupViews()
     setupRecordLabel()
     setLabelString()
   }
+
   @objc func setText() {
     navigationItem.title = "習慣細節".localized()
+    setupCalendarLanguage()
     setLabelString()
+  }
+
+  @objc func setThemeColor() {
+    setCalendarColor()
+    setupGraphView()
+    setupProgressView()
   }
 
   func setLabelString() {
@@ -137,20 +152,17 @@ class HabitDetailViewController: UITableViewController {
   func setupGraphView() {
     viewModel.fetchGraphData(graphView: graphView, habitID: habit?.id ?? "")
 
-    let linePlot = LinePlot(identifier: "line")
-    let dotPlot = DotPlot(identifier: "dot")
-    let referenceLines = ReferenceLines()
-
     linePlot.lineStyle = ScrollableGraphViewLineStyle.smooth
     linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
     linePlot.shouldFill = true
     linePlot.fillType = ScrollableGraphViewFillType.gradient
     linePlot.fillGradientType = ScrollableGraphViewGradientType.radial
-    linePlot.fillGradientStartColor = .black
+    linePlot.lineColor = UserManager.shared.themeColor
+    linePlot.fillGradientStartColor = UserManager.shared.themeColor
     linePlot.fillGradientEndColor = .white
 
     dotPlot.dataPointSize = 3
-    dotPlot.dataPointFillColor = .black
+    dotPlot.dataPointFillColor = UserManager.shared.themeColor
 
     referenceLines.positionType = .absolute
     referenceLines.absolutePositions = [0, 4, 8, 12, 16, 20, 24, 28, 31]
@@ -167,12 +179,26 @@ class HabitDetailViewController: UITableViewController {
     graphView.addReferenceLines(referenceLines: referenceLines)
   }
 
+  func setupProgressView() {
+    let themeColor = UserManager.shared.themeColor
+    monthCircularProgressView.progressColor = themeColor
+    monthCircularProgressView.progressStrokeColor = themeColor
+    monthCircularProgressView.emptyLineColor = themeColor.withAlphaComponent(0.3)
+    monthCircularProgressView.emptyLineStrokeColor = themeColor.withAlphaComponent(0.3)
+    yearCircularProgressView.progressColor = themeColor
+    yearCircularProgressView.progressStrokeColor = themeColor
+    yearCircularProgressView.emptyLineColor = themeColor.withAlphaComponent(0.3)
+    yearCircularProgressView.emptyLineStrokeColor = themeColor.withAlphaComponent(0.3)
+  }
+
   func setupCalendar() {
     guard let habit = habit else { return }
     calendar.today = nil
     calendar.allowsMultipleSelection = true
     calendar.appearance.headerMinimumDissolvedAlpha = 0.0
     calendar.appearance.headerDateFormat = "yyyy-MM"
+    setupCalendarLanguage()
+    setCalendarColor()
 
     dateFormatter.dateFormat = "yyyyMMdd"
 
@@ -197,6 +223,21 @@ class HabitDetailViewController: UITableViewController {
       }
   }
 
+  func setupCalendarLanguage() {
+    if navigationItem.title == "習慣細節" {
+      calendar.locale = Locale(identifier: "zh-CN")
+    } else {
+      calendar.locale = Locale(identifier: "en")
+    }
+  }
+
+  func setCalendarColor() {
+    calendar.appearance.selectionColor = UserManager.shared.themeColor
+    calendar.appearance.weekdayTextColor = UserManager.shared.themeColor
+    calendar.appearance.headerTitleColor = UserManager.shared.themeColor
+    calendar.reloadData()
+  }
+
   func setupHabitDetail() {
     if let habit = habit {
       let url = URL(string: habit.photo)
@@ -210,13 +251,14 @@ class HabitDetailViewController: UITableViewController {
       for i in 0...6 {
         guard let staus = habit.weekday["\(i + 1)"] else { return }
         weekdayButtons[i].isSelected = staus
+        weekdayButtons[i].theme_tintColor = ThemeColor.color
       }
       if habit.type["1"] == false {
         chatRoomButton.isEnabled = false
         chatRoomButton.tintColor = .clear
       } else {
         chatRoomButton.isEnabled = true
-        chatRoomButton.tintColor = .label
+        chatRoomButton.theme_tintColor = ThemeColor.color
       }
       if habit.owner == UserManager.shared.currentUser {
         editButton.isHidden = false
@@ -284,9 +326,6 @@ extension HabitDetailViewController: ScrollableGraphViewDataSource {
 extension HabitDetailViewController: FSCalendarDataSource {
   func maximumDate(for calendar: FSCalendar) -> Date {
     Date()
-  }
-  func minimumDate(for calendar: FSCalendar) -> Date {
-    dateFormatter.date(from: UserManager.shared.userSignUpDate) ?? Date()
   }
 }
 

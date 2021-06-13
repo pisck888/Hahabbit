@@ -7,13 +7,18 @@
 // swiftlint:disable type_name
 
 import Foundation
+import UIKit
+import SwiftTheme
+import SwiftHEXColors
+import UIGradient
 
 enum K {
+
   static let addNewGoalCell = "AddNewGoalCell"
 
   static let mainPageTableViewCell = "MainPageTableViewCell"
 
-  static let publicGoalsTableViewCell = "PublicGoalsTableViewCell"
+  static let publicHabitsTableViewCell = "PublicHabitsTableViewCell"
 }
 
 enum MySegue {
@@ -26,6 +31,8 @@ enum MySegue {
   static let toMainPage = "SegueToMainPage"
 
   static let toLoginPage = "SegueToLoginPage"
+
+  static let toThemePage = "SegueToThemePage"
 }
 
 enum MyArray {
@@ -56,7 +63,7 @@ enum MyArray {
     "運動健身", "技能學習", "自我管理", "其他自訂"
   ]
 
-  static let settingsTitle = ["語言設置", "封鎖名單", "震動功能", "暗黑模式", "主題顏色", "Touch ID"]
+  static let settingsTitle = ["語言設置", "封鎖名單", "主題顏色", "震動反饋", "暗黑模式", "Touch ID"]
 
   static let habitIconArray = [
     "abstract", "accordion", "balet", "banjo", "basket", "beach", "beer",
@@ -67,5 +74,34 @@ enum MyArray {
     "no-cookie", "no-music", "no-shopping", "no-tech", "people-love", "perfume",
     "peru", "pray-down", "pray", "rain", "roses", "scroll", "slippers", "smoke",
     "stopwatch", "sunrise", "sword", "symbol", "tea"
+  ]
+}
+
+enum ThemeColor {
+
+  static let color = ThemeColorPicker(
+    colors: UIColor.darkGray,
+    UIColor(hexString: "#63ace5") ?? .black,
+    UIColor(hexString: "#3da4ab") ?? .black,
+    UIColor(hexString: "#f6cd61") ?? .black,
+    UIColor(hexString: "#fe8a71") ?? .black,
+    UIColor(hexString: "#FCB6D8") ?? .black,
+    UIColor(hexString: "#CF133D") ?? .black,
+    UIColor(hexString: "#AEADEB") ?? .black,
+    UIColor(hexString: "#A436FC") ?? .black,
+    UIColor(hexString: "#CEB1AB") ?? .black
+  )
+  
+  static let colorArray: [UIColor] = [
+    UIColor.darkGray,
+    UIColor(hexString: "#63ace5") ?? .black,
+    UIColor(hexString: "#3da4ab") ?? .black,
+    UIColor(hexString: "#f6cd61") ?? .black,
+    UIColor(hexString: "#fe8a71") ?? .black,
+    UIColor(hexString: "#FCB6D8") ?? .black,
+    UIColor(hexString: "#CF133D") ?? .black,
+    UIColor(hexString: "#AEADEB") ?? .black,
+    UIColor(hexString: "#A436FC") ?? .black,
+    UIColor(hexString: "#CEB1AB") ?? .black
   ]
 }
