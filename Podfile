@@ -62,6 +62,8 @@ target 'Hahabbit' do
   # for theme color
   pod 'SwiftTheme'
   pod 'SwiftHEXColors'
-  pod 'UIGradient'
+
+  # for date picker
+  pod 'MMBAlertsPickers'
 
 end

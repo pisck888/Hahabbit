@@ -11,6 +11,7 @@ import Kingfisher
 import PopupDialog
 import JGProgressHUD
 import Localize_Swift
+import MMBAlertsPickers
 
 protocol AddNewHabitDetailViewControllerDelegate: AnyObject {
   func setNewData(data: Habit, photo: String)
@@ -142,8 +143,16 @@ class AddNewHabitDetailViewController: UITableViewController {
     navigationItem.title = "編輯細節".localized()
     titleTextField.placeholder = "在此輸入你想要培養的習慣吧～".localized()
     messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
-    frequencyCollectionView.reloadData()
     setLabelString()
+    iconCollectionView.reloadData()
+    locationCollectionView.reloadData()
+    frequencyCollectionView.reloadData()
+    remindersCollectionView.reloadData()
+    for i in 0...6 {
+      if newHabit.weekday[String(i + 1)] == true {
+        frequencyCollectionView.selectItem(at: [0, i], animated: true, scrollPosition: [])
+      }
+    }
   }
 
   @objc func setThemeColor(notification: Notification) {
@@ -249,7 +258,7 @@ class AddNewHabitDetailViewController: UITableViewController {
 
   func presentDoneAlert() {
     let hud = JGProgressHUD()
-    hud.textLabel.text = "完成"
+    hud.textLabel.text = "完成".localized()
     hud.square = true
     hud.indicatorView = JGProgressHUDSuccessIndicatorView()
     hud.show(in: (self.navigationController?.view)!, animated: true)
@@ -412,36 +421,44 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
 
   func setReminders(collectionView: UICollectionView, indexPath: IndexPath) {
     if collectionView == remindersCollectionView && indexPath.row == reminders.count - 1 {
-      let picker = PresentedViewController()
-      picker.style.pickerMode = .time
-      picker.style.pickerColor = .color(.black)
-      picker.style.textColor = .darkGray
-      picker.style.titleString = "設置提醒"
-      picker.block = { [weak self] date in
-        if let date = date {
-          let hour = Calendar.current.component(.hour, from: date)
-          let minute = Calendar.current.component(.minute, from: date)
-          var stringHour = ""
-          var stringMinute = ""
+      let alert = UIAlertController(style: .actionSheet, title: "設定時間".localized())
+      var stringHour = ""
+      var stringMinute = ""
+      var hour = 0 {
+        didSet {
           switch hour {
           case 0...9:
             stringHour = "0\(hour)"
           default:
             stringHour = String(hour)
           }
+        }
+      }
+      var minute = 0 {
+        didSet {
           switch minute {
           case 0...9:
             stringMinute = "0\(minute)"
           default:
             stringMinute = String(minute)
           }
-          guard !(self?.reminders.contains("\(stringHour):\(stringMinute)"))! else { return }
-          self?.hours.append(hour)
-          self?.minutes.append(minute)
-          self?.reminders.insert("\(stringHour):\(stringMinute)", at: (self?.reminders.count)! - 1)
         }
       }
-      self.present(picker, animated: true, completion: nil)
+      hour = Calendar.current.component(.hour, from: Date())
+      minute = Calendar.current.component(.minute, from: Date())
+      alert.view.tintColor = .darkGray
+      alert.addDatePicker(mode: .time, date: Date()) { date in
+        hour = Calendar.current.component(.hour, from: date)
+        minute = Calendar.current.component(.minute, from: date)
+      }
+      alert.addAction(title: "確定".localized(), style: .default) { _ in
+        guard !(self.reminders.contains("\(stringHour):\(stringMinute)")) else { return }
+        self.hours.append(hour)
+        self.minutes.append(minute)
+        self.reminders.insert("\(stringHour):\(stringMinute)", at: (self.reminders.count) - 1)
+      }
+      alert.addAction(title: "取消".localized(), style: .cancel)
+      present(alert, animated: true, completion: nil)
     } else {
       self.reminders.remove(at: indexPath.row)
       self.hours.remove(at: indexPath.row)
@@ -452,15 +469,15 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
 
 extension AddNewHabitDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   func showImagePickerActionSheet() {
-    let alert = UIAlertController(title: "上傳照片", message: nil, preferredStyle: .actionSheet)
-    alert.view.tintColor = .black
-    let cameraAction = UIAlertAction(title: "相機拍攝", style: .default) { action in
+    let alert = UIAlertController(title: "上傳照片".localized(), message: nil, preferredStyle: .actionSheet)
+    alert.view.tintColor = .darkGray
+    let cameraAction = UIAlertAction(title: "相機拍攝".localized(), style: .default) { action in
       self.showImagePicker(sourceType: .camera)
     }
-    let photoLibraryAction = UIAlertAction(title: "照片圖庫", style: .default) { action in
+    let photoLibraryAction = UIAlertAction(title: "照片圖庫".localized(), style: .default) { action in
       self.showImagePicker(sourceType: .photoLibrary)
     }
-    let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+    let cancelAction = UIAlertAction(title: "取消".localized(), style: .cancel, handler: nil)
 
     alert.addAction(cameraAction)
     alert.addAction(photoLibraryAction)

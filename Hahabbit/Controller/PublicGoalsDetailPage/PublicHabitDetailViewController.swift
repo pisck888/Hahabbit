@@ -46,7 +46,7 @@ class PublicHabitDetailViewController: UIViewController {
     }
     navigationController?.popViewController(animated: true)
     let hud = JGProgressHUD()
-    hud.textLabel.text = "完成"
+    hud.textLabel.text = "完成".localized()
     hud.square = true
     hud.indicatorView = JGProgressHUDSuccessIndicatorView()
     hud.show(in: (self.navigationController?.view)!, animated: true)

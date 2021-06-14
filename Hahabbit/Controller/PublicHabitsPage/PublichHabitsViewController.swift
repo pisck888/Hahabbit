@@ -42,7 +42,7 @@ class PublichHabitsViewController: UIViewController {
     searchBar.searchTextField.backgroundColor = .white
     searchBar.layer.borderColor = UIColor.systemGray6.cgColor
 
-    //set pull to refresh
+    // set pull to refresh
     let header = MJRefreshNormalHeader()
     tableView.mj_header = header
     header.setRefreshingTarget(self, refreshingAction: #selector(headerRefresh))
@@ -127,7 +127,7 @@ class PublichHabitsViewController: UIViewController {
     buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressLocationButton(_ sender: UIButton) {
-    CM.items = MyArray.locationArray
+    CM.items = MyArray.locationArray.map{ $0.localized() }
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }

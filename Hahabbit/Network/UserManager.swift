@@ -34,7 +34,7 @@ class UserManager {
     let userInfo: [String: Any] = [
       "id": id,
       "name": name,
-      "image": "https://firebasestorage.googleapis.com/v0/b/hahabbit-8f194.appspot.com/o/userAvatars%2FUserPlaceHolder.svg?alt=media&token=609c696c-f160-4153-89e9-56d0d66d1b2b",
+      "image": "https://firebasestorage.googleapis.com/v0/b/hahabbit-8f194.appspot.com/o/userAvatars%2Fcat.png?alt=media&token=f42f5f23-1668-405b-805b-c144ee6574c3",
       "coin": 0,
       "title": "初心者",
       "signUpDate": today,

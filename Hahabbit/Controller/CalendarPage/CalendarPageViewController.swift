@@ -193,10 +193,10 @@ extension CalendarPageViewController: FSCalendarDelegate {
   func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
     if let userSignUpDate = dateFormatter.date(from: UserManager.shared.userSignUpDate)  {
       if date > Date() {
-        showAlertPopup(title: "喔喔，不能提前為未來打卡唷！", message: nil)
+        showAlertPopup(title: "喔喔，不能提前為未來設置紀錄唷！".localized(), message: nil)
         return false
       } else if date < userSignUpDate {
-        showAlertPopup(title: "註冊日期以前沒有紀錄唷！", message: nil)
+        showAlertPopup(title: "註冊日期以前沒有紀錄唷！".localized(), message: nil)
         return false
       } else {
         return true

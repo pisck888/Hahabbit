@@ -106,6 +106,7 @@ class HabitDetailViewController: UITableViewController {
   @objc func setText() {
     navigationItem.title = "習慣細節".localized()
     setupCalendarLanguage()
+    setupRecordLabel()
     setLabelString()
   }
 

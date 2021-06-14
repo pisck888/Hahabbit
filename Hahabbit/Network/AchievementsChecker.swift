@@ -21,8 +21,6 @@ class AchievementsChecker {
 
   lazy var db = Firestore.firestore()
 
-  //  var achievement = Achievement(id: 0, type: 0, reward: 0, title: "", discription: "", requirement: 0, isDone: [])
-
   func checkAllAchievements(checked: Bool) {
     guard checked == false else { return }
     checkAchievements1()

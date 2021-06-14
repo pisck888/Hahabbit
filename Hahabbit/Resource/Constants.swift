@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import SwiftTheme
 import SwiftHEXColors
-import UIGradient
 
 enum K {
 

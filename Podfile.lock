@@ -363,6 +363,7 @@ PODS:
   - MessageKit (3.1.1):
     - InputBarAccessoryView (~> 4.3.0)
   - MJRefresh (3.6.1)
+  - MMBAlertsPickers (1.1.93)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
@@ -376,7 +377,6 @@ PODS:
   - SwiftHEXColors (1.4.1)
   - SwiftLint (0.43.1)
   - SwiftTheme (0.6.0)
-  - UIGradient (1.3.2)
 
 DEPENDENCIES:
   - Blueprints
@@ -397,13 +397,13 @@ DEPENDENCIES:
   - MBCircularProgressBar
   - MessageKit
   - MJRefresh
+  - MMBAlertsPickers
   - PinterestSegment
   - PopupDialog (~> 1.1)
   - ScrollableGraphView
   - SwiftHEXColors
   - SwiftLint
   - SwiftTheme
-  - UIGradient
 
 SPEC REPOS:
   trunk:
@@ -440,6 +440,7 @@ SPEC REPOS:
     - MBCircularProgressBar
     - MessageKit
     - MJRefresh
+    - MMBAlertsPickers
     - nanopb
     - PinterestSegment
     - PopupDialog
@@ -448,7 +449,6 @@ SPEC REPOS:
     - SwiftHEXColors
     - SwiftLint
     - SwiftTheme
-    - UIGradient
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -484,6 +484,7 @@ SPEC CHECKSUMS:
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   MessageKit: a3e612a54a24f5d9ca0295760749b481afd3f2da
   MJRefresh: d2c1970d1cf6e77fcfcdfe76c943dfab8dbfa5c1
+  MMBAlertsPickers: d52d288114c7dad4e4f1282fb2b1f1189ccc117a
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PinterestSegment: 3dd673ffd9feb00dc7816bb1e503d70459e8eaa8
   PopupDialog: 720c92befd8bc23c13442254945213db5612f149
@@ -492,8 +493,7 @@ SPEC CHECKSUMS:
   SwiftHEXColors: 1cb6e5d55c52749aa33db8f088ac55eb71ca4c7f
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftTheme: 50c3b3d38bdee43212af1f4ec0fb95dec550b2be
-  UIGradient: 2364e9ebac232686db220713b4d42a68222fffb2
 
-PODFILE CHECKSUM: 031adc26cfd1f931c05f626afac74d19f835d438
+PODFILE CHECKSUM: 32c594731e78ebb2409693ded766c447a99f7f41
 
 COCOAPODS: 1.10.1

@@ -14,7 +14,7 @@ class LoadingViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    hud.textLabel.text = "上傳中..."
+    hud.textLabel.text = "上傳中...".localized()
     hud.show(in: self.view)
   }
 }

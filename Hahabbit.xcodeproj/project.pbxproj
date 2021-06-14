@@ -47,11 +47,6 @@
 		E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */; };
 		E74F424C265CF71500C9AB3D /* AchievementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F424B265CF71500C9AB3D /* AchievementViewModel.swift */; };
 		E74F424E265CF74A00C9AB3D /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F424D265CF74A00C9AB3D /* Achievement.swift */; };
-		E74F425F265E9D6100C9AB3D /* PresentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4252265E9D6100C9AB3D /* PresentedViewController.swift */; };
-		E74F4260265E9D6100C9AB3D /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4253265E9D6100C9AB3D /* CustomPresentationController.swift */; };
-		E74F4261265E9D6100C9AB3D /* SJDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4254265E9D6100C9AB3D /* SJDatePicker.swift */; };
-		E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4255265E9D6100C9AB3D /* PickerStyle.swift */; };
-		E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */; };
 		E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756742126598AE600B236E3 /* GraphViewModel.swift */; };
 		E7673BEB26708CDE00527585 /* catPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = E7673BEA26708CDE00527585 /* catPlaceholder.png */; };
 		E7673BF02670F72700527585 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7673BF22670F72700527585 /* Localizable.strings */; };
@@ -131,11 +126,6 @@
 		E74F4248265CF1BA00C9AB3D /* AchievementsChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsChecker.swift; sourceTree = "<group>"; };
 		E74F424B265CF71500C9AB3D /* AchievementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementViewModel.swift; sourceTree = "<group>"; };
 		E74F424D265CF74A00C9AB3D /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
-		E74F4252265E9D6100C9AB3D /* PresentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentedViewController.swift; sourceTree = "<group>"; };
-		E74F4253265E9D6100C9AB3D /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
-		E74F4254265E9D6100C9AB3D /* SJDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJDatePicker.swift; sourceTree = "<group>"; };
-		E74F4255265E9D6100C9AB3D /* PickerStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerStyle.swift; sourceTree = "<group>"; };
-		E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationAnimationController.swift; sourceTree = "<group>"; };
 		E756742126598AE600B236E3 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
 		E7673BEA26708CDE00527585 /* catPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = catPlaceholder.png; sourceTree = "<group>"; };
 		E7673BEC2670F4A600527585 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -482,19 +472,6 @@
 			path = AchievementViewModel;
 			sourceTree = "<group>";
 		};
-		E74F4251265E9D6100C9AB3D /* SJDatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				E74F4252265E9D6100C9AB3D /* PresentedViewController.swift */,
-				E74F4253265E9D6100C9AB3D /* CustomPresentationController.swift */,
-				E74F4254265E9D6100C9AB3D /* SJDatePicker.swift */,
-				E74F4255265E9D6100C9AB3D /* PickerStyle.swift */,
-				E74F4256265E9D6100C9AB3D /* CustomPresentationAnimationController.swift */,
-			);
-			name = SJDatePicker;
-			path = SJDatePicker/SJDatePicker;
-			sourceTree = "<group>";
-		};
 		E756742026598AB600B236E3 /* GraphViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,7 +542,6 @@
 			isa = PBXGroup;
 			children = (
 				E74D4C0B2660CFC200E0A1C4 /* Hahabbit.entitlements */,
-				E74F4251265E9D6100C9AB3D /* SJDatePicker */,
 				E7052E8A2655F23700B717F8 /* util */,
 				E7052E852654E5D700B717F8 /* Network */,
 				E7910F68264B7EF7003F0DAC /* Controller */,
@@ -905,14 +881,12 @@
 				E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */,
 				E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */,
 				E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */,
-				E74F425F265E9D6100C9AB3D /* PresentedViewController.swift in Sources */,
 				E7910F77264BC011003F0DAC /* AddNewGoalCell.swift in Sources */,
 				E7C54EEE2662C74A004A1ACA /* ChatUser.swift in Sources */,
 				E786041E265A9B4000AC0F36 /* PublicHabitViewModel.swift in Sources */,
 				E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */,
 				E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */,
 				E7C54EEC2662C44E004A1ACA /* Chat.swift in Sources */,
-				E74F4260265E9D6100C9AB3D /* CustomPresentationController.swift in Sources */,
 				E756742226598AE600B236E3 /* GraphViewModel.swift in Sources */,
 				E79F12462674B0C40064531A /* ColorCollectionViewCell.swift in Sources */,
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
@@ -928,7 +902,6 @@
 				E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */,
 				E7052E812653D59D00B717F8 /* AchievementsTableViewCell.swift in Sources */,
 				E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */,
-				E74F4261265E9D6100C9AB3D /* SJDatePicker.swift in Sources */,
 				E7052E5E26527D5F00B717F8 /* AddNewHabitDetailViewController.swift in Sources */,
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */,
@@ -945,13 +918,11 @@
 				E7052E762653574A00B717F8 /* SettingsTableViewCell.swift in Sources */,
 				E736858D266735AD002E2278 /* extension.swift in Sources */,
 				E7052E872654E62500B717F8 /* HabitManager.swift in Sources */,
-				E74F4263265E9D6100C9AB3D /* CustomPresentationAnimationController.swift in Sources */,
 				E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */,
 				E777F7EF26736B1A00BCD59E /* AllHabitsViewModel.swift in Sources */,
 				E79F12432674AC5D0064531A /* ThemeColorViewController.swift in Sources */,
 				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
 				E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */,
-				E74F4262265E9D6100C9AB3D /* PickerStyle.swift in Sources */,
 				E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */,
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
