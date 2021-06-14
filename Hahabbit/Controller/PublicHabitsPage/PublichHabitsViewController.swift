@@ -10,6 +10,7 @@ import ContextMenuSwift
 import PinterestSegment
 import IQKeyboardManagerSwift
 import Localize_Swift
+import MJRefresh
 
 class PublichHabitsViewController: UIViewController {
 
@@ -41,6 +42,11 @@ class PublichHabitsViewController: UIViewController {
     searchBar.searchTextField.backgroundColor = .white
     searchBar.layer.borderColor = UIColor.systemGray6.cgColor
 
+    //set pull to refresh
+    let header = MJRefreshNormalHeader()
+    tableView.mj_header = header
+    header.setRefreshingTarget(self, refreshingAction: #selector(headerRefresh))
+
     viewModel.publicHabits.bind { habits in
       self.searchHabitsArray = habits
     }
@@ -70,6 +76,11 @@ class PublichHabitsViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     viewModel.fetchData()
+  }
+
+  @objc func headerRefresh() {
+    viewModel.fetchData()
+    tableView.mj_header?.endRefreshing()
   }
 
   @objc func setText() {
