@@ -10,13 +10,7 @@ import PinterestSegment
 import PopupDialog
 import Localize_Swift
 
-class MainViewController: UIViewController {
-
-  @IBOutlet var popupView: UIView!
-  @IBOutlet weak var popupImage: UIImageView!
-  @IBOutlet weak var popupTitleLabel: UILabel!
-  @IBOutlet weak var popupMessageLabel: UILabel!
-  @IBOutlet weak var closeButton: UIButton!
+class MainPageViewController: UIViewController {
 
   @IBOutlet weak var segmentView: UIView!
   @IBOutlet weak var tableView: UITableView!
@@ -99,7 +93,7 @@ class MainViewController: UIViewController {
   }
 }
 
-extension MainViewController: UITableViewDataSource {
+extension MainPageViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     viewModel.habitViewModels.value.count
   }
@@ -115,7 +109,7 @@ extension MainViewController: UITableViewDataSource {
   }
 }
 
-extension MainViewController: UITableViewDelegate {
+extension MainPageViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let habit = viewModel.habitViewModels.value[indexPath.row]
     performSegue(withIdentifier: "SegueToDetail", sender: habit)
@@ -165,7 +159,7 @@ extension MainViewController: UITableViewDelegate {
   }
 }
 
-extension MainViewController: AchievementsCheckerDelegate {
+extension MainPageViewController: AchievementsCheckerDelegate {
   func showPopupView(title: String, message: String, image: String) {
     let mainImage = UIImage(named: image)?.withBackground(color: UserManager.shared.themeColor)
     let popup = PopupDialog(

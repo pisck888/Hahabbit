@@ -23,7 +23,7 @@ class AchievementViewModel {
     HabitManager.shared.db.collection("achievements")
       .addSnapshotListener { querySnapshot, error in
         guard error == nil else {
-          print(error?.localizedDescription)
+          print(error?.localizedDescription as Any)
           return
         }
 

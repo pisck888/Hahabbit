@@ -7,7 +7,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import IQKeyboardManagerSwift
 import UserNotifications
 import SwiftTheme
@@ -19,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-    UIApplication.shared.clearLaunchScreenCache()
+    // setup theme color
     ThemeManager.setTheme(index: UserManager.shared.themeColorNumber)
-
     UITabBar.appearance().theme_tintColor = ThemeColor.color
 
+    // setup NavigationBar back button
     let image = UIImage(named: "arrowCircleLeft")
     UINavigationBar.appearance().backIndicatorImage = image
     UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
@@ -36,9 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // setup Firebase
     FirebaseApp.configure()
 
-    // 在程式一啟動即詢問使用者是否接受圖文(alert)、聲音(sound)、數字(badge)三種類型的通知
+    // request Notification Authorization
     UNUserNotificationCenter.current()
       .requestAuthorization(options: [.alert, .sound, .badge, .carPlay]) { granted, error in
+        if error != nil {
+          print(error as Any)
+        }
         if granted {
           print("允許")
         } else {

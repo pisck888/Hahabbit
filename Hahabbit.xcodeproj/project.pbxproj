@@ -58,7 +58,7 @@
 		E7860420265AA11500AC0F36 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E786041F265AA11500AC0F36 /* User.swift */; };
 		E7910F4F264AE777003F0DAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F4E264AE777003F0DAC /* AppDelegate.swift */; };
 		E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F50264AE777003F0DAC /* SceneDelegate.swift */; };
-		E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainViewController.swift */; };
+		E7910F53264AE777003F0DAC /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F52264AE777003F0DAC /* MainPageViewController.swift */; };
 		E7910F56264AE777003F0DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F54264AE777003F0DAC /* Main.storyboard */; };
 		E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7910F57264AE77C003F0DAC /* Assets.xcassets */; };
 		E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */; };
@@ -138,7 +138,7 @@
 		E7910F4B264AE777003F0DAC /* Hahabbit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hahabbit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7910F4E264AE777003F0DAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7910F50264AE777003F0DAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E7910F52264AE777003F0DAC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E7910F52264AE777003F0DAC /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		E7910F55264AE777003F0DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7910F57264AE77C003F0DAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7910F5A264AE77C003F0DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -207,7 +207,7 @@
 		E7052E492652422300B717F8 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				E7910F52264AE777003F0DAC /* MainViewController.swift */,
+				E7910F52264AE777003F0DAC /* MainPageViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -863,7 +863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E74F424C265CF71500C9AB3D /* AchievementViewModel.swift in Sources */,
-				E7910F53264AE777003F0DAC /* MainViewController.swift in Sources */,
+				E7910F53264AE777003F0DAC /* MainPageViewController.swift in Sources */,
 				E74D4CA32662A2B000E0A1C4 /* ChatPageViewController.swift in Sources */,
 				E74F4249265CF1BA00C9AB3D /* AchievementsChecker.swift in Sources */,
 				E724FCCF267683FE009FE57A /* MyTabBarViewController.swift in Sources */,

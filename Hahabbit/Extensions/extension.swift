@@ -5,7 +5,6 @@
 //  Created by TSAI TSUNG-HAN on 2021/6/2.
 //
 
-import Foundation
 import UIKit
 
 extension UIView {
@@ -35,16 +34,6 @@ extension UIImage {
   func resized(to size: CGSize) -> UIImage {
     return UIGraphicsImageRenderer(size: size).image { _ in
       draw(in: CGRect(origin: .zero, size: size))
-    }
-  }
-}
-
-public extension UIApplication {
-  func clearLaunchScreenCache() {
-    do {
-      try FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Library/SplashBoard")
-    } catch {
-      print("Failed to delete launch screen cache: \(error)")
     }
   }
 }

@@ -500,14 +500,14 @@
                                             <constraints>
                                                 <constraint firstItem="BVZ-5A-u7x" firstAttribute="top" secondItem="c6p-wb-WTt" secondAttribute="bottom" constant="16" id="2UX-hL-jGc"/>
                                                 <constraint firstAttribute="trailing" secondItem="BVZ-5A-u7x" secondAttribute="trailing" constant="16" id="LEZ-Cn-6Zy"/>
-                                                <constraint firstAttribute="bottom" secondItem="BVZ-5A-u7x" secondAttribute="bottom" constant="8" id="fhV-UU-hG9"/>
+                                                <constraint firstAttribute="bottom" secondItem="BVZ-5A-u7x" secondAttribute="bottom" constant="16" id="fhV-UU-hG9"/>
                                                 <constraint firstItem="c6p-wb-WTt" firstAttribute="top" secondItem="cxD-nl-ici" secondAttribute="top" id="iG5-MG-qwz"/>
                                                 <constraint firstItem="c6p-wb-WTt" firstAttribute="leading" secondItem="cxD-nl-ici" secondAttribute="leading" constant="16" id="w15-qZ-hln"/>
                                                 <constraint firstItem="BVZ-5A-u7x" firstAttribute="leading" secondItem="cxD-nl-ici" secondAttribute="leading" constant="16" id="wVh-rn-Cu1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="BFn-of-JBf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BFn-of-JBf">
                                         <rect key="frame" x="0.0" y="1054.5" width="414" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BFn-of-JBf" id="dKw-1n-Dbe">
@@ -515,13 +515,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否公開" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aur-Pk-wbK">
-                                                    <rect key="frame" x="16" y="0.0" width="69.5" height="38"/>
+                                                    <rect key="frame" x="16" y="0.0" width="69.5" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ic-W8-Dp6">
-                                                    <rect key="frame" x="101.5" y="7" width="24" height="24"/>
+                                                    <rect key="frame" x="101.5" y="2" width="24" height="24"/>
                                                     <state key="normal" image="round"/>
                                                     <state key="selected" image="checked"/>
                                                     <connections>
