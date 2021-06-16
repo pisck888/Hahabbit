@@ -23,11 +23,56 @@ class AchievementsChecker {
 
   func checkAllAchievements(checked: Bool) {
     guard checked == false else { return }
+    checkAchievements0()
     checkAchievements1()
 
   }
 
+  // 一馬當先
   func checkAchievements0() {
+    db.collection("achievements")
+      .whereField("id", isEqualTo: 2)
+      .whereField("isDone", arrayContains: UserManager.shared.currentUser)
+      .getDocuments { querySnapshot, error in
+        guard error == nil else {
+          print(error)
+          return
+        }
+        guard let documents = querySnapshot?.documents else { return }
+        if documents.isEmpty {
+          print("獲得成就2")
+          self.db.collection("achievements")
+            .document("2")
+            .updateData(["isDone": FieldValue.arrayUnion([UserManager.shared.currentUser])]
+            )
+          self.db.collection("achievements")
+            .document("2")
+            .getDocument { documentSnapshot, error in
+              guard error == nil else {
+                print(error)
+                return
+              }
+              if let achievement = try? documentSnapshot?.data(as: Achievement.self) {
+                self.db.collection("users")
+                  .document(UserManager.shared.currentUser)
+                  .getDocument { documentSnapshot, error in
+                    guard error == nil else {
+                      print(error)
+                      return
+                    }
+                    if let coin = documentSnapshot?.data()?["coin"] as? Int {
+                      let newCoin = coin + achievement.reward
+                      UserManager.shared.updateCoin(newCoin: newCoin)
+                      self.delegate?.showPopupView(title: achievement.title, message: achievement.discription, image: achievement.image)
+                    }
+                  }
+              }
+            }
+        } else {
+          print("已獲得成就2")
+          return
+        }
+      }
 
   }
   // 半夜睡不著覺
@@ -49,7 +94,7 @@ class AchievementsChecker {
           }
           guard let documents = querySnapshot?.documents else { return }
           if documents.isEmpty {
-            print("獲得成就")
+            print("獲得成就1")
             self.db.collection("achievements")
               .document("1")
               .updateData(["isDone": FieldValue.arrayUnion([UserManager.shared.currentUser])]
@@ -78,7 +123,7 @@ class AchievementsChecker {
                 }
               }
           } else {
-            print("已獲得該成就")
+            print("已獲得成就1")
             return
           }
         }

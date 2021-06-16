@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class BlacklistTableViewCell: UITableViewCell {
+class BlocklistTableViewCell: UITableViewCell {
 
   @IBOutlet weak var userImage: UIImageView! {
     didSet {
@@ -19,6 +19,7 @@ class BlacklistTableViewCell: UITableViewCell {
   @IBOutlet weak var unblockButton: UIButton! {
     didSet {
       unblockButton.layer.cornerRadius = 10
+      unblockButton.theme_backgroundColor = ThemeColor.color
     }
   }
   @IBOutlet weak var userName: UILabel!
@@ -29,6 +30,7 @@ class BlacklistTableViewCell: UITableViewCell {
 
   func setup(blacklistUser: User) {
     let url = URL(string: blacklistUser.image)
+//    unblockButton.theme_backgroundColor = ThemeColor.color
     userImage.kf.setImage(with: url, placeholder: nil)
     userName.text = blacklistUser.name
   }

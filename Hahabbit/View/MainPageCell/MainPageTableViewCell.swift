@@ -60,7 +60,8 @@ class MainPageTableViewCell: UITableViewCell {
 
   @IBAction func pressCheckButton(_ sender: UIButton) {
     let stringToday = formatter.string(from: Date())
-    let stringDate = formatter.string(from: chosenDay)
+    var stringDate = formatter.string(from: Date())
+    stringDate = formatter.string(from: chosenDay)
 
     if stringDate == stringToday {
     AchievementsChecker.checker.checkAllAchievements(checked: sender.isSelected)

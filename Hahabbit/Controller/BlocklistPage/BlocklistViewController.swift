@@ -32,7 +32,10 @@ class BlocklistViewController: UIViewController {
       self.viewModel.fetchBlockedUsers(blockedUsers: blacklist)
     }
     currentUserViewModel.fetchCurrentUser()
+
   }
+
+
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
@@ -79,9 +82,9 @@ extension BlocklistViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "blacklistCell", for: indexPath) as? BlacklistTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "blacklistCell", for: indexPath) as? BlocklistTableViewCell
     cell?.setup(blacklistUser: viewModel.blockedUsersViewModel.value[indexPath.row])
     cell?.selectionStyle = .none
-    return cell ?? BlacklistTableViewCell()
+    return cell ?? BlocklistTableViewCell()
   }
 }

@@ -49,11 +49,6 @@ public extension UIApplication {
   }
 }
 
-func NSLocalizedString(_ key: String) -> String {
-
-  return NSLocalizedString(key, comment: "")
-}
-
 extension UIImage {
   func withBackground(color: UIColor, opaque: Bool = true) -> UIImage {
     UIGraphicsBeginImageContextWithOptions(size, opaque, scale)

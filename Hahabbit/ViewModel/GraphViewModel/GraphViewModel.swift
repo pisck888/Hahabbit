@@ -97,6 +97,11 @@ class GraphViewModel {
     let year = Calendar.current.component(.year, from: Date())
     let month = Calendar.current.component(.month, from: Date())
 
+    self.monthRecord.value = 0
+    self.totalRecord.value = 0
+    self.consecutiveRecord.value = 0
+    self.monthDoneDays = 0
+
     HabitManager.shared.db
       .collection("habits")
       .document(habitID)

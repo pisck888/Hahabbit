@@ -14,7 +14,6 @@
 		E7052E5826525D9200B717F8 /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */; };
 		E7052E5B26527C0800B717F8 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5A26527C0800B717F8 /* IconCell.swift */; };
 		E7052E5E26527D5F00B717F8 /* AddNewHabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */; };
-		E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6126528A3400B717F8 /* FrequencyViewController.swift */; };
 		E7052E6526528BA300B717F8 /* FrequencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6426528BA300B717F8 /* FrequencyCell.swift */; };
 		E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */; };
 		E7052E6C2652D74500B717F8 /* PublicHabitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E6A2652D74500B717F8 /* PublicHabitsTableViewCell.swift */; };
@@ -35,7 +34,7 @@
 		E736858D266735AD002E2278 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736858C266735AD002E2278 /* extension.swift */; };
 		E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73685FD26687465002E2278 /* NotificationsViewModel.swift */; };
 		E7368604266A3674002E2278 /* BlocklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7368603266A3674002E2278 /* BlocklistViewController.swift */; };
-		E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */; };
+		E736860D266A3903002E2278 /* BlocklistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860C266A3903002E2278 /* BlocklistTableViewCell.swift */; };
 		E7368610266A49EE002E2278 /* BlocklistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736860F266A49EE002E2278 /* BlocklistViewModel.swift */; };
 		E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */; };
 		E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74D4C112661070600E0A1C4 /* UserManager.swift */; };
@@ -79,8 +78,6 @@
 		E7C54EEA2662C441004A1ACA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EE92662C441004A1ACA /* Message.swift */; };
 		E7C54EEC2662C44E004A1ACA /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EEB2662C44E004A1ACA /* Chat.swift */; };
 		E7C54EEE2662C74A004A1ACA /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EED2662C74A004A1ACA /* ChatUser.swift */; };
-		E7C54EF126640AF8004A1ACA /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7C54EF026640AF8004A1ACA /* PopupView.xib */; };
-		E7C54EF326640B20004A1ACA /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EF226640B20004A1ACA /* PopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,7 +90,6 @@
 		E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
 		E7052E5A26527C0800B717F8 /* IconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitDetailViewController.swift; sourceTree = "<group>"; };
-		E7052E6126528A3400B717F8 /* FrequencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyViewController.swift; sourceTree = "<group>"; };
 		E7052E6426528BA300B717F8 /* FrequencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrequencyCell.swift; sourceTree = "<group>"; };
 		E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublichHabitsViewController.swift; sourceTree = "<group>"; };
 		E7052E6A2652D74500B717F8 /* PublicHabitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicHabitsTableViewCell.swift; sourceTree = "<group>"; };
@@ -113,7 +109,7 @@
 		E736858C266735AD002E2278 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E73685FD26687465002E2278 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		E7368603266A3674002E2278 /* BlocklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistViewController.swift; sourceTree = "<group>"; };
-		E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlacklistTableViewCell.swift; sourceTree = "<group>"; };
+		E736860C266A3903002E2278 /* BlocklistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistTableViewCell.swift; sourceTree = "<group>"; };
 		E736860F266A49EE002E2278 /* BlocklistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocklistViewModel.swift; sourceTree = "<group>"; };
 		E74D4C0B2660CFC200E0A1C4 /* Hahabbit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Hahabbit.entitlements; sourceTree = "<group>"; };
 		E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -164,8 +160,6 @@
 		E7C54EE92662C441004A1ACA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E7C54EEB2662C44E004A1ACA /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E7C54EED2662C74A004A1ACA /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
-		E7C54EF026640AF8004A1ACA /* PopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
-		E7C54EF226640B20004A1ACA /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */,
-				E7052E6126528A3400B717F8 /* FrequencyViewController.swift */,
 			);
 			path = AddNewHabitDetailPage;
 			sourceTree = "<group>";
@@ -292,13 +285,13 @@
 			path = PublicHabitsPage;
 			sourceTree = "<group>";
 		};
-		E7052E692652D71200B717F8 /* PublicGoalsCell */ = {
+		E7052E692652D71200B717F8 /* PublicHabitCell */ = {
 			isa = PBXGroup;
 			children = (
 				E7052E6A2652D74500B717F8 /* PublicHabitsTableViewCell.swift */,
 				E7052E6B2652D74500B717F8 /* PublicHabitsTableViewCell.xib */,
 			);
-			path = PublicGoalsCell;
+			path = PublicHabitCell;
 			sourceTree = "<group>";
 		};
 		E7052E6E2653502200B717F8 /* ProfilePage */ = {
@@ -333,12 +326,12 @@
 			path = AchievementsTableViewCell;
 			sourceTree = "<group>";
 		};
-		E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */ = {
+		E7052E822654C16C00B717F8 /* PublicHabitDetailPage */ = {
 			isa = PBXGroup;
 			children = (
 				E7052E832654C1BB00B717F8 /* PublicHabitDetailViewController.swift */,
 			);
-			path = PublicGoalsDetailPage;
+			path = PublicHabitDetailPage;
 			sourceTree = "<group>";
 		};
 		E7052E852654E5D700B717F8 /* Network */ = {
@@ -383,6 +376,14 @@
 			path = TabBarPage;
 			sourceTree = "<group>";
 		};
+		E724FCD02679CCA2009FE57A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E736858C266735AD002E2278 /* extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E73685FB2667693E002E2278 /* HabitIcons */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,28 +400,28 @@
 			path = NotificationsViewModel;
 			sourceTree = "<group>";
 		};
-		E7368602266A3654002E2278 /* BlacklistPage */ = {
+		E7368602266A3654002E2278 /* BlocklistPage */ = {
 			isa = PBXGroup;
 			children = (
 				E7368603266A3674002E2278 /* BlocklistViewController.swift */,
 			);
-			path = BlacklistPage;
+			path = BlocklistPage;
 			sourceTree = "<group>";
 		};
-		E736860B266A38EB002E2278 /* BlacklistCell */ = {
+		E736860B266A38EB002E2278 /* BlocklistCell */ = {
 			isa = PBXGroup;
 			children = (
-				E736860C266A3903002E2278 /* BlacklistTableViewCell.swift */,
+				E736860C266A3903002E2278 /* BlocklistTableViewCell.swift */,
 			);
-			path = BlacklistCell;
+			path = BlocklistCell;
 			sourceTree = "<group>";
 		};
-		E736860E266A49CA002E2278 /* BlacklistViewModel */ = {
+		E736860E266A49CA002E2278 /* BlocklistViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				E736860F266A49EE002E2278 /* BlocklistViewModel.swift */,
 			);
-			path = BlacklistViewModel;
+			path = BlocklistViewModel;
 			sourceTree = "<group>";
 		};
 		E74D4C0C2660D05A00E0A1C4 /* LoginPage */ = {
@@ -542,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				E74D4C0B2660CFC200E0A1C4 /* Hahabbit.entitlements */,
+				E724FCD02679CCA2009FE57A /* Extensions */,
 				E7052E8A2655F23700B717F8 /* util */,
 				E7052E852654E5D700B717F8 /* Network */,
 				E7910F68264B7EF7003F0DAC /* Controller */,
@@ -563,14 +565,13 @@
 				E79F12442674B0790064531A /* ColorCell */,
 				E7673BF62671E53700527585 /* SignOutCell */,
 				E7BDCCF8266D04B400C0B1A2 /* LoadingView */,
-				E736860B266A38EB002E2278 /* BlacklistCell */,
-				E7C54EEF26640ABE004A1ACA /* PopupView(temp) */,
+				E736860B266A38EB002E2278 /* BlocklistCell */,
 				E74D4C9C266281CD00E0A1C4 /* ProfileEditView */,
 				E74F423D265B891E00C9AB3D /* PublicHabitDetailCell */,
 				E7052E7F2653D57600B717F8 /* AchievementsTableViewCell */,
 				E7052E742653573700B717F8 /* SettingsCell */,
 				E7052E71265355CB00B717F8 /* ProfileCell */,
-				E7052E692652D71200B717F8 /* PublicGoalsCell */,
+				E7052E692652D71200B717F8 /* PublicHabitCell */,
 				E7052E6326528B6600B717F8 /* FrequencyCell */,
 				E7052E5926527BDB00B717F8 /* AddNewGoalDetail */,
 				E7052E4A2652472700B717F8 /* MainPageCell */,
@@ -584,7 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				E777F7ED26736AFB00BCD59E /* AllHabitsViewModel */,
-				E736860E266A49CA002E2278 /* BlacklistViewModel */,
+				E736860E266A49CA002E2278 /* BlocklistViewModel */,
 				E73685FC26687451002E2278 /* NotificationsViewModel */,
 				E74F424A265CF6D300C9AB3D /* AchievementViewModel */,
 				E74F4244265BC64F00C9AB3D /* ProfileViewModel */,
@@ -604,10 +605,10 @@
 				E777F7EA267364C300BCD59E /* AllHabitsPage */,
 				E7673BF92671E7B100527585 /* MallPage */,
 				E7BDCD00266E645100C0B1A2 /* LaunchPage */,
-				E7368602266A3654002E2278 /* BlacklistPage */,
+				E7368602266A3654002E2278 /* BlocklistPage */,
 				E74D4CA126629EEE00E0A1C4 /* ChatPage */,
 				E74D4C0C2660D05A00E0A1C4 /* LoginPage */,
-				E7052E822654C16C00B717F8 /* PublicGoalsDetailPage */,
+				E7052E822654C16C00B717F8 /* PublicHabitDetailPage */,
 				E7052E6E2653502200B717F8 /* ProfilePage */,
 				E7052E662652A9FF00B717F8 /* PublicHabitsPage */,
 				E7052E5C26527D3300B717F8 /* AddNewHabitDetailPage */,
@@ -640,7 +641,6 @@
 				E73685FB2667693E002E2278 /* HabitIcons */,
 				E7910F57264AE77C003F0DAC /* Assets.xcassets */,
 				E7910F78264BC0FB003F0DAC /* Constants.swift */,
-				E736858C266735AD002E2278 /* extension.swift */,
 				E7673BF22670F72700527585 /* Localizable.strings */,
 				E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */,
 			);
@@ -694,15 +694,6 @@
 				E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */,
 			);
 			path = LaunchPage;
-			sourceTree = "<group>";
-		};
-		E7C54EEF26640ABE004A1ACA /* PopupView(temp) */ = {
-			isa = PBXGroup;
-			children = (
-				E7C54EF226640B20004A1ACA /* PopupView.swift */,
-				E7C54EF026640AF8004A1ACA /* PopupView.xib */,
-			);
-			path = "PopupView(temp)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -780,7 +771,6 @@
 				E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */,
 				E7673BF02670F72700527585 /* Localizable.strings in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
-				E7C54EF126640AF8004A1ACA /* PopupView.xib in Resources */,
 				E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */,
 				E7910F56264AE777003F0DAC /* Main.storyboard in Resources */,
 			);
@@ -894,7 +884,6 @@
 				E7C54EEA2662C441004A1ACA /* Message.swift in Sources */,
 				E7673BF82671E5E600527585 /* SignOutTableViewCell.swift in Sources */,
 				E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */,
-				E7052E6226528A3400B717F8 /* FrequencyViewController.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewhHabitViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
 				E777F7EC267364EB00BCD59E /* AllHabitsViewController.swift in Sources */,
@@ -908,7 +897,6 @@
 				E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */,
 				E7368604266A3674002E2278 /* BlocklistViewController.swift in Sources */,
 				E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */,
-				E7C54EF326640B20004A1ACA /* PopupView.swift in Sources */,
 				E7052E892654E9D800B717F8 /* Habit.swift in Sources */,
 				E7368610266A49EE002E2278 /* BlocklistViewModel.swift in Sources */,
 				E74D4C0E2660D09600E0A1C4 /* LoginViewController.swift in Sources */,
@@ -923,7 +911,7 @@
 				E79F12432674AC5D0064531A /* ThemeColorViewController.swift in Sources */,
 				E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */,
 				E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */,
-				E736860D266A3903002E2278 /* BlacklistTableViewCell.swift in Sources */,
+				E736860D266A3903002E2278 /* BlocklistTableViewCell.swift in Sources */,
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
 				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,
@@ -1091,14 +1079,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hahabbit/Hahabbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = B6VUKK5MCY;
 				INFOPLIST_FILE = Hahabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.max.Hahabbit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1114,14 +1102,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Hahabbit/Hahabbit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = B6VUKK5MCY;
 				INFOPLIST_FILE = Hahabbit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.max.Hahabbit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

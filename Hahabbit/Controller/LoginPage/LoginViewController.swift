@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     webView.navigationDelegate = self
     setupLoginView()
-    skipButton.isHidden = true
+//    skipButton.isHidden = true
   }
 
 
