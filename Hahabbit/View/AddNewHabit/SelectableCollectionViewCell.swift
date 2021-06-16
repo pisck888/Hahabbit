@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FrequencyCell: UICollectionViewCell {
+class SelectableCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet weak var lebel: UILabel!
 

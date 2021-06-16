@@ -6,7 +6,6 @@
 //
 // swiftlint:disable type_name
 
-import Foundation
 import UIKit
 import SwiftTheme
 import SwiftHEXColors
@@ -90,7 +89,7 @@ enum ThemeColor {
     UIColor(hexString: "#A436FC") ?? .black,
     UIColor(hexString: "#CEB1AB") ?? .black
   )
-  
+
   static let colorArray: [UIColor] = [
     UIColor.darkGray,
     UIColor(hexString: "#63ace5") ?? .black,

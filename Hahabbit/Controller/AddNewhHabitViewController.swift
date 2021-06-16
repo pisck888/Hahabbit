@@ -40,11 +40,11 @@ extension AddNewhHabitViewController: UITableViewDataSource {
     MyArray.addGoalTitle.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: K.addNewGoalCell, for: indexPath) as? AddNewGoalCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: K.addNewGoalCell, for: indexPath) as? AddNewHabitTableViewCell
     cell?.titleLabel.text = MyArray.addGoalTitle[indexPath.row].localized()
     cell?.mainImage.image = UIImage(named: imageArray[indexPath.row])
     cell?.selectionStyle = .none
-    return cell ?? AddNewGoalCell()
+    return cell ?? AddNewHabitTableViewCell()
   }
 }
 

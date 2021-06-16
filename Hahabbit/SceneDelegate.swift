@@ -7,7 +7,6 @@
 // swiftlint:disable unused_optional_binding 
 
 import UIKit
-import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddNewGoalCell: UITableViewCell {
+class AddNewHabitTableViewCell: UITableViewCell {
   @IBOutlet weak var backView: UIView! {
     didSet {
       backView.layer.cornerRadius = 10
