@@ -22,9 +22,8 @@ class AchievementViewModel {
   func fetchData() {
     HabitManager.shared.db.collection("achievements")
       .addSnapshotListener { querySnapshot, error in
-        guard error == nil else {
-          print(error?.localizedDescription as Any)
-          return
+        if let err = error {
+          print(err)
         }
 
         guard let documents = querySnapshot?.documents else {

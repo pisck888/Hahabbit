@@ -17,21 +17,28 @@ class AchievementsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     gridModeButton.isEnabled = false
     gridModeButton.tintColor = .clear
 
     navigationItem.title = "成就統計".localized()
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
 
-    viewModel.userAchievements.bind { achievements in
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
+
+    viewModel.userAchievements.bind { _ in
       self.tableView.reloadData()
     }
 
-    viewModel.dailyAchievements.bind { achievements in
+    viewModel.dailyAchievements.bind { _ in
       self.tableView.reloadData()
     }
 
-    viewModel.specialAchievements.bind { achievements in
+    viewModel.specialAchievements.bind { _ in
       self.tableView.reloadData()
     }
 
@@ -61,9 +68,10 @@ extension AchievementsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-    let header = view as! UITableViewHeaderFooterView
-    header.contentView.backgroundColor = .systemGray6
-    header.textLabel?.font = UIFont(name: "PingFangTC-Medium", size: 16)
+    if let header = view as? UITableViewHeaderFooterView {
+      header.contentView.backgroundColor = .systemGray6
+      header.textLabel?.font = UIFont(name: "PingFangTC-Medium", size: 16)
+    }
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,8 +86,11 @@ extension AchievementsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "AchievementsTableViewCell", for: indexPath) as! AchievementsTableViewCell
-    cell.selectionStyle = .none
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: "AchievementsTableViewCell",
+      for: indexPath) as? AchievementsTableViewCell else {
+        return AchievementsTableViewCell()
+    }
     switch indexPath.section {
     case 0:
       cell.setup(achievement: viewModel.userAchievements.value[indexPath.row])

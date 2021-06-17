@@ -8,21 +8,24 @@
 import UIKit
 
 class AchievementsTableViewCell: UITableViewCell {
+
   @IBOutlet weak var backView: UIView!
   @IBOutlet weak var mainImage: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet weak var rewardLabel: UILabel!
+
   override func awakeFromNib() {
+
     super.awakeFromNib()
+
+    self.selectionStyle = .none
+
     mainImage.layer.cornerRadius = 10
     mainImage.clipsToBounds = true
     mainImage.theme_backgroundColor = ThemeColor.color
-    backView.layer.cornerRadius = 10
-    backView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    backView.layer.shadowOpacity = 0.5
-    backView.layer.shadowRadius = 2
-    backView.layer.shadowColor = UIColor.black.cgColor
+
+    backView.setCornerRadiusAndShadow()
   }
 
   func setup(achievement: Achievement) {
