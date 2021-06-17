@@ -10,13 +10,12 @@ import FirebaseAuth
 
 class LaunchPageViewController: UIViewController {
 
-
   @IBOutlet weak var imageView: UIImageView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-
   }
-  
+
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     imageView.center = view.center
@@ -34,15 +33,16 @@ class LaunchPageViewController: UIViewController {
       print("You are sign in as \(user.uid)")
       UserManager.shared.currentUser = user.uid
       let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-      controller.modalTransitionStyle = .crossDissolve
-      controller.modalPresentationStyle = .fullScreen
-      self.present(controller, animated: true, completion: nil)
+      presentVC(controller: controller)
     } else {
       let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-      controller.modalTransitionStyle = .crossDissolve
-      controller.modalPresentationStyle = .fullScreen
-      self.present(controller, animated: true, completion: nil)
+      presentVC(controller: controller)
     }
+  }
 
+  func presentVC(controller: UIViewController) {
+    controller.modalTransitionStyle = .crossDissolve
+    controller.modalPresentationStyle = .fullScreen
+    self.present(controller, animated: true, completion: nil)
   }
 }

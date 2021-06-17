@@ -434,8 +434,8 @@
 		E7B3C909267B666A0039C82A /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				E7673BFA2671E7CC00527585 /* MallViewController.swift */,
 				E7052E6F2653506800B717F8 /* ProfileViewController.swift */,
+				E7673BFA2671E7CC00527585 /* MallViewController.swift */,
 				E7368603266A3674002E2278 /* BlocklistViewController.swift */,
 				E79F12422674AC5D0064531A /* ThemeColorViewController.swift */,
 			);
