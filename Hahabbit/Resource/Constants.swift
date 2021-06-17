@@ -23,6 +23,8 @@ enum K {
 enum MySegue {
   static let toAddNewGoalDetailPage = "SegueToAddNewGoalDetailPage"
 
+  static let toAddNewHabitDetailPage = "SegueToAddNewHabitDetailPage"
+
   static let toChatRoomPage = "SegeuToChatRoomPage"
 
   static let toBlocklistPage = "SegueToBlocklistPage"
@@ -48,7 +50,7 @@ enum MyArray {
     "全部習慣", "公開習慣", "私人習慣", "運動健身", "技能學習", "自我管理", "其他自訂"
   ]
 
-  static let addGoalTitle = [
+  static let habitTypeTitleArray = [
     "運動健身", "技能學習", "自我管理", "其他自訂"
   ]
 
@@ -76,6 +78,8 @@ enum MyArray {
     "peru", "pray-down", "pray", "rain", "roses", "scroll", "slippers", "smoke",
     "stopwatch", "sunrise", "sword", "symbol", "tea"
   ]
+
+  static let habitTypeImageArray = ["Fitness", "Designer", "Meditation", "Adventurer"]
 }
 
 enum ThemeColor {
