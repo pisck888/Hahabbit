@@ -97,7 +97,7 @@
                     <navigationItem key="navigationItem" title="所有習慣" id="SAb-Yv-rc0"/>
                     <connections>
                         <outlet property="tableView" destination="ZHS-bc-sba" id="3fK-e9-CWe"/>
-                        <segue destination="aMJ-8S-rsl" kind="show" identifier="SegueToDetail" id="8mz-BA-GtK"/>
+                        <segue destination="aMJ-8S-rsl" kind="show" identifier="SegueToHabitDetailPage" id="8mz-BA-GtK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="68X-mk-AAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1149,7 +1149,7 @@
                         <outlet property="calendar" destination="R9O-v0-gBO" id="sLQ-iD-6F4"/>
                         <outlet property="calendarHeightConstraint" destination="sVp-FQ-Uik" id="A1k-zS-qLd"/>
                         <outlet property="tableView" destination="fjS-U2-R44" id="isg-RX-9j9"/>
-                        <segue destination="aMJ-8S-rsl" kind="show" identifier="SegueToDetail" id="Fkq-zb-1ii"/>
+                        <segue destination="aMJ-8S-rsl" kind="show" identifier="SegueToHabitDetailPage" id="Fkq-zb-1ii"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GaZ-A9-pgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1187,7 +1187,7 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="2G2-TK-EP2"/>
-        <segue reference="h0N-K7-h9C"/>
+        <segue reference="8mz-BA-GtK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

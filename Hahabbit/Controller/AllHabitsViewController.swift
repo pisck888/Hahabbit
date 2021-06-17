@@ -45,7 +45,7 @@ class AllHabitsViewController: UIViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let controller = segue.destination as? HabitDetailViewController
-    if segue.identifier == "SegueToDetail" {
+    if segue.identifier == MySegue.toHabitDetailPage {
       controller?.habit = sender as? HabitViewModel
     }
   }
@@ -72,7 +72,7 @@ extension AllHabitsViewController: UITableViewDataSource {
 extension AllHabitsViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let habit = viewModel.habitViewModels.value[indexPath.row]
-    performSegue(withIdentifier: "SegueToDetail", sender: habit)
+    performSegue(withIdentifier: MySegue.toHabitDetailPage, sender: habit)
   }
 
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

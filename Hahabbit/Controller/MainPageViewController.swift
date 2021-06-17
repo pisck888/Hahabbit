@@ -43,8 +43,6 @@ class MainPageViewController: UIViewController {
       object: nil
     )
 
-    AchievementsChecker.checker.delegate = self
-
     HabitManager.shared.setAllNotifications()
 
     UserManager.shared.fetchUserSignUpDate()
@@ -67,6 +65,7 @@ class MainPageViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
+    AchievementsChecker.checker.delegate = self
     viewModel.fetchData(type: type)
   }
 

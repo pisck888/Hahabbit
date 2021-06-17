@@ -12,12 +12,6 @@ import PopupDialog
 
 class CalendarPageViewController: UIViewController {
 
-  @IBOutlet var popupView: UIView!
-  @IBOutlet weak var popupImage: UIImageView!
-  @IBOutlet weak var popupTitleLabel: UILabel!
-  @IBOutlet weak var popupMessageLabel: UILabel!
-  @IBOutlet weak var closeButton: UIButton!
-
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var calendar: FSCalendar!
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
@@ -49,12 +43,25 @@ class CalendarPageViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    setupCalendar()
+
+    // setup Navigation Bar
     navigationItem.backButtonTitle = ""
     navigationItem.title = "月曆".localized()
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
-
-    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
+    // add Notification Observer
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setThemeColor),
+      name: NSNotification.Name(K.changeThemeColor),
+      object: nil
+    )
 
     AchievementsChecker.checker.delegate = self
 
@@ -63,29 +70,20 @@ class CalendarPageViewController: UIViewController {
         self?.tableView.reloadData()
       }
     }
-    viewModel.habitViewModels.bind { [weak self] habits in
+    viewModel.habitViewModels.bind { [weak self] _ in
       self?.viewModel.onRefresh()
     }
 
     viewModel.fetchData()
 
-    tableView.register(UINib(nibName: K.mainPageTableViewCell, bundle: nil), forCellReuseIdentifier: K.mainPageTableViewCell)
+    tableView.register(
+      UINib(nibName: K.mainPageTableViewCell, bundle: nil),
+      forCellReuseIdentifier: K.mainPageTableViewCell
+    )
 
     view.addGestureRecognizer(scopeGesture)
-    tableView.panGestureRecognizer.require(toFail: scopeGesture)
-    setupCalendar()
 
-    for i in 1...7 {
-      HabitManager.shared.db
-        .collection("habits")
-        .whereField("members", arrayContains: UserManager.shared.currentUser)
-        .whereField("weekday.\(i)", isEqualTo: true)
-        .getDocuments { querySnapshot, error in
-          if let habits = querySnapshot?.documents {
-            self.dailyHabitsCount[i] = String(habits.count)
-          }
-        }
-    }
+    tableView.panGestureRecognizer.require(toFail: scopeGesture)
   }
 
   @objc func setText() {
@@ -105,6 +103,7 @@ class CalendarPageViewController: UIViewController {
     calendar.appearance.headerDateFormat = "yyyy-MM"
     setupCalendarLanguage()
     setCalendarColor()
+    setCalendarSubtitle()
   }
 
   func setupCalendarLanguage() {
@@ -121,9 +120,27 @@ class CalendarPageViewController: UIViewController {
     calendar.appearance.headerTitleColor = UserManager.shared.themeColor
   }
 
+  func setCalendarSubtitle() {
+    for i in 1...7 {
+      HabitManager.shared.db
+        .collection("habits")
+        .whereField("members", arrayContains: UserManager.shared.currentUser)
+        .whereField("weekday.\(i)", isEqualTo: true)
+        .getDocuments { querySnapshot, error in
+          if let err = error {
+            print(err)
+          }
+          if let habits = querySnapshot?.documents {
+            self.dailyHabitsCount[i] = String(habits.count)
+          }
+        }
+    }
+
+  }
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let controller = segue.destination as? HabitDetailViewController
-    if segue.identifier == "SegueToDetail" {
+    if segue.identifier == MySegue.toHabitDetailPage {
       controller?.habit = sender as? HabitViewModel
     }
   }
@@ -136,10 +153,13 @@ extension CalendarPageViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: K.mainPageTableViewCell, for: indexPath) as! MainPageTableViewCell
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: K.mainPageTableViewCell,
+      for: indexPath) as? MainPageTableViewCell else {
+        return MainPageTableViewCell()
+    }
     let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
     cell.setup(with: cellViewModel, date: chosenDay)
-    cell.selectionStyle = .none
     return cell
   }
 }
@@ -148,7 +168,7 @@ extension CalendarPageViewController: UITableViewDataSource {
 extension CalendarPageViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let habit = viewModel.habitViewModels.value[indexPath.row]
-    performSegue(withIdentifier: "SegueToDetail", sender: habit)
+    performSegue(withIdentifier: MySegue.toHabitDetailPage, sender: habit)
   }
 }
 
@@ -174,7 +194,6 @@ extension CalendarPageViewController: UIGestureRecognizerDelegate {
     self.calendarHeightConstraint.constant = bounds.height
     self.view.layoutIfNeeded()
   }
-
 }
 
 // MARK: - FSCalendarDelegate and DataSource
@@ -191,7 +210,7 @@ extension CalendarPageViewController: FSCalendarDelegate {
   }
 
   func calendar(_ calendar: FSCalendar, shouldSelect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
-    if let userSignUpDate = dateFormatter.date(from: UserManager.shared.userSignUpDate)  {
+    if let userSignUpDate = dateFormatter.date(from: UserManager.shared.userSignUpDate) {
       if date > Date() {
         showAlertPopup(title: "喔喔，不能提前為未來設置紀錄唷！".localized(), message: nil)
         return false
@@ -215,13 +234,12 @@ extension CalendarPageViewController: FSCalendarDelegate {
       title: title,
       message: message
     )
-    let buttonOne = CancelButton(title: "OK") {
+    let okButton = CancelButton(title: "OK") {
     }
-    popup.addButton(buttonOne)
+    popup.addButton(okButton)
 
-    let containerAppearance = PopupDialogContainerView.appearance()
     popup.transitionStyle = .zoomIn
-    containerAppearance.cornerRadius = 10
+    PopupDialogContainerView.appearance().cornerRadius = 10
 
     self.present(popup, animated: true) {
       popup.shake()
@@ -233,14 +251,11 @@ extension CalendarPageViewController: FSCalendarDataSource {
 
   func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
     let weekday = Calendar.current.component(.weekday, from: date)
-    if dailyHabitsCount.count < 7 {
-      return ""
-    } else {
-      return dailyHabitsCount[weekday]
-    }
+    return dailyHabitsCount[weekday]
   }
 }
 
+// MARK: - AchievementsCheckerDelegate
 extension CalendarPageViewController: AchievementsCheckerDelegate {
   func showPopupView(title: String, message: String, image: String) {
     let mainImage = UIImage(named: image)?.withBackground(color: UserManager.shared.themeColor)
@@ -249,9 +264,8 @@ extension CalendarPageViewController: AchievementsCheckerDelegate {
       message: message,
       image: mainImage
     )
-    let containerAppearance = PopupDialogContainerView.appearance()
     popup.transitionStyle = .zoomIn
-    containerAppearance.cornerRadius = 10
+    PopupDialogContainerView.appearance().cornerRadius = 10
 
     // Present dialog
     self.present(popup, animated: true) {
