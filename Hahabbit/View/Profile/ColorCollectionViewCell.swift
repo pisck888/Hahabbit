@@ -13,8 +13,13 @@ class ColorCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var colorView: UIView!
 
   func setup(color: UIColor) {
+    self.layoutIfNeeded()
     colorView.layer.cornerRadius = colorView.frame.width / 2
     colorView.backgroundColor = color
-    selectedImage.alpha = 0
+    if self.isSelected {
+      selectedImage.alpha = 1
+    } else {
+      selectedImage.alpha = 0
+    }
   }
 }

@@ -15,14 +15,6 @@ class ThemeColorViewController: UIViewController {
 
   let userDefault = UserDefaults()
 
-  let colorArray = [
-    UIColor.darkGray,
-    UIColor.systemOrange,
-    UIColor.systemRed,
-    UIColor.systemBlue,
-    UIColor.systemGreen
-  ]
-
   let blueprintLayout = VerticalBlueprintLayout(
     itemsPerRow: 5,
     height: (UIScreen.main.bounds.width - 96) / 5,
@@ -43,7 +35,11 @@ class ThemeColorViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    collectionView.selectItem(at: [0, userDefault.value(forKey: "ThemeColorNumber") as? Int ?? 0], animated: true, scrollPosition: [])
+    collectionView.selectItem(
+      at: [0, userDefault.value(forKey: "ThemeColorNumber") as? Int ?? 0],
+      animated: true,
+      scrollPosition: []
+    )
   }
 }
 
@@ -53,20 +49,14 @@ extension ThemeColorViewController: UICollectionViewDataSource {
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorCell", for: indexPath) as? ColorCollectionViewCell {
-      cell.layoutIfNeeded()
-      cell.setup(color: ThemeColor.colorArray[indexPath.row])
-      if cell.isSelected == true {
-        cell.selectedImage.alpha = 1
-      }
-      return cell
-
-    } else {
-      return ColorCollectionViewCell()
-    }
+    let cell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: "ColorCell",
+      for: indexPath
+    )
+    guard let colorCell = cell as? ColorCollectionViewCell else { return cell }
+    colorCell.setup(color: ThemeColor.colorArray[indexPath.row])
+    return colorCell
   }
-
-
 }
 
 extension ThemeColorViewController: UICollectionViewDelegate {
@@ -77,10 +67,9 @@ extension ThemeColorViewController: UICollectionViewDelegate {
       ThemeManager.setTheme(index: indexPath.row)
       UserManager.shared.themeColor = ThemeColor.colorArray[indexPath.row]
       NotificationCenter.default.post(name: NSNotification.Name("ChangeThemeColor"), object: nil)
-
     }
-    print(indexPath)
   }
+
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
     if let cell = collectionView.cellForItem(at: indexPath) as? ColorCollectionViewCell {
       cell.selectedImage.alpha = 0
