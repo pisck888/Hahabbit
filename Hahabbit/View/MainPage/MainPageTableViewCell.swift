@@ -25,14 +25,11 @@ class MainPageTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
 
+    self.selectionStyle = .none
+
     formatter.dateFormat = "yyyyMMdd"
 
-    backView.layer.cornerRadius = 10
-
-    backView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    backView.layer.shadowOpacity = 0.5
-    backView.layer.shadowRadius = 2
-    backView.layer.shadowColor = UIColor.black.cgColor
+    backView.setCornerRadiusAndShadow()
   }
 
   func setup(with viewModel: HabitViewModel, date: Date = Date()) {
@@ -48,7 +45,7 @@ class MainPageTableViewCell: UITableViewCell {
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
         guard error == nil else {
-          print(error!)
+          print(error as Any)
           return
         }
         self.checkButton.isSelected = documentSnapshot?.data()?[stringDate] as? Bool ?? false

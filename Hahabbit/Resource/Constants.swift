@@ -11,6 +11,7 @@ import SwiftTheme
 import SwiftHEXColors
 
 enum K {
+  static let changeThemeColor = "ChangeThemeColor"
 
   static let addNewGoalCell = "AddNewGoalCell"
 
@@ -25,6 +26,8 @@ enum MySegue {
   static let toChatRoomPage = "SegeuToChatRoomPage"
 
   static let toBlocklistPage = "SegueToBlocklistPage"
+
+  static let toHabitDetailPage = "SegueToHabitDetailPage"
 
   static let toMainPage = "SegueToMainPage"
 

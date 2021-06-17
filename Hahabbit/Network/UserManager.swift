@@ -55,7 +55,7 @@ class UserManager {
       }
   }
 
-  func fetchUserSignUpDate(completionHandler: @escaping () -> Void) {
+  func fetchUserSignUpDate() {
     db.collection("users")
       .document(currentUser)
       .getDocument { documentSnapshot, error in
@@ -65,7 +65,6 @@ class UserManager {
         }
         if let date = documentSnapshot?.data()?["signUpDate"] as? String {
           self.userSignUpDate = date
-          completionHandler()
         }
       }
 

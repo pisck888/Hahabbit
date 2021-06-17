@@ -61,7 +61,7 @@
                     <connections>
                         <outlet property="segmentView" destination="WkO-Y7-weW" id="Hyk-6F-DyJ"/>
                         <outlet property="tableView" destination="vUm-8j-AAw" id="RKl-EK-2B5"/>
-                        <segue destination="aMJ-8S-rsl" kind="show" identifier="SegueToDetail" id="h0N-K7-h9C"/>
+                        <segue destination="aMJ-8S-rsl" kind="show" identifier="SegueToHabitDetailPage" id="h0N-K7-h9C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1180,13 +1180,14 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6PF-gO-4Ws"/>
         <designable name="mt2-X9-50i">
             <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="2G2-TK-EP2"/>
-        <segue reference="Fkq-zb-1ii"/>
+        <segue reference="h0N-K7-h9C"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

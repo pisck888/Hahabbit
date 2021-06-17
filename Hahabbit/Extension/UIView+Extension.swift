@@ -39,4 +39,17 @@ extension UIView {
 
     self.layer.add(shakeGroup, forKey: shakeKey)
   }
+
+  func setCornerRadiusAndShadow() {
+
+    self.layer.cornerRadius = 10
+
+    self.layer.shadowOffset = CGSize(width: 2, height: 2)
+
+    self.layer.shadowOpacity = 0.5
+
+    self.layer.shadowRadius = 2
+
+    self.layer.shadowColor = UIColor.black.cgColor
+  }
 }
