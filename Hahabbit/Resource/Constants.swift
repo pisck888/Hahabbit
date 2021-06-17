@@ -21,7 +21,6 @@ enum K {
 }
 
 enum MySegue {
-  static let toAddNewGoalDetailPage = "SegueToAddNewGoalDetailPage"
 
   static let toAddNewHabitDetailPage = "SegueToAddNewHabitDetailPage"
 

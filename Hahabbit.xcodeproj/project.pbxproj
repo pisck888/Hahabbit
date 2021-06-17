@@ -367,16 +367,13 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7B3C909267B666A0039C82A /* profile */,
 				E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */,
-				E79F12422674AC5D0064531A /* ThemeColorViewController.swift */,
 				E777F7EB267364EB00BCD59E /* AllHabitsViewController.swift */,
-				E7673BFA2671E7CC00527585 /* MallViewController.swift */,
 				E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */,
-				E7368603266A3674002E2278 /* BlocklistViewController.swift */,
 				E74D4CA22662A2B000E0A1C4 /* ChatPageViewController.swift */,
 				E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */,
 				E7052E832654C1BB00B717F8 /* PublicHabitDetailViewController.swift */,
-				E7052E6F2653506800B717F8 /* ProfileViewController.swift */,
 				E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */,
 				E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */,
 				E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */,
@@ -432,6 +429,17 @@
 				E74D4C9C266281CD00E0A1C4 /* ProfileEditView */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		E7B3C909267B666A0039C82A /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				E7673BFA2671E7CC00527585 /* MallViewController.swift */,
+				E7052E6F2653506800B717F8 /* ProfileViewController.swift */,
+				E7368603266A3674002E2278 /* BlocklistViewController.swift */,
+				E79F12422674AC5D0064531A /* ThemeColorViewController.swift */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 		E7BDCCF8266D04B400C0B1A2 /* LoadingView */ = {

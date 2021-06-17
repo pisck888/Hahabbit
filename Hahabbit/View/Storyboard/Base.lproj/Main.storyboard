@@ -780,7 +780,7 @@
                         <outletCollection property="weekdayButtons" destination="D8N-DC-ny1" collectionClass="NSMutableArray" id="Fvu-aT-aft"/>
                         <outletCollection property="weekdayButtons" destination="YHe-80-7FW" collectionClass="NSMutableArray" id="Log-bR-e1r"/>
                         <outletCollection property="weekdayButtons" destination="6k1-ac-6Wj" collectionClass="NSMutableArray" id="S3q-72-tNA"/>
-                        <segue destination="Lc0-GG-X4v" kind="show" identifier="SegueToAddNewGoalDetailPage" id="BRn-Ws-jzI"/>
+                        <segue destination="Lc0-GG-X4v" kind="show" identifier="SegueToAddNewHabitDetailPage" id="BRn-Ws-jzI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUb-NP-7GU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

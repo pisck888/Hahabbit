@@ -76,47 +76,53 @@ class HabitDetailViewController: UITableViewController {
     viewModel.consecutiveRecord.bind { [unowned self] in
       self.maxConsecutiveLabel.text = String($0) + "天".localized()
     }
-
     viewModel.monthPercentage.bind { percentage in
       DispatchQueue.main.async {
         self.monthCircularProgressView.value = percentage
       }
     }
-
     viewModel.yearPercentage.bind { percentage in
       DispatchQueue.main.async {
         self.yearCircularProgressView.value = percentage
       }
     }
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
-
-    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setThemeColor),
+      name: NSNotification.Name(K.changeThemeColor),
+      object: nil
+    )
 
     graphView.dataSource = self
     setupHabitDetail()
-    setupGraphView()
-    setupProgressView()
     setupCalendar()
     setupViews()
-    setupRecordLabel()
-    setLabelString()
+    setText()
+    setThemeColor()
   }
 
   @objc func setText() {
     navigationItem.title = "習慣細節".localized()
     setupCalendarLanguage()
     setupRecordLabel()
-    setLabelString()
+    setupTitleLabel()
   }
 
   @objc func setThemeColor() {
     setCalendarColor()
     setupGraphView()
-    setupProgressView()
+    setupProgressViewColor(progressView: monthCircularProgressView)
+    setupProgressViewColor(progressView: yearCircularProgressView)
   }
 
-  func setLabelString() {
+  func setupTitleLabel() {
     chartOneTitle.text = "每月完成概況".localized()
     chartOneTitle.adjustsFontSizeToFitWidth = true
     chartTwoTitle.text = "每月完成次數統計".localized()
@@ -135,19 +141,17 @@ class HabitDetailViewController: UITableViewController {
 
   func setupViews() {
     mainImage.layer.cornerRadius = 10
-    setShadowAndCornerRadius(view: detailView)
-
     calendar.layer.cornerRadius = 10
-    setShadowAndCornerRadius(view: chartViewOne)
-
     graphView.layer.cornerRadius = 10
-    setShadowAndCornerRadius(view: chartViewTwo)
 
-    setShadowAndCornerRadius(view: monthCircularBackView)
-    setShadowAndCornerRadius(view: yearCircularBackView)
-    setShadowAndCornerRadius(view: monthCounterView)
-    setShadowAndCornerRadius(view: totalCounterView)
-    setShadowAndCornerRadius(view: maxConsecutiveView)
+    detailView.setCornerRadiusAndShadow()
+    chartViewOne.setCornerRadiusAndShadow()
+    chartViewTwo.setCornerRadiusAndShadow()
+    monthCircularBackView.setCornerRadiusAndShadow()
+    yearCircularBackView.setCornerRadiusAndShadow()
+    monthCounterView.setCornerRadiusAndShadow()
+    totalCounterView.setCornerRadiusAndShadow()
+    maxConsecutiveView.setCornerRadiusAndShadow()
   }
 
   func setupGraphView() {
@@ -180,16 +184,12 @@ class HabitDetailViewController: UITableViewController {
     graphView.addReferenceLines(referenceLines: referenceLines)
   }
 
-  func setupProgressView() {
+  func setupProgressViewColor(progressView: MBCircularProgressBarView) {
     let themeColor = UserManager.shared.themeColor
-    monthCircularProgressView.progressColor = themeColor
-    monthCircularProgressView.progressStrokeColor = themeColor
-    monthCircularProgressView.emptyLineColor = themeColor.withAlphaComponent(0.3)
-    monthCircularProgressView.emptyLineStrokeColor = themeColor.withAlphaComponent(0.3)
-    yearCircularProgressView.progressColor = themeColor
-    yearCircularProgressView.progressStrokeColor = themeColor
-    yearCircularProgressView.emptyLineColor = themeColor.withAlphaComponent(0.3)
-    yearCircularProgressView.emptyLineStrokeColor = themeColor.withAlphaComponent(0.3)
+    progressView.progressColor = themeColor
+    progressView.progressStrokeColor = themeColor
+    progressView.emptyLineColor = themeColor.withAlphaComponent(0.3)
+    progressView.emptyLineStrokeColor = themeColor.withAlphaComponent(0.3)
   }
 
   func setupCalendar() {
@@ -209,14 +209,14 @@ class HabitDetailViewController: UITableViewController {
       .collection("isDone")
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
-        guard error == nil else {
-          print(error as Any)
-          return
+        if let err = error {
+          print(err)
         }
         guard let keys = documentSnapshot?.data()?.keys else { return }
         for key in keys {
-          if documentSnapshot?.data()?[key] as! Bool == true {
-            self.calendar.select(self.dateFormatter.date(from: key))
+          if let isDone = documentSnapshot?.data()?[key] as? Bool,
+            isDone == true {
+              self.calendar.select(self.dateFormatter.date(from: key))
           }
         }
         self.calendar.allowsSelection = false
@@ -267,7 +267,6 @@ class HabitDetailViewController: UITableViewController {
         editButton.isHidden = true
       }
     }
-
   }
 
   func setupRecordLabel() {
@@ -276,7 +275,7 @@ class HabitDetailViewController: UITableViewController {
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     switch segue.identifier {
-    case MySegue.toAddNewGoalDetailPage:
+    case MySegue.toAddNewHabitDetailPage:
       let viewController = segue.destination as? AddNewHabitDetailViewController
       viewController?.editHabit = habit?.habit
       viewController?.isPlusLabelHidden = true
@@ -286,27 +285,17 @@ class HabitDetailViewController: UITableViewController {
       viewController?.habitID = habit?.id
       viewController?.members = habit?.members
     default:
-      print("error")
+      print("Sugue error")
     }
   }
 
-  func setShadowAndCornerRadius(view: UIView) {
-    view.layer.shadowOffset = CGSize(width: 2, height: 2)
-    view.layer.shadowOpacity = 0.5
-    view.layer.shadowRadius = 2
-    view.layer.shadowColor = UIColor.black.cgColor
-    view.layer.cornerRadius = 10
-  }
-
   @IBAction func pressEditButton(_ sender: UIButton) {
-    performSegue(withIdentifier: MySegue.toAddNewGoalDetailPage, sender: habit)
+    performSegue(withIdentifier: MySegue.toAddNewHabitDetailPage, sender: habit)
   }
-
 }
 
 extension HabitDetailViewController: ScrollableGraphViewDataSource {
   func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
-    // Return the data for each plot.
     switch plot.identifier {
     case "line":
       return Double(viewModel.counter[pointIndex])
