@@ -98,7 +98,7 @@ class ChatPageViewController: MessagesViewController {
                     return Message(dictionary: $0.data())
                   }
                   self.messages = messagesArray.filter {
-                    !((self.currentUser?.blacklist.contains($0.senderID))!)
+                    !((self.currentUser?.blocklist.contains($0.senderID))!)
                   }
                 }
               }

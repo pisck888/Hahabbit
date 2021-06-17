@@ -12,6 +12,11 @@ class SettingsTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var detailLabel: UILabel!
 
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.selectionStyle = .none
+  }
+
   func setup(string: String, indexPathRow: Int) {
     titleLabel.text = string.localized()
     if indexPathRow == 3 {

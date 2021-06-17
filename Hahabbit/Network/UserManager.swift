@@ -39,7 +39,7 @@ class UserManager {
       "title": "初心者",
       "signUpDate": today,
       "titleArray": ["初心者", "新來的", "煞氣a"],
-      "blacklist": []
+      "blocklist": []
     ]
 
     UserManager.shared.db.collection("users")
@@ -139,13 +139,13 @@ class UserManager {
   func blockUser(id: String) {
     db.collection("users")
       .document(currentUser)
-      .updateData(["blacklist": FieldValue.arrayUnion([id])])
+      .updateData(["blocklist": FieldValue.arrayUnion([id])])
   }
 
   func unBlockUser(id: String) {
     db.collection("users")
       .document(currentUser)
-      .updateData(["blacklist": FieldValue.arrayRemove([id])])
+      .updateData(["blocklist": FieldValue.arrayRemove([id])])
   }
 
 

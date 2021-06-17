@@ -13,7 +13,15 @@ import SwiftHEXColors
 enum K {
   static let changeThemeColor = "ChangeThemeColor"
 
+  static let profileCell = "ProfileCell"
+
+  static let settingsCell = "SettingsCell"
+
+  static let signOutCell = "SignOutCell"
+
   static let addNewGoalCell = "AddNewGoalCell"
+
+  static let blocklistCell = "BlocklistCell"
 
   static let mainPageTableViewCell = "MainPageTableViewCell"
 

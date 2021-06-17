@@ -9,14 +9,14 @@ import UIKit
 
 class BlocklistViewController: UIViewController {
 
-  var user: User?
-
-  var viewModel = BlocklistViewModel()
-  var currentUserViewModel = ProfileViewModel()
-
   @IBOutlet weak var messageLabel: UILabel!
   @IBOutlet var popupView: UIView!
   @IBOutlet weak var tableView: UITableView!
+
+  var user: User?
+  var viewModel = BlocklistViewModel()
+  var currentUserViewModel = ProfileViewModel()
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -28,19 +28,13 @@ class BlocklistViewController: UIViewController {
     }
 
     currentUserViewModel.currentUserViewModel.bind { _ in
-      let blacklist = self.currentUserViewModel.currentUserViewModel.value.blacklist
-      self.viewModel.fetchBlockedUsers(blockedUsers: blacklist)
+      let blocklist = self.currentUserViewModel.currentUserViewModel.value.blocklist
+      self.viewModel.fetchBlockedUsers(blockedUsers: blocklist)
     }
+
     currentUserViewModel.fetchCurrentUser()
-
   }
 
-
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
-
-  }
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     showPopView()
@@ -49,16 +43,18 @@ class BlocklistViewController: UIViewController {
   func showPopView() {
     if viewModel.blockedUsersViewModel.value.isEmpty {
       messageLabel.text = "封鎖名單目前還是空的唷～".localized()
-      popupView.layer.shadowOffset = CGSize(width: 2, height: 2)
-      popupView.layer.shadowOpacity = 0.5
-      popupView.layer.shadowRadius = 2
-      popupView.layer.shadowColor = UIColor.black.cgColor
-      popupView.layer.cornerRadius = 10
+      popupView.setCornerRadiusAndShadow()
       popupView.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
       popupView.center = tableView.center
       view.addSubview(popupView)
 
-      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveLinear) {
+      UIView.animate(
+        withDuration: 0.5,
+        delay: 0,
+        usingSpringWithDamping: 0.5,
+        initialSpringVelocity: 0.5,
+        options: .curveLinear
+      ) {
         self.popupView.transform = .identity
       }
     } else {
@@ -82,9 +78,13 @@ extension BlocklistViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "blacklistCell", for: indexPath) as? BlocklistTableViewCell
-    cell?.setup(blacklistUser: viewModel.blockedUsersViewModel.value[indexPath.row])
-    cell?.selectionStyle = .none
-    return cell ?? BlocklistTableViewCell()
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: K.blocklistCell,
+      for: indexPath
+    ) as? BlocklistTableViewCell else {
+      return BlocklistTableViewCell()
+    }
+    cell.setup(blocklistUser: viewModel.blockedUsersViewModel.value[indexPath.row])
+    return cell
   }
 }

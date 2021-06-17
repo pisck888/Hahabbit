@@ -15,7 +15,7 @@ struct User: Decodable, Equatable {
   var coin: Int
   var signUpDate: String
   var titleArray: [String]
-  var blacklist: [String]
+  var blocklist: [String]
 
   static func == (lhs: User, rhs:User) -> Bool {
     lhs.id == rhs.id

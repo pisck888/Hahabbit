@@ -16,22 +16,25 @@ class BlocklistTableViewCell: UITableViewCell {
       userImage.clipsToBounds = true
     }
   }
+
   @IBOutlet weak var unblockButton: UIButton! {
     didSet {
       unblockButton.layer.cornerRadius = 10
+      unblockButton.setTitle("解除封鎖".localized(), for: .normal)
       unblockButton.theme_backgroundColor = ThemeColor.color
     }
   }
+
   @IBOutlet weak var userName: UILabel!
 
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.selectionStyle = .none
   }
 
-  func setup(blacklistUser: User) {
-    let url = URL(string: blacklistUser.image)
-//    unblockButton.theme_backgroundColor = ThemeColor.color
+  func setup(blocklistUser: User) {
+    let url = URL(string: blocklistUser.image)
     userImage.kf.setImage(with: url, placeholder: nil)
-    userName.text = blacklistUser.name
+    userName.text = blocklistUser.name
   }
 }

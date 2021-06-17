@@ -10,13 +10,14 @@ import Kingfisher
 
 class ProfileTableViewCell: UITableViewCell {
 
-
   @IBOutlet weak var avatarImage: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var coinLabel: UILabel!
+
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.selectionStyle = .none
     avatarImage.layer.cornerRadius = avatarImage.frame.width / 2
     avatarImage.layer.borderWidth = 1
     avatarImage.layer.borderColor = UIColor.black.cgColor

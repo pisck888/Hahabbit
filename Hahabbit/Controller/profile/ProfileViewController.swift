@@ -26,17 +26,22 @@ class ProfileViewController: UIViewController {
     navigationItem.backButtonTitle = ""
     navigationItem.title = "個人頁面".localized()
 
-    viewModel.currentUserViewModel.bind { user in
+    viewModel.currentUserViewModel.bind { _ in
       self.tableView.reloadData()
     }
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
 
     viewModel.fetchCurrentUser()
   }
 
   @IBAction func changePhotoImage(_ sender: UIButton) {
-    var items = [CustomizableActionSheetItem]()
+    var items: [CustomizableActionSheetItem] = []
     let cameraItem = CustomizableActionSheetItem()
     cameraItem.type = .button
     cameraItem.label = "相機拍攝".localized()
@@ -64,10 +69,9 @@ class ProfileViewController: UIViewController {
   }
 
   @IBAction func changeNameAndTitle(_ sender: UIButton) {
-    var items = [CustomizableActionSheetItem]()
-
-    // First view
-    if let profileEditView = UINib(nibName: "ProfileEditView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
+    var items: [CustomizableActionSheetItem] = []
+    if let profileEditView = UINib(nibName: "ProfileEditView", bundle: nil)
+      .instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
       profileEditView.user = viewModel.currentUserViewModel.value
       profileEditView.textField.text = viewModel.currentUserViewModel.value.name
       let profileEditViewItem = CustomizableActionSheetItem(type: .view, height: 300)
@@ -88,7 +92,7 @@ class ProfileViewController: UIViewController {
   }
 
   func pressChangeLanguage() {
-    var items = [CustomizableActionSheetItem]()
+    var items: [CustomizableActionSheetItem] = []
     let englishItem = CustomizableActionSheetItem()
     englishItem.type = .button
     englishItem.label = "英文".localized()
@@ -141,24 +145,32 @@ extension ProfileViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case 0:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileTableViewCell
+      guard let cell = tableView.dequeueReusableCell(
+        withIdentifier: K.profileCell,
+        for: indexPath
+      ) as? ProfileTableViewCell else {
+        return ProfileTableViewCell()
+      }
       cell.setup(user: viewModel.currentUserViewModel.value)
-      cell.selectionStyle = .none
-      cell.layer.masksToBounds = false
-      cell.clipsToBounds = false
       return cell
     case 1:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
+      guard let cell = tableView.dequeueReusableCell(
+        withIdentifier: K.settingsCell,
+        for: indexPath)
+        as? SettingsTableViewCell else {
+        return SettingsTableViewCell()
+      }
       cell.setup(string: MyArray.settingsTitle[indexPath.row], indexPathRow: indexPath.row)
-      cell.selectionStyle = .none
       return cell
     default:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "LogoutCell", for: indexPath) as! SignOutTableViewCell
+      guard let cell = tableView.dequeueReusableCell(
+        withIdentifier: K.signOutCell,
+        for: indexPath
+      ) as? SignOutTableViewCell else {
+        return SignOutTableViewCell()
+      }
       cell.setup(string: "登出".localized())
-      cell.contentView.theme_backgroundColor = ThemeColor.color
-      cell.selectionStyle = .none
       return cell
-
     }
   }
 
