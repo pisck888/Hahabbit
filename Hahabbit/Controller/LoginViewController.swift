@@ -41,7 +41,6 @@ class LoginViewController: UIViewController {
 //    skipButton.isHidden = true
   }
 
-
   func setupLoginView() {
     catReading.play()
     catReading.loopMode = .loop
@@ -50,17 +49,8 @@ class LoginViewController: UIViewController {
     signInWithAppleButton.layer.cornerRadius = 10
     signInWithAppleButton.clipsToBounds = true
 
-    loginButtonBackView.layer.cornerRadius = 10
-    loginButtonBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    loginButtonBackView.layer.shadowOpacity = 0.5
-    loginButtonBackView.layer.shadowRadius = 2
-    loginButtonBackView.layer.shadowColor = UIColor.black.cgColor
-
-    upImageBackView.layer.cornerRadius = 10
-    upImageBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    upImageBackView.layer.shadowOpacity = 0.5
-    upImageBackView.layer.shadowRadius = 2
-    upImageBackView.layer.shadowColor = UIColor.black.cgColor
+    loginButtonBackView.setCornerRadiusAndShadow()
+    upImageBackView.setCornerRadiusAndShadow()
   }
 
   func showPrivacyPolicyView() {
@@ -125,9 +115,9 @@ class LoginViewController: UIViewController {
   private func sha256(_ input: String) -> String {
     let inputData = Data(input.utf8)
     let hashedData = SHA256.hash(data: inputData)
-    let hashString = hashedData.compactMap {
-      return String(format: "%02x", $0)
-    }.joined()
+    let hashString = hashedData
+      .compactMap { return String(format: "%02x", $0) }
+      .joined()
     return hashString
   }
 
