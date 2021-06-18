@@ -20,8 +20,8 @@ class ProfileViewModel {
       .collection("users")
       .whereField("id", isEqualTo: UserManager.shared.currentUser)
       .addSnapshotListener { querySnapshot, error in
-        guard error == nil else {
-          print(error)
+        if let err = error {
+          print(err)
           return
         }
         if let user = try? querySnapshot?.documents[0].data(as: User.self) {
@@ -35,8 +35,8 @@ class ProfileViewModel {
       .collection("users")
       .whereField("id", isEqualTo: id)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print(error)
+        if let err = error {
+          print(err)
           return
         }
         if let user = try? querySnapshot?.documents[0].data(as: User.self) {
