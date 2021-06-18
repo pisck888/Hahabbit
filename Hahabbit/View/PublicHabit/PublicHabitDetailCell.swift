@@ -22,12 +22,9 @@ class PublicHabitDetailCell: UITableViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.selectionStyle = .none
     mainImage.layer.cornerRadius = 10
-    detailBackView.layer.cornerRadius = 10
-    detailBackView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    detailBackView.layer.shadowOpacity = 0.5
-    detailBackView.layer.shadowRadius = 2
-    detailBackView.layer.shadowColor = UIColor.black.cgColor
+    detailBackView.setCornerRadiusAndShadow()
   }
 
   func setup(with habit: Habit) {

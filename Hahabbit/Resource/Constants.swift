@@ -25,6 +25,8 @@ enum K {
 
   static let mainPageTableViewCell = "MainPageTableViewCell"
 
+  static let publicHabitDetailCell = "PublicHabitDetailCell"
+
   static let publicHabitsTableViewCell = "PublicHabitsTableViewCell"
 }
 

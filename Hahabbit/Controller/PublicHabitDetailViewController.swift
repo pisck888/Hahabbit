@@ -15,22 +15,32 @@ class PublicHabitDetailViewController: UIViewController {
   var habit: Habit?
 
   @IBOutlet weak var joinButton: UIButton!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    joinButton.layer.cornerRadius = 10
-    joinButton.setTitle("加入".localized(), for: .normal)
-    joinButton.theme_backgroundColor = ThemeColor.color
 
     navigationItem.title = "習慣細節".localized()
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
+    setJoinButton()
   }
 
   @objc func setText() {
     navigationItem.title = "習慣細節".localized()
     joinButton.setTitle("加入".localized(), for: .normal)
   }
-  
+
+  func setJoinButton() {
+    joinButton.layer.cornerRadius = 10
+    joinButton.setTitle("加入".localized(), for: .normal)
+    joinButton.theme_backgroundColor = ThemeColor.color
+  }
+
   @IBAction func pressButton(_ sender: UIButton) {
     if let habit = habit {
       HabitManager.shared.db.collection("habits")
@@ -59,15 +69,15 @@ extension PublicHabitDetailViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     1
   }
-
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "PublicHabitDetailCell", for: indexPath) as! PublicHabitDetailCell
-    if let habit = habit {
-      cell.setup(with: habit)
+    guard let cell = tableView.dequeueReusableCell(
+      withIdentifier: K.publicHabitDetailCell,
+      for: indexPath
+    ) as? PublicHabitDetailCell,
+    let habit = habit else {
+      return PublicHabitDetailCell()
     }
-    cell.selectionStyle = .none
+    cell.setup(with: habit)
     return cell
   }
-
-
 }
