@@ -45,8 +45,8 @@ class UserManager {
     UserManager.shared.db.collection("users")
       .whereField("id", isEqualTo: id)
       .getDocuments { querySnapshot, _ in
-        let documents = querySnapshot?.documents
-        if documents == [] {
+        guard let documents = querySnapshot?.documents else { return }
+        if documents.isEmpty {
           user.setData(userInfo, merge: true)
           UserManager.shared.currentUser = id
         } else {
@@ -71,12 +71,14 @@ class UserManager {
   }
 
   func uploadAvatarImage(imageData: Data) {
-    let storageRef = Storage.storage().reference()
+    let storageRef = Storage.storage()
+      .reference()
       .child("userAvatars")
       .child("\(currentUser).png")
     storageRef.putData(imageData, metadata: nil) { data, error in
       if let err = error {
-        print(err.localizedDescription)
+        print(err)
+        return
       } else {
         storageRef.downloadURL { url, error in
           guard let url = url, error == nil else {
@@ -129,7 +131,7 @@ class UserManager {
       .document(currentUser)
       .updateData(["title": newTitle])
   }
-  
+
   func updateCoin(newCoin: Int) {
     db.collection("users")
       .document(currentUser)
@@ -147,6 +149,4 @@ class UserManager {
       .document(currentUser)
       .updateData(["blocklist": FieldValue.arrayRemove([id])])
   }
-
-
 }

@@ -11,6 +11,14 @@ import SwiftTheme
 import SwiftHEXColors
 
 enum K {
+  static let iconCell = "iconCell"
+
+  static let locationCell = "locationCell"
+
+  static let frequencyCell = "frequencyCell"
+
+  static let remindersCell = "remindersCell"
+
   static let changeThemeColor = "ChangeThemeColor"
 
   static let profileCell = "ProfileCell"

@@ -65,6 +65,7 @@ class AddNewHabitDetailViewController: UITableViewController {
     }
   }
   let loadingVC = LoadingViewController()
+
   let generator = UIImpactFeedbackGenerator(style: .light)
 
   var reminders = ["+"] {
@@ -111,9 +112,19 @@ class AddNewHabitDetailViewController: UITableViewController {
     titleTextField.placeholder = "在此輸入你想要培養的習慣吧～".localized()
     messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setThemeColor),
+      name: NSNotification.Name(K.changeThemeColor  ),
+      object: nil
+    )
 
     viewModel.notification.bind { notification in
       guard let time = notification else { return }
@@ -144,25 +155,25 @@ class AddNewHabitDetailViewController: UITableViewController {
     titleTextField.placeholder = "在此輸入你想要培養的習慣吧～".localized()
     messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
     setLabelString()
-    iconCollectionView.reloadData()
-    locationCollectionView.reloadData()
-    frequencyCollectionView.reloadData()
-    remindersCollectionView.reloadData()
-    for i in 0...6 {
-      if newHabit.weekday[String(i + 1)] == true {
-        frequencyCollectionView.selectItem(at: [0, i], animated: true, scrollPosition: [])
-      }
-    }
+    reloadAllCollectionView()
   }
 
-  @objc func setThemeColor(notification: Notification) {
+  @objc func setThemeColor() {
+    reloadAllCollectionView()
+  }
+
+  func reloadAllCollectionView() {
     iconCollectionView.reloadData()
     locationCollectionView.reloadData()
     frequencyCollectionView.reloadData()
     remindersCollectionView.reloadData()
-    for i in 0...6 {
-      if newHabit.weekday[String(i + 1)] == true {
-        frequencyCollectionView.selectItem(at: [0, i], animated: true, scrollPosition: [])
+    selectWeekdayCell()
+  }
+
+  func selectWeekdayCell() {
+    for i in 1...7 {
+      if newHabit.weekday[String(i)] == true {
+        frequencyCollectionView.selectItem(at: [0, i - 1], animated: true, scrollPosition: [])
       }
     }
   }
@@ -186,6 +197,7 @@ class AddNewHabitDetailViewController: UITableViewController {
       present(loadingVC, animated: true, completion: nil)
     }
   }
+
   @IBAction func pressAddImageButton(_ sender: UIButton) {
     showImagePickerActionSheet()
   }
@@ -211,13 +223,12 @@ class AddNewHabitDetailViewController: UITableViewController {
       title: "有些欄位還是空的唷！".localized(),
       message: "確認所有的欄位都輸入了正確的資訊".localized()
     )
-    let buttonOne = CancelButton(title: "確定".localized()) {
+    let okButton = CancelButton(title: "確定".localized()) {
     }
-    popup.addButton(buttonOne)
+    popup.addButton(okButton)
 
-    let containerAppearance = PopupDialogContainerView.appearance()
     popup.transitionStyle = .zoomIn
-    containerAppearance.cornerRadius = 10
+    PopupDialogContainerView.appearance().cornerRadius = 10
 
     self.present(popup, animated: true) {
       popup.shake()
@@ -234,7 +245,7 @@ class AddNewHabitDetailViewController: UITableViewController {
         .child("\(habitID).png")
       storageRef.putData(imageData, metadata: nil) { data, error in
         if let err = error {
-          print(err.localizedDescription)
+          print(err)
         } else {
           storageRef.downloadURL { url, error in
             guard let url = url, error == nil else {
@@ -281,12 +292,7 @@ class AddNewHabitDetailViewController: UITableViewController {
       if let indexRow = MyArray.locationArray.firstIndex(where: { $0 == editHabit.location }) {
         selectedLocationIndexPath = [0, indexRow]
       }
-      for i in 1...7 {
-        newHabit.weekday[String(i)] = editHabit.weekday[String(i)]
-        if editHabit.weekday[String(i)] == true {
-          frequencyCollectionView.selectItem(at: [0, i - 1], animated: true, scrollPosition: [])
-        }
-      }
+      selectWeekdayCell()
     }
   }
 }
@@ -321,14 +327,15 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
     default:
       return reminders.count
     }
-
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
     switch collectionView {
     case iconCollectionView:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! IconCollectionViewCell
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.iconCell, for: indexPath) as? IconCollectionViewCell else {
+        return IconCollectionViewCell()
+      }
       cell.setup(imageName: MyArray.habitIconArray[indexPath.row])
       if indexPath == selectedIconIndexPath {
         cell.isSelected = true
@@ -337,7 +344,9 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       return cell
 
     case locationCollectionView:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as! SelectableCollectionViewCell
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.locationCell, for: indexPath) as? SelectableCollectionViewCell else {
+        return SelectableCollectionViewCell()
+      }
       cell.setup(string: MyArray.locationArray[indexPath.row].localized())
       if indexPath == selectedLocationIndexPath {
         cell.isSelected = true
@@ -346,13 +355,17 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       return cell
 
     case frequencyCollectionView:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "frequencyCell", for: indexPath) as! SelectableCollectionViewCell
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.frequencyCell, for: indexPath) as? SelectableCollectionViewCell else {
+        return SelectableCollectionViewCell()
+      }
       cell.setup(string: MyArray.weekdayArray[indexPath.row].localized())
       setCellAppearance(cell: cell)
       return cell
 
     default:
-      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "remindersCell", for: indexPath) as! SelectableCollectionViewCell
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.remindersCell, for: indexPath) as? SelectableCollectionViewCell else {
+        return SelectableCollectionViewCell()
+      }
       if indexPath.row != reminders.count - 1 {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
@@ -382,11 +395,11 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     switch collectionView {
     case iconCollectionView:
-      newHabit.icon = (collectionView.cellForItem(at: indexPath) as! IconCollectionViewCell).imageName ?? ""
+      newHabit.icon = (collectionView.cellForItem(at: indexPath) as? IconCollectionViewCell)?.imageName ?? ""
       selectedIconIndexPath = indexPath
 
     case locationCollectionView:
-      newHabit.location = (collectionView.cellForItem(at: indexPath) as! SelectableCollectionViewCell).lebel.text ?? ""
+      newHabit.location = (collectionView.cellForItem(at: indexPath) as? SelectableCollectionViewCell)?.lebel.text ?? ""
       selectedLocationIndexPath = indexPath
 
     case frequencyCollectionView:
@@ -471,10 +484,10 @@ extension AddNewHabitDetailViewController: UIImagePickerControllerDelegate, UINa
   func showImagePickerActionSheet() {
     let alert = UIAlertController(title: "上傳照片".localized(), message: nil, preferredStyle: .actionSheet)
     alert.view.tintColor = .darkGray
-    let cameraAction = UIAlertAction(title: "相機拍攝".localized(), style: .default) { action in
+    let cameraAction = UIAlertAction(title: "相機拍攝".localized(), style: .default) { _ in
       self.showImagePicker(sourceType: .camera)
     }
-    let photoLibraryAction = UIAlertAction(title: "照片圖庫".localized(), style: .default) { action in
+    let photoLibraryAction = UIAlertAction(title: "照片圖庫".localized(), style: .default) { _ in
       self.showImagePicker(sourceType: .photoLibrary)
     }
     let cancelAction = UIAlertAction(title: "取消".localized(), style: .cancel, handler: nil)
@@ -488,7 +501,6 @@ extension AddNewHabitDetailViewController: UIImagePickerControllerDelegate, UINa
       popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
       popoverController.permittedArrowDirections = []
     }
-
     present(alert, animated: true, completion: nil)
   }
 

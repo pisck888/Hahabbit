@@ -25,6 +25,10 @@ class NotificationsViewModel {
       .collection("notification")
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
+        if let err = error {
+          print(err)
+          return
+        }
         guard let hours = documentSnapshot?.data()?["hours"] as? [Int],
               let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
               !hours.isEmpty,

@@ -8,7 +8,7 @@
 import UIKit
 
 class SelectableCollectionViewCell: UICollectionViewCell {
-    
+
   @IBOutlet weak var lebel: UILabel!
 
   override func layoutSubviews() {

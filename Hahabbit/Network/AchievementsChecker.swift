@@ -56,8 +56,8 @@ class AchievementsChecker {
                 self.db.collection("users")
                   .document(UserManager.shared.currentUser)
                   .getDocument { documentSnapshot, error in
-                    guard error == nil else {
-                      print(error)
+                    if let err = error {
+                      print(err)
                       return
                     }
                     if let coin = documentSnapshot?.data()?["coin"] as? Int {
@@ -110,8 +110,8 @@ class AchievementsChecker {
                   self.db.collection("users")
                     .document(UserManager.shared.currentUser)
                     .getDocument { documentSnapshot, error in
-                      guard error == nil else {
-                        print(error)
+                      if let err = error {
+                        print(err)
                         return
                       }
                       if let coin = documentSnapshot?.data()?["coin"] as? Int {

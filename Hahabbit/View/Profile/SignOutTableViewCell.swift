@@ -16,7 +16,7 @@ class SignOutTableViewCell: UITableViewCell {
     self.contentView.theme_backgroundColor = ThemeColor.color
     self.selectionStyle = .none
   }
-  
+
   func setup(string: String) {
     signOutLabel.text = string
   }

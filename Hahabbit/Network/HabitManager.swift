@@ -150,7 +150,7 @@ class HabitManager {
         }
       db.collection("chats")
         .document(habit.id)
-        .delete() { error in
+        .delete { error in
           guard error == nil else {
             print(error as Any)
             return
@@ -186,16 +186,6 @@ class HabitManager {
           }
         }
     }
-  }
-
-  func fetchNotifications(id: String) {
-    db.collection("habits")
-      .document(id)
-      .collection("notification")
-      .document(UserManager.shared.currentUser)
-      .getDocument { documentSnapshot, error in
-        print(documentSnapshot?.data())
-      }
   }
 
   func setAllNotifications() {

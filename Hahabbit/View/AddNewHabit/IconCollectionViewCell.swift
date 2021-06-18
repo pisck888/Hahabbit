@@ -8,7 +8,7 @@
 import UIKit
 
 class IconCollectionViewCell: UICollectionViewCell {
-    
+
   @IBOutlet weak var iconImage: UIImageView!
 
   var imageName: String?
