@@ -17,7 +17,7 @@ struct User: Decodable, Equatable {
   var titleArray: [String]
   var blocklist: [String]
 
-  static func == (lhs: User, rhs:User) -> Bool {
+  static func == (lhs: User, rhs: User) -> Bool {
     lhs.id == rhs.id
   }
 }

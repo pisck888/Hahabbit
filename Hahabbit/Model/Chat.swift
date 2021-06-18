@@ -15,8 +15,8 @@ struct Chat {
 }
 
 extension Chat {
-  init?(dictionary: [String:Any]) {
-    guard let chatUsers = dictionary["users"] as? [String] else {return nil}
+  init?(dictionary: [String: Any]) {
+    guard let chatUsers = dictionary["users"] as? [String] else { return nil }
     self.init(users: chatUsers)
   }
 }

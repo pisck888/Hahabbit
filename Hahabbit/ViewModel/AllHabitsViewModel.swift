@@ -38,4 +38,3 @@ class AllHabitsViewModel {
     habitViewModels.value = viewModels
   }
 }
-
