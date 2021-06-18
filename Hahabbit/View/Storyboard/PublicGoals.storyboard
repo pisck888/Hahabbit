@@ -110,7 +110,7 @@
                         <outlet property="tableView" destination="9yv-kl-Eph" id="b9g-9d-O9M"/>
                         <outlet property="typeButton" destination="a3I-C7-Ecr" id="kgo-kk-ulw"/>
                         <outlet property="weekdayButton" destination="hds-M8-vsi" id="E1I-8s-LMs"/>
-                        <segue destination="fzb-aO-RBd" kind="show" identifier="SegueToPublicHabitDetail" id="SbE-7j-Unu"/>
+                        <segue destination="fzb-aO-RBd" kind="show" identifier="SegueToPublicHabitDetailPage" id="SbE-7j-Unu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

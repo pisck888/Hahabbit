@@ -21,7 +21,6 @@ class PublichHabitsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var segmentView: UIView!
 
-  var style = PinterestSegmentStyle()
   var segment = PinterestSegment()
   let viewModel = PublicHabitViewModel()
   var buttonTitle = ""
@@ -37,11 +36,6 @@ class PublichHabitsViewController: UIViewController {
     navigationItem.backButtonTitle = ""
     navigationItem.title = "公開習慣".localized()
 
-    searchBar.backgroundImage = UIImage()
-    searchBar.barTintColor = .systemGray6
-    searchBar.searchTextField.backgroundColor = .white
-    searchBar.layer.borderColor = UIColor.systemGray6.cgColor
-
     // set pull to refresh
     let header = MJRefreshNormalHeader()
     tableView.mj_header = header
@@ -51,26 +45,29 @@ class PublichHabitsViewController: UIViewController {
       self.searchHabitsArray = habits
     }
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setText), name: NSNotification.Name(LCLLanguageChangeNotification), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setText),
+      name: NSNotification.Name(LCLLanguageChangeNotification),
+      object: nil
+    )
 
-    NotificationCenter.default.addObserver(self, selector: #selector(setThemeColor), name: NSNotification.Name("ChangeThemeColor"), object: nil)
+    NotificationCenter.default.addObserver(
+      self,
+      selector: #selector(setThemeColor),
+      name: NSNotification.Name(K.changeThemeColor),
+      object: nil
+    )
+
+    tableView.register(
+      UINib(nibName: K.publicHabitsTableViewCell, bundle: nil),
+      forCellReuseIdentifier: K.publicHabitsTableViewCell
+    )
 
     searchBar.delegate = self
-
-    tableView.register(UINib(nibName: K.publicHabitsTableViewCell, bundle: nil), forCellReuseIdentifier: K.publicHabitsTableViewCell)
-
+    setupSearchBar()
     setupButton()
     setPinterestSegment()
-    segment = PinterestSegment(frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40), segmentStyle: style, titles: MyArray.publicHabitsPageTag.map { $0.localized() })
-    segmentView.addSubview(segment)
-    segment.valueChange = { index in
-      switch index {
-      case 0:
-        self.searchHabitsArray = self.viewModel.publicHabits.value
-      default:
-        self.searchByTagTitle(title: MyArray.publicHabitsPageTag.map { $0.localized() }[index])
-      }
-    }
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -94,13 +91,30 @@ class PublichHabitsViewController: UIViewController {
   }
 
   func setPinterestSegment() {
+    var style = PinterestSegmentStyle()
     style.indicatorColor = UserManager.shared.themeColor
-    style.titleMargin = 16
+    style.titleMargin = 6
     style.titlePendingHorizontal = 14
     style.titlePendingVertical = 14
     style.titleFont = UIFont.boldSystemFont(ofSize: 14)
     style.normalTitleColor = .gray
     style.selectedTitleColor = .white
+
+    segment = PinterestSegment(
+      frame: CGRect(x: 0, y: 5, width: view.frame.width, height: 40),
+      segmentStyle: style,
+      titles: MyArray.publicHabitsPageTag.map { $0.localized() }
+    )
+    segmentView.addSubview(segment)
+
+    segment.valueChange = { index in
+      switch index {
+      case 0:
+        self.searchHabitsArray = self.viewModel.publicHabits.value
+      default:
+        self.searchByTagTitle(title: MyArray.publicHabitsPageTag.map { $0.localized() }[index])
+      }
+    }
   }
 
   func setupButton() {
@@ -115,26 +129,33 @@ class PublichHabitsViewController: UIViewController {
     typeButton.setTitle("種類".localized(), for: .normal)
   }
 
+  func setupSearchBar() {
+    searchBar.backgroundImage = UIImage()
+    searchBar.barTintColor = .systemGray6
+    searchBar.searchTextField.backgroundColor = .white
+    searchBar.layer.borderColor = UIColor.systemGray6.cgColor
+  }
+
 
   @IBAction func pressTypeButton(_ sender: UIButton) {
-    CM.items = MyArray.typeArray.map{ $0.localized() }
+    CM.items = MyArray.typeArray.map { $0.localized() }
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressWeekdayButton(_ sender: UIButton) {
-    CM.items = MyArray.weekdayArray.map{ $0.localized() }
+    CM.items = MyArray.weekdayArray.map { $0.localized() }
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
   @IBAction func pressLocationButton(_ sender: UIButton) {
-    CM.items = MyArray.locationArray.map{ $0.localized() }
+    CM.items = MyArray.locationArray.map { $0.localized() }
     CM.showMenu(viewTargeted: sender, delegate: self, animated: true)
     buttonTitle = sender.titleLabel?.text ?? ""
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     let controller = segue.destination as? PublicHabitDetailViewController
-    if segue.identifier == "SegueToPublicHabitDetail" {
+    if segue.identifier == MySegue.toPublicHabitDetailPage {
       controller?.habit = sender as? Habit
     }
   }
@@ -170,11 +191,9 @@ extension PublichHabitsViewController: ContextMenuDelegate {
   }
 
   func contextMenuDidAppear(_ contextMenu: ContextMenu) {
-    //    print("contextMenuDidAppear")
   }
 
   func contextMenuDidDisappear(_ contextMenu: ContextMenu) {
-    //    print("contextMenuDidDisappear")
   }
 }
 
@@ -184,10 +203,14 @@ extension PublichHabitsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: K.publicHabitsTableViewCell, for: indexPath) as! PublicHabitsTableViewCell
+    guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: K.publicHabitsTableViewCell,
+            for: indexPath
+    ) as? PublicHabitsTableViewCell else {
+      return PublicHabitsTableViewCell()
+    }
     cell.setup(with: searchHabitsArray[indexPath.row])
     cell.viewController = self
-    cell.selectionStyle = .none
     return cell
   }
 }
@@ -195,16 +218,16 @@ extension PublichHabitsViewController: UITableViewDataSource {
 extension PublichHabitsViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let habit = searchHabitsArray[indexPath.row]
-    performSegue(withIdentifier: "SegueToPublicHabitDetail", sender: habit)
+    performSegue(withIdentifier: MySegue.toPublicHabitDetailPage, sender: habit)
   }
 }
 
 extension PublichHabitsViewController: UISearchBarDelegate {
   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    print(searchText)
-    searchHabitsArray = searchText.isEmpty ? viewModel.publicHabits.value : viewModel.publicHabits.value.filter { habit in
+    let searchResult = viewModel.publicHabits.value.filter { habit in
       return habit.title.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
     }
+    searchHabitsArray = searchText.isEmpty ? viewModel.publicHabits.value : searchResult
   }
 
   func searchBarResultsListButtonClicked(_ searchBar: UISearchBar) {

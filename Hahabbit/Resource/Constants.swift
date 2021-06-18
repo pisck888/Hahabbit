@@ -45,6 +45,8 @@ enum MySegue {
   static let toLoginPage = "SegueToLoginPage"
 
   static let toThemePage = "SegueToThemePage"
+
+  static let toPublicHabitDetailPage = "SegueToPublicHabitDetailPage"
 }
 
 enum MyArray {

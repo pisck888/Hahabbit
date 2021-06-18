@@ -28,31 +28,22 @@ class PublicHabitsTableViewCell: UITableViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
+    self.selectionStyle = .none
     imageButton.layer.cornerRadius = imageButton.frame.width / 2
     avatarImage.layer.cornerRadius = avatarImage.frame.width / 2
     avatarImage.layer.borderWidth = 1
     avatarImage.layer.borderColor = UIColor.black.cgColor
-    backView.layer.cornerRadius = 10
-    backView.layer.shadowOffset = CGSize(width: 2, height: 2)
-    backView.layer.shadowOpacity = 0.5
-    backView.layer.shadowRadius = 2
-    backView.layer.shadowColor = UIColor.black.cgColor
-
+    backView.setCornerRadiusAndShadow()
   }
 
   @IBAction func tapImage(_ sender: UIButton) {
-    if let habit = habit {
-
-    }
     let popup = PopupDialog(
       title: name,
       message: title,
       image: avatarImage.image
     )
-    let containerAppearance = PopupDialogContainerView.appearance()
-
     popup.transitionStyle = .zoomIn
-    containerAppearance.cornerRadius = 10
+    PopupDialogContainerView.appearance().cornerRadius = 10
 
     // Present dialog
     viewController?.present(popup, animated: true, completion: nil)
