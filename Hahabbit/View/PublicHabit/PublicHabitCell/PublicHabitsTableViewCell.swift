@@ -61,7 +61,7 @@ class PublicHabitsTableViewCell: UITableViewCell {
       weekdayButtons[i].theme_tintColor = ThemeColor.color
     }
 
-    UserManager.shared.db
+    UserManager.shared.database
       .collection("users")
       .whereField("id", isEqualTo: publicHabit.owner)
       .getDocuments { querySnapshot, error in

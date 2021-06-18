@@ -19,41 +19,40 @@ class AchievementsChecker {
 
   weak var delegate: AchievementsCheckerDelegate?
 
-  lazy var db = Firestore.firestore()
+  lazy var database = Firestore.firestore()
 
   func checkAllAchievements(checked: Bool) {
     guard checked == false else { return }
     checkAchievements0()
     checkAchievements1()
-
   }
 
   // 一馬當先
   func checkAchievements0() {
-    db.collection("achievements")
+    database.collection("achievements")
       .whereField("id", isEqualTo: 2)
       .whereField("isDone", arrayContains: UserManager.shared.currentUser)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print(error)
+        if let err = error {
+          print(err)
           return
         }
         guard let documents = querySnapshot?.documents else { return }
         if documents.isEmpty {
           print("獲得成就2")
-          self.db.collection("achievements")
+          self.database.collection("achievements")
             .document("2")
             .updateData(["isDone": FieldValue.arrayUnion([UserManager.shared.currentUser])]
             )
-          self.db.collection("achievements")
+          self.database.collection("achievements")
             .document("2")
             .getDocument { documentSnapshot, error in
-              guard error == nil else {
-                print(error)
+              if let err = error {
+                print(err)
                 return
               }
               if let achievement = try? documentSnapshot?.data(as: Achievement.self) {
-                self.db.collection("users")
+                self.database.collection("users")
                   .document(UserManager.shared.currentUser)
                   .getDocument { documentSnapshot, error in
                     if let err = error {
@@ -63,7 +62,11 @@ class AchievementsChecker {
                     if let coin = documentSnapshot?.data()?["coin"] as? Int {
                       let newCoin = coin + achievement.reward
                       UserManager.shared.updateCoin(newCoin: newCoin)
-                      self.delegate?.showPopupView(title: achievement.title, message: achievement.discription, image: achievement.image)
+                      self.delegate?.showPopupView(
+                        title: achievement.title,
+                        message: achievement.discription,
+                        image: achievement.image
+                      )
                     }
                   }
               }
@@ -84,30 +87,30 @@ class AchievementsChecker {
     let timeString = dateFormatter.string(from: Date())
 
     if timeString == "02" {
-      db.collection("achievements")
+      database.collection("achievements")
         .whereField("id", isEqualTo: 1)
         .whereField("isDone", arrayContains: UserManager.shared.currentUser)
         .getDocuments { querySnapshot, error in
-          guard error == nil else {
-            print(error)
+          if let err = error {
+            print(err)
             return
           }
           guard let documents = querySnapshot?.documents else { return }
           if documents.isEmpty {
             print("獲得成就1")
-            self.db.collection("achievements")
+            self.database.collection("achievements")
               .document("1")
               .updateData(["isDone": FieldValue.arrayUnion([UserManager.shared.currentUser])]
               )
-            self.db.collection("achievements")
+            self.database.collection("achievements")
               .document("1")
               .getDocument { documentSnapshot, error in
-                guard error == nil else {
-                  print(error)
+                if let err = error {
+                  print(err)
                   return
                 }
                 if let achievement = try? documentSnapshot?.data(as: Achievement.self) {
-                  self.db.collection("users")
+                  self.database.collection("users")
                     .document(UserManager.shared.currentUser)
                     .getDocument { documentSnapshot, error in
                       if let err = error {
@@ -117,7 +120,11 @@ class AchievementsChecker {
                       if let coin = documentSnapshot?.data()?["coin"] as? Int {
                         let newCoin = coin + achievement.reward
                         UserManager.shared.updateCoin(newCoin: newCoin)
-                        self.delegate?.showPopupView(title: achievement.title, message: achievement.discription, image: achievement.image)
+                        self.delegate?.showPopupView(
+                          title: achievement.title,
+                          message: achievement.discription,
+                          image: achievement.image
+                        )
                       }
                     }
                 }

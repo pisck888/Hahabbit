@@ -17,10 +17,10 @@ class NotificationsViewModel {
 
   var minute: Box<Int?> = Box(nil)
 
-  lazy var db = Firestore.firestore()
+  lazy var datebase = Firestore.firestore()
 
   func fetchNotifications(id: String) {
-    db.collection("habits")
+    datebase.collection("habits")
       .document(id)
       .collection("notification")
       .document(UserManager.shared.currentUser)

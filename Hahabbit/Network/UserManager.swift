@@ -26,10 +26,10 @@ class UserManager {
     return formatter
   }()
 
-  lazy var db = Firestore.firestore()
+  lazy var database = Firestore.firestore()
 
   func signInUser(id: String, name: String) {
-    let user = db.collection("users").document(id)
+    let user = database.collection("users").document(id)
     let today = dateFormatter.string(from: Date())
     let userInfo: [String: Any] = [
       "id": id,
@@ -42,7 +42,7 @@ class UserManager {
       "blocklist": []
     ]
 
-    UserManager.shared.db.collection("users")
+    UserManager.shared.database.collection("users")
       .whereField("id", isEqualTo: id)
       .getDocuments { querySnapshot, _ in
         guard let documents = querySnapshot?.documents else { return }
@@ -56,7 +56,7 @@ class UserManager {
   }
 
   func fetchUserSignUpDate() {
-    db.collection("users")
+    database.collection("users")
       .document(currentUser)
       .getDocument { documentSnapshot, error in
         if let error = error {
@@ -75,17 +75,17 @@ class UserManager {
       .reference()
       .child("userAvatars")
       .child("\(currentUser).png")
-    storageRef.putData(imageData, metadata: nil) { data, error in
+    storageRef.putData(imageData, metadata: nil) { _, error in
       if let err = error {
         print(err)
         return
       } else {
         storageRef.downloadURL { url, error in
           guard let url = url, error == nil else {
-            print(error)
+            print(error as Any)
             return
           }
-          self.db.collection("users").document(self.currentUser).updateData(["image": url.absoluteString])
+          self.database.collection("users").document(self.currentUser).updateData(["image": url.absoluteString])
         }
       }
     }
@@ -100,18 +100,22 @@ class UserManager {
           for habitID in habitIDs {
             HabitManager.shared.db
               .collection("chats")
-              .document(habitID as! String)
+              .document(habitID as? String ?? "")
               .collection("thread")
               .whereField("senderID", isEqualTo: UserManager.shared.currentUser)
               .getDocuments { querySnapshot, error in
+                if let err = error {
+                  print(err)
+                  return
+                }
                 if let messages = querySnapshot?.documents {
                   let messageIDs = messages.compactMap { $0["id"] }
                   for messageID in messageIDs {
                     HabitManager.shared.db
                       .collection("chats")
-                      .document(habitID as! String)
+                      .document(habitID as? String ?? "")
                       .collection("thread")
-                      .document(messageID as! String)
+                      .document(messageID as? String ?? "")
                       .updateData(["senderName": newName])
                   }
                 }
@@ -121,31 +125,31 @@ class UserManager {
       }
   }
   func updateName(newName: String) {
-    db.collection("users")
+    database.collection("users")
       .document(currentUser)
       .updateData(["name": newName])
   }
 
   func updateTitle(newTitle: String) {
-    db.collection("users")
+    database.collection("users")
       .document(currentUser)
       .updateData(["title": newTitle])
   }
 
   func updateCoin(newCoin: Int) {
-    db.collection("users")
+    database.collection("users")
       .document(currentUser)
       .updateData(["coin": newCoin])
   }
 
   func blockUser(id: String) {
-    db.collection("users")
+    database.collection("users")
       .document(currentUser)
       .updateData(["blocklist": FieldValue.arrayUnion([id])])
   }
 
   func unBlockUser(id: String) {
-    db.collection("users")
+    database.collection("users")
       .document(currentUser)
       .updateData(["blocklist": FieldValue.arrayRemove([id])])
   }

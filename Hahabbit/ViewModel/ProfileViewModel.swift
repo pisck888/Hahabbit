@@ -16,7 +16,7 @@ class ProfileViewModel {
   var tappedUserViewModel: Box<User?> = Box(nil)
 
   func fetchCurrentUser() {
-    UserManager.shared.db
+    UserManager.shared.database
       .collection("users")
       .whereField("id", isEqualTo: UserManager.shared.currentUser)
       .addSnapshotListener { querySnapshot, error in
@@ -31,7 +31,7 @@ class ProfileViewModel {
   }
 
   func fetchTappedUser(id: String) {
-    UserManager.shared.db
+    UserManager.shared.database
       .collection("users")
       .whereField("id", isEqualTo: id)
       .getDocuments { querySnapshot, error in
