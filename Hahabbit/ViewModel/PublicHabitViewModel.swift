@@ -14,12 +14,12 @@ class PublicHabitViewModel {
   var publicHabits: Box<[Habit]> = Box([])
 
   func fetchData() {
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .whereField("type.1", isEqualTo: true)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print("There was an issue retrieving data from Firebase. \(error)")
+        if let err = error {
+          print(err)
           return
         }
         guard let documents = querySnapshot?.documents else {
@@ -40,13 +40,13 @@ class PublicHabitViewModel {
   }
 
   func fetchData(withLocation location: String) {
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .whereField("type.1", isEqualTo: true)
       .whereField("location", isEqualTo: location)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print("There was an issue retrieving data from Firebase. \(error)")
+        if let err = error {
+          print(err)
           return
         }
         guard let documents = querySnapshot?.documents else {
@@ -66,13 +66,13 @@ class PublicHabitViewModel {
   }
 
   func fetchData(withType type: Int) {
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .whereField("type.1", isEqualTo: true)
       .whereField("type.\(type)", isEqualTo: true)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print("There was an issue retrieving data from Firebase. \(error)")
+        if let err = error {
+          print(err)
           return
         }
         guard let documents = querySnapshot?.documents else {
@@ -92,13 +92,13 @@ class PublicHabitViewModel {
   }
 
   func fetchData(withWeekday weekday: Int) {
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .whereField("type.1", isEqualTo: true)
       .whereField("weekday.\(weekday)", isEqualTo: true)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print("There was an issue retrieving data from Firebase. \(error)")
+        if let err = error {
+          print(err)
           return
         }
         guard let documents = querySnapshot?.documents else {

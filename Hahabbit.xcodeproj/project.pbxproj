@@ -73,6 +73,8 @@
 		E79F12432674AC5D0064531A /* ThemeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F12422674AC5D0064531A /* ThemeColorViewController.swift */; };
 		E79F12462674B0C40064531A /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */; };
 		E7B3C907267A779A0039C82A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C906267A779A0039C82A /* UIView+Extension.swift */; };
+		E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */; };
+		E7B3C90D267CBD130039C82A /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
 		E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */; };
@@ -156,6 +158,8 @@
 		E79F12422674AC5D0064531A /* ThemeColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColorViewController.swift; sourceTree = "<group>"; };
 		E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7B3C906267A779A0039C82A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
@@ -265,6 +269,8 @@
 			children = (
 				E736858C266735AD002E2278 /* UIImage+Extension.swift */,
 				E7B3C906267A779A0039C82A /* UIView+Extension.swift */,
+				E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */,
+				E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */,
 				E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */,
 			);
 			path = Extension;
@@ -367,20 +373,12 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7B3C90F267D988D0039C82A /* Login */,
+				E7B3C90E267D98450039C82A /* MainPage */,
+				E7B3C910267D98DD0039C82A /* AddNewHabit */,
+				E7B3C912267D993D0039C82A /* Achievements */,
+				E7B3C911267D99090039C82A /* PublicHabit */,
 				E7B3C909267B666A0039C82A /* profile */,
-				E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */,
-				E777F7EB267364EB00BCD59E /* AllHabitsViewController.swift */,
-				E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */,
-				E74D4CA22662A2B000E0A1C4 /* ChatPageViewController.swift */,
-				E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */,
-				E7052E832654C1BB00B717F8 /* PublicHabitDetailViewController.swift */,
-				E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */,
-				E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */,
-				E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */,
-				E7910F73264BA7FF003F0DAC /* AddNewHabitViewController.swift */,
-				E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */,
-				E7052E522652510400B717F8 /* CalendarPageViewController.swift */,
-				E7910F52264AE777003F0DAC /* MainPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -440,6 +438,54 @@
 				E79F12422674AC5D0064531A /* ThemeColorViewController.swift */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		E7B3C90E267D98450039C82A /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F52264AE777003F0DAC /* MainPageViewController.swift */,
+				E7052E522652510400B717F8 /* CalendarPageViewController.swift */,
+				E7052E5726525D9200B717F8 /* HabitDetailViewController.swift */,
+				E777F7EB267364EB00BCD59E /* AllHabitsViewController.swift */,
+				E74D4CA22662A2B000E0A1C4 /* ChatPageViewController.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		E7B3C90F267D988D0039C82A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */,
+				E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */,
+				E74D4C0D2660D09600E0A1C4 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E7B3C910267D98DD0039C82A /* AddNewHabit */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F73264BA7FF003F0DAC /* AddNewHabitViewController.swift */,
+				E7052E5D26527D5F00B717F8 /* AddNewHabitDetailViewController.swift */,
+			);
+			path = AddNewHabit;
+			sourceTree = "<group>";
+		};
+		E7B3C911267D99090039C82A /* PublicHabit */ = {
+			isa = PBXGroup;
+			children = (
+				E7052E672652AA2E00B717F8 /* PublichHabitsViewController.swift */,
+				E7052E832654C1BB00B717F8 /* PublicHabitDetailViewController.swift */,
+			);
+			path = PublicHabit;
+			sourceTree = "<group>";
+		};
+		E7B3C912267D993D0039C82A /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				E7910F7A264BEDFD003F0DAC /* AchievementsViewController.swift */,
+			);
+			path = Achievements;
 			sourceTree = "<group>";
 		};
 		E7BDCCF8266D04B400C0B1A2 /* LoadingView */ = {
@@ -641,6 +687,7 @@
 				E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewHabitViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
+				E7B3C90D267CBD130039C82A /* UIAlertController+Extensions.swift in Sources */,
 				E777F7EC267364EB00BCD59E /* AllHabitsViewController.swift in Sources */,
 				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
 				E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */,
@@ -671,6 +718,7 @@
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
 				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,
+				E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */,
 				E74F424E265CF74A00C9AB3D /* Achievement.swift in Sources */,
 				E7362FF3267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift in Sources */,
 			);

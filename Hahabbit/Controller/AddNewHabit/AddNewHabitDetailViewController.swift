@@ -11,7 +11,6 @@ import Kingfisher
 import PopupDialog
 import JGProgressHUD
 import Localize_Swift
-import MMBAlertsPickers
 
 protocol AddNewHabitDetailViewControllerDelegate: AnyObject {
   func setNewData(data: Habit, photo: String)
@@ -254,7 +253,10 @@ class AddNewHabitDetailViewController: UITableViewController {
             }
             print(url.absoluteString)
             self.newHabit.photo = url.absoluteString
-            HabitManager.shared.db.collection("habits").document(habitID).updateData(["photo": url.absoluteString])
+            HabitManager.shared.database
+              .collection("habits")
+              .document(habitID)
+              .updateData(["photo": url.absoluteString])
             HabitManager.shared.setAllNotifications()
             self.delegate?.setNewData(data: self.newHabit, photo: url.absoluteString)
             self.loadingVC.dismiss(animated: true) {

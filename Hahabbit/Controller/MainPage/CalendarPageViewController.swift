@@ -122,7 +122,7 @@ class CalendarPageViewController: UIViewController {
 
   func setCalendarSubtitle() {
     for i in 1...7 {
-      HabitManager.shared.db
+      HabitManager.shared.database
         .collection("habits")
         .whereField("members", arrayContains: UserManager.shared.currentUser)
         .whereField("weekday.\(i)", isEqualTo: true)

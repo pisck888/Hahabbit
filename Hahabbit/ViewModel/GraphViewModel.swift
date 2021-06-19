@@ -41,7 +41,7 @@ class GraphViewModel {
 
   func fetchGraphData(graphView: ScrollableGraphView, habitID: String) {
     let year = Calendar.current.component(.year, from: Date())
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .document(habitID)
       .collection("isDone")
@@ -55,7 +55,10 @@ class GraphViewModel {
         // count GraphViewNumbers
         self.counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for key in keys {
-          if documentSnapshot?.data()?[key] as! Bool == true {
+          guard let isDone = documentSnapshot?.data()?[key] as? Bool else {
+            return
+          }
+          if isDone {
             guard let date = Int(key) else { return }
             switch date {
             case (year * 10000 + 101) ... (year * 10000 + 131):
@@ -102,7 +105,7 @@ class GraphViewModel {
     self.consecutiveRecord.value = 0
     self.monthDoneDays = 0
 
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .document(habitID)
       .collection("isDone")

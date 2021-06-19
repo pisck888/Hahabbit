@@ -63,9 +63,6 @@ target 'Hahabbit' do
   pod 'SwiftTheme'
   pod 'SwiftHEXColors'
 
-  # for date picker
-  pod 'MMBAlertsPickers'
-
 end
 
 post_install do |installer|

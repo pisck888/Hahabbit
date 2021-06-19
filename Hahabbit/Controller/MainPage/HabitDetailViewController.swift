@@ -203,7 +203,7 @@ class HabitDetailViewController: UITableViewController {
 
     dateFormatter.dateFormat = "yyyyMMdd"
 
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("habits")
       .document(habit.id)
       .collection("isDone")

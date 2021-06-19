@@ -39,7 +39,7 @@ class MainPageTableViewCell: UITableViewCell {
 
     let stringDate = formatter.string(from: date)
 
-    HabitManager.shared.db.collection("habits")
+    HabitManager.shared.database.collection("habits")
       .document(viewModel.id)
       .collection("isDone")
       .document(UserManager.shared.currentUser)
@@ -64,7 +64,7 @@ class MainPageTableViewCell: UITableViewCell {
     AchievementsChecker.checker.checkAllAchievements(checked: sender.isSelected)
     }
 
-    HabitManager.shared.db.collection("habits")
+    HabitManager.shared.database.collection("habits")
       .document(id)
       .collection("isDone")
       .document(UserManager.shared.currentUser)

@@ -43,12 +43,12 @@ class PublicHabitDetailViewController: UIViewController {
 
   @IBAction func pressButton(_ sender: UIButton) {
     if let habit = habit {
-      HabitManager.shared.db.collection("habits")
+      HabitManager.shared.database.collection("habits")
         .document(habit.id)
         .updateData(
           ["members": FieldValue.arrayUnion([UserManager.shared.currentUser])]
         )
-      HabitManager.shared.db.collection("chats")
+      HabitManager.shared.database.collection("chats")
         .document(habit.id)
         .updateData(
           ["members": FieldValue.arrayUnion([UserManager.shared.currentUser])]

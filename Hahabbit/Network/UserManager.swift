@@ -91,14 +91,14 @@ class UserManager {
     }
   }
   func updateChatRoomName(newName: String) {
-    HabitManager.shared.db
+    HabitManager.shared.database
       .collection("chats")
       .whereField("members", arrayContains: UserManager.shared.currentUser)
       .getDocuments { querySnapshot, error in
         if let habits = querySnapshot?.documents {
           let habitIDs = habits.compactMap { $0["id"] }
           for habitID in habitIDs {
-            HabitManager.shared.db
+            HabitManager.shared.database
               .collection("chats")
               .document(habitID as? String ?? "")
               .collection("thread")
@@ -111,7 +111,7 @@ class UserManager {
                 if let messages = querySnapshot?.documents {
                   let messageIDs = messages.compactMap { $0["id"] }
                   for messageID in messageIDs {
-                    HabitManager.shared.db
+                    HabitManager.shared.database
                       .collection("chats")
                       .document(habitID as? String ?? "")
                       .collection("thread")

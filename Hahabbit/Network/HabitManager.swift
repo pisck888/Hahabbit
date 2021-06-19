@@ -18,20 +18,20 @@ class HabitManager {
 
   var habits: [Habit] = []
 
-  lazy var db = Firestore.firestore()
+  lazy var database = Firestore.firestore()
 
   func fetchHabits(type: Int = 0, date: Date = Date(), completion: @escaping (Result<[Habit], Error>) -> Void) {
 
     let weekday = Calendar.current.component(.weekday, from: date)
 
-    db.collection("habits")
+    database.collection("habits")
       .whereField("members", arrayContains: UserManager.shared.currentUser)
       .whereField("weekday.\(weekday)", isEqualTo: true)
       .whereField("type.\(type)", isEqualTo: true)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          completion(.failure(error!))
-          print("There was an issue retrieving data from Firebase. \(error!)")
+        if let err = error {
+          completion(.failure(err))
+          print("There was an issue retrieving data from Firebase. \(err)")
           return
         }
         guard let documents = querySnapshot?.documents else {
@@ -48,13 +48,13 @@ class HabitManager {
           formatter.dateFormat = "yyyyMMdd"
           let today = formatter.string(from: date)
           // set today isDone status
-          self.db.collection("habits")
+          self.database.collection("habits")
             .document(habit.id)
             .collection("isDone")
             .document(UserManager.shared.currentUser)
             .getDocument { documentSnapshot, _ in
               if documentSnapshot?.data()?[today] == nil {
-                self.db.collection("habits")
+                self.database.collection("habits")
                   .document(habit.id)
                   .collection("isDone")
                   .document(UserManager.shared.currentUser)
@@ -66,7 +66,7 @@ class HabitManager {
   }
 
   func fetchAllHabits(completion: @escaping (Result<[Habit], Error>) -> Void) {
-    db.collection("habits")
+    database.collection("habits")
       .whereField("members", arrayContains: UserManager.shared.currentUser)
       .addSnapshotListener { querySnapshot, error in
         if let err = error {
@@ -81,11 +81,11 @@ class HabitManager {
         completion(.success(self.habits))
       }
   }
-  
+
   func uploadHabit(habit: Habit, hours: [Int], minutes: [Int], completionHandler: ((String) -> Void)?) {
-    if habit.id == "" {
-      let newHabitRef = db.collection("habits").document()
-      let notification = db.collection("habits")
+    if habit.id.isEmpty {
+      let newHabitRef = database.collection("habits").document()
+      let notification = database.collection("habits")
         .document(newHabitRef.documentID)
         .collection("notification")
         .document(UserManager.shared.currentUser)
@@ -107,8 +107,8 @@ class HabitManager {
       notification.setData(["minutes": minutes], merge: true)
       completionHandler?(newHabitRef.documentID)
     } else {
-      let editHabitRef = db.collection("habits").document(habit.id)
-      let notification = db.collection("habits")
+      let editHabitRef = database.collection("habits").document(habit.id)
+      let notification = database.collection("habits")
         .document(habit.id)
         .collection("notification")
         .document(UserManager.shared.currentUser)
@@ -128,8 +128,8 @@ class HabitManager {
       notification.setData(["hours": hours], merge: true)
       notification.setData(["minutes": minutes], merge: true)
       editHabitRef.setData(data) { error in
-        guard error == nil else {
-          print(error)
+        if let err = error {
+          print(err)
           return
         }
         completionHandler?(habit.id)
@@ -140,48 +140,48 @@ class HabitManager {
 
   func deleteHabit(habit: Habit) {
     if habit.owner == UserManager.shared.currentUser {
-      db.collection("habits")
+      database.collection("habits")
         .document(habit.id)
         .delete { error in
-          guard error == nil else {
-            print(error as Any)
+          if let err = error {
+            print(err)
             return
           }
         }
-      db.collection("chats")
+      database.collection("chats")
         .document(habit.id)
         .delete { error in
-          guard error == nil else {
-            print(error as Any)
+          if let err = error {
+            print(err)
             return
           }
         }
       let storage = Storage.storage()
       let storageRef = storage.reference(forURL: habit.photo)
       storageRef.delete { error in
-        guard error == nil else {
-          print(error as Any)
+        if let err = error {
+          print(err)
           return
         }
       }
     } else {
-      db.collection("habits")
+      database.collection("habits")
         .document(habit.id)
         .updateData([
           "members": FieldValue.arrayRemove([UserManager.shared.currentUser])
         ]) { error in
-          guard error == nil else {
-            print(error as Any)
+          if let err = error {
+            print(err)
             return
           }
         }
-      db.collection("chats")
+      database.collection("chats")
         .document(habit.id)
         .updateData([
           "members": FieldValue.arrayRemove([UserManager.shared.currentUser])
         ]) { error in
-          guard error == nil else {
-            print(error as Any)
+          if let err = error {
+            print(err)
             return
           }
         }
@@ -190,7 +190,7 @@ class HabitManager {
 
   func setAllNotifications() {
     UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-    db.collection("habits")
+    database.collection("habits")
       .whereField("members", arrayContains: UserManager.shared.currentUser)
       .getDocuments { querySnapshot, error in
         guard let documents = querySnapshot?.documents else {
@@ -210,11 +210,14 @@ class HabitManager {
               notificationContent.badge = 1
               notificationContent.sound = .default
 
-              let imageURL = Bundle.main.url(forResource: "catPlaceholder", withExtension: "png")!
-              let attachment = try! UNNotificationAttachment(identifier: "image", url: imageURL, options: nil)
+              guard
+                let imageURL = Bundle.main.url(forResource: "catPlaceholder", withExtension: "png"),
+                let attachment = try? UNNotificationAttachment(identifier: "image", url: imageURL, options: nil) else {
+                return
+              }
               notificationContent.attachments = [attachment]
 
-              self.db.collection("habits")
+              self.database.collection("habits")
                 .document(habit.id)
                 .collection("notification")
                 .document(UserManager.shared.currentUser)
@@ -230,7 +233,11 @@ class HabitManager {
                       datComp.minute = minutes[i]
 
                       let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
-                      let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+                      let request = UNNotificationRequest(
+                        identifier: UUID().uuidString,
+                        content: notificationContent,
+                        trigger: trigger
+                      )
                       UNUserNotificationCenter.current().add(request) { error in
                         if let err = error {
                           print(err.localizedDescription)

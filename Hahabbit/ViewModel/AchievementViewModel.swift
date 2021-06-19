@@ -20,7 +20,7 @@ class AchievementViewModel {
 
 
   func fetchData() {
-    HabitManager.shared.db.collection("achievements")
+    HabitManager.shared.database.collection("achievements")
       .addSnapshotListener { querySnapshot, error in
         if let err = error {
           print(err)

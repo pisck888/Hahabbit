@@ -79,7 +79,7 @@ identifier_name:
     - x
     - y
     - z
-
+    
 indentation_width:
   indentation_width: 2
 

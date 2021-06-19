@@ -11,7 +11,9 @@ import FirebaseFirestoreSwift
 
 class ProfileViewModel {
 
-  var currentUserViewModel: Box<User> = Box(User(id: "", title: "", name: "", image: "", coin: 0, signUpDate: "", titleArray: [], blocklist: []))
+  var currentUserViewModel: Box<User> = Box(
+    User(id: "", title: "", name: "", image: "", coin: 0, signUpDate: "", titleArray: [], blocklist: [])
+  )
 
   var tappedUserViewModel: Box<User?> = Box(nil)
 

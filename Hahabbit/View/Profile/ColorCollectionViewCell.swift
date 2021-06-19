@@ -8,7 +8,6 @@
 import UIKit
 
 class ColorCollectionViewCell: UICollectionViewCell {
-    
   @IBOutlet weak var selectedImage: UIImageView!
   @IBOutlet weak var colorView: UIView!
 
