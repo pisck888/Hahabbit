@@ -40,29 +40,32 @@ class HabitManager {
         self.habits = documents.compactMap { queryDocumentSnapshot in
           try?  queryDocumentSnapshot.data(as: Habit.self)
         }
+        self.initHabitsTodayRecord(habits: self.habits)
         completion(.success(self.habits))
-
-        for habit in self.habits {
-          let date = Date()
-          let formatter = DateFormatter()
-          formatter.dateFormat = "yyyyMMdd"
-          let today = formatter.string(from: date)
-          // set today isDone status
-          self.database.collection("habits")
-            .document(habit.id)
-            .collection("isDone")
-            .document(UserManager.shared.currentUser)
-            .getDocument { documentSnapshot, _ in
-              if documentSnapshot?.data()?[today] == nil {
-                self.database.collection("habits")
-                  .document(habit.id)
-                  .collection("isDone")
-                  .document(UserManager.shared.currentUser)
-                  .setData([today: false], merge: true)
-              }
-            }
-        }
       }
+  }
+
+  func initHabitsTodayRecord(habits: [Habit]) {
+    for habit in habits {
+      let date = Date()
+      let formatter = DateFormatter()
+      formatter.dateFormat = "yyyyMMdd"
+      let today = formatter.string(from: date)
+      // set today isDone status
+      self.database.collection("habits")
+        .document(habit.id)
+        .collection("isDone")
+        .document(UserManager.shared.currentUser)
+        .getDocument { documentSnapshot, _ in
+          if documentSnapshot?.data()?[today] == nil {
+            self.database.collection("habits")
+              .document(habit.id)
+              .collection("isDone")
+              .document(UserManager.shared.currentUser)
+              .setData([today: false], merge: true)
+          }
+        }
+    }
   }
 
   func fetchAllHabits(completion: @escaping (Result<[Habit], Error>) -> Void) {
@@ -240,7 +243,7 @@ class HabitManager {
                       )
                       UNUserNotificationCenter.current().add(request) { error in
                         if let err = error {
-                          print(err.localizedDescription)
+                          print(err)
                         }
                       }
                     }

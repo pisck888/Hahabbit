@@ -40,7 +40,6 @@ class GraphViewModel {
   var consecutiveRecord: Box<Int> = Box(0)
 
   func fetchGraphData(graphView: ScrollableGraphView, habitID: String) {
-    let year = Calendar.current.component(.year, from: Date())
     HabitManager.shared.database
       .collection("habits")
       .document(habitID)
@@ -51,49 +50,21 @@ class GraphViewModel {
           print(error as Any)
           return
         }
+        self.counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         guard let keys = documentSnapshot?.data()?.keys else { return }
         // count GraphViewNumbers
-        self.counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for key in keys {
-          guard let isDone = documentSnapshot?.data()?[key] as? Bool else {
+          guard let dailyRecord = documentSnapshot?.data()?[key] as? Bool else {
             return
           }
-          if isDone {
+          if dailyRecord == true {
             guard let date = Int(key) else { return }
-            switch date {
-            case (year * 10000 + 101) ... (year * 10000 + 131):
-              self.counter[0] += 1
-            case (year * 10000 + 201) ... (year * 10000 + 231):
-              self.counter[1] += 1
-            case (year * 10000 + 301) ... (year * 10000 + 331):
-              self.counter[2] += 1
-            case (year * 10000 + 401) ... (year * 10000 + 431):
-              self.counter[3] += 1
-            case (year * 10000 + 501) ... (year * 10000 + 531):
-              self.counter[4] += 1
-            case (year * 10000 + 601) ... (year * 10000 + 631):
-              self.counter[5] += 1
-            case (year * 10000 + 701) ... (year * 10000 + 731):
-              self.counter[6] += 1
-            case (year * 10000 + 801) ... (year * 10000 + 831):
-              self.counter[7] += 1
-            case (year * 10000 + 901) ... (year * 10000 + 931):
-              self.counter[8] += 1
-            case (year * 10000 + 1001) ... (year * 10000 + 1031):
-              self.counter[9] += 1
-            case (year * 10000 + 1101) ... (year * 10000 + 1131):
-              self.counter[10] += 1
-            case (year * 10000 + 1201) ... (year * 10000 + 1231):
-              self.counter[11] += 1
-            default:
-              print("data might be wrong!")
-            }
+            self.countDoneDaysForEachMonth(doneDate: date)
           }
         }
         graphView.reload()
       }
   }
-
 
   func fetchRecordData(habitID: String) {
 
@@ -145,6 +116,38 @@ class GraphViewModel {
           }
         }
       }
+  }
+
+  func countDoneDaysForEachMonth(doneDate: Int) {
+    let year = Calendar.current.component(.year, from: Date())
+    switch doneDate {
+    case (year * 10000 + 101) ... (year * 10000 + 131):
+      self.counter[0] += 1
+    case (year * 10000 + 201) ... (year * 10000 + 231):
+      self.counter[1] += 1
+    case (year * 10000 + 301) ... (year * 10000 + 331):
+      self.counter[2] += 1
+    case (year * 10000 + 401) ... (year * 10000 + 431):
+      self.counter[3] += 1
+    case (year * 10000 + 501) ... (year * 10000 + 531):
+      self.counter[4] += 1
+    case (year * 10000 + 601) ... (year * 10000 + 631):
+      self.counter[5] += 1
+    case (year * 10000 + 701) ... (year * 10000 + 731):
+      self.counter[6] += 1
+    case (year * 10000 + 801) ... (year * 10000 + 831):
+      self.counter[7] += 1
+    case (year * 10000 + 901) ... (year * 10000 + 931):
+      self.counter[8] += 1
+    case (year * 10000 + 1001) ... (year * 10000 + 1031):
+      self.counter[9] += 1
+    case (year * 10000 + 1101) ... (year * 10000 + 1131):
+      self.counter[10] += 1
+    case (year * 10000 + 1201) ... (year * 10000 + 1231):
+      self.counter[11] += 1
+    default:
+      print("data might be wrong!")
+    }
   }
 
   func findMaxConsecutiveTrue(array: [Bool]) -> Int {

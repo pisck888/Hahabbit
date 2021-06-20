@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		54A60F19C730FF6B148C6E77 /* Pods_Hahabbit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F5A42445D4AC6FE6682712 /* Pods_Hahabbit.framework */; };
+		C799B3AF95CCAB2C101A5297 /* libPods-HahabbitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB173836A7B96ADB4B247EB /* libPods-HahabbitTests.a */; };
 		E7052E4D2652476600B717F8 /* MainPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E4B2652476600B717F8 /* MainPageTableViewCell.swift */; };
 		E7052E4E2652476600B717F8 /* MainPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */; };
 		E7052E532652510400B717F8 /* CalendarPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E522652510400B717F8 /* CalendarPageViewController.swift */; };
@@ -75,6 +76,7 @@
 		E7B3C907267A779A0039C82A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C906267A779A0039C82A /* UIView+Extension.swift */; };
 		E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */; };
 		E7B3C90D267CBD130039C82A /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */; };
+		E7B3C948267E43D70039C82A /* HahabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C947267E43D70039C82A /* HahabbitTests.swift */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
 		E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */; };
@@ -83,10 +85,23 @@
 		E7C54EEE2662C74A004A1ACA /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C54EED2662C74A004A1ACA /* ChatUser.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E7B3C94A267E43D70039C82A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7910F43264AE777003F0DAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7910F4A264AE777003F0DAC;
+			remoteInfo = Hahabbit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0A350669CA1AD1C8B735D252 /* Pods-Hahabbit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hahabbit.debug.xcconfig"; path = "Target Support Files/Pods-Hahabbit/Pods-Hahabbit.debug.xcconfig"; sourceTree = "<group>"; };
+		4E3349E3AD1369B8A359D0B1 /* Pods-HahabbitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahabbitTests.release.xcconfig"; path = "Target Support Files/Pods-HahabbitTests/Pods-HahabbitTests.release.xcconfig"; sourceTree = "<group>"; };
 		7CA43CF2F9B70177D5F18D32 /* Pods-Hahabbit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hahabbit.release.xcconfig"; path = "Target Support Files/Pods-Hahabbit/Pods-Hahabbit.release.xcconfig"; sourceTree = "<group>"; };
+		C08685BF53D3204CA08C6B70 /* Pods-HahabbitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HahabbitTests.debug.xcconfig"; path = "Target Support Files/Pods-HahabbitTests/Pods-HahabbitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0F5A42445D4AC6FE6682712 /* Pods_Hahabbit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hahabbit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB173836A7B96ADB4B247EB /* libPods-HahabbitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HahabbitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7052E4B2652476600B717F8 /* MainPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableViewCell.swift; sourceTree = "<group>"; };
 		E7052E4C2652476600B717F8 /* MainPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPageTableViewCell.xib; sourceTree = "<group>"; };
 		E7052E522652510400B717F8 /* CalendarPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPageViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +175,9 @@
 		E7B3C906267A779A0039C82A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
+		E7B3C945267E43D70039C82A /* HahabbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahabbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7B3C947267E43D70039C82A /* HahabbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HahabbitTests.swift; sourceTree = "<group>"; };
+		E7B3C949267E43D70039C82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +195,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7B3C942267E43D70039C82A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C799B3AF95CCAB2C101A5297 /* libPods-HahabbitTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -185,6 +211,8 @@
 			children = (
 				0A350669CA1AD1C8B735D252 /* Pods-Hahabbit.debug.xcconfig */,
 				7CA43CF2F9B70177D5F18D32 /* Pods-Hahabbit.release.xcconfig */,
+				C08685BF53D3204CA08C6B70 /* Pods-HahabbitTests.debug.xcconfig */,
+				4E3349E3AD1369B8A359D0B1 /* Pods-HahabbitTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -193,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C0F5A42445D4AC6FE6682712 /* Pods_Hahabbit.framework */,
+				DCB173836A7B96ADB4B247EB /* libPods-HahabbitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				E7910F4D264AE777003F0DAC /* Hahabbit */,
+				E7B3C946267E43D70039C82A /* HahabbitTests */,
 				E7910F4C264AE777003F0DAC /* Products */,
 				22C1CA743F7F4648491606C4 /* Pods */,
 				811122708C88BFE26CC4CAE8 /* Frameworks */,
@@ -316,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				E7910F4B264AE777003F0DAC /* Hahabbit.app */,
+				E7B3C945267E43D70039C82A /* HahabbitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -373,12 +404,12 @@
 		E7910F68264B7EF7003F0DAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E7B3C912267D993D0039C82A /* Achievements */,
+				E7B3C910267D98DD0039C82A /* AddNewHabit */,
 				E7B3C90F267D988D0039C82A /* Login */,
 				E7B3C90E267D98450039C82A /* MainPage */,
-				E7B3C910267D98DD0039C82A /* AddNewHabit */,
-				E7B3C912267D993D0039C82A /* Achievements */,
-				E7B3C911267D99090039C82A /* PublicHabit */,
 				E7B3C909267B666A0039C82A /* profile */,
+				E7B3C911267D99090039C82A /* PublicHabit */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -488,6 +519,15 @@
 			path = Achievements;
 			sourceTree = "<group>";
 		};
+		E7B3C946267E43D70039C82A /* HahabbitTests */ = {
+			isa = PBXGroup;
+			children = (
+				E7B3C947267E43D70039C82A /* HahabbitTests.swift */,
+				E7B3C949267E43D70039C82A /* Info.plist */,
+			);
+			path = HahabbitTests;
+			sourceTree = "<group>";
+		};
 		E7BDCCF8266D04B400C0B1A2 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +561,25 @@
 			productReference = E7910F4B264AE777003F0DAC /* Hahabbit.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E7B3C944267E43D70039C82A /* HahabbitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7B3C94C267E43D70039C82A /* Build configuration list for PBXNativeTarget "HahabbitTests" */;
+			buildPhases = (
+				5DEA562DEC20EB16387866F5 /* [CP] Check Pods Manifest.lock */,
+				E7B3C941267E43D70039C82A /* Sources */,
+				E7B3C942267E43D70039C82A /* Frameworks */,
+				E7B3C943267E43D70039C82A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7B3C94B267E43D70039C82A /* PBXTargetDependency */,
+			);
+			name = HahabbitTests;
+			productName = HahabbitTests;
+			productReference = E7B3C945267E43D70039C82A /* HahabbitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -532,6 +591,10 @@
 				TargetAttributes = {
 					E7910F4A264AE777003F0DAC = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					E7B3C944267E43D70039C82A = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = E7910F4A264AE777003F0DAC;
 					};
 				};
 			};
@@ -550,6 +613,7 @@
 			projectRoot = "";
 			targets = (
 				E7910F4A264AE777003F0DAC /* Hahabbit */,
+				E7B3C944267E43D70039C82A /* HahabbitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -577,6 +641,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7B3C943267E43D70039C82A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -596,6 +667,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Hahabbit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5DEA562DEC20EB16387866F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HahabbitTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -724,7 +817,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7B3C941267E43D70039C82A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7B3C948267E43D70039C82A /* HahabbitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7B3C94B267E43D70039C82A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E7910F4A264AE777003F0DAC /* Hahabbit */;
+			targetProxy = E7B3C94A267E43D70039C82A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E7673BF22670F72700527585 /* Localizable.strings */ = {
@@ -922,6 +1031,51 @@
 			};
 			name = Release;
 		};
+		E7B3C94D267E43D70039C82A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C08685BF53D3204CA08C6B70 /* Pods-HahabbitTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = B6VUKK5MCY;
+				INFOPLIST_FILE = HahabbitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.max.HahabbitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hahabbit.app/Hahabbit";
+			};
+			name = Debug;
+		};
+		E7B3C94E267E43D70039C82A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E3349E3AD1369B8A359D0B1 /* Pods-HahabbitTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B6VUKK5MCY;
+				INFOPLIST_FILE = HahabbitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.max.HahabbitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hahabbit.app/Hahabbit";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -939,6 +1093,15 @@
 			buildConfigurations = (
 				E7910F60264AE77C003F0DAC /* Debug */,
 				E7910F61264AE77C003F0DAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7B3C94C267E43D70039C82A /* Build configuration list for PBXNativeTarget "HahabbitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7B3C94D267E43D70039C82A /* Debug */,
+				E7B3C94E267E43D70039C82A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

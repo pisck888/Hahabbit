@@ -222,6 +222,8 @@ PODS:
   - ContextMenuSwift (0.0.8)
   - CustomizableActionSheet (1.2.3)
   - DynamicBlurView (4.1.0)
+  - Firebase (6.34.0):
+    - Firebase/Core (= 6.34.0)
   - Firebase/Analytics (6.34.0):
     - Firebase/Core
   - Firebase/Auth (6.34.0):
@@ -381,6 +383,7 @@ DEPENDENCIES:
   - Blueprints
   - ContextMenuSwift
   - CustomizableActionSheet
+  - Firebase
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Crashlytics
@@ -490,6 +493,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftTheme: 50c3b3d38bdee43212af1f4ec0fb95dec550b2be
 
-PODFILE CHECKSUM: 8460cbd7d4c58b11ac49098c0c1b96876c9e6faa
+PODFILE CHECKSUM: 4257ecffd67243f9609f53ffbb9b0208e9b8f068
 
 COCOAPODS: 1.10.1
