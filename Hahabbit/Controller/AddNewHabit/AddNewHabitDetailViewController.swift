@@ -436,7 +436,7 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
 
   func setReminders(collectionView: UICollectionView, indexPath: IndexPath) {
     if collectionView == remindersCollectionView && indexPath.row == reminders.count - 1 {
-      let alert = UIAlertController(style: .actionSheet, title: "設定時間".localized())
+      let alert = UIAlertController(title: "設定時間".localized(), message: nil, preferredStyle: .actionSheet)
       var stringHour = ""
       var stringMinute = ""
       var hour = 0 {

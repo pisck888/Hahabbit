@@ -17,7 +17,24 @@ extension UIAlertController {
       maximumDate: maximumDate,
       action: action
     )
-    set(vc: datePicker, height: 217)
+    setValue(datePicker, forKey: "contentViewController")
+  }
+
+  public func addAction(image: UIImage? = nil, title: String, color: UIColor? = nil, style: UIAlertAction.Style = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) {
+    let action = UIAlertAction(title: title, style: style, handler: handler)
+    action.isEnabled = isEnabled
+
+    // button image
+    if let image = image {
+      action.setValue(image, forKey: "image")
+    }
+
+    // button title color
+    if let color = color {
+      action.setValue(color, forKey: "titleTextColor")
+    }
+
+    addAction(action)
   }
 }
 
@@ -49,7 +66,7 @@ final public class DatePickerViewController: UIViewController {
   required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
+  
   deinit {
   }
 

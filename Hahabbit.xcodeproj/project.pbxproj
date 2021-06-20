@@ -75,7 +75,6 @@
 		E79F12462674B0C40064531A /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */; };
 		E7B3C907267A779A0039C82A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C906267A779A0039C82A /* UIView+Extension.swift */; };
 		E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */; };
-		E7B3C90D267CBD130039C82A /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */; };
 		E7B3C948267E43D70039C82A /* HahabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C947267E43D70039C82A /* HahabbitTests.swift */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
@@ -174,7 +173,6 @@
 		E79F12452674B0C40064531A /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7B3C906267A779A0039C82A /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
-		E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 		E7B3C945267E43D70039C82A /* HahabbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahabbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B3C947267E43D70039C82A /* HahabbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HahabbitTests.swift; sourceTree = "<group>"; };
 		E7B3C949267E43D70039C82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 			children = (
 				E736858C266735AD002E2278 /* UIImage+Extension.swift */,
 				E7B3C906267A779A0039C82A /* UIView+Extension.swift */,
-				E7B3C90C267CBD130039C82A /* UIAlertController+Extensions.swift */,
 				E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */,
 				E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */,
 			);
@@ -780,7 +777,6 @@
 				E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */,
 				E7910F74264BA7FF003F0DAC /* AddNewHabitViewController.swift in Sources */,
 				E7910F51264AE777003F0DAC /* SceneDelegate.swift in Sources */,
-				E7B3C90D267CBD130039C82A /* UIAlertController+Extensions.swift in Sources */,
 				E777F7EC267364EB00BCD59E /* AllHabitsViewController.swift in Sources */,
 				E7052E8F2656090A00B717F8 /* HomeViewModel.swift in Sources */,
 				E74F423F265B89F300C9AB3D /* PublicHabitDetailCell.swift in Sources */,
