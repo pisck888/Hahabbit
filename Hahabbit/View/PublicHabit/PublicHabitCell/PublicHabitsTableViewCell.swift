@@ -1,5 +1,5 @@
 //
-//  PublicGoalsTableViewCell.swift
+//  PublicHabitsTableViewCell.swift
 //  Hahabbit
 //
 //  Created by TSAI TSUNG-HAN on 2021/5/18.
@@ -65,19 +65,22 @@ class PublicHabitsTableViewCell: UITableViewCell {
       .collection("users")
       .whereField("id", isEqualTo: publicHabit.owner)
       .getDocuments { querySnapshot, error in
-        guard error == nil else {
-          print(error as Any)
+        if let err = error {
+          print(err)
           return
         }
-        if let user = querySnapshot?.documents, !user.isEmpty,
-           let title = user[0].data()["title"],
-           let name = user[0].data()["name"],
-           let url = URL(string: user[0].data()["image"] as? String ?? "") {
-          self.ownerLabel.text = "發起人：[\(title)] \(name)"
-          self.avatarImage.kf.setImage(with: url)
-          self.name = name as? String
-          self.title = title as? String
+        guard
+          let user = querySnapshot?.documents,
+          let title = user[0].data()["title"],
+          let name = user[0].data()["name"],
+          let url = URL(string: user[0].data()["image"] as? String ?? "")
+        else {
+          return
         }
+        self.ownerLabel.text = "發起人：[\(title)] \(name)"
+        self.avatarImage.kf.setImage(with: url)
+        self.name = name as? String
+        self.title = title as? String
       }
   }
 }

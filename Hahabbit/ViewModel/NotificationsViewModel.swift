@@ -10,15 +10,15 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class NotificationsViewModel {
-  
+
   var notification: Box<String?> = Box(nil)
-  
+
   var hour: Box<Int?> = Box(nil)
-  
+
   var minute: Box<Int?> = Box(nil)
-  
+
   lazy var datebase = Firestore.firestore()
-  
+
   func fetchNotifications(id: String) {
     datebase.collection("habits")
       .document(id)

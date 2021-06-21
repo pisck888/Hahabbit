@@ -65,7 +65,7 @@
 		E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */; };
 		E7910F6C264B87BB003F0DAC /* AddNewHabit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6B264B87BB003F0DAC /* AddNewHabit.storyboard */; };
 		E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6D264B9190003F0DAC /* Achievements.storyboard */; };
-		E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */; };
+		E7910F70264B91D6003F0DAC /* PublicHabits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6F264B91D6003F0DAC /* PublicHabits.storyboard */; };
 		E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F71264B9243003F0DAC /* Profile.storyboard */; };
 		E7910F74264BA7FF003F0DAC /* AddNewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F73264BA7FF003F0DAC /* AddNewHabitViewController.swift */; };
 		E7910F77264BC011003F0DAC /* AddNewHabitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7910F76264BC011003F0DAC /* AddNewHabitTableViewCell.swift */; };
@@ -165,7 +165,7 @@
 		E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E7910F6B264B87BB003F0DAC /* AddNewHabit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewHabit.storyboard; sourceTree = "<group>"; };
 		E7910F6D264B9190003F0DAC /* Achievements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievements.storyboard; sourceTree = "<group>"; };
-		E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicGoals.storyboard; sourceTree = "<group>"; };
+		E7910F6F264B91D6003F0DAC /* PublicHabits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicHabits.storyboard; sourceTree = "<group>"; };
 		E7910F71264B9243003F0DAC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		E7910F73264BA7FF003F0DAC /* AddNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitViewController.swift; sourceTree = "<group>"; };
 		E7910F76264BC011003F0DAC /* AddNewHabitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitTableViewCell.swift; sourceTree = "<group>"; };
@@ -424,7 +424,7 @@
 				E7910F54264AE777003F0DAC /* Main.storyboard */,
 				E7910F6B264B87BB003F0DAC /* AddNewHabit.storyboard */,
 				E7910F6D264B9190003F0DAC /* Achievements.storyboard */,
-				E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */,
+				E7910F6F264B91D6003F0DAC /* PublicHabits.storyboard */,
 				E7910F71264B9243003F0DAC /* Profile.storyboard */,
 			);
 			path = Storyboard;
@@ -639,7 +639,7 @@
 				E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */,
 				E7673BF02670F72700527585 /* Localizable.strings in Resources */,
 				E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */,
-				E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */,
+				E7910F70264B91D6003F0DAC /* PublicHabits.storyboard in Resources */,
 				E7910F56264AE777003F0DAC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

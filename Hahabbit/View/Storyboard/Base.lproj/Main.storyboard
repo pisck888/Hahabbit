@@ -900,7 +900,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mt2-X9-50i" customClass="MyAuthorizationAppleIDButton" customModule="Hahabbit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="Guv-d1-2xv"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Guv-d1-2xv"/>
                                                     <constraint firstAttribute="height" constant="50" id="rDZ-gV-xdp"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
@@ -1073,10 +1073,10 @@
             </objects>
             <point key="canvasLocation" x="-38" y="515"/>
         </scene>
-        <!--PublicGoals-->
+        <!--PublicHabits-->
         <scene sceneID="TrK-fq-6sy">
             <objects>
-                <viewControllerPlaceholder storyboardName="PublicGoals" id="J2s-9C-oAP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="PublicHabits" id="J2s-9C-oAP" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="LX6-UJ-5jg"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgK-Ww-TTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

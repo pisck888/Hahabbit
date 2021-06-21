@@ -225,26 +225,29 @@ class HabitManager {
                 .collection("notification")
                 .document(UserManager.shared.currentUser)
                 .getDocument { documentSnapshot, error in
-                  if let hours = documentSnapshot?.data()?["hours"] as? [Int],
-                     let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
-                     !hours.isEmpty,
-                     !minutes.isEmpty {
-                    for i in 0...(hours.count - 1) {
-                      var datComp = DateComponents()
-                      datComp.weekday = weekday
-                      datComp.hour = hours[i]
-                      datComp.minute = minutes[i]
+                  guard
+                    let hours = documentSnapshot?.data()?["hours"] as? [Int],
+                    let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
+                    !hours.isEmpty,
+                    !minutes.isEmpty
+                  else {
+                    return
+                  }
+                  for i in 0...(hours.count - 1) {
+                    var datComp = DateComponents()
+                    datComp.weekday = weekday
+                    datComp.hour = hours[i]
+                    datComp.minute = minutes[i]
 
-                      let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
-                      let request = UNNotificationRequest(
-                        identifier: UUID().uuidString,
-                        content: notificationContent,
-                        trigger: trigger
-                      )
-                      UNUserNotificationCenter.current().add(request) { error in
-                        if let err = error {
-                          print(err)
-                        }
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
+                    let request = UNNotificationRequest(
+                      identifier: UUID().uuidString,
+                      content: notificationContent,
+                      trigger: trigger
+                    )
+                    UNUserNotificationCenter.current().add(request) { error in
+                      if let err = error {
+                        print(err)
                       }
                     }
                   }
