@@ -36,6 +36,9 @@ enum K {
   static let publicHabitDetailCell = "PublicHabitDetailCell"
 
   static let publicHabitsTableViewCell = "PublicHabitsTableViewCell"
+
+  static let achievementsTableViewCell = "AchievementsTableViewCell"
+
 }
 
 enum MySegue {

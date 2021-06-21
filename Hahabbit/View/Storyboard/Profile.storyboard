@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileCell" id="Zcz-yM-iRb" customClass="ProfileTableViewCell" customModule="Hahabbit" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileTableViewCell" id="Zcz-yM-iRb" customClass="ProfileTableViewCell" customModule="Hahabbit" customModuleProvider="target">
                                         <rect key="frame" x="20" y="49.5" width="374" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zcz-yM-iRb" id="9JM-pp-7Kz">
@@ -122,7 +122,7 @@
                                             <segue destination="yGk-i2-98d" kind="show" id="u90-Re-sBr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" rowHeight="60" id="Btf-27-7Xz" customClass="SettingsTableViewCell" customModule="Hahabbit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsTableViewCell" rowHeight="60" id="Btf-27-7Xz" customClass="SettingsTableViewCell" customModule="Hahabbit" customModuleProvider="target">
                                         <rect key="frame" x="20" y="141.5" width="374" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Btf-27-7Xz" id="ufW-n9-3y5">
@@ -155,7 +155,7 @@
                                             <outlet property="titleLabel" destination="LUg-HZ-GoZ" id="mSt-60-fQx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignOutCell" id="Vq8-fZ-Cd0" customClass="SignOutTableViewCell" customModule="Hahabbit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignOutTableViewCell" id="Vq8-fZ-Cd0" customClass="SignOutTableViewCell" customModule="Hahabbit" customModuleProvider="target">
                                         <rect key="frame" x="20" y="201.5" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vq8-fZ-Cd0" id="MLX-WA-bU8">
@@ -248,7 +248,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlocklistCell" translatesAutoresizingMaskIntoConstraints="NO" id="Anr-5U-bTu" customClass="BlocklistTableViewCell" customModule="Hahabbit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlocklistTableViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="Anr-5U-bTu" customClass="BlocklistTableViewCell" customModule="Hahabbit" customModuleProvider="target">
                                         <rect key="frame" x="20" y="49.5" width="374" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Anr-5U-bTu" id="N0r-r7-11f">

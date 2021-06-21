@@ -1,5 +1,5 @@
 //
-//  AddNewGoalViewController.swift
+//  AddNewHabitViewController.swift
 //  Hahabbit
 //
 //  Created by TSAI TSUNG-HAN on 2021/5/12.
@@ -49,11 +49,9 @@ extension AddNewHabitViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: K.addNewGoalCell,
-      for: indexPath) as? AddNewHabitTableViewCell else {
-        return AddNewHabitTableViewCell()
-    }
+
+    let cell: AddNewHabitTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+
     cell.setup(
       title: MyArray.habitTypeTitleArray[indexPath.row].localized(),
       image: MyArray.habitTypeImageArray[indexPath.row]

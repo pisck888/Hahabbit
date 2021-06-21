@@ -46,8 +46,8 @@ class GraphViewModel {
       .collection("isDone")
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
-        guard error == nil else {
-          print(error as Any)
+        if let err = error {
+          print(err)
           return
         }
         self.counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -82,8 +82,8 @@ class GraphViewModel {
       .collection("isDone")
       .document(UserManager.shared.currentUser)
       .getDocument { documentSnapshot, error in
-        guard error == nil else {
-          print(error as Any)
+        if let err = error {
+          print(err)
           return
         }
         guard let keys = documentSnapshot?.data()?.keys else { return }
@@ -92,11 +92,12 @@ class GraphViewModel {
         // get consecutiveRecord
         for i in 0 ... keys.count - 1 {
           let date = String(keys.sorted()[i])
-          self.consecutiveRecordArray.append(documentSnapshot?.data()?[date] as! Bool)
+          let boolRecordOfDate = documentSnapshot?.data()?[date] as? Bool ?? false
+          self.consecutiveRecordArray.append(boolRecordOfDate)
         }
         self.consecutiveRecord.value = self.findMaxConsecutiveTrue(array: self.consecutiveRecordArray)
 
-        for value in values where value as! Bool == true {
+        for value in values where value as? Bool == true {
           // count totalRecord
           self.totalRecord.value += 1
         }
@@ -106,7 +107,7 @@ class GraphViewModel {
           switch date {
           case (year * 10000) + (month * 100) ... (year * 10000) + (month * 100) + 31:
             // count monthRecord
-            if documentSnapshot?.data()?[String(date)] as! Bool == true {
+            if documentSnapshot?.data()?[String(date)] as? Bool == true {
               self.monthRecord.value += 1
               // count monthPercentage
               self.monthDoneDays += 1

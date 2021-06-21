@@ -29,8 +29,9 @@ class AchievementsChecker {
 
   // 一馬當先
   func checkAchievements0() {
+    let achievementID = 2
     database.collection("achievements")
-      .whereField("id", isEqualTo: 2)
+      .whereField("id", isEqualTo: achievementID)
       .whereField("isDone", arrayContains: UserManager.shared.currentUser)
       .getDocuments { querySnapshot, error in
         if let err = error {
@@ -44,33 +45,7 @@ class AchievementsChecker {
             .document("2")
             .updateData(["isDone": FieldValue.arrayUnion([UserManager.shared.currentUser])]
             )
-          self.database.collection("achievements")
-            .document("2")
-            .getDocument { documentSnapshot, error in
-              if let err = error {
-                print(err)
-                return
-              }
-              if let achievement = try? documentSnapshot?.data(as: Achievement.self) {
-                self.database.collection("users")
-                  .document(UserManager.shared.currentUser)
-                  .getDocument { documentSnapshot, error in
-                    if let err = error {
-                      print(err)
-                      return
-                    }
-                    if let coin = documentSnapshot?.data()?["coin"] as? Int {
-                      let newCoin = coin + achievement.reward
-                      UserManager.shared.updateCoin(newCoin: newCoin)
-                      self.delegate?.showPopupView(
-                        title: achievement.title,
-                        message: achievement.discription,
-                        image: achievement.image
-                      )
-                    }
-                  }
-              }
-            }
+          self.addRewardToUserCurrentCoin(from: achievementID)
         } else {
           print("已獲得成就2")
           return
@@ -80,6 +55,7 @@ class AchievementsChecker {
   }
   // 半夜睡不著覺
   func checkAchievements1() {
+    let achievementID = 1
 
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH"
@@ -88,7 +64,7 @@ class AchievementsChecker {
 
     if timeString == "02" {
       database.collection("achievements")
-        .whereField("id", isEqualTo: 1)
+        .whereField("id", isEqualTo: achievementID)
         .whereField("isDone", arrayContains: UserManager.shared.currentUser)
         .getDocuments { querySnapshot, error in
           if let err = error {
@@ -102,38 +78,46 @@ class AchievementsChecker {
               .document("1")
               .updateData(["isDone": FieldValue.arrayUnion([UserManager.shared.currentUser])]
               )
-            self.database.collection("achievements")
-              .document("1")
-              .getDocument { documentSnapshot, error in
-                if let err = error {
-                  print(err)
-                  return
-                }
-                if let achievement = try? documentSnapshot?.data(as: Achievement.self) {
-                  self.database.collection("users")
-                    .document(UserManager.shared.currentUser)
-                    .getDocument { documentSnapshot, error in
-                      if let err = error {
-                        print(err)
-                        return
-                      }
-                      if let coin = documentSnapshot?.data()?["coin"] as? Int {
-                        let newCoin = coin + achievement.reward
-                        UserManager.shared.updateCoin(newCoin: newCoin)
-                        self.delegate?.showPopupView(
-                          title: achievement.title,
-                          message: achievement.discription,
-                          image: achievement.image
-                        )
-                      }
-                    }
-                }
-              }
+            self.addRewardToUserCurrentCoin(from: achievementID)
           } else {
             print("已獲得成就1")
             return
           }
         }
     }
+  }
+
+  func addRewardToUserCurrentCoin(from achievementID: Int) {
+    self.database.collection("achievements")
+      .document(String(achievementID))
+      .getDocument { documentSnapshot, error in
+        if let err = error {
+          print(err)
+          return
+        }
+        if let achievement = try? documentSnapshot?.data(as: Achievement.self) {
+          self.updateUserCoinAndShowPopup(from: achievement)        }
+      }
+  }
+
+  func updateUserCoinAndShowPopup(from achievement: Achievement) {
+    database.collection("users")
+      .document(UserManager.shared.currentUser)
+      .getDocument { documentSnapshot, error in
+        if let err = error {
+          print(err)
+          return
+        }
+        if let currentCoin = documentSnapshot?.data()?["coin"] as? Int {
+          let newCoin = currentCoin + achievement.reward
+          UserManager.shared.updateCoin(newCoin: newCoin)
+          self.delegate?.showPopupView(
+            title: achievement.title,
+            message: achievement.discription,
+            image: achievement.image
+          )
+        }
+      }
+
   }
 }

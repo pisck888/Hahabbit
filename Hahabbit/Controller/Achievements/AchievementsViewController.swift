@@ -86,11 +86,7 @@ extension AchievementsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: "AchievementsTableViewCell",
-      for: indexPath) as? AchievementsTableViewCell else {
-        return AchievementsTableViewCell()
-    }
+    let cell: AchievementsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
     switch indexPath.section {
     case 0:
       cell.setup(achievement: viewModel.userAchievements.value[indexPath.row])

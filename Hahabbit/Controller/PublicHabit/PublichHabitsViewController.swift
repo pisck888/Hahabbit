@@ -61,7 +61,7 @@ class PublichHabitsViewController: UIViewController {
 
     tableView.register(
       UINib(nibName: K.publicHabitsTableViewCell, bundle: nil),
-      forCellReuseIdentifier: K.publicHabitsTableViewCell
+      forCellReuseIdentifier: "\(PublicHabitsTableViewCell.self)"
     )
 
     searchBar.delegate = self
@@ -203,12 +203,7 @@ extension PublichHabitsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: K.publicHabitsTableViewCell,
-            for: indexPath
-    ) as? PublicHabitsTableViewCell else {
-      return PublicHabitsTableViewCell()
-    }
+    let cell: PublicHabitsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
     cell.setup(with: searchHabitsArray[indexPath.row])
     cell.viewController = self
     return cell

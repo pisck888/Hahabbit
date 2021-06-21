@@ -70,14 +70,10 @@ extension PublicHabitDetailViewController: UITableViewDataSource {
     1
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: K.publicHabitDetailCell,
-      for: indexPath
-    ) as? PublicHabitDetailCell,
-    let habit = habit else {
-      return PublicHabitDetailCell()
+    let cell: PublicHabitDetailCell = tableView.dequeueReusableCell(for: indexPath)
+    if let habit = habit {
+      cell.setup(with: habit)
     }
-    cell.setup(with: habit)
     return cell
   }
 }

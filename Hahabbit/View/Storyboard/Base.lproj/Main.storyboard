@@ -299,19 +299,22 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="334" id="aLE-tM-5Tb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aLE-tM-5Tb">
                                         <rect key="frame" x="0.0" y="590.5" width="414" height="334"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aLE-tM-5Tb" id="Ode-Jl-RZl">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aLE-tM-5Tb" id="Ode-Jl-RZl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiw-h3-ZQh">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiw-h3-ZQh">
                                                     <rect key="frame" x="20" y="11" width="374" height="312"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-g6-Tqv" customClass="FSCalendar">
-                                                            <rect key="frame" x="16" y="35.5" width="342" height="276.5"/>
+                                                            <rect key="frame" x="16" y="35.5" width="342" height="280"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="280" id="ybw-7H-rWX"/>
+                                                            </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
                                                                     <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -356,19 +359,22 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="294" id="qub-T7-0SH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="qub-T7-0SH">
                                         <rect key="frame" x="0.0" y="924.5" width="414" height="294"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qub-T7-0SH" id="AA5-SR-Bol">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qub-T7-0SH" id="AA5-SR-Bol">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="294"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqD-8e-RMf">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqD-8e-RMf">
                                                     <rect key="frame" x="20" y="11" width="374" height="272"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4C-vQ-GOg" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
-                                                            <rect key="frame" x="0.0" y="43.5" width="374" height="228.5"/>
+                                                            <rect key="frame" x="16" y="43.5" width="342" height="240"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="240" id="Rc5-i6-7ZS"/>
+                                                            </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="rangeMax">
                                                                     <real key="value" value="30"/>
@@ -387,11 +393,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="R4C-vQ-GOg" secondAttribute="bottom" id="5Ht-oC-gqa"/>
+                                                        <constraint firstAttribute="bottom" secondItem="R4C-vQ-GOg" secondAttribute="bottom" constant="8" id="5Ht-oC-gqa"/>
                                                         <constraint firstItem="0SF-g9-zS1" firstAttribute="leading" secondItem="qqD-8e-RMf" secondAttribute="leading" constant="16" id="Kyn-K0-8q9"/>
-                                                        <constraint firstAttribute="trailing" secondItem="R4C-vQ-GOg" secondAttribute="trailing" id="TYm-EW-wo9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="R4C-vQ-GOg" secondAttribute="trailing" constant="16" id="TYm-EW-wo9"/>
                                                         <constraint firstItem="R4C-vQ-GOg" firstAttribute="top" secondItem="0SF-g9-zS1" secondAttribute="bottom" constant="8" id="dgj-Em-0wG"/>
-                                                        <constraint firstItem="R4C-vQ-GOg" firstAttribute="leading" secondItem="qqD-8e-RMf" secondAttribute="leading" id="gJx-OS-sN3"/>
+                                                        <constraint firstItem="R4C-vQ-GOg" firstAttribute="leading" secondItem="qqD-8e-RMf" secondAttribute="leading" constant="16" id="gJx-OS-sN3"/>
                                                         <constraint firstAttribute="trailing" secondItem="0SF-g9-zS1" secondAttribute="trailing" constant="16" id="ma6-xg-iOL"/>
                                                         <constraint firstItem="0SF-g9-zS1" firstAttribute="top" secondItem="qqD-8e-RMf" secondAttribute="top" constant="16" id="sKP-24-tOb"/>
                                                     </constraints>
@@ -787,10 +793,10 @@
             </objects>
             <point key="canvasLocation" x="3032" y="98"/>
         </scene>
-        <!--AddNewGoalDetailViewController-->
+        <!--AddNewHabitDetailViewController-->
         <scene sceneID="SPd-z5-fyU">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddNewGoal" referencedIdentifier="AddNewGoalDetailViewController" id="Lc0-GG-X4v" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AddNewHabit" referencedIdentifier="AddNewHabitDetailViewController" id="Lc0-GG-X4v" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Y1B-5g-rJ4"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ca8-Tc-hyk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1047,10 +1053,10 @@
             </objects>
             <point key="canvasLocation" x="44.927536231884062" y="98.4375"/>
         </scene>
-        <!--AddNewGoal-->
+        <!--AddNewHabit-->
         <scene sceneID="MI6-lq-c61">
             <objects>
-                <viewControllerPlaceholder storyboardName="AddNewGoal" id="4CS-ha-APA" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="AddNewHabit" id="4CS-ha-APA" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="szp-gz-Qne"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuM-XM-4o1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1180,14 +1186,13 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="6PF-gO-4Ws"/>
         <designable name="mt2-X9-50i">
             <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="2G2-TK-EP2"/>
-        <segue reference="8mz-BA-GtK"/>
+        <segue reference="h0N-K7-h9C"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>
     <resources>

@@ -63,7 +63,7 @@
 		E7910F56264AE777003F0DAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F54264AE777003F0DAC /* Main.storyboard */; };
 		E7910F58264AE77C003F0DAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7910F57264AE77C003F0DAC /* Assets.xcassets */; };
 		E7910F64264AF56A003F0DAC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */; };
-		E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6B264B87BB003F0DAC /* AddNewGoal.storyboard */; };
+		E7910F6C264B87BB003F0DAC /* AddNewHabit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6B264B87BB003F0DAC /* AddNewHabit.storyboard */; };
 		E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6D264B9190003F0DAC /* Achievements.storyboard */; };
 		E7910F70264B91D6003F0DAC /* PublicGoals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */; };
 		E7910F72264B9243003F0DAC /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F71264B9243003F0DAC /* Profile.storyboard */; };
@@ -76,6 +76,7 @@
 		E7B3C907267A779A0039C82A /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C906267A779A0039C82A /* UIView+Extension.swift */; };
 		E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */; };
 		E7B3C948267E43D70039C82A /* HahabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C947267E43D70039C82A /* HahabbitTests.swift */; };
+		E7B3C9502680864E0039C82A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C94F2680864E0039C82A /* UITableView+Extension.swift */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
 		E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */; };
@@ -161,7 +162,7 @@
 		E7910F5A264AE77C003F0DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7910F5C264AE77C003F0DAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7910F63264AF56A003F0DAC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E7910F6B264B87BB003F0DAC /* AddNewGoal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewGoal.storyboard; sourceTree = "<group>"; };
+		E7910F6B264B87BB003F0DAC /* AddNewHabit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewHabit.storyboard; sourceTree = "<group>"; };
 		E7910F6D264B9190003F0DAC /* Achievements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Achievements.storyboard; sourceTree = "<group>"; };
 		E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PublicGoals.storyboard; sourceTree = "<group>"; };
 		E7910F71264B9243003F0DAC /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -176,6 +177,7 @@
 		E7B3C945267E43D70039C82A /* HahabbitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HahabbitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7B3C947267E43D70039C82A /* HahabbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HahabbitTests.swift; sourceTree = "<group>"; };
 		E7B3C949267E43D70039C82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7B3C94F2680864E0039C82A /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				E7B3C906267A779A0039C82A /* UIView+Extension.swift */,
 				E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */,
 				E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */,
+				E7B3C94F2680864E0039C82A /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -416,7 +419,7 @@
 			children = (
 				E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */,
 				E7910F54264AE777003F0DAC /* Main.storyboard */,
-				E7910F6B264B87BB003F0DAC /* AddNewGoal.storyboard */,
+				E7910F6B264B87BB003F0DAC /* AddNewHabit.storyboard */,
 				E7910F6D264B9190003F0DAC /* Achievements.storyboard */,
 				E7910F6F264B91D6003F0DAC /* PublicGoals.storyboard */,
 				E7910F71264B9243003F0DAC /* Profile.storyboard */,
@@ -628,7 +631,7 @@
 				E7910F6E264B9190003F0DAC /* Achievements.storyboard in Resources */,
 				E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */,
 				E74D4CA02662830100E0A1C4 /* ProfileEditView.xib in Resources */,
-				E7910F6C264B87BB003F0DAC /* AddNewGoal.storyboard in Resources */,
+				E7910F6C264B87BB003F0DAC /* AddNewHabit.storyboard in Resources */,
 				E777F7E9267276CF00BCD59E /* catReading.json in Resources */,
 				E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */,
 				E7673BF02670F72700527585 /* Localizable.strings in Resources */,
@@ -772,6 +775,7 @@
 				E79F12462674B0C40064531A /* ColorCollectionViewCell.swift in Sources */,
 				E7052E732653560400B717F8 /* ProfileTableViewCell.swift in Sources */,
 				E74D4C122661070600E0A1C4 /* UserManager.swift in Sources */,
+				E7B3C9502680864E0039C82A /* UITableView+Extension.swift in Sources */,
 				E7C54EEA2662C441004A1ACA /* Message.swift in Sources */,
 				E7673BF82671E5E600527585 /* SignOutTableViewCell.swift in Sources */,
 				E74D4C9E266282DD00E0A1C4 /* ProfileEditView.swift in Sources */,

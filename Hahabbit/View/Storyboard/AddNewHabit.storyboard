@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddNewGoalCell" id="p3t-Xc-PYa" customClass="AddNewHabitTableViewCell" customModule="Hahabbit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddNewHabitTableViewCell" id="p3t-Xc-PYa" customClass="AddNewHabitTableViewCell" customModule="Hahabbit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="176"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p3t-Xc-PYa" id="Qvb-Lg-aEe">
@@ -103,7 +103,7 @@
         <!--編輯細節-->
         <scene sceneID="RxW-OA-WOg">
             <objects>
-                <tableViewController storyboardIdentifier="AddNewGoalDetailViewController" id="RGE-YX-8tp" customClass="AddNewHabitDetailViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddNewHabitDetailViewController" id="RGE-YX-8tp" customClass="AddNewHabitDetailViewController" customModule="Hahabbit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vkD-kN-Pyk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -71,7 +71,7 @@ class ProfileViewController: UIViewController {
   @IBAction func changeNameAndTitle(_ sender: UIButton) {
     var items: [CustomizableActionSheetItem] = []
     if let profileEditView = UINib(nibName: "ProfileEditView", bundle: nil)
-      .instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
+        .instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
       profileEditView.user = viewModel.currentUserViewModel.value
       profileEditView.textField.text = viewModel.currentUserViewModel.value.name
       let profileEditViewItem = CustomizableActionSheetItem(type: .view, height: 300)
@@ -145,30 +145,15 @@ extension ProfileViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case 0:
-      guard let cell = tableView.dequeueReusableCell(
-        withIdentifier: K.profileCell,
-        for: indexPath
-      ) as? ProfileTableViewCell else {
-        return ProfileTableViewCell()
-      }
+      let cell: ProfileTableViewCell = tableView.dequeueReusableCell(for: indexPath)
       cell.setup(user: viewModel.currentUserViewModel.value)
       return cell
     case 1:
-      guard let cell = tableView.dequeueReusableCell(
-        withIdentifier: K.settingsCell,
-        for: indexPath)
-        as? SettingsTableViewCell else {
-        return SettingsTableViewCell()
-      }
+      let cell: SettingsTableViewCell = tableView.dequeueReusableCell(for: indexPath)
       cell.setup(string: MyArray.settingsTitle[indexPath.row], indexPathRow: indexPath.row)
       return cell
     default:
-      guard let cell = tableView.dequeueReusableCell(
-        withIdentifier: K.signOutCell,
-        for: indexPath
-      ) as? SignOutTableViewCell else {
-        return SignOutTableViewCell()
-      }
+      let cell: SignOutTableViewCell = tableView.dequeueReusableCell(for: indexPath)
       cell.setup(string: "登出".localized())
       return cell
     }

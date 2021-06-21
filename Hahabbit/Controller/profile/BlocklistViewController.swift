@@ -78,12 +78,7 @@ extension BlocklistViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: K.blocklistCell,
-      for: indexPath
-    ) as? BlocklistTableViewCell else {
-      return BlocklistTableViewCell()
-    }
+    let cell: BlocklistTableViewCell = tableView.dequeueReusableCell(for: indexPath)
     cell.setup(blocklistUser: viewModel.blockedUsersViewModel.value[indexPath.row])
     return cell
   }

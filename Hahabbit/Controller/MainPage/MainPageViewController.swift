@@ -59,7 +59,7 @@ class MainPageViewController: UIViewController {
 
     tableView.register(
       UINib(nibName: K.mainPageTableViewCell, bundle: nil),
-      forCellReuseIdentifier: K.mainPageTableViewCell
+      forCellReuseIdentifier: "\(MainPageTableViewCell.self)"
     )
   }
 
@@ -117,12 +117,7 @@ extension MainPageViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(
-      withIdentifier: K.mainPageTableViewCell,
-      for: indexPath
-    ) as? MainPageTableViewCell else {
-      return MainPageTableViewCell()
-    }
+    let cell: MainPageTableViewCell = tableView.dequeueReusableCell(for: indexPath)
     let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
     cell.setup(with: cellViewModel)
     return cell

@@ -31,7 +31,7 @@ class AllHabitsViewController: UIViewController {
 
     tableView.register(
       UINib(nibName: K.mainPageTableViewCell, bundle: nil),
-      forCellReuseIdentifier: K.mainPageTableViewCell
+      forCellReuseIdentifier: "\(MainPageTableViewCell.self)"
     )
 
     viewModel.refreshView = { [weak self] () in
@@ -65,17 +65,11 @@ extension AllHabitsViewController: UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCell(
-        withIdentifier: K.mainPageTableViewCell,
-        for: indexPath
-    ) as? MainPageTableViewCell {
-      let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
-      cell.setup(with: cellViewModel)
-      cell.checkButton.isHidden = true
-      return cell
-    } else {
-      return MainPageTableViewCell()
-    }
+    let cell: MainPageTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+    let cellViewModel = viewModel.habitViewModels.value[indexPath.row]
+    cell.setup(with: cellViewModel)
+    cell.checkButton.isHidden = true
+    return cell
   }
 }
 
@@ -97,8 +91,8 @@ extension AllHabitsViewController: UITableViewDelegate {
           self.generator.impactOccurred()
         }
         HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
-          self.viewModel.habitViewModels.value.remove(at: indexPath.row)
-          tableView.deleteRows(at: [indexPath], with: .fade)
+        self.viewModel.habitViewModels.value.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
       }
 
       let cancelButton = CancelButton(title: "取消".localized()) {

@@ -1,5 +1,5 @@
 //
-//  AddNewGoalDetailViewController.swift
+//  AddNewHabitDetailViewController.swift
 //  Hahabbit
 //
 //  Created by TSAI TSUNG-HAN on 2021/5/17.
@@ -251,7 +251,6 @@ class AddNewHabitDetailViewController: UITableViewController {
               print(error as Any)
               return
             }
-            print(url.absoluteString)
             self.newHabit.photo = url.absoluteString
             HabitManager.shared.database
               .collection("habits")
@@ -335,9 +334,10 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
 
     switch collectionView {
     case iconCollectionView:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.iconCell, for: indexPath) as? IconCollectionViewCell else {
-        return IconCollectionViewCell()
-      }
+      let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: K.iconCell,
+        for: indexPath
+      ) as? IconCollectionViewCell ?? IconCollectionViewCell()
       cell.setup(imageName: MyArray.habitIconArray[indexPath.row])
       if indexPath == selectedIconIndexPath {
         cell.isSelected = true
@@ -346,9 +346,10 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       return cell
 
     case locationCollectionView:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.locationCell, for: indexPath) as? SelectableCollectionViewCell else {
-        return SelectableCollectionViewCell()
-      }
+      let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: K.locationCell,
+        for: indexPath
+      ) as? SelectableCollectionViewCell ?? SelectableCollectionViewCell()
       cell.setup(string: MyArray.locationArray[indexPath.row].localized())
       if indexPath == selectedLocationIndexPath {
         cell.isSelected = true
@@ -357,17 +358,19 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       return cell
 
     case frequencyCollectionView:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.frequencyCell, for: indexPath) as? SelectableCollectionViewCell else {
-        return SelectableCollectionViewCell()
-      }
+      let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: K.frequencyCell,
+        for: indexPath
+      ) as? SelectableCollectionViewCell ?? SelectableCollectionViewCell()
       cell.setup(string: MyArray.weekdayArray[indexPath.row].localized())
       setCellAppearance(cell: cell)
       return cell
 
     default:
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: K.remindersCell, for: indexPath) as? SelectableCollectionViewCell else {
-        return SelectableCollectionViewCell()
-      }
+      let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: K.remindersCell,
+        for: indexPath
+      ) as? SelectableCollectionViewCell ?? SelectableCollectionViewCell()
       if indexPath.row != reminders.count - 1 {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.black.cgColor
@@ -395,18 +398,20 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
 
 extension AddNewHabitDetailViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let cell = collectionView.cellForItem(at: indexPath) else { return }
     switch collectionView {
     case iconCollectionView:
-      newHabit.icon = (collectionView.cellForItem(at: indexPath) as? IconCollectionViewCell)?.imageName ?? ""
+      newHabit.icon = (cell as? IconCollectionViewCell)?.imageName ?? ""
       selectedIconIndexPath = indexPath
 
     case locationCollectionView:
-      newHabit.location = (collectionView.cellForItem(at: indexPath) as? SelectableCollectionViewCell)?.lebel.text ?? ""
+      newHabit.location = (cell as? SelectableCollectionViewCell)?.lebel.text ?? ""
       selectedLocationIndexPath = indexPath
 
     case frequencyCollectionView:
       newHabit.weekday[String(indexPath.row + 1)]?.toggle()
-      setCellStates(collectionView: collectionView, indexPath: indexPath)
+      cell.isSelected = true
+      setCellAppearance(cell: cell)
 
     case remindersCollectionView:
       setReminders(collectionView: collectionView, indexPath: indexPath)
@@ -417,21 +422,12 @@ extension AddNewHabitDetailViewController: UICollectionViewDelegate {
   }
 
   func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    guard let cell = collectionView.cellForItem(at: indexPath) else { return }
     if collectionView == frequencyCollectionView {
       newHabit.weekday[String(indexPath.row + 1)]?.toggle()
     }
-    let cell = collectionView.cellForItem(at: indexPath)
-    cell?.isSelected = false
-    cell?.layer.borderWidth = 0
-    cell?.contentView.backgroundColor = .systemGray6
-  }
-
-  func setCellStates(collectionView: UICollectionView, indexPath: IndexPath) {
-    let cell = collectionView.cellForItem(at: indexPath)
-    cell?.isSelected = true
-    cell?.layer.borderWidth = 1
-    cell?.layer.borderColor = UIColor.black.cgColor
-    cell?.contentView.backgroundColor = UserManager.shared.themeColor.withAlphaComponent(0.3)
+    cell.isSelected = false
+    setCellAppearance(cell: cell)
   }
 
   func setReminders(collectionView: UICollectionView, indexPath: IndexPath) {
