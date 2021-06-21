@@ -106,10 +106,7 @@ class AddNewHabitDetailViewController: UITableViewController {
     super.viewDidLoad()
     newHabit.type[type] = true
 
-    setLabelString()
-    navigationItem.title = "編輯細節".localized()
-    titleTextField.placeholder = "在此輸入你想要培養的習慣吧～".localized()
-    messageTextField.placeholder = "不能逃！不能逃！不能逃！".localized()
+    setText()
 
     NotificationCenter.default.addObserver(
       self,
@@ -184,17 +181,20 @@ class AddNewHabitDetailViewController: UITableViewController {
   }
 
   @IBAction func pressDoneButton(_ sender: UIButton) {
-    if (titleTextField.text ?? "").isEmpty ||
-        (messageTextField.text ?? "").isEmpty ||
-        (detailTextView.text ?? "").isEmpty ||
-        photoImage.image == nil {
+    guard
+      !(titleTextField.text ?? "").isEmpty,
+      !(messageTextField.text ?? "").isEmpty,
+      !(detailTextView.text ?? "").isEmpty,
+      photoImage.image != nil
+    else
+    {
       showAlertPopup()
-    } else {
-      uploadNewHabit()
-      loadingVC.modalTransitionStyle = .crossDissolve
-      loadingVC.modalPresentationStyle = .overFullScreen
-      present(loadingVC, animated: true, completion: nil)
+      return
     }
+    uploadNewHabit()
+    loadingVC.modalTransitionStyle = .crossDissolve
+    loadingVC.modalPresentationStyle = .overFullScreen
+    present(loadingVC, animated: true, completion: nil)
   }
 
   @IBAction func pressAddImageButton(_ sender: UIButton) {
@@ -334,10 +334,7 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
 
     switch collectionView {
     case iconCollectionView:
-      let cell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: K.iconCell,
-        for: indexPath
-      ) as? IconCollectionViewCell ?? IconCollectionViewCell()
+      let cell: IconCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.setup(imageName: MyArray.habitIconArray[indexPath.row])
       if indexPath == selectedIconIndexPath {
         cell.isSelected = true
@@ -346,10 +343,7 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       return cell
 
     case locationCollectionView:
-      let cell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: K.locationCell,
-        for: indexPath
-      ) as? SelectableCollectionViewCell ?? SelectableCollectionViewCell()
+      let cell: SelectableCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.setup(string: MyArray.locationArray[indexPath.row].localized())
       if indexPath == selectedLocationIndexPath {
         cell.isSelected = true
@@ -358,28 +352,14 @@ extension AddNewHabitDetailViewController: UICollectionViewDataSource {
       return cell
 
     case frequencyCollectionView:
-      let cell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: K.frequencyCell,
-        for: indexPath
-      ) as? SelectableCollectionViewCell ?? SelectableCollectionViewCell()
+      let cell: SelectableCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
       cell.setup(string: MyArray.weekdayArray[indexPath.row].localized())
       setCellAppearance(cell: cell)
       return cell
 
     default:
-      let cell = collectionView.dequeueReusableCell(
-        withReuseIdentifier: K.remindersCell,
-        for: indexPath
-      ) as? SelectableCollectionViewCell ?? SelectableCollectionViewCell()
-      if indexPath.row != reminders.count - 1 {
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.contentView.backgroundColor = UserManager.shared.themeColor.withAlphaComponent(0.3)
-      } else {
-        cell.layer.borderWidth = 0
-        cell.contentView.backgroundColor = .systemGray6
-      }
-      cell.lebel.text = reminders[indexPath.row]
+      let cell: SelectableCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+      cell.setup(indexPath: indexPath, reminders: reminders)
       return cell
     }
   }

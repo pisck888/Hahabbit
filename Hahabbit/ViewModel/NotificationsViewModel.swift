@@ -10,15 +10,15 @@ import Firebase
 import FirebaseFirestoreSwift
 
 class NotificationsViewModel {
-
+  
   var notification: Box<String?> = Box(nil)
-
+  
   var hour: Box<Int?> = Box(nil)
-
+  
   var minute: Box<Int?> = Box(nil)
-
+  
   lazy var datebase = Firestore.firestore()
-
+  
   func fetchNotifications(id: String) {
     datebase.collection("habits")
       .document(id)
@@ -29,10 +29,12 @@ class NotificationsViewModel {
           print(err)
           return
         }
-        guard let hours = documentSnapshot?.data()?["hours"] as? [Int],
-              let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
-              !hours.isEmpty,
-              !minutes.isEmpty else {
+        guard
+          let hours = documentSnapshot?.data()?["hours"] as? [Int],
+          let minutes = documentSnapshot?.data()?["minutes"] as? [Int],
+          !hours.isEmpty,
+          !minutes.isEmpty
+        else {
           return
         }
         for i in 0...(hours.count - 1) {

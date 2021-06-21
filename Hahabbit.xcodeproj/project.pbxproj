@@ -77,6 +77,7 @@
 		E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */; };
 		E7B3C948267E43D70039C82A /* HahabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C947267E43D70039C82A /* HahabbitTests.swift */; };
 		E7B3C9502680864E0039C82A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C94F2680864E0039C82A /* UITableView+Extension.swift */; };
+		E7B3C9522680A0010039C82A /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B3C9512680A0010039C82A /* UICollectionView+Extension.swift */; };
 		E7BDCCFB266D04E100C0B1A2 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */; };
 		E7BDCCFC266D04E100C0B1A2 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */; };
 		E7BDCD02266E647900C0B1A2 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */; };
@@ -178,6 +179,7 @@
 		E7B3C947267E43D70039C82A /* HahabbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HahabbitTests.swift; sourceTree = "<group>"; };
 		E7B3C949267E43D70039C82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7B3C94F2680864E0039C82A /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		E7B3C9512680A0010039C82A /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		E7BDCCF9266D04E100C0B1A2 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		E7BDCCFA266D04E100C0B1A2 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		E7BDCD01266E647900C0B1A2 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				E7B3C90A267CBB000039C82A /* UIAlertController+Extension.swift */,
 				E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */,
 				E7B3C94F2680864E0039C82A /* UITableView+Extension.swift */,
+				E7B3C9512680A0010039C82A /* UICollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				E7910F7B264BEDFD003F0DAC /* AchievementsViewController.swift in Sources */,
 				E7673BFB2671E7CC00527585 /* MallViewController.swift in Sources */,
 				E7052E842654C1BB00B717F8 /* PublicHabitDetailViewController.swift in Sources */,
+				E7B3C9522680A0010039C82A /* UICollectionView+Extension.swift in Sources */,
 				E7368604266A3674002E2278 /* BlocklistViewController.swift in Sources */,
 				E7052E682652AA2E00B717F8 /* PublichHabitsViewController.swift in Sources */,
 				E7052E892654E9D800B717F8 /* Habit.swift in Sources */,

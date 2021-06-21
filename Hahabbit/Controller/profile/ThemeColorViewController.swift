@@ -49,13 +49,9 @@ extension ThemeColorViewController: UICollectionViewDataSource {
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(
-      withReuseIdentifier: "ColorCell",
-      for: indexPath
-    )
-    guard let colorCell = cell as? ColorCollectionViewCell else { return cell }
-    colorCell.setup(color: ThemeColor.colorArray[indexPath.row])
-    return colorCell
+    let cell: ColorCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+    cell.setup(color: ThemeColor.colorArray[indexPath.row])
+    return cell
   }
 }
 
