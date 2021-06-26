@@ -8,7 +8,7 @@ Hahabbit 是一個幫助您培養習慣與記錄每日習慣執行狀況的好�
 [<img src = "Images/app_store_icon.jpeg" width = "200" align=center>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
 
 ## Features & ScreenShots
-- 記錄每日習慣執行狀況，自動產生圖表輔助你了解習慣的執行狀況 
+- 記錄每日習慣執行狀況，自動產生圖表輔助你了解習慣的執行狀況  
     <img src = "Images/mainPage.gif" width="200" align=center>
     
 - 新增習慣並設定提醒時間，讓 App 於你指定的時間發出通知提醒你該完成習慣  
@@ -21,7 +21,7 @@ Hahabbit 是一個幫助您培養習慣與記錄每日習慣執行狀況的好�
     <img src = "Images/publicHabits.gif" width="200" align=center>
     
 - 可於公開習慣內的多人聊天室一同分享習慣的執行心得，進而認識更多想培養相同習慣的其他使用者  
-    <img src = "Images/chatroom.mp4" width="200" align=center>
+    <img src = "Images/chatroom.gif" width="200" align=center>
     
 - 可在 App 內自由設定語言、主題色彩等等  
     <img src = "Images/changeLanguage.gif" width="200" align=center>　<img src = "Images/changeColor.gif" width="200" align=center>
