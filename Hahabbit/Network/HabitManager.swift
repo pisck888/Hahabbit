@@ -6,7 +6,8 @@
 //
 
 import Foundation
-import Firebase
+import FirebaseFirestore
+import FirebaseStorage
 import FirebaseFirestoreSwift
 
 enum FirebaseError: Error {

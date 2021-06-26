@@ -170,6 +170,8 @@ class AddNewHabitDetailViewController: UITableViewController {
     for i in 1...7 {
       if newHabit.weekday[String(i)] == true {
         frequencyCollectionView.selectItem(at: [0, i - 1], animated: true, scrollPosition: [])
+      } else {
+        frequencyCollectionView.deselectItem(at: [0, i - 1], animated: true)
       }
     }
   }
