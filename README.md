@@ -1,14 +1,16 @@
 # Hahabbit
+[![Language](https://img.shields.io/badge/Language-swift5-orange)](https://developer.apple.com/swift)
+![Platform](https://img.shields.io/badge/Platform-iOS13.4%2B-blue)
 
 >幫助你培養好習慣的最佳助手！
 
-Hahabbit 是一個幫助您培養習慣與記錄每日習慣執行狀況的好幫手，也可以透過此 App 認識其他想培養相同習慣的使用者或是與其他使用者們分享培養習慣的心得。
+`Hahabbit` 是一個幫助您培養習慣與記錄每日習慣執行狀況的好幫手，也可以透過此 App 認識其他想培養相同習慣的使用者或是與其他使用者們分享培養習慣的心得。
 
 
 [<img src = "Images/app_store_icon.jpeg" width = "200" align=center>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
 
 
->如果想要下載並於 Xcode 內運行此專案，請自行於 Google Firebase 上創建新的專案並下載 GoogleService-Info.plist 加入專案內，另外因第三方套件版本問題，使用 M1 晶片的電腦可能無法成功運行，建議使用 Intel 版本的電腦下載測試。
+>如果想要下載並於 Xcode 內運行此專案，請自行於 Google Firebase 上創建新的專案並下載 GoogleService-Info.plist 加入專案內，另外因部分第三方套件尚未支援 M1 晶片，使用 M1 晶片的電腦可能無法成功運行。
 
 
 ## Features & ScreenShots
@@ -41,10 +43,10 @@ Hahabbit 是一個幫助您培養習慣與記錄每日習慣執行狀況的好�
    - Auth - 驗證用戶註冊與登入資訊，提供登入與登出功能
    - Storage - 儲存用戶上傳的個人照片與習慣照片
    - Firestore - 儲存與管理所有用戶個人資料、習慣細節與聊天對話紀錄等資料
-   - Crashlytics - 掌握 App 的 Crash 報告，以供 bug 修復與效能改善
+   - Crashlytics - 掌握 App 的 Crash 報告，以提供錯誤修復及效能改善
 - [Kingfisher](https://github.com/onevcat/Kingfisher) - 善用快取的方式處理網路圖片並呈現在 App
 - [FSCalendar](https://github.com/WenchaoD/FSCalendar) - 客製化月曆外觀，並以月曆呈現每日不同的習慣列表
-- [SwiftLint](https://github.com/realm/SwiftLint) - 檢查 coding Style 增進程式碼品質
+- [SwiftLint](https://github.com/realm/SwiftLint) - 檢查 Coding Style 增進程式碼品質
 - [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) - 解決鍵盤彈出時遮住輸入框或畫面內容的問題
 - [ScrollableGraphView](https://github.com/philackm/ScrollableGraphView) - 呈現曲線趨勢圖表
 - [MBCircularProgressBar](https://github.com/MatiBot/MBCircularProgressBar)- 呈現圓餅圖表
@@ -60,6 +62,7 @@ Hahabbit 是一個幫助您培養習慣與記錄每日習慣執行狀況的好�
 - Xcode 12 or later
 
 ## Version History
+
 - 1.0.4 - 2021/06/27 - 抓了幾隻臭蟲
 - 1.0.3 - 2021/06/22 - 優化某些 UI 顯示方式，抓了幾隻臭蟲
 - 1.0.2 - 2021/06/16 - 新增更換主題顏色功能
