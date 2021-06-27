@@ -16,27 +16,27 @@
 ## Features & ScreenShots
 - 記錄每日習慣執行狀況，自動產生圖表輔助你了解習慣的執行狀況  
   
-    <img src = "Images/mainPage.gif" width="200" align=center>
+    <kbd><img src = "Images/mainPage.gif" width="200" align=center>
     
 - 新增習慣並設定提醒時間，讓 App 於你指定的時間發出通知提醒你該完成習慣  
 
-    <img src = "Images/addNewHabit.gif" width="200" align=center>　<img src = "Images/notification.gif" width="200" align=center>
+    <kbd><img src = "Images/addNewHabit.gif" width="200" align=center></kbd>　<kbd><img src = "Images/notification.gif" width="200" align=center></kbd>
     
 - 遊戲化的成就系統，增加使用者完成習慣的動力  
     
-    <img src = "Images/Achievements.gif" width="200" align=center>
+    <kbd><img src = "Images/Achievements.gif" width="200" align=center>
     
 - 搜尋其他使用者的公開習慣，加入一起執行  
     
-    <img src = "Images/publicHabits.gif" width="200" align=center>
+    <kbd><img src = "Images/publicHabits.gif" width="200" align=center>
     
 - 可於公開習慣內的多人聊天室一同分享習慣的執行心得，進而認識更多想培養相同習慣的其他使用者  
     
-    <img src = "Images/chatroom.gif" width="200" align=center>
+    <kbd><img src = "Images/chatroom.gif" width="200" align=center>
     
 - 可在 App 內自由設定語言、主題色彩等等  
    
-   <img src = "Images/changeLanguage.gif" width="200" align=center>　<img src = "Images/changeColor.gif" width="200" align=center>
+    <kbd><img src = "Images/changeLanguage.gif" width="200" align=center></kbd>　<kbd><img src = "Images/changeColor.gif" width="200" align=center></kbd>
 
 ## Libraries  
 - [Firebase](https://github.com/firebase/firebase-ios-sdk)
@@ -46,6 +46,10 @@
    - Crashlytics - 掌握 App 的 Crash 報告，以提供錯誤修復及效能改善
 - [Kingfisher](https://github.com/onevcat/Kingfisher) - 善用快取的方式處理網路圖片並呈現在 App
 - [FSCalendar](https://github.com/WenchaoD/FSCalendar) - 客製化月曆外觀，並以月曆呈現每日不同的習慣列表
+- [PinterestSegment](https://github.com/TBXark/PinterestSegment) - 呈現類似 Pinterest 樣式的 Segmented Control 讓使用者可以快速搜尋不同分類的習慣
+- [ContextMenuSwift](https://github.com/umerjabbar/ContextMenuSwift) - 呈現動態的 Context Menu 讓使用者可以以不同條件搜尋習慣
+- [CustomizableActionSheet](https://github.com/beryu/CustomizableActionSheet) - 呈現可自定義畫面與內容的 Action Sheet
+- [MessageKit](https://github.com/MessageKit/MessageKit) - 用來快速建置一個多人聊天室
 - [SwiftLint](https://github.com/realm/SwiftLint) - 檢查 Coding Style 增進程式碼品質
 - [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) - 解決鍵盤彈出時遮住輸入框或畫面內容的問題
 - [ScrollableGraphView](https://github.com/philackm/ScrollableGraphView) - 呈現曲線趨勢圖表
@@ -53,13 +57,15 @@
 - [Lottie-ios](https://github.com/airbnb/lottie-ios) - 呈現動畫效果
 - [MJRefresh](https://github.com/CoderMJLee/MJRefresh) - 提供下拉更新功能
 - [JGProgressHUD](https://github.com/JonasGessner/JGProgressHUD) - 顯示上傳完成等各種狀態的提示窗
+- [PopupDialog](https://github.com/Orderella/PopupDialog) - 客製化各種訊息提示視窗
 - [SwiftTheme](https://github.com/wxxsw/SwiftTheme) - 提供直接在 App 內轉換主題顏色的功能
 - [Localize-Swift](https://github.com/marmelroy/Localize-Swift) - 提供直接在 App 內轉換介面語言的功能  
+- [SwiftHEXColors](https://github.com/thii/SwiftHEXColors) - 處理 HEX Color 的顏色轉換
 
 ## Requirements
 
-- iOS 13.4 or later
-- Xcode 12 or later
+- **iOS 13.4** or later
+- **Xcode 12** or later
 
 ## Version History
 
