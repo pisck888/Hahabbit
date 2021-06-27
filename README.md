@@ -1,4 +1,4 @@
-# Hahabbit [<img src = "Images/app_store_icon.jpeg" width = "150" align=right>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
+# Hahabbit [<img src = "Images/appIcon.png" width="40" align=left>](https://apps.apple.com/tw/app/hahabbit/id1571439855)[<img src = "Images/app_store_icon.jpeg" width = "140" align=right>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
 [![Language](https://img.shields.io/badge/Language-swift5-orange)](https://developer.apple.com/swift)
 ![Platform](https://img.shields.io/badge/Platform-iOS13.4%2B-blue)
 
