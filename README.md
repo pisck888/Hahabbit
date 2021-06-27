@@ -1,14 +1,10 @@
-# Hahabbit
+# Hahabbit [<img src = "Images/app_store_icon.jpeg" width = "150" align=right>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
 [![Language](https://img.shields.io/badge/Language-swift5-orange)](https://developer.apple.com/swift)
 ![Platform](https://img.shields.io/badge/Platform-iOS13.4%2B-blue)
 
 >幫助你培養好習慣的最佳助手！
 
 `Hahabbit` 是一個幫助您培養習慣與記錄每日習慣執行狀況的好幫手，也可以透過此 App 認識其他想培養相同習慣的使用者或是與其他使用者們分享培養習慣的心得。
-
-
-[<img src = "Images/app_store_icon.jpeg" width = "200" align=center>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
-
 
 >如果想要下載並於 Xcode 內運行此專案，請自行於 Google Firebase 上創建新的專案並下載 GoogleService-Info.plist 加入專案內，另外因部分第三方套件尚未支援 M1 晶片，使用 M1 晶片的電腦可能無法成功運行。
 
