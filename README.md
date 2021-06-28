@@ -1,6 +1,8 @@
 # Hahabbit [<img src = "Images/appIcon.png" width="40" align=left>](https://apps.apple.com/tw/app/hahabbit/id1571439855)[<img src = "Images/app_store_icon.jpeg" width = "140" align=right>](https://apps.apple.com/tw/app/hahabbit/id1571439855)
+[![MIT license](https://img.shields.io/badge/License-MIT-green)](/LICENSE)
 [![Language](https://img.shields.io/badge/Language-swift5-orange)](https://developer.apple.com/swift)
 ![Platform](https://img.shields.io/badge/Platform-iOS13.4%2B-blue)
+[![Release](https://img.shields.io/badge/Release-v1.0.4-yellow)](https://apps.apple.com/tw/app/hahabbit/id1571439855)
 
 >幫助你培養好習慣的最佳助手！
 
@@ -58,6 +60,10 @@
 - [Localize-Swift](https://github.com/marmelroy/Localize-Swift) - 提供直接在 App 內轉換介面語言的功能  
 - [SwiftHEXColors](https://github.com/thii/SwiftHEXColors) - 處理 HEX Color 的顏色轉換
 
+## Languages
+- 繁體中文
+- 英文
+      
 ## Requirements
 
 - **iOS 13.4** or later
@@ -71,6 +77,10 @@
 - 1.0.1 - 2021/06/14 - 新增語言切換功能  
 - 1.0.0 - 2021/06/12 - 第一個上架版本
  
+## License
+      
+[![MIT license](https://img.shields.io/badge/License-MIT-green)](/LICENSE)
+      
 ## Contacts
 
 Max Tsai  
