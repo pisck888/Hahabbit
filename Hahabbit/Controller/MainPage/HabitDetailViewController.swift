@@ -76,12 +76,12 @@ class HabitDetailViewController: UITableViewController {
     viewModel.consecutiveRecord.bind { [unowned self] in
       self.maxConsecutiveLabel.text = String($0) + "天".localized()
     }
-    viewModel.monthPercentage.bind { percentage in
+    viewModel.monthPercentage.bind { [unowned self] percentage in
       DispatchQueue.main.async {
         self.monthCircularProgressView.value = percentage
       }
     }
-    viewModel.yearPercentage.bind { percentage in
+    viewModel.yearPercentage.bind { [unowned self] percentage in
       DispatchQueue.main.async {
         self.yearCircularProgressView.value = percentage
       }

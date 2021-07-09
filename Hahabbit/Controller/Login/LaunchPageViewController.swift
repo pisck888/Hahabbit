@@ -19,30 +19,25 @@ class LaunchPageViewController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     imageView.center = view.center
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [unowned self] in
       self.imageView.shake()
     }
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [unowned self] in
       self.presentNextVC()
     }
   }
 
   func presentNextVC() {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     if let user = Auth.auth().currentUser {
       print("You are sign in as \(user.uid)")
       UserManager.shared.currentUser = user.uid
-      let controller = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
-      presentVC(controller: controller)
+      performSegue(withIdentifier: MySegue.toMainPage, sender: nil)
     } else {
-      let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-      presentVC(controller: controller)
+      performSegue(withIdentifier: MySegue.toLoginPage, sender: nil)
     }
-  }
-
-  func presentVC(controller: UIViewController) {
-    controller.modalTransitionStyle = .crossDissolve
-    controller.modalPresentationStyle = .fullScreen
-    self.present(controller, animated: true, completion: nil)
   }
 }

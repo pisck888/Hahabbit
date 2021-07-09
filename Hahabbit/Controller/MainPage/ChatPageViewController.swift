@@ -43,11 +43,11 @@ class ChatPageViewController: MessagesViewController {
 
     navigationItem.title = "交誼大廳".localized()
 
-    viewModel.currentUserViewModel.bind { user in
+    viewModel.currentUserViewModel.bind { [unowned self] user in
       self.currentUser = user
     }
 
-    viewModel.tappedUserViewModel.bind { user in
+    viewModel.tappedUserViewModel.bind { [unowned self] user in
       if let user = user {
         self.showProfilePopup(user: user)
       }

@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
     navigationItem.backButtonTitle = ""
     navigationItem.title = "個人頁面".localized()
 
-    viewModel.currentUserViewModel.bind { _ in
+    viewModel.currentUserViewModel.bind { [unowned self] _ in
       self.tableView.reloadData()
     }
 

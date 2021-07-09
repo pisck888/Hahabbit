@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
   @IBOutlet weak var loginButtonBackView: UIView!
   @IBOutlet weak var signInWithAppleButton: MyAuthorizationAppleIDButton!
-  @IBOutlet var privacyPolicyView: UIView!
+  @IBOutlet weak var privacyPolicyView: UIView!
   @IBOutlet weak var webView: WKWebView!
   @IBOutlet weak var closeButton: UIButton!
   @IBOutlet weak var catReading: AnimationView!

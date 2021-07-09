@@ -122,17 +122,17 @@ class AddNewHabitDetailViewController: UITableViewController {
       object: nil
     )
 
-    viewModel.notification.bind { notification in
+    viewModel.notification.bind { [unowned self] notification in
       guard let time = notification else { return }
       self.reminders.insert(time, at: self.reminders.count - 1)
     }
 
-    viewModel.hour.bind { hour in
+    viewModel.hour.bind { [unowned self] hour in
       guard let hour = hour else { return }
       self.hours.append(hour)
     }
 
-    viewModel.minute.bind { minute in
+    viewModel.minute.bind { [unowned self] minute in
       guard let minute = minute else { return }
       self.minutes.append(minute)
     }

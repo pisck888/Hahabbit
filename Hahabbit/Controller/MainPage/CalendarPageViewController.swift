@@ -65,13 +65,13 @@ class CalendarPageViewController: UIViewController {
 
     AchievementsChecker.checker.delegate = self
 
-    viewModel.refreshView = { [weak self] () in
+    viewModel.refreshView = { [unowned self] in
       DispatchQueue.main.async {
-        self?.tableView.reloadData()
+        self.tableView.reloadData()
       }
     }
-    viewModel.habitViewModels.bind { [weak self] _ in
-      self?.viewModel.onRefresh()
+    viewModel.habitViewModels.bind { [unowned self] _ in
+      self.viewModel.onRefresh()
     }
 
     viewModel.fetchData()

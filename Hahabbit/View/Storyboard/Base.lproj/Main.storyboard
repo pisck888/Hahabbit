@@ -844,11 +844,13 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="fCM-Q9-Urk" id="TXz-jY-ivY"/>
+                        <segue destination="M8o-Ct-9LX" kind="presentation" identifier="SegueToLoginPage" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="bO0-rO-iKY"/>
+                        <segue destination="WVe-9w-DHy" kind="presentation" identifier="SegueToMainPage" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zbK-DM-xwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JPV-vz-OUz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1467" y="98"/>
+            <point key="canvasLocation" x="-1528" y="98"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tI4-zT-faT">
@@ -966,6 +968,7 @@
                             <constraint firstItem="hFN-YX-njh" firstAttribute="centerX" secondItem="1vi-XE-Qjm" secondAttribute="centerX" id="rYK-Vx-34r"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cBF-v3-3B9"/>
                     <connections>
                         <outlet property="catReading" destination="6PF-gO-4Ws" id="16G-t7-uKK"/>
                         <outlet property="closeButton" destination="rq3-Lc-MWK" id="r8Z-99-y43"/>
@@ -1028,7 +1031,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-697.10144927536237" y="97.767857142857139"/>
+            <point key="canvasLocation" x="-758" y="125"/>
         </scene>
         <!--My Tab Bar View Controller-->
         <scene sceneID="Fvp-vS-2wi">
@@ -1186,12 +1189,13 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6PF-gO-4Ws"/>
         <designable name="mt2-X9-50i">
             <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="2G2-TK-EP2"/>
+        <segue reference="zbK-DM-xwI"/>
         <segue reference="h0N-K7-h9C"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="labelColor"/>

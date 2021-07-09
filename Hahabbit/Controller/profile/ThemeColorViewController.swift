@@ -34,7 +34,7 @@ class ThemeColorViewController: UIViewController {
   }
 
   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
+    super.viewWillAppear(animated)
     collectionView.selectItem(
       at: [0, userDefault.value(forKey: "ThemeColorNumber") as? Int ?? 0],
       animated: true,

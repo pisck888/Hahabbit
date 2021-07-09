@@ -22,12 +22,12 @@ class BlocklistViewController: UIViewController {
 
     navigationItem.title = "封鎖名單".localized()
 
-    viewModel.blockedUsersViewModel.bind { _ in
+    viewModel.blockedUsersViewModel.bind { [unowned self] _ in
       self.showPopView()
       self.tableView.reloadData()
     }
 
-    currentUserViewModel.currentUserViewModel.bind { _ in
+    currentUserViewModel.currentUserViewModel.bind { [unowned self] _ in
       let blocklist = self.currentUserViewModel.currentUserViewModel.value.blocklist
       self.viewModel.fetchBlockedUsers(blockedUsers: blocklist)
     }

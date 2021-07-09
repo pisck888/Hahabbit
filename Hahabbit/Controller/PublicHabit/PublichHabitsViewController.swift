@@ -41,7 +41,7 @@ class PublichHabitsViewController: UIViewController {
     tableView.mj_header = header
     header.setRefreshingTarget(self, refreshingAction: #selector(headerRefresh))
 
-    viewModel.publicHabits.bind { habits in
+    viewModel.publicHabits.bind { [unowned self] habits in
       self.searchHabitsArray = habits
     }
 

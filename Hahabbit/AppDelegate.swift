@@ -37,14 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // request Notification Authorization
     UNUserNotificationCenter.current()
-      .requestAuthorization(options: [.alert, .sound, .badge, .carPlay]) { granted, error in
-        if error != nil {
-          print(error as Any)
-        }
-        if granted {
-          print("允許")
-        } else {
-          print("不允許")
+      .requestAuthorization(options: [.alert, .sound, .badge, .carPlay]) { _, error in
+        if let err = error {
+          print(err)
         }
       }
     return true

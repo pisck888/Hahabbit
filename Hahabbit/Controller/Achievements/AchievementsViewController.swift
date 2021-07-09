@@ -30,15 +30,15 @@ class AchievementsViewController: UIViewController {
       object: nil
     )
 
-    viewModel.userAchievements.bind { _ in
+    viewModel.userAchievements.bind { [unowned self] _ in
       self.tableView.reloadData()
     }
 
-    viewModel.dailyAchievements.bind { _ in
+    viewModel.dailyAchievements.bind { [unowned self] _ in
       self.tableView.reloadData()
     }
 
-    viewModel.specialAchievements.bind { _ in
+    viewModel.specialAchievements.bind { [unowned self] _ in
       self.tableView.reloadData()
     }
 
