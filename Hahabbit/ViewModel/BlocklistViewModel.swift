@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestore
 
 class BlocklistViewModel {
 
@@ -33,7 +32,7 @@ class BlocklistViewModel {
 
   private func convertBlocklistToViewModel(blockList: [String]) {
     for blockedUser in blockList {
-      Firestore.firestore()
+      UserManager.shared.database
         .collection("users")
         .whereField("id", isEqualTo: blockedUser)
         .addSnapshotListener { querySnapshot, error in
