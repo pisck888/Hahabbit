@@ -18,8 +18,6 @@ class ProfileViewController: UIViewController {
 
   let viewModel = ProfileViewModel()
 
-  let generator = UIImpactFeedbackGenerator(style: .light)
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -181,9 +179,7 @@ extension ProfileViewController: UITableViewDelegate {
       case 3:
         UserManager.shared.isHapticFeedback.toggle()
         UserDefaults().setValue(UserManager.shared.isHapticFeedback, forKey: "IsHapticFeedback")
-        if UserManager.shared.isHapticFeedback {
-          generator.impactOccurred()
-        }
+        ImpactFeedbackGenerator.impactOccurred()
         tableView.reloadData()
       default:
         print("nothing happened")

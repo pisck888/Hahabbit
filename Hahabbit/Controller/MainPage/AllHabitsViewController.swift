@@ -14,7 +14,6 @@ class AllHabitsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
 
   let viewModel = AllHabitsViewModel()
-  let generator = UIImpactFeedbackGenerator(style: .light)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -87,9 +86,8 @@ extension AllHabitsViewController: UITableViewDelegate {
         message: "刪除以後無法復原囉".localized()
       )
       let deleteButton = DestructiveButton(title: "刪除".localized()) {
-        if UserManager.shared.isHapticFeedback {
-          self.generator.impactOccurred()
-        }
+        ImpactFeedbackGenerator.impactOccurred()
+
         HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
         self.viewModel.habitViewModels.value.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
@@ -104,9 +102,7 @@ extension AllHabitsViewController: UITableViewDelegate {
 
       self.present(popup, animated: true, completion: nil)
 
-      if UserManager.shared.isHapticFeedback {
-        self.generator.impactOccurred()
-      }
+      ImpactFeedbackGenerator.impactOccurred()
 
       completionHandler(true)
     }

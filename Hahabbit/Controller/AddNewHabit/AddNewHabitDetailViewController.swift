@@ -65,8 +65,6 @@ class AddNewHabitDetailViewController: UITableViewController {
   }
   let loadingVC = LoadingViewController()
 
-  let generator = UIImpactFeedbackGenerator(style: .light)
-
   var reminders = ["+"] {
     didSet {
       remindersCollectionView.reloadData()
@@ -216,9 +214,7 @@ class AddNewHabitDetailViewController: UITableViewController {
   }
 
   func showAlertPopup() {
-    if UserManager.shared.isHapticFeedback {
-      generator.impactOccurred()
-    }
+    ImpactFeedbackGenerator.impactOccurred()
 
     let popup = PopupDialog(
       title: "有些欄位還是空的唷！".localized(),

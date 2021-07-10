@@ -13,26 +13,20 @@ class BlocklistViewController: UIViewController {
   @IBOutlet var popupView: UIView!
   @IBOutlet weak var tableView: UITableView!
 
-  var user: User?
   var viewModel = BlocklistViewModel()
-  var currentUserViewModel = ProfileViewModel()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     navigationItem.title = "封鎖名單".localized()
 
-    viewModel.blockedUsersViewModel.bind { [unowned self] _ in
-      self.showPopView()
-      self.tableView.reloadData()
+    viewModel.blockedUsersViewModel.bind { [weak self] _ in
+      self?.showPopView()
+      self?.tableView.reloadData()
     }
 
-    currentUserViewModel.currentUserViewModel.bind { [unowned self] _ in
-      let blocklist = self.currentUserViewModel.currentUserViewModel.value.blocklist
-      self.viewModel.fetchBlockedUsers(blockedUsers: blocklist)
-    }
+    viewModel.fetchBlockedUsers()
 
-    currentUserViewModel.fetchCurrentUser()
   }
 
   override func viewDidLayoutSubviews() {
@@ -74,7 +68,7 @@ class BlocklistViewController: UIViewController {
 
 extension BlocklistViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    viewModel.blockedUsersViewModel.value.count
+    viewModel.numberOfBlockedUsers
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

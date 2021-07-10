@@ -8,7 +8,7 @@
 import UIKit
 import MessageKit
 import InputBarAccessoryView
-import Firebase
+import FirebaseFirestore
 import Kingfisher
 import PopupDialog
 import Localize_Swift

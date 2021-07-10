@@ -9,8 +9,6 @@ import UIKit
 
 class MyTabBarViewController: UITabBarController {
 
-  let generator = UIImpactFeedbackGenerator(style: .light)
-
   override func viewDidLoad() {
     super.viewDidLoad()
     self.delegate = self
@@ -19,8 +17,6 @@ class MyTabBarViewController: UITabBarController {
 
 extension MyTabBarViewController: UITabBarControllerDelegate {
   override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-    if UserManager.shared.isHapticFeedback {
-      generator.impactOccurred()
-    }
+    ImpactFeedbackGenerator.impactOccurred()
   }
 }
