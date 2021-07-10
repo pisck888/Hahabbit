@@ -31,6 +31,7 @@
 		E7052E9226560F5300B717F8 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7052E9126560F5300B717F8 /* HabitViewModel.swift */; };
 		E705928E266E89800027AD8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7910F59264AE77C003F0DAC /* LaunchScreen.storyboard */; };
 		E724FCCF267683FE009FE57A /* MyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */; };
+		E72D3B5826987D8C00AA5447 /* ImpactFeedbackGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72D3B5726987D8C00AA5447 /* ImpactFeedbackGenerator.swift */; };
 		E7362FF3267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */; };
 		E736858D266735AD002E2278 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E736858C266735AD002E2278 /* UIImage+Extension.swift */; };
 		E73685FE26687465002E2278 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73685FD26687465002E2278 /* NotificationsViewModel.swift */; };
@@ -124,6 +125,7 @@
 		E7052E8E2656090A00B717F8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E7052E9126560F5300B717F8 /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		E724FCCE267683FE009FE57A /* MyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarViewController.swift; sourceTree = "<group>"; };
+		E72D3B5726987D8C00AA5447 /* ImpactFeedbackGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactFeedbackGenerator.swift; sourceTree = "<group>"; };
 		E7362FF2267224EF00D23F3C /* MyAuthorizationAppleIDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuthorizationAppleIDButton.swift; sourceTree = "<group>"; };
 		E736858C266735AD002E2278 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		E73685FD26687465002E2278 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				E7052E8B2655F25700B717F8 /* Box.swift */,
+				E72D3B5726987D8C00AA5447 /* ImpactFeedbackGenerator.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				E736860D266A3903002E2278 /* BlocklistTableViewCell.swift in Sources */,
 				E7B3C907267A779A0039C82A /* UIView+Extension.swift in Sources */,
 				E7052E702653506800B717F8 /* ProfileViewController.swift in Sources */,
+				E72D3B5826987D8C00AA5447 /* ImpactFeedbackGenerator.swift in Sources */,
 				E7860420265AA11500AC0F36 /* User.swift in Sources */,
 				E74F4246265BC66C00C9AB3D /* ProfileViewModel.swift in Sources */,
 				E7B3C90B267CBB000039C82A /* UIAlertController+Extension.swift in Sources */,

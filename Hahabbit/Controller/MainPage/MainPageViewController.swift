@@ -15,7 +15,6 @@ class MainPageViewController: UIViewController {
   @IBOutlet weak var segmentView: UIView!
   @IBOutlet weak var tableView: UITableView!
 
-  let generator = UIImpactFeedbackGenerator(style: .light)
   var segment = PinterestSegment()
   let viewModel = HomeViewModel()
   var type = 0
@@ -96,7 +95,7 @@ class MainPageViewController: UIViewController {
 
     segmentView.addSubview(segment)
 
-    segment.valueChange = { index in
+    segment.valueChange = { [unowned self] index in
       self.type = index
       self.viewModel.fetchData(type: index)
     }
@@ -139,9 +138,7 @@ extension MainPageViewController: UITableViewDelegate {
       )
 
       let deleteButton = DestructiveButton(title: "刪除".localized()) {
-        if UserManager.shared.isHapticFeedback {
-          self.generator.impactOccurred()
-        }
+        ImpactFeedbackGenerator.impactOccurred()
         // delete habit in db and datasource
         HabitManager.shared.deleteHabit(habit: self.viewModel.habitViewModels.value[indexPath.row].habit)
 
@@ -159,9 +156,7 @@ extension MainPageViewController: UITableViewDelegate {
 
       // Present dialog
       self.present(popup, animated: true, completion: nil)
-      if UserManager.shared.isHapticFeedback {
-        self.generator.impactOccurred()
-      }
+      ImpactFeedbackGenerator.impactOccurred()
 
       completionHandler(true)
     }

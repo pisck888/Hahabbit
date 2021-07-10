@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseFirestore
 import JGProgressHUD
 import Localize_Swift
 
@@ -54,6 +54,7 @@ class PublicHabitDetailViewController: UIViewController {
           ["members": FieldValue.arrayUnion([UserManager.shared.currentUser])]
         )
     }
+    ImpactFeedbackGenerator.impactOccurred()
     navigationController?.popViewController(animated: true)
     let hud = JGProgressHUD()
     hud.textLabel.text = "完成".localized()

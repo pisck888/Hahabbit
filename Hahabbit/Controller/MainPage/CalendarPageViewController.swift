@@ -16,7 +16,6 @@ class CalendarPageViewController: UIViewController {
   @IBOutlet weak var calendar: FSCalendar!
   @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
 
-  let generator = UIImpactFeedbackGenerator(style: .light)
   let viewModel = HomeViewModel()
   var chosenDay = Date()
   var dailyHabitsCount: [Int: String] = [:] {
@@ -223,9 +222,8 @@ extension CalendarPageViewController: FSCalendarDelegate {
 
   func showAlertPopup(title: String?, message: String?) {
 
-    if UserManager.shared.isHapticFeedback {
-      generator.impactOccurred()
-    }
+    ImpactFeedbackGenerator.impactOccurred()
+    
     let popup = PopupDialog(
       title: title,
       message: message
