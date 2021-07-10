@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     navigationItem.backButtonTitle = ""
     navigationItem.title = "個人頁面".localized()
 
-    viewModel.currentUserViewModel.bind { [unowned self] _ in
+    viewModel.currentUser.bind { [unowned self] _ in
       self.tableView.reloadData()
     }
 
@@ -70,8 +70,8 @@ class ProfileViewController: UIViewController {
     var items: [CustomizableActionSheetItem] = []
     if let profileEditView = UINib(nibName: "ProfileEditView", bundle: nil)
         .instantiate(withOwner: self, options: nil)[0] as? ProfileEditView {
-      profileEditView.user = viewModel.currentUserViewModel.value
-      profileEditView.textField.text = viewModel.currentUserViewModel.value.name
+      profileEditView.user = viewModel.currentUser.value
+      profileEditView.textField.text = viewModel.currentUser.value?.name
       let profileEditViewItem = CustomizableActionSheetItem(type: .view, height: 300)
       profileEditViewItem.view = profileEditView
       items.append(profileEditViewItem)
@@ -144,7 +144,9 @@ extension ProfileViewController: UITableViewDataSource {
     switch indexPath.section {
     case 0:
       let cell: ProfileTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-      cell.setup(user: viewModel.currentUserViewModel.value)
+      if let user = viewModel.currentUser.value {
+        cell.setup(user: user)
+      }
       return cell
     case 1:
       let cell: SettingsTableViewCell = tableView.dequeueReusableCell(for: indexPath)

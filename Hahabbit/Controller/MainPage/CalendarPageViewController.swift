@@ -223,7 +223,6 @@ extension CalendarPageViewController: FSCalendarDelegate {
   func showAlertPopup(title: String?, message: String?) {
 
     ImpactFeedbackGenerator.impactOccurred()
-    
     let popup = PopupDialog(
       title: title,
       message: message

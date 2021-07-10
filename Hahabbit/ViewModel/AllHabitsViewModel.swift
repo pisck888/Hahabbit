@@ -9,7 +9,7 @@ import Foundation
 
 class AllHabitsViewModel {
 
-  let habitViewModels = Box([HabitViewModel]())
+  let habitViewModels: Box<[HabitViewModel]> = Box([])
 
   var refreshView: (() -> Void)?
 

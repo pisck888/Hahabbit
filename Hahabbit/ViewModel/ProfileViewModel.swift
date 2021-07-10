@@ -6,16 +6,12 @@
 //
 
 import Foundation
-import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 class ProfileViewModel {
 
-  var currentUserViewModel: Box<User> = Box(
-    User(id: "", title: "", name: "", image: "", coin: 0, signUpDate: "", titleArray: [], blocklist: [])
-  )
+  var currentUser: Box<User?> = Box(nil)
 
-  var tappedUserViewModel: Box<User?> = Box(nil)
+  var tappedUser: Box<User?> = Box(nil)
 
   func fetchCurrentUser() {
     UserManager.shared.database
@@ -27,7 +23,7 @@ class ProfileViewModel {
           return
         }
         if let user = try? querySnapshot?.documents[0].data(as: User.self) {
-          self.currentUserViewModel.value = user
+          self.currentUser.value = user
         }
       }
   }
@@ -42,7 +38,7 @@ class ProfileViewModel {
           return
         }
         if let user = try? querySnapshot?.documents[0].data(as: User.self) {
-          self.tappedUserViewModel.value = user
+          self.tappedUser.value = user
         }
       }
   }
