@@ -224,13 +224,13 @@
                 <outlet property="membersLabel" destination="5q3-Nm-Bto" id="b4C-wQ-34x"/>
                 <outlet property="ownerLabel" destination="PUu-v0-zrk" id="wtp-3X-pPb"/>
                 <outlet property="titleLabel" destination="4m2-0b-W2p" id="QVA-m1-K11"/>
-                <outletCollection property="weekdayButtons" destination="wYx-0B-FIt" collectionClass="NSMutableArray" id="r4m-Ut-B9h"/>
-                <outletCollection property="weekdayButtons" destination="ffH-if-W48" collectionClass="NSMutableArray" id="qfA-Fa-8lM"/>
-                <outletCollection property="weekdayButtons" destination="N2B-FJ-YFr" collectionClass="NSMutableArray" id="pBe-uK-By1"/>
-                <outletCollection property="weekdayButtons" destination="AgO-mW-6ll" collectionClass="NSMutableArray" id="AtQ-Lf-8B2"/>
-                <outletCollection property="weekdayButtons" destination="kak-sN-qsk" collectionClass="NSMutableArray" id="A1S-Lb-sy9"/>
-                <outletCollection property="weekdayButtons" destination="gOM-1W-vp2" collectionClass="NSMutableArray" id="wi2-hq-oRq"/>
-                <outletCollection property="weekdayButtons" destination="RFs-gu-ES7" collectionClass="NSMutableArray" id="gmB-ye-Ki6"/>
+                <outletCollection property="weekdayButtons" destination="wYx-0B-FIt" collectionClass="NSMutableArray" id="sp3-Dl-3a3"/>
+                <outletCollection property="weekdayButtons" destination="RFs-gu-ES7" collectionClass="NSMutableArray" id="25b-dx-xX9"/>
+                <outletCollection property="weekdayButtons" destination="N2B-FJ-YFr" collectionClass="NSMutableArray" id="2UR-P2-mjM"/>
+                <outletCollection property="weekdayButtons" destination="kak-sN-qsk" collectionClass="NSMutableArray" id="I8c-8o-nLU"/>
+                <outletCollection property="weekdayButtons" destination="AgO-mW-6ll" collectionClass="NSMutableArray" id="LCQ-3C-W4U"/>
+                <outletCollection property="weekdayButtons" destination="ffH-if-W48" collectionClass="NSMutableArray" id="ENr-P1-oeD"/>
+                <outletCollection property="weekdayButtons" destination="gOM-1W-vp2" collectionClass="NSMutableArray" id="oGz-1U-GRU"/>
             </connections>
             <point key="canvasLocation" x="135.50724637681159" y="113.50446428571428"/>
         </tableViewCell>
